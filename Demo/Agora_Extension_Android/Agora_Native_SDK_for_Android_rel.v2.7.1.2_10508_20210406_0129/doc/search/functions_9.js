@@ -1,5 +1,0 @@
-var searchData=
-[
-  ['leavechannel_1435',['leaveChannel',['../classio_1_1agora_1_1rtc2_1_1internal_1_1_rtc_engine_impl.html#afd3f7efdfe789e96f4a8f76110b7cb3b',1,'io.agora.rtc2.internal.RtcEngineImpl.leaveChannel()'],['../classio_1_1agora_1_1rtc2_1_1internal_1_1_rtc_engine_impl.html#a2b73b9fa775696ab27436a6a2ecd696f',1,'io.agora.rtc2.internal.RtcEngineImpl.leaveChannel(LeaveChannelOptions options)'],['../classio_1_1agora_1_1rtc2_1_1_rtc_engine.html#af3fe5d61a9ca8db36b56432273d02307',1,'io.agora.rtc2.RtcEngine.leaveChannel()'],['../classio_1_1agora_1_1rtc2_1_1_rtc_engine.html#ab4af0c1df4b68eb898b1843dd0671702',1,'io.agora.rtc2.RtcEngine.leaveChannel(LeaveChannelOptions options)']]],
-  ['leavechannelex_1436',['leaveChannelEx',['../classio_1_1agora_1_1rtc2_1_1internal_1_1_rtc_engine_impl.html#ab02dd26f6162cad9181e791d52cc3d19',1,'io.agora.rtc2.internal.RtcEngineImpl.leaveChannelEx()'],['../classio_1_1agora_1_1rtc2_1_1_rtc_engine_ex.html#ac2b5bb195aabcada12602c9063133903',1,'io.agora.rtc2.RtcEngineEx.leaveChannelEx()']]]
-];
