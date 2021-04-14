@@ -1,5 +1,7 @@
 # RTE 2021 编程挑战赛
 
+[**English**](README.md) | *中文*
+
 ## 大赛介绍
 RTE（Real Time Engagement）创新编程挑战赛，是声网 Agora 自 19 年开始，面向全球 RTC 开发者、编程爱好者与极客举办的在线黑客马拉松。
 

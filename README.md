@@ -1,5 +1,7 @@
 # RTE 2021 Innovation Challenge
 
+*English* | [**中文**](README.zh.md)
+
 ## Introduction
 RTE (Real Time Engagement) Innovative Programming Challenge is an online hackathon for RTC developers, programming enthusiasts and geeks around the world, which has been held by Agora since 2019.
 
