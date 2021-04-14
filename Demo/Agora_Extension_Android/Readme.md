@@ -1,11 +1,16 @@
-# 字节 plugin 简介
-该 demo app 用于展示在 Agora SDK 中加载 IVideoFilter/IAudioFilter 类型的插件，主要功能包括
+# 字节 Plugin 简介
+该 Demo App 用于展示在 Agora SDK 中加载 IVideoFilter/IAudioFilter 类型的插件，主要功能包括
 
-1. IVideoFilter -- 将 “字节火山引擎” 封装为 Agora SDK 的 IVideoFilter 类型的插件，并提供人脸检测、美颜、添加道具等功能，demo app主界面下方的按钮可以 Enable/Disable该功能
+1. IVideoFilter -- 将 “字节火山引擎” 封装为 Agora SDK 的 IVideoFilter 类型的插件，并提供人脸检测、美颜、添加道具等功能，Demo App 主界面下方的按钮可以 Enable/Disable该功能
 
-2. IAudioFilter -- Agora SDK team 封装了一个简易的 IAudioFilter 类型的插件，提供调节本地采集的麦克风音量的功能，demo app主界面下方的滑动条可以用于调节音量
+2. IAudioFilter -- Agora SDK team 封装了一个简易的 IAudioFilter 类型的插件，提供调节本地采集的麦克风音量的功能，Demo App 主界面下方的滑动条可以用于调节音量。本次仅提供 Android 平台封装 Demo 作为参考，iOS平台接口开放，可由参赛队伍自行封装实现。
 
-# 字节 plugin 的使用方法
+本 Demo 仅用于 Agora SDK 的云市场插件封装代码参考。因 GitHub 文件尺寸限制，建议从以下链接下载对应平台的完整代码压缩包。
+
+[点击下载 Android 平台](https://download.agora.io/demo/test/Agora_Extension_Android.zip)
+[点击下载 iOS 平台](https://download.agora.io/demo/test/Agora_Extension_iOS.zip)
+
+# 字节 Plugin 的使用方法
 ### 1. 将所需相关依赖文件放到指定目录
 |依赖文件|存放路径|
 |----|----|
