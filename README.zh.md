@@ -29,7 +29,7 @@ RTE（Real Time Engagement）创新编程挑战赛，是声网 Agora 自 19 年�
 ### 作品提交
 - Fork 声网官方的大赛作品提交仓库，至你的个人 GitHub 仓库，并 Clone 该仓库到本地
 仓库地址：https://github.com/AgoraIO-Community/RTE-2021-Innovation-Challenge/tree/master/Application-Challenge 
-- 在本地的 SDKChallengeProject 文件夹下创建新的个人项目文件夹，命名为“【队伍名】作品名”，将参赛作品的相关文件与代码放置在该文件夹内
+- 在本地的 Application-Challenge 文件夹下创建新的个人项目文件夹，命名为“【队伍名】作品名”，将参赛作品的相关文件与代码放置在该文件夹内
 - 通过 Pull Request 将作品内容提交至官方仓库
 
 ### 作品评选
@@ -74,7 +74,7 @@ RTC 技术论坛:[https://rtcdeveloper.com/](https://rtcdeveloper.com/)（集成
 ### 作品提交
 - Fork 声网官方的大赛作品提交仓库，至你的个人 GitHub 仓库，并 Clone 该仓库到本地
 仓库地址：https://github.com/AgoraIO-Community/RTE-2021-Innovation-Challenge/tree/master/Technology-Challenge
-- 在本地的 SDKChallengeProject 文件夹下创建新的个人项目文件夹，命名为“【队伍名】作品名”，将参赛作品的相关文件与代码放置在该文件夹内
+- 在本地的 Technology-Challenge 文件夹下创建新的个人项目文件夹，命名为“【队伍名】作品名”，将参赛作品的相关文件与代码放置在该文件夹内
 - 通过 Pull Request 将作品内容提交至官方仓库
 
 ### 作品评选

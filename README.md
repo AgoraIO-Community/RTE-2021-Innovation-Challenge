@@ -29,7 +29,7 @@ In this track, you can use Agora SDK to empower more scenarios with real-time au
 ### Submission
 - Fork the official repository, to your personal GitHub repository, and Clone the repository locally  
 Repository address: https://github.com/AgoraIO-Community/RTE-2021-Innovation-Challenge/tree/master/Application-Challenge 
-- Create a new personal project folder under the local SDKChallengeProject folder named "[Team Name] Project Name" and place the files and code for your entry in that folder.
+- Create a new personal project folder under the local Application-Challenge folder named "[Team Name] Project Name" and place the files and code for your entry in that folder.
 - Submit the content of your entry to the official repository via Pull Request
 
 ### Selection of entries
@@ -74,7 +74,7 @@ Currently, several partners have successfully integrated video beautification fi
 ### Submission
 - Fork the official repository, to your personal GitHub repository, and Clone the repository locally
 Repository address: https://github.com/AgoraIO-Community/RTE-2021-Innovation-Challenge/tree/master/Technology-Challenge
-- Create a new personal project folder under the local SDKChallengeProject folder named "[Team Name] Project Name" and place the files and code for your entry in that folder.
+- Create a new personal project folder under the local Technology-Challenge folder named "[Team Name] Project Name" and place the files and code for your entry in that folder.
 - Submit the content of your entry to the official repository via Pull Request
 
 ### Selection of entries
