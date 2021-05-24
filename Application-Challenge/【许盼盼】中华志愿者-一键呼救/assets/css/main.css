@@ -1,0 +1,483 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.clr {
+    clear: both;
+}
+
+.page2 {
+    background: #101010
+}
+
+.content_box {
+    display: block;
+    padding: 0 16px;
+    margin: 0 auto;
+    padding-bottom: 99px;
+    width: 100%;
+    box-sizing:border-box;
+    position: relative;
+}
+
+.content_box img {
+    width: 100%;
+}
+
+.tabbar_box {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 86px;
+    background: #f8f8f8;
+    z-index: 1;
+    display: flex;
+    box-sizing: border-box;
+    padding-top: 14px;
+}
+
+.tabbar_box .list {
+    width: 25%;
+    text-align: center;
+    font-size: 12px;
+}
+
+.tabbar_box .list img {
+    width: 27px;
+}
+
+.tabbar_box .list .home {
+    margin-top: 2px;
+}
+
+.tabbar_box .list p {
+    margin-top: 2px;
+}
+
+.tabbar_box .list.help {
+}
+
+.tabbar_box .list.help div {
+    padding-top: 4px;
+    padding-bottom: 5px;
+    position: relative;
+    top: -3px;
+    width: 58px;
+    margin: 0 auto;
+    border: 1px solid red;
+    border-radius: 50%;
+    color: red;
+}
+
+.tabbar_box .list.help div .help {
+}
+
+.tabbar_box .list.help div p {
+    margin-top: 1px;
+    margin-bottom: 0px;
+}
+
+.tabbar_box .list.help.active {
+}
+
+.tabbar_box .list.help.active div {
+    background: red;
+    border-radius: 50%;
+}
+
+.tabbar_box .list.help.active div .help {
+}
+
+.tabbar_box .list.help.active div p {
+    color: #fff;
+}
+
+.tabbar_box .list.active {
+    color: #2196f3;
+    font-weight: bold;
+}
+
+.tabbar_box .list .flag {
+    width: 22px;
+    margin-top: 6px;
+    margin-bottom: 0px;
+}
+
+.tabbar_box .list .shop {
+    width: 23px;
+    margin-top: 5px;
+}
+
+.tabbar_box .list .me {
+    width: 24px;
+    margin-top: 4px;
+}
+
+.page2_top_time_box {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background: #fe0000;
+    height: 42px;
+    line-height: 42px;
+}
+
+.page2_top_time_box img {
+    display: inline;
+    vertical-align: middle;
+}
+
+.page2_top_time_box .time {
+    display: inline;
+    vertical-align: middle;
+    color: #ffffff;
+}
+
+.help_box {
+    margin-top: 44px;
+    position: relative;
+}
+
+.help_box .position {
+    color: #fff;
+    position: absolute;
+    top: 26px;
+    right: 16px;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.help_box .position img {
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+}
+
+.help_box .t1 {
+    color: #ffffff;
+    padding-top: 18px;
+    padding-left: 16px;
+    font-size: 18px;
+}
+
+.help_box .t2 {
+    color: #ffffff;
+    margin-top: 11px;
+    font-size: 12px;
+    padding-left: 16px;
+}
+
+.help_box .ipt {
+    padding: 0 16px;
+    margin-top: 15px;
+    position: relative;
+    padding-right: 85px;
+}
+
+.help_box .ipt input {
+    width: 100%;
+    height: 31px;
+    padding: 0 16px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.help_box .ipt span {
+    position: absolute;
+    width: 70px;
+    height: 30px;
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size: 14px;
+    line-height: 29px;
+    top: 0;
+}
+
+.help_box .info_list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 16px;
+}
+
+.help_box .info_list .list {
+    width: 23%;
+    margin: 3% 1%;
+    color: #ffffff;
+    padding: 9px 0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    border: 1px solid #101010;
+}
+
+.help_box .info_list .list.active {
+    border: 1px solid #fe0000;
+}
+
+.help_box .info_list .list.active p {
+    color: #fe0000;
+}
+
+.help_box .info_list .list img {
+    width: 45px;
+    display: block;
+    margin: 0 auto;
+    height: 40px;
+}
+
+.help_box .info_list .list p {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.help_box .call_box {
+    text-align: center;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.help_box .call_box .info {
+    visibility: hidden;
+}
+
+.help_box .call_box.calling .info,.help_box .call_box.called .info {
+    visibility: visible;
+}
+
+.help_box .call_box .call_icon {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto;
+    background: #4caf50;
+    border-radius: 50%;
+    line-height: 75px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    padding-top: 19px;
+}
+
+.help_box .call_box.calling .call_icon {
+    background: #fe0000;
+}
+
+.help_box .call_box .call_icon .tel_ico {
+    width: 35px;
+    margin: 0 auto;
+    display: block;
+}
+
+.help_box .call_box.called .call_icon .tel_ico {
+    display: none;
+}
+
+.help_box .call_box .call_icon .calling_ico {
+    width: 35px;
+    display: none;
+    margin: 0 auto;
+}
+
+.help_box .call_box.called .call_icon .calling_ico {
+    display: block;
+}
+
+.sign_tip {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    display: block;
+    background: #fff7d8;
+    height: 32px;
+    font-size: 10px;
+    line-height: 34px;
+    box-sizing: border-box;
+    padding: 0 16px;
+}
+
+.sign_tip .close {
+    width: 14px;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+    margin-right: 6px;
+}
+
+.sign_tip span {
+    float: right;
+    border: 1px solid red;
+    display: block;
+    height: 19px;
+    position: absolute;
+    right: 16px;
+    top: 5px;
+    line-height: 19px;
+    padding: 0 5px;
+    color: red;
+    font-size: 10px;
+    border-radius: 4px;
+}
+
+.search_box {
+    position: fixed;
+    top: 32px;
+    left: 0;
+    width: 100%;
+    height: 46px;
+    background: #ffffff;
+    box-sizing: border-box;
+    padding-left: 79px;
+    font-size: 10px;
+    padding-top: 8px;
+    padding-right: 85px;
+    z-index: 2;
+}
+
+.search_box .position {
+    position: absolute;
+    left: 20px;
+    width: 15px;
+    top: 14px;
+}
+
+.search_box span {
+    position: absolute;
+    left: 40px;
+    top: 0;
+    display: block;
+    height: 46px;
+    line-height: 46px;
+}
+
+.search_box .search_btn_box {
+    width: 100%;
+    position: relative;
+    height: 30px;
+    background: #f8f8f8;
+    box-sizing: border-box;
+    padding-left: 40px;
+    padding-right: 17px;
+    border-radius: 50px;
+}
+
+.search_box .search_btn_box .search {
+    position: absolute;
+    left: 13px;
+    width: 17px;
+    top: 7px;
+    opacity: .4;
+}
+
+.search_box .search_btn_box #keyword {
+    width: 100%;
+    border: none;
+    position: relative;
+    top: 7px;
+    background: #f8f8f8;
+    outline: none;
+}
+
+.search_box .scan_ewm {
+    position: absolute;
+    right: 48px;
+    width: 22px;
+    top: 11px;
+}
+
+.search_box .msg {
+    position: absolute;
+    right: 15px;
+    width: 20px;
+    top: 13px;
+}
+
+.nav_box {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 65px;
+    background: #ffffff;
+    display: flex;
+    box-sizing: border-box;
+    padding-top: 14px;
+    padding: 0 16px;
+    margin-top: 90px;
+}
+
+.content_box .list {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    padding-top: 12px;
+}
+
+.content_box .list .title {
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 600;
+}
+
+.content_box .list .info {
+    margin-top: 8px;
+    color: #888;
+    font-size: 12px;
+}
+
+.content_box .list .info span {
+    border: 1px solid red;
+    color: red;
+    padding: 0 7px;
+    border-radius: 4px;
+    margin-right: 4px;
+}
+
+.content_box .list .title_box {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.content_box .list .title_box img {
+    width: 33%;
+    float: right;
+}
+
+.content_box .list .title_box .title {
+    width: 60%;
+    float: left;
+}
+
+.content_box .list .title_box .right {
+}
+
+.content_box .ad {
+    margin-top: 12px;
+    display: block;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ccc;
+}
+
+.content_box .ad img {
+    width: 100%;
+    display: block;
+}
+
+.content_box .list .img_box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 11px;
+}
+
+.content_box .list .img_box img {
+    width: 30%;
+    margin-right: 3%;
+    height: 74px;
+}
