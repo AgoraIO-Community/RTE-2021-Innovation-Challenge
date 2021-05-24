@@ -7,20 +7,21 @@
 
 该功能的出现，弥补了应急救援中的一块空白，使得我们的救援服务更加的立体化，同时也打开了我们的思路，让我们看到信息化时代下应急救援更多的方法和抓手，万分感谢！
 
-##项目说明
+
+## 项目说明
 本项目采用PHP+HTML+JS+CSS开发
 * 前端使用原生HTML+JS+CSS开发
 * 使用JS Lib：jQuery、AgoraRTC_N-4.4.0
 * 后端使用PHP原生开发，使用了Lib：AgoraDynamicKey库，用于生成token
 
-##运行说明
+## 运行说明
 1.运行环境PHP5.6+，部署到任意目录，浏览器访问该目录即可，入口文件为index.html
 
 2.进入后，单击一键呼救，进入呼救页面
 
 3.单击拨号键，等待电话接通，在此过程中可以根据求救人的需要更改求助类型、地址、定位信息
 
-##目录说明
+## 目录说明
 * assets 静态资源文件
     *  audio 音频资源，拨号时的电话盲音
     *  css 页面样式文件
@@ -32,13 +33,13 @@
 * help.html 一键呼救页面
 * index.html 首页
 
-##参考文档
+## 参考文档
 * 实现语音对话 https://docs.agora.io/cn/Voice/start_call_audio_web_ng?platform=Web
 * 生成token https://docs.agora.io/cn/Interactive%20Broadcast/token_server
 * SDK https://github.com/AgoraIO/Tools/tree/master/DynamicKey/AgoraDynamicKey/php
 * SDK（实际我用的是这个5年前的，github的实在下载不下来，(╥╯^╰╥)） https://gitee.com/tongxinwudi/AgoraDynamicKey?_from=gitee_search
 
-#感激
+## 感激
 非常感谢声网提供的比赛机会，让我们接触到了这么棒的产品，对行业有了更多的认识，也增加了我们对各种产品研发的想象空间
 ##### 首先它真的非常棒，性能稳定、体验极佳
 ##### 另外它的文档合SDK确实相当的健全，超乎我的想象
@@ -46,10 +47,10 @@
 ##### 通过阅读文档，我们花费了不到2个小时完成了前端的接入
 ##### 花费了30分钟完成了后端token的生成，一切都很顺利
 
-#一点不成熟的建议
+## 一点不成熟的建议
 目前声网提供的git库只有github的来源，建议提供码云或者私有Git库等国内源，下载SDK确实让我花了不少功夫
 
-##关于作者
+## 关于作者
 
 ```javascript
 姓名：许盼盼
