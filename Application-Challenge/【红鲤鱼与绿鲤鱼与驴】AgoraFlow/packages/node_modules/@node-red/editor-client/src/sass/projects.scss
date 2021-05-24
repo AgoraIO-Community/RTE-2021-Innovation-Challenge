@@ -1,0 +1,834 @@
+/**
+ * Copyright JS Foundation and other contributors, http://js.foundation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+
+#red-ui-projects-dialog {
+    .red-ui-editableList-container {
+        padding: 0px;
+    }
+    padding: 0;
+    .red-ui-projects-dialog-box {
+        box-sizing: border-box;
+        overflow-y: auto;
+        padding: 25px 25px 10px 25px;
+    }
+}
+#red-ui-project-settings-tab-settings {
+    overflow-y: scroll;
+}
+.red-ui-sidebar-vc-shade {
+    background: $primary-background;
+}
+
+.red-ui-projects-edit-form form {
+    margin: 0;
+    .form-row {
+        margin-bottom: 15px;
+        label {
+            color: $primary-text-color;
+            width: 100%;
+            display: block;
+            &.red-ui-projects-edit-form-inline-label {
+                font-weight: normal;
+                color: inherit;
+                width: auto;
+            }
+        }
+        input[type=text], input[type=password],textarea {
+            width: 100%;
+        }
+        input[type=checkbox], input[type=radio] {
+            width: auto;
+            vertical-align: middle;
+        }
+    }
+
+}
+.red-ui-projects-edit-form-sublabel {
+    color: $tertiary-text-color;
+    text-align: right;
+    margin-bottom: -15px;
+    font-weight: normal;
+}
+.red-ui-project-settings-tab-pane {
+    & * .red-ui-projects-edit-form-sublabel {
+        margin-right: 50px;
+        margin-top: -10px !important;
+        margin-bottom: 5px;
+    }
+}
+
+.red-ui-projects-dialog-screen-start {
+    .red-ui-projects-dialog-screen-start-hero {
+        text-align: center;
+        font-size: 2em;
+        padding: 10px;
+        min-height: 60px;
+        color: $primary-text-color;
+    }
+    .red-ui-projects-dialog-screen-start-body {
+        min-height: 400px;
+        line-height: 1.6em;
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        p:first-child {
+            font-weight: 500;
+            font-size: 1.2em;
+        }
+    }
+    button.red-ui-button.red-ui-projects-dialog-button {
+        width: calc(50% - 80px);
+        margin: 20px;
+        height: auto;
+        line-height: 2em;
+        padding: 10px;
+    }
+    .button-group {
+        text-align: center;
+    }
+}
+.red-ui-projects-dialog-screen-create {
+    min-height: 500px;
+    button.red-ui-projects-dialog-screen-create-type {
+        position: relative;
+        height: auto;
+        padding: 10px;
+    }
+    .button-group {
+        text-align: center;
+    }
+}
+
+.red-ui-projects-dialog-screen-secret {
+    min-height: auto;
+}
+
+.red-ui-projects-dialog-credentials-box {
+    width: 550px;
+    > div {
+        vertical-align: top;
+        display: inline-block;
+    }
+}
+.red-ui-projects-dialog-credentials-box-right {
+    min-height:150px;
+    box-sizing: border-box;
+    float: right;
+    width: 331px;
+    margin-left: -1px;
+    padding: 15px;
+    margin-top: -15px;
+    border: 1px solid $secondary-border-color;
+    border-radius: 3px;
+}
+.red-ui-projects-dialog-credentials-box-left {
+    width: 220px;
+    > div {
+        padding:  7px 8px 3px 8px;
+        border: 1px solid $secondary-border-color;
+        border-radius: 4px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right-color: $form-background;
+        &.disabled {
+            border-color: $form-background;
+            border-right-color:$secondary-border-color;
+        }
+        i {
+            font-size: 1.4em;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        label.red-ui-projects-edit-form-inline-label {
+            margin-left: 5px;
+            span {
+                vertical-align: middle;
+            }
+        }
+        input[type="radio"] {
+            vertical-align: middle;
+            margin-top:0;
+            margin-right: 10px;
+        }
+
+    }
+}
+.red-ui-projects-dialog-credentials-box-enabled {
+}
+.red-ui-projects-dialog-credentials-box-disabled {
+}
+
+.red-ui-projects-dialog-project-list-container {
+    border: 1px solid $secondary-border-color;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    .red-ui-search-container {
+        flex-grow: 0;
+    }
+}
+.red-ui-projects-dialog-project-list-inner-container {
+    flex-grow: 1 ;
+    overflow-y: scroll;
+    position:relative;
+    .red-ui-editableList-border {
+        border: none;
+    }
+}
+.red-ui-projects-dialog-project-list {
+    li {
+        padding: 0 !important;
+    }
+}
+.red-ui-projects-dialog-project-list-entry {
+    padding: 12px 0;
+
+    color: $list-item-color;
+    background: $list-item-background;
+    border-left: 3px solid $list-item-background;
+    border-right: 3px solid $list-item-background;
+
+    &.projects-list-entry-current {
+        &:not(.selectable) {
+            color: $form-text-color;
+            background: $list-item-background-selected;
+            border-left-color:$list-item-border-selected;
+            border-right-color:$list-item-border-selected;
+        }
+        i {
+            color: $secondary-text-color;
+        }
+    }
+    &.selectable {
+        cursor: pointer;
+        &:hover:not(.selected) {
+            color: $form-text-color;
+            background: $list-item-background-hover;
+            border-left-color:$list-item-background-hover;
+            border-right-color:$list-item-background-hover;
+        }
+    }
+    .red-ui-projects-dialog-project-list-entry-icon {
+        i {
+            color: $tertiary-text-color;
+            font-size: 2em;
+
+        }
+    }
+    &.selected {
+        color: $form-text-color;
+        background: $list-item-background-selected;
+        border-left-color:$list-item-border-selected;
+        border-right-color:$list-item-border-selected;
+    }
+    span {
+        display: inline-block;
+        vertical-align:middle;
+    }
+    .red-ui-projects-dialog-project-list-entry-icon {
+         margin: 0 10px 0 5px;
+    }
+    .red-ui-projects-dialog-project-list-entry-name {
+        font-size: 1.2em;
+    }
+    .red-ui-projects-dialog-project-list-entry-current {
+        float: right;
+        margin-right: 20px;
+        font-size: 0.9em;
+        color: $secondary-text-color;
+        padding-top: 4px;
+    }
+    .red-ui-projects-dialog-project-list-entry-tools {
+        position: absolute;
+        top: 16px;
+        right: 30px;
+        display: none;
+        color: $secondary-text-color;
+    }
+    &:hover {
+        .red-ui-projects-dialog-project-list-entry-tools {
+            display: block;
+        }
+    }
+}
+.red-ui-projects-dialog-project-list-entry-delete-confirm {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 100%;
+    width: 1000px;
+    overflow: hidden;
+    padding: 5px 20px;
+    background: $secondary-background;
+    transition: left 0.4s;
+    white-space: nowrap;
+    > span {
+        line-height: 40px;
+    }
+    button {
+        margin-left: 20px;
+    }
+}
+
+.red-ui-projects-dialog-screen-create-type {
+    position: relative;
+}
+.red-ui-projects-dialog-screen-create-type.red-ui-button.toggle.selected:not(.disabled):not(:disabled) {
+    color: $secondary-text-color-active !important;
+}
+.red-ui-projects-dialog-screen-input-status {
+    text-align: right;
+    position: absolute;
+    top: 2px;
+    right: 8px;
+    width: 70px;
+    height: 30px;
+    color: $secondary-text-color;
+}
+
+.red-ui-sidebar-vc {
+    height: 100%;
+}
+
+.red-ui-sidebar-vc-stack {
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+
+    .red-ui-palette-category {
+        &:not(.expanded) button {
+            display: none;
+        }
+    }
+}
+
+#red-ui-project-settings-tab-deps {
+    .red-ui-editableList-container {
+        padding: 0;
+    }
+    .red-ui-editableList-border {
+        border-radius: 0;
+    }
+    .red-ui-editableList-item-content {
+        padding: 0px 6px;
+    }
+    .red-ui-palette-module-header {
+        padding: 6px 4px;
+    }
+    .red-ui-palette-module-button {
+        float: right;
+    }
+    .red-ui-palette-module-unused {
+        & > * {
+            color: $secondary-text-color;
+        }
+    }
+    .red-ui-palette-module-unknown {
+        border: 1px dashed $secondary-border-color;
+        background: $secondary-background-inactive;
+    }
+    .red-ui-palette-module-not-installed {
+        border: 1px dashed $text-color-warning;
+        i.fa-warning {
+            color: $text-color-warning;
+        }
+    }
+}
+
+
+.red-ui-project-settings-tab-pane {
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    overflow-y: auto;
+    padding: 8px 20px 20px;
+}
+.red-ui-sidebar-vc {
+    .red-ui-editableList-container {
+        background: $tertiary-background;
+        padding: 0;
+        li {
+            padding:0;
+            background: $secondary-background;
+        }
+    }
+    .red-ui-editableList-border {
+        border: none;
+        border-radius: 0;
+    }
+}
+
+.red-ui-sidebar-vc-change-container {
+    position: relative;
+    height: 50%;
+    box-sizing: border-box;
+    transition: height 0.2s ease-in-out;
+    &:first-child {
+        // border-bottom: 1px solid $primary-border-color;
+    }
+}
+.red-ui-sidebar-vc-merging {
+    .red-ui-sidebar-vc-change-container {
+        height: 33%;
+    }
+}
+.red-ui-sidebar-vc-slide-box {
+    position:absolute;
+    bottom: 0;
+    left:0;
+    right:0;
+    height:0;
+    transition: height 0.2s ease-in-out;
+    background: $tertiary-background;
+    box-sizing: border-box;
+    overflow: hidden;
+    &.red-ui-sidebar-vc-slide-box-top {
+        z-index: 4;
+        top: 0px;
+        left: auto;
+        width: 100%;
+        max-width: 280px;
+        border-left: 1px solid $primary-border-color;
+        border-right: 1px solid $primary-border-color;
+        border-bottom: 1px solid $primary-border-color;
+        box-shadow: 1px 1px 4px $shadow;
+
+        color: $primary-text-color;
+        background: $tertiary-background;
+        padding: 10px;
+        box-sizing: border-box;
+
+    }
+    &.red-ui-sidebar-vc-slide-box-bottom {
+        bottom: 0px;
+        border-top: 1px solid $secondary-border-color;
+    }
+
+    textarea {
+        height: 110px;
+        margin: 10px;
+        width: calc(100% - 20px);
+        box-sizing: border-box;
+        border-radius: 1px;
+        resize: none;
+    }
+
+}
+.red-ui-projects-branch-list {
+    position: relative;
+    .red-ui-searchBox-container {
+        border-top: 1px solid $secondary-border-color;
+        border-left: 1px solid $secondary-border-color;
+        border-right: 1px solid $secondary-border-color;
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+        overflow: hidden;
+    }
+    .red-ui-editableList {
+        border: 1px solid $secondary-border-color;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+        & > .red-ui-editableList-border {
+            border-radius: 0;
+            border: none;
+        }
+        .red-ui-editableList-container {
+            padding: 0;
+            li {
+                padding: 0;
+                background: $secondary-background;
+            }
+        }
+    }
+}
+.uneditable-input .red-ui-projects-branch-list {
+    .red-ui-editableList {
+        border-left: none;
+        border-bottom: none;
+        border-right: none;
+    }
+    .red-ui-searchBox-container {
+        border-left: none;
+        border-right: none;
+    }
+}
+.red-ui-sidebar-vc-slide-box-header {
+    margin-bottom: 10px;
+}
+
+.red-ui-sidebar-vc-slide-box-toolbar {
+    padding: 0 20px;
+    text-align: right;
+}
+.red-ui-sidebar-vc-branch-list-entry {
+    padding: 5px 8px;
+    margin: 0 1px;
+    color: $list-item-color;
+    background: $list-item-background;
+    border-left: 2px solid $list-item-background;
+    border-right: 2px solid $list-item-background;
+    cursor: pointer;
+    &.selected {
+        border-left-color:$list-item-border-selected;
+        border-right-color:$list-item-border-selected;
+    }
+    i { width: 16px; text-align: center}
+    &.input-error {
+        cursor: default;
+    }
+    &:not(.input-error):hover {
+        background: $list-item-background-hover;
+        border-left-color:$list-item-border-selected;
+        border-right-color:$list-item-border-selected;
+    }
+    span {
+        margin-left: 5px;
+    }
+    span.current {
+        float: right;
+        font-size: 0.8em;
+        color: $tertiary-text-color;
+    }
+}
+
+.red-ui-sidebar-vc-change-entry {
+    height: 20px;
+    padding: 5px 10px;
+    position: relative;
+    white-space: nowrap;
+    span {
+        margin: 0 6px;
+    }
+    a {
+        color: currentColor;
+        &.disabled {
+            pointer-events: none;
+        }
+    }
+    .red-ui-sidebar-vc-change-entry-tools {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        display: none;
+        button {
+            width: 24px;
+        }
+    }
+
+    &:hover {
+        .red-ui-sidebar-vc-change-entry-tools {
+            display: block;
+        }
+    }
+    &.red-ui-help-info-node {
+        text-align: center;
+        background: $list-item-background;
+        white-space: normal;
+        height: auto;
+    }
+}
+
+.red-ui-sidebar-vc-commit-entry {
+    min-height: 20px;
+    padding: 5px 10px;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    &:hover {
+        background: $secondary-background-hover;
+    }
+}
+.red-ui-sidebar-vc-commit-more {
+    color: $secondary-text-color;
+    text-align: center;
+    padding: 10px;
+    font-style: italic;
+}
+.red-ui-sidebar-vc-commit-sha {
+    float: right;
+    font-family: $monospace-font;
+    color: $vcCommitShaColor;
+    display: inline-block;
+    font-size: 0.85em;
+    margin-left: 5px;
+}
+.red-ui-sidebar-vc-commit-subject {
+    color: $primary-text-color;
+}
+.red-ui-sidebar-vc-commit-refs {
+    min-height: 22px;
+}
+.red-ui-sidebar-vc-commit-ref {
+    color: $tertiary-text-color;
+    font-size: 0.7em;
+    border: 1px solid $tertiary-border-color;
+    border-radius: 10px;
+    padding: 2px 5px;
+    margin-right: 5px;
+}
+.red-ui-sidebar-vc-commit-date {
+    color: $secondary-text-color;
+    font-size: 0.85em;
+}
+.red-ui-sidebar-vc-commit-user {
+    float: right;
+    color: $secondary-text-color;
+    font-size: 0.85em;
+}
+.red-ui-sidebar-vc-commit-head {
+}
+.red-ui-sidebar-vc-change-header {
+    color: $primary-text-color;
+    background: $tertiary-background;
+    padding: 4px 10px;
+    height: 30px;
+    box-sizing: border-box;
+    border-top: 1px solid $secondary-border-color;
+    border-bottom: 1px solid $secondary-border-color;
+    i {
+        transition: all 0.2s ease-in-out;
+    }
+}
+.red-ui-sidebar-vc-repo-toolbar {
+    color: $primary-text-color;
+    background: $tertiary-background;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.red-ui-sidebar-vc-repo-count {
+    margin-right: 8px;
+    display: none;
+}
+.red-ui-sidebar-vc-repo-action  {
+    text-align: left;
+    width: 100%;
+}
+.red-ui-sidebar-vc-repo-sub-action  {
+    width: calc(50% - 5px);
+    margin-right: 5px;
+    &:not(:first-child) {
+        margin-right: 0;
+        margin-left: 5px;
+    }
+}
+
+.red-ui-projects-file-listing-container > .red-ui-editableList > .red-ui-editableList-border {
+    border-radius: 0;
+    border: none;
+    border-top: 1px solid $secondary-border-color;
+
+}
+.red-ui-editableList-container .red-ui-projects-dialog-file-list {
+    .red-ui-editableList-border {
+        border: none;
+    }
+    li {
+        padding: 0 !important;
+        border: none;
+    }
+    .red-ui-editableList-container {
+        padding: 0;
+    }
+}
+.red-ui-projects-dialog-file-list-entry {
+    padding: 3px 0;
+    border-left: 2px solid $list-item-background;
+    border-right: 2px solid $list-item-background;
+    background: $list-item-background;
+
+    &.projects-list-entry-current {
+        &:not(.selectable) {
+            background: $list-item-background-selected;
+        }
+        i {
+            color: $secondary-text-color-selected;
+        }
+    }
+    &.selectable {
+        cursor: pointer;
+        &:hover {
+            background: $list-item-background-hover;
+            border-left-color:$list-item-border-selected;
+            border-right-color:$list-item-border-selected;
+        }
+    }
+    &.unselectable {
+        color: $secondary-text-color-disabled;
+    }
+
+    i {
+        color: $secondary-text-color;
+        width: 16px;
+        text-align: center;
+    }
+    &.selected {
+        background: $list-item-background-selected;
+        border-left-color:$list-item-border-selected;
+        border-right-color:$list-item-border-selected;
+    }
+    span {
+        display: inline-block;
+        vertical-align:middle;
+    }
+    .red-ui-projects-dialog-file-list-entry-folder {
+         margin: 0 10px 0 0px;
+
+         .fa-angle-right {
+             color: $primary-text-color;
+             transition: all 0.2s ease-in-out;
+
+         }
+    }
+    .red-ui-projects-dialog-file-list-entry-file {
+         margin: 0 10px 0 20px;
+    }
+    .red-ui-projects-dialog-file-list-entry-name {
+        font-size: 1em;
+    }
+    &.expanded .fa-angle-right {
+        transform: rotate(90deg);
+    }
+}
+.red-ui-projects-dialog-file-list-entry-file-type-git { color: $tertiary-text-color }
+
+.red-ui-projects-dialog-remote-list {
+    .red-ui-editableList-container {
+        padding: 0;
+        li {
+            padding: 0;
+            border: none;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+    }
+}
+
+div.red-ui-projects-dialog-ssh-public-key {
+    position: relative;
+    padding: 15px 20px 0;
+    pre {
+        position: relative;
+        word-break: break-all;
+    }
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+.red-ui-projects-dialog-ssh-key-list {
+    li {
+        padding: 0 !important;
+    }
+    .red-ui-projects-dialog-ssh-key-header {
+        padding: 10px 5px;
+        cursor: pointer;
+        &:hover {
+            background: $list-item-background-hover;
+        }
+    }
+}
+
+.red-ui-projects-dialog-list {
+    position: relative;
+    .red-ui-editableList-container {
+        padding: 1px;
+        background: $tertiary-background;
+        li:last-child {
+            border-bottom: none;
+        }
+    }
+}
+
+.red-ui-projects-dialog-list-entry {
+    &.red-ui-search-empty {
+        padding: 0;
+    }
+
+    span {
+        display: inline-block;
+    }
+    .entry-icon {
+        text-align: center;
+        min-width: 30px;
+        vertical-align: top;
+        color: $secondary-text-color;
+    }
+    .entry-name {
+        min-width: 250px;
+    }
+    &.current .entry-name {
+        font-weight: bold;
+    }
+    .entry-detail {
+        color: $tertiary-text-color;
+        font-size: 0.9em;
+    }
+
+    .entry-remote-name {
+        min-width: 250px;
+    }
+
+
+    .entry-tools {
+        float: right;
+        margin-right: 10px;
+    }
+}
+.red-ui-projects-dialog-list-dialog {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background: $secondary-background;
+    border-radius: 4px;
+    border: 1px solid $secondary-border-color;
+    .red-ui-projects-edit-form-sublabel {
+        margin-top: -8px !important;
+        margin-right: 50px;
+        display: block !important;
+        width: auto !important;
+    }
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .red-ui-projects-dialog-list-dialog-header {
+        font-weight: bold;
+        background: $primary-background;
+        margin-top: 0 !important;
+        padding: 5px 10px;
+        margin-bottom: 10px;
+    }
+}
+
+#red-ui-settings-tab-gitconfig {
+    padding: 8px 20px 20px;
+}
+.red-ui-settings-section-description {
+    color: $secondary-text-color;
+}

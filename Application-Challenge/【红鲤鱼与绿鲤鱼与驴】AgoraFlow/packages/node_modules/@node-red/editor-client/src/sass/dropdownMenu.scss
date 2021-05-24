@@ -1,0 +1,212 @@
+/**
+ * Copyright JS Foundation and other contributors, http://js.foundation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+
+.red-ui-menu-dropdown {
+    font-family: $primary-font;
+    font-size: $primary-font-size;
+    position: absolute;
+    top: 100%;
+    width: 200px;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    margin: 2px 0 0;
+    margin-left: 0px !important;
+    padding: 5px 0;
+    list-style: none;
+    background: $menuBackground;
+    border: 1px solid $secondary-border-color;
+    box-shadow: 0 5px 10px $shadow;
+
+    &.pull-right {
+        right: 0;
+        left: auto;
+    }
+
+    .red-ui-menu-divider {
+        height: 1px;
+        margin: 9px 1px;
+        overflow: hidden;
+        background-color: $menuDivider;
+    }
+    & > li > a,
+    & > li > a:focus {
+        display: block;
+        padding: 4px 0 4px 32px;
+        clear: both;
+        font-weight: normal;
+        line-height: 20px;
+        color: $menuColor;
+        white-space: normal !important;
+        outline: none;
+    }
+
+    & > .active > a,
+    & > .active > a:hover,
+    & > .active > a:focus {
+        color: $menuActiveColor;
+        text-decoration: none;
+        background-color: $menuActiveBackground;
+        outline: 0;
+    }
+
+    & > .disabled > a,
+    & > .disabled > a:hover,
+    & > .disabled > a:focus {
+        color: $menuDisabledColor;
+    }
+
+    & > .disabled > a:hover,
+    & > .disabled > a:focus {
+        text-decoration: none;
+        cursor: default;
+        background-color: transparent;
+        background-image: none;
+    }
+
+    a {
+        img {
+            max-width: 14px;
+        }
+        .fa {
+            width: 20px;
+            margin-left: -25px;
+            margin-top: 3px;
+            text-align: center;
+        }
+        .fa-check-square {
+            display: none;
+        }
+        .fa-square {
+            display: inline-block;
+        }
+        &.active {
+            .fa-check-square {
+                display: inline-block;
+            }
+            .fa-square {
+                display: none;
+            }
+        }
+    }
+
+}
+
+.pull-right > .red-ui-menu-dropdown {
+  right: 0;
+  left: auto;
+}
+
+
+.red-ui-menu-dropdown > li > a:hover,
+.red-ui-menu-dropdown > li > a:focus,
+.red-ui-menu-dropdown-submenu:hover > a,
+.red-ui-menu-dropdown-submenu:focus > a {
+    color: $menuHoverColor;
+    text-decoration: none;
+    background-color: $menuHoverBackground;
+}
+
+.red-ui-menu-dropdown-submenu {
+    position: relative;
+    & > .red-ui-menu-dropdown {
+        top: 0;
+        left: 100%;
+        margin-top: -6px;
+        margin-left: -1px;
+    }
+    &:hover > .red-ui-menu-dropdown {
+      display: block;
+    }
+    & > a:after {
+      display: block;
+      float: right;
+      width: 0;
+      height: 0;
+      margin-top: 5px;
+      margin-right: -10px;
+      border-color: transparent;
+      border-left-color: $menuCaret;
+      border-style: solid;
+      border-width: 5px 0 5px 5px;
+      content: " ";
+    }
+    &.pull-left {
+        float: none;
+        & > .red-ui-menu-dropdown {
+            left: -100%;
+            margin-left: 10px;
+        }
+    }
+}
+
+.red-ui-menu-dropdown-submenu>a:after {
+    display: none;
+}
+.red-ui-menu-dropdown-submenu>a:before {
+    display: block;
+    float: left;
+    width: 0;
+    height: 0;
+    margin-top: 5px;
+    margin-left: -30px;
+    /* Caret Arrow */
+    border-color: transparent;
+    border-right-color: $menuCaret;
+    border-style: solid;
+    border-width: 5px 5px 5px 0;
+    content: " ";
+}
+
+.red-ui-menu-dropdown-submenu.disabled > a:before {
+    border-right-color: $menuCaret;
+}
+
+
+// Menu NG
+ul.red-ui-menu:not(.red-ui-menu-dropdown) {
+    font-family: $primary-font;
+    font-size: 12px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    li a {
+        display: block;
+        padding: 4px 8px 4px 16px;
+        clear: both;
+        font-weight: normal;
+        line-height: 20px;
+        color: $menuColor;
+        white-space: nowrap;
+        text-decoration: none;
+
+        &:hover,&:focus {
+            color: $menuHoverColor;
+            text-decoration: none;
+            background-color: $menuHoverBackground;
+            border: none;
+            outline: none;
+        }
+    }
+    &.red-ui-menu-compact {
+        font-size: 12px;
+        li a {
+            line-height: 16px;
+        }
+    }
+
+}
