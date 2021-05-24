@@ -35,7 +35,7 @@ $(document).ready(function () {
         $(".call_box").addClass("calling");
         $(".tip").html("单击取消");
         $(".info").html("正在拨号…");
-        // calling_audio_ele.play();
+        calling_audio_ele.play();
         connect(function(){
             $(".info").html("等待接听…");
         },function () {
