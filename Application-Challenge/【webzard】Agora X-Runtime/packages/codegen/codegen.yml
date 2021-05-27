@@ -1,4 +1,14 @@
-schema: ../meta/dsl/data.graphql
 generates:
   ../meta/json/data.json:
-    - ./meta/meta-plugin.js
+    schema: ../meta/dsl/data.graphql
+    plugins:
+      - ./meta/meta-plugin.js
+  ../uigen/src/generated/graphql-components.ts:
+    schema: ../data/schema.graphql
+    documents: ../uigen/src/generated/*.graphql
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-urql
+    config:
+      withHooks: true

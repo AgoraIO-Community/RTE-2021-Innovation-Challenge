@@ -865,6 +865,11 @@
   resolved "http://192.168.26.29:7001/@emotion/weak-memoize/download/@emotion/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha1-ju2YLi7m9/TkTCU+EpYpgHke/UY=
 
+"@graphql-typed-document-node/core@^3.1.0":
+  version "3.1.0"
+  resolved "http://192.168.26.29:7001/@graphql-typed-document-node/core/download/@graphql-typed-document-node/core-3.1.0.tgz#0eee6373e11418bfe0b5638f654df7a4ca6a3950"
+  integrity sha1-Du5jc+EUGL/gtWOPZU33pMpqOVA=
+
 "@popperjs/core@2.4.4":
   version "2.4.4"
   resolved "http://192.168.26.29:7001/@popperjs/core/download/@popperjs/core-2.4.4.tgz#11d5db19bd178936ec89cd84519c4de439574398"
@@ -949,6 +954,14 @@
   version "3.0.0"
   resolved "http://192.168.26.29:7001/@types/warning/download/@types/warning-3.0.0.tgz#0d2501268ad8f9962b740d387c4654f5f8e23e52"
   integrity sha1-DSUBJorY+ZYrdA04fEZU9fjiPlI=
+
+"@urql/core@^2.1.0":
+  version "2.1.2"
+  resolved "http://192.168.26.29:7001/@urql/core/download/@urql/core-2.1.2.tgz#aa27ff52bac0c0c263345f17d0df0f54480716d3"
+  integrity sha1-qif/UrrAwMJjNF8X0N8PVEgHFtM=
+  dependencies:
+    "@graphql-typed-document-node/core" "^3.1.0"
+    wonka "^4.0.14"
 
 "@vitejs/plugin-react-refresh@^1.3.1":
   version "1.3.3"
@@ -1172,6 +1185,18 @@ globals@^11.1.0:
   version "11.12.0"
   resolved "http://192.168.26.29:7001/globals/download/globals-11.12.0.tgz#ab8795338868a0babd8525758018c2a7eb95c42e"
   integrity sha1-q4eVM4hooLq9hSV1gBjCp+uVxC4=
+
+graphql-tag@^2.12.4:
+  version "2.12.4"
+  resolved "http://192.168.26.29:7001/graphql-tag/download/graphql-tag-2.12.4.tgz#d34066688a4f09e72d6f4663c74211e9b4b7c4bf"
+  integrity sha1-00BmaIpPCectb0Zjx0IR6bS3xL8=
+  dependencies:
+    tslib "^2.1.0"
+
+graphql@^15.5.0:
+  version "15.5.0"
+  resolved "http://192.168.26.29:7001/graphql/download/graphql-15.5.0.tgz#39d19494dbe69d1ea719915b578bf920344a69d5"
+  integrity sha1-OdGUlNvmnR6nGZFbV4v5IDRKadU=
 
 has-flag@^3.0.0:
   version "3.0.0"
@@ -1530,6 +1555,14 @@ typescript@^4.1.2:
   resolved "http://192.168.26.29:7001/typescript/download/typescript-4.2.4.tgz#8610b59747de028fda898a8aef0e103f156d0961"
   integrity sha1-hhC1l0feAo/aiYqK7w4QPxVtCWE=
 
+urql@^2.0.3:
+  version "2.0.3"
+  resolved "http://192.168.26.29:7001/urql/download/urql-2.0.3.tgz#41bc4ad3ea7a1c995bbc8002f9ee82af1396bd26"
+  integrity sha1-QbxK0+p6HJlbvIAC+e6CrxOWvSY=
+  dependencies:
+    "@urql/core" "^2.1.0"
+    wonka "^4.0.14"
+
 use-callback-ref@^1.2.1, use-callback-ref@^1.2.3:
   version "1.2.5"
   resolved "http://192.168.26.29:7001/use-callback-ref/download/use-callback-ref-1.2.5.tgz#6115ed242cfbaed5915499c0a9842ca2912f38a5"
@@ -1561,6 +1594,11 @@ warning@^4.0.3:
   integrity sha1-Fungd+uKhtavfWSqHgX9hbRnjKM=
   dependencies:
     loose-envify "^1.0.0"
+
+wonka@^4.0.14:
+  version "4.0.15"
+  resolved "http://192.168.26.29:7001/wonka/download/wonka-4.0.15.tgz#9aa42046efa424565ab8f8f451fcca955bf80b89"
+  integrity sha1-mqQgRu+kJFZauPj0UfzKlVv4C4k=
 
 yaml@^1.7.2:
   version "1.10.2"
