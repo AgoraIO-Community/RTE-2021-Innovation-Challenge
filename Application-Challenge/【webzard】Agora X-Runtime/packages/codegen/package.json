@@ -1,0 +1,19 @@
+{
+  "name": "@x-runtime/codegen",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "generate": "bash ./generate.sh",
+    "graphql-codegen": "graphql-codegen"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "graphql": "^15.5.0",
+    "pluralize": "^8.0.0"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^1.21.4"
+  }
+}

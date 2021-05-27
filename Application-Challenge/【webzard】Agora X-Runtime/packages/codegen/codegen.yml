@@ -1,0 +1,4 @@
+schema: ../meta/dsl/data.graphql
+generates:
+  ../meta/json/data.json:
+    - ./meta/meta-plugin.js
