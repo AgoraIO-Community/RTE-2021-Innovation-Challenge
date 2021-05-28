@@ -29,6 +29,7 @@
 3. 本项目限制提交账户配置信息setting.py auth.py
 4. DEMO体验注册地址（整站除列表页、编辑页外都是使用本项目拖拽而生成）：[demo注册](https://ofcourse.xialiwei.com/register) 请使用邮箱注册后使用
 5. DEMO编辑器体验地址：[demo体验](https://ofcourse.xialiwei.com/home/pages)
+6. 开发者开放使用的声网体验互动页面：[我的页面·自由编辑模式](https://ofcourse.xialiwei.com/home/page/edit/743baba6d10b4bb5b68a9ffc201e33d8)
 
 #### Demo截屏
 1. Pages列表页
