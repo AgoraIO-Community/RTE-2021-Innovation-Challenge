@@ -1,0 +1,63 @@
+{
+  "name": "agora-rtc-vue",
+  "version": "0.2.44",
+  "private": false,
+  "main": "lib/agora-rtc-vue.umd.min.js",
+  "files": [
+    "lib/**/*.(js|css)",
+    "lib/types/(?!examples).*/**/*.d.ts"
+  ],
+  "author": "anzhaowei",
+  "scripts": {
+    "init:package": "yarn && yarn add agora-rtc-sdk-ng vue --peer",
+    "serve": "vue-cli-service serve --https",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint --fix",
+    "lib": "vue-cli-service build --target lib --name agora-rtc-vue --dest lib packages/index.ts --mode production",
+    "lib:serve": "vue-cli-service build --target lib --name agora-rtc-vue --dest lib packages/index.ts --mode development",
+    "lib:report": "vue-cli-service build --target lib --name agora-rtc-vue --dest lib packages/index.ts --mode production --report",
+    "api": "api-extractor run",
+    "lib:build": "yarn lib && yarn api",
+    "lib:publish": "yarn lib && yarn publish",
+    "docs:dev": "vuepress dev docs",
+    "docs:serve": "yarn lib:serve && yarn docs:dev & yarn keep-building",
+    "docs:build": "vuepress build docs",
+    "keep-building": "nodemon ./building.js --watch src --watch packages -e vue,js,json,ts,tsx,jsx --delay 2"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue-class-component": "^7.2.3",
+    "vue-property-decorator": "^8.4.2"
+  },
+  "devDependencies": {
+    "@microsoft/api-extractor": "^7.12.1",
+    "@types/jest": "^24.0.19",
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-unit-jest": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-typescript": "^5.0.2",
+    "@vue/test-utils": "^1.0.3",
+    "@vuepress/plugin-back-to-top": "^1.8.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-vue": "^6.2.2",
+    "nodemon": "^2.0.6",
+    "prettier": "^1.19.1",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    "typescript": "~3.9.3",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "vue-template-compiler": "^2.6.11",
+    "vuepress": "^1.7.1"
+  },
+  "peerDependencies": {
+    "agora-rtc-sdk-ng": "^4.3.0",
+    "vue": "^2.6.16"
+  }
+}

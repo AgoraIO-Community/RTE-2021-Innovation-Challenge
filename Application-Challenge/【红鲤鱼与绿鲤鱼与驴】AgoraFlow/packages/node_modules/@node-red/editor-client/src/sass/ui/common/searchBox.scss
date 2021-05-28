@@ -1,0 +1,117 @@
+/**
+ * Copyright JS Foundation and other contributors, http://js.foundation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+
+
+.red-ui-searchBox-container {
+    position: relative;
+    i {
+        position: absolute;
+        top: 9px;
+        font-size: 10px;
+        color: $secondary-text-color;
+    }
+    i.fa-search {
+        pointer-events: none;
+        left: 8px;
+    }
+    i.fa-caret-down {
+        position: absolute;
+        right: 6px;
+        font-size: 12px;
+    }
+    i.fa-times {
+        position: absolute;
+        right: 4px;
+    }
+
+    form.red-ui-searchBox-form {
+        margin: 0;
+    }
+    a.red-ui-searchBox-opts:hover {
+        color: $workspace-button-color-hover;
+        background: $workspace-button-background-hover;
+    }
+    input.red-ui-searchBox-input {
+        border-radius: 0;
+        border: none;
+        width: 100%;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        padding: 3px 17px 3px 22px;
+        margin: 0px;
+        height: 30px;
+        box-sizing:border-box;
+
+        &:focus {
+            border: none;
+            box-shadow: none;
+            -webkit-box-shadow: none;
+        }
+    }
+    a {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 16px;
+    }
+    a.red-ui-searchBox-clear {
+        display: none;
+    }
+
+    .red-ui-searchBox-resultCount {
+        position: absolute;
+        right: 18px;
+        top: 4px;
+        background: $primary-background;
+        color: $secondary-text-color;
+        padding: 1px 8px;
+        font-size: 9px;
+        border-radius: 4px;
+    }
+    &.red-ui-searchBox-has-options {
+        a.red-ui-searchBox-clear {
+            right: 16px;
+        }
+        .red-ui-searchBox-resultCount {
+            right: 33px;
+        }
+        input.red-ui-searchBox-input {
+            padding-right: 33px;
+        }
+    }
+}
+.red-ui-searchBox-compact {
+
+    input:focus.red-ui-searchBox-input {
+        outline: 1px solid $form-input-focus-color;
+    }
+
+
+    input.red-ui-searchBox-input,input:focus.red-ui-searchBox-input {
+        border: 1px solid $secondary-border-color;
+        border-radius: 3px;
+        font-size: 12px;
+        height: 26px;
+    }
+    i.fa-times,i.fa-search, i.fa-caret-down {
+        top: 7px;
+    }
+    .red-ui-searchBox-resultCount {
+        top: 3px;
+        padding: 0 6px;
+    }
+}

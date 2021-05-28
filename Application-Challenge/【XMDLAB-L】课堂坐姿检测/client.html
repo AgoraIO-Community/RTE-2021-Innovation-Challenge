@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student</title>
+  <script src="./scripts/AgoraRTCSDK-3.5.2.js"></script>
+  <meta charset=" utf-8" />
+  <script src="scripts/message.js"></script>
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+    <h1>
+      Remote Classroom<br><small style="font-size: 14pt;">Gesture detection and warnin gpowered by Agora.io and opnvino models</small>
+    </h1>
+    <h4>Local processed video</h4>
+    <canvas id="canvas-video" width="640" height="480"></canvas>
+    <script src="scripts/process.js"></script>
+    <h4>Agora sending video</h4>
+    <div id="me"></div>
+    <h4>Remote video</h4>
+    <div id="remote-container">
+    </div>
+    <script src="./scripts/script.js"></script>
+
+</body>
+
+</html>
