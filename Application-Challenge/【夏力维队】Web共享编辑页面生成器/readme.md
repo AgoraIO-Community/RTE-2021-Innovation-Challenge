@@ -27,7 +27,8 @@
 1. 本项目基于Python3.x Tornado框架产品化
 2. 使用NoMagic for mysql，改装mysql为key-value模式，类nosql使用
 3. 本项目限制提交账户配置信息setting.py auth.py
-4. 项目体验地址：[demo体验](https://findmaster.xialiwei.com) 请使用邮箱注册后使用
+4. DEMO体验注册地址（整站除列表页、编辑页外都是使用本项目拖拽而生成）：[demo注册](https://ofcourse.xialiwei.com/register) 请使用邮箱注册后使用
+5. DEMO编辑器体验地址：[demo体验](https://ofcourse.xialiwei.com/home/pages)
 
 #### Demo截屏
 1. Pages列表页
@@ -41,3 +42,6 @@
 
 4. Page View页面查看
 ![Page View页面查看](img/page_edit_tools_preview.png "Page View页面查看")
+
+5. Agora的浮窗加持功能
+![Page View页面查看](img/page_edit_pc_mobile.png "Page View页面查看")
