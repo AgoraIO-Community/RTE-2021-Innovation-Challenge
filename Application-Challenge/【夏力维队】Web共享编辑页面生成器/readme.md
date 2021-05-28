@@ -38,3 +38,6 @@
 
 3. Page Edit组件合集
 ![Page Edit组件合集](img/page_edit_tools.png "Page Edit组件合集")
+
+4. Page View页面查看
+![Page View页面查看](img/page_edit_tools_preview.png "Page View页面查看")
