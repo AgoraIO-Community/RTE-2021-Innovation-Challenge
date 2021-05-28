@@ -1,0 +1,215 @@
+/**
+ * Copyright JS Foundation and other contributors, http://js.foundation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+
+#red-ui-workspace {
+    position: absolute;
+    margin: 0;
+    top:0px;
+    left:179px;
+    bottom: 0px;
+    right: 322px;
+    overflow: hidden;
+    @include component-border;
+    transition: left 0.1s ease-in-out;
+}
+
+#red-ui-workspace-chart {
+   overflow: auto;
+   position: absolute;
+   bottom:25px;
+   top: 35px;
+   left:0px;
+   right:0px;
+   box-sizing:border-box;
+   transition: right 0.2s ease;
+   &:focus {
+       outline: none;
+   }
+}
+#red-ui-workspace-tabs-shade {
+    @include shade;
+    z-index: 2;
+    bottom: auto;
+    height: 35px;
+}
+
+.red-ui-workspace-chart-background {
+    fill: $view-background;
+}
+.red-ui-workspace-chart-grid line {
+    fill: none;
+    shape-rendering: crispEdges;
+    stroke: $view-grid-color;
+    stroke-width: 1px;
+}
+.red-ui-workspace-select-mode {
+    .red-ui-workspace-chart-background {
+        opacity: 0.7;
+        //        fill: $view-select-mode-background;
+    }
+    .red-ui-workspace-chart-grid line {
+        opacity: 0.8;
+    }
+}
+
+.red-ui-palette-closed #red-ui-workspace {
+    left: 7px;
+}
+
+// .workspace-footer-button {
+//     @include component-footer-button;
+//     margin-left: 2px;
+//     margin-right: 2px;
+// }
+//
+// .workspace-footer-button-toggle {
+//     @include component-footer-button-toggle;
+//     margin-left: 2px;
+//     margin-right: 2px;
+// }
+
+#red-ui-workspace-tabs:not(.red-ui-workspace-focussed) {
+    opacity:0.8;
+}
+.red-ui-workspace-disabled-icon {
+    display: none;
+}
+.red-ui-workspace-disabled {
+    &.red-ui-tab {
+        border-top-style: dashed;
+        border-left-style: dashed;
+        border-right-style: dashed;
+
+        a {
+            font-style: italic;
+            color: $tab-text-color-disabled-inactive !important;
+        }
+        &.active a {
+            font-weight: normal;
+            color: $tab-text-color-disabled-active !important;
+        }
+        .red-ui-workspace-disabled-icon {
+            display: inline;
+        }
+    }
+}
+
+
+#red-ui-navigator-canvas {
+    position: absolute;
+    bottom: 0;
+    right:0;
+    z-index: 101;
+    border-left: 1px solid $primary-border-color;
+    border-top: 1px solid $primary-border-color;
+    background: $view-navigator-background;
+    box-shadow: -1px 0 3px $shadow;
+}
+.red-ui-navigator-border {
+    stroke-dasharray: 5,5;
+    pointer-events: none;
+    stroke: $secondary-border-color;
+    stroke-width: 1;
+    fill: $view-background;
+}
+
+.red-ui-component-footer {
+    @include component-footer;
+
+    > .button-group {
+        display: inline-block;
+        > .red-ui-footer-button {
+            margin-top: -1px;
+        }
+    }
+}
+
+a.red-ui-footer-button,
+button.red-ui-footer-button {
+    @include component-footer-button;
+}
+
+a.red-ui-footer-button-toggle,
+button.red-ui-footer-button-toggle {
+    @include component-footer-button-toggle;
+}
+
+.red-ui-statusbar-widget {
+    margin: 0 2px;
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    line-height: 20px;
+}
+
+.red-ui-statusbar-bucket {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+.red-ui-statusbar-bucket-left {
+    left: 10px;
+    .red-ui-statusbar-widget:first-child {
+        margin-left: 0;
+    }
+}
+.red-ui-statusbar-bucket-right {
+    right: 10px;
+    .red-ui-statusbar-widget:last-child {
+        margin-right: 0;
+    }
+}
+
+
+#red-ui-loading-progress {
+    position: absolute;
+    background: $primary-background;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 200;
+    & > div {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        height:80px;
+        text-align: center;
+        color: $secondary-text-color;
+
+    }
+}
+.red-ui-loading-bar {
+    box-sizing: border-box;
+    width: 300px;
+    height: 30px;
+    border: 2px solid $primary-border-color;
+    border-radius: 4px;
+
+    > span {
+        display: block;
+        height: 100%;
+        background: $secondary-border-color;
+        transition: width 0.2s;
+        width: 10%;
+    }
+}
+.red-ui-loading-bar-label {
+    font-size: 13px;
+    margin-bottom: 2px;
+}
