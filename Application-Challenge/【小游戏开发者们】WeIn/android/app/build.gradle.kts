@@ -1,3 +1,4 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import com.android.build.gradle.internal.tasks.factory.dependsOn
 
 plugins {
@@ -8,8 +9,20 @@ plugins {
     id("androidx.navigation.safeargs.kotlin")
 }
 
-apply {
-    FilamentToolsPlugin().apply(project)
+Dep.filamentPath = gradleLocalProperties(rootDir).getProperty("filament.dir", "")
+if (Dep.filamentPath.isNotEmpty()) {
+    apply {
+        FilamentToolsPlugin().apply(project)
+    }
+    extensions.configure<FilamentToolsPluginExtension> {
+        cmgenArgs =
+            "-q --format=ktx --size=256 --extract-blur=0.1 --deploy=src/main/assets/envs/default_env"
+        iblInputFile.set(project.layout.projectDirectory.file("resource/env/lightroom_14b.hdr"))
+        iblOutputDir.set(project.layout.projectDirectory.dir("src/main/assets/envs"))
+
+        materialInputDir.set(project.layout.projectDirectory.dir("resource/materials"))
+        materialOutputDir.set(project.layout.projectDirectory.dir("src/main/assets/materials"))
+    }
 }
 
 
@@ -19,31 +32,17 @@ tasks {
         into("src/main/assets/models/")
     }
 
-    val copyShader by registering(Copy::class) {
-        from("resource/shaders/")
-        into("src/main/assets/shaders/")
-    }
-
     preBuild.dependsOn(copyModel)
-    preBuild.dependsOn(copyShader)
 
     named("clean") {
         doFirst {
-            delete("src/main/assets")
+            delete("src/main/assets/models")
         }
     }
 
 }
 
-extensions.configure<FilamentToolsPluginExtension> {
-    cmgenArgs =
-        "-q --format=ktx --size=256 --extract-blur=0.1 --deploy=src/main/assets/envs/default_env"
-    iblInputFile.set(project.layout.projectDirectory.file("resource/env/lightroom_14b.hdr"))
-    iblOutputDir.set(project.layout.projectDirectory.dir("src/main/assets/envs"))
 
-    materialInputDir.set(project.layout.projectDirectory.dir("resource/materials"))
-    materialOutputDir.set(project.layout.projectDirectory.dir("src/main/assets/materials"))
-}
 
 
 android {

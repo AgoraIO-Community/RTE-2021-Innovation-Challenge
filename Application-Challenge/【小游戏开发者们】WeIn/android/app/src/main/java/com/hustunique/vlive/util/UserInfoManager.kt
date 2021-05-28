@@ -1,5 +1,6 @@
 package com.hustunique.vlive.util
 
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.hustunique.vlive.VLiveApplication
@@ -17,12 +18,14 @@ object UserInfoManager {
 
     private const val UID = "uid"
     private const val UNAME = "uname"
+    private const val FIRST_TIME = "first_time"
 
     var uid: String = ""
     var uname: String = ""
 
     private val uidKey by lazy { stringPreferencesKey(UID) }
     private val unameKey by lazy { stringPreferencesKey(UNAME) }
+    private val firstKey by lazy { booleanPreferencesKey(FIRST_TIME) }
 
     fun refreshUid() {
         GlobalScope.launch {
@@ -47,5 +50,13 @@ object UserInfoManager {
         }
     }
 
+    suspend fun getFirstTime(): Boolean =
+        VLiveApplication.application.dataStore.data.map { it[firstKey] }.first() ?: true
+
+    suspend fun setFirstTime() {
+        VLiveApplication.application.dataStore.edit {
+            it[firstKey] = false
+        }
+    }
 
 }

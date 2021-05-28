@@ -11,6 +11,9 @@ public class VLiveManipulator : MonoBehaviour {
     private Hi5_Object_JudgeMent hi5_object_judgeMent_2;
 
     private UnityEngine.Object cubeModel;
+    private UnityEngine.Object sphereModel;
+    private UnityEngine.Object cylinderModel;
+    private UnityEngine.Object pyramidModel;
 
     public VLiveManager vliveManager;
 
@@ -33,15 +36,21 @@ public class VLiveManipulator : MonoBehaviour {
         hi5_object_judgeMent_2.Hand = HI5_Right_Human_Collider;
 
         cubeModel = Resources.Load("cube");
+        sphereModel = Resources.Load("sphere");
+        cylinderModel = Resources.Load("cylinder");
+        pyramidModel = Resources.Load("pyramid");
     }
 
     private bool isShowingMenu() {
-        return hi5_object_judgeMent_1.IsThree() && hi5_object_judgeMent_2.IsThree();
+        return hi5_object_judgeMent_1.IsCloseThumbAndIndexCollider() && hi5_object_judgeMent_2.IsCloseThumbAndIndexCollider();
     }
 
     private bool isSelectMenu() {
         return state == MENU && !(
-            hi5_object_judgeMent_2.IsHandIndexPoint() || hi5_object_judgeMent_2.IsTwo()
+            hi5_object_judgeMent_2.IsHandIndexPoint()
+            || hi5_object_judgeMent_2.IsTwo()
+            || hi5_object_judgeMent_2.IsThree()
+            || hi5_object_judgeMent_2.IsFingerPlane()
         );
     }
 
@@ -89,6 +98,18 @@ public class VLiveManipulator : MonoBehaviour {
         cameraOffset.transform.position += delta * MOVING_SCALE_FACTOR;
     }
 
+    private UnityEngine.Object getModel() {
+        if (type == 0) {
+            return cubeModel;
+        } else if (type == 1) {
+            return sphereModel;
+        } else if (type == 2) {
+            return cylinderModel;
+        } else {
+            return pyramidModel;
+        }
+    }
+
     private void setObjectData() {
         Vector3 p1 = HI5_Left_Human_Collider.mPalm.transform.position;
         Vector3 p2 = HI5_Right_Human_Collider.mPalm.transform.position;
@@ -105,8 +126,7 @@ public class VLiveManipulator : MonoBehaviour {
     private byte type = 0;
     private void onCreateObject() {
         Debug.Log("onCreateObject");
-        creating = GameObject.Instantiate(cubeModel, new Vector3(.0f, -10f, .0f), Quaternion.identity) as GameObject;
-        // creating = GameObject.CreatePrimitive(type);
+        creating = GameObject.Instantiate(getModel(), new Vector3(.0f, -10f, .0f), Quaternion.identity) as GameObject;
         creating.name = "Created_" + objCount;
         VLiveObjectHandler handler = creating.AddComponent<VLiveObjectHandler>();
         objMap.Add(objCount++, handler);
@@ -235,10 +255,14 @@ public class VLiveManipulator : MonoBehaviour {
 
     private void onRemoveMenu() {
         menu.SetActive(false);
-        if (hi5_object_judgeMent_2.IsTwo()) {
-            type = 1;
-        } else {
+        if (hi5_object_judgeMent_2.IsHandIndexPoint()) {
             type = 0;
+        } else if (hi5_object_judgeMent_2.IsTwo()) {
+            type = 1;
+        } else if (hi5_object_judgeMent_2.IsThree()) {
+            type = 2;
+        } else {
+            type = 3;
         }
     }
 

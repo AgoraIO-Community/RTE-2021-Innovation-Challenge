@@ -49,8 +49,7 @@
         android:id="@+id/gray_layer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#cc000000"
-        android:visibility="gone"
+        android:background="#99000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,5 +75,71 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/reset"
         app:layout_constraintTop_toBottomOf="@id/reset" />
+
+    <TextView
+        android:id="@+id/text_mode_choose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="24dp"
+        android:text="模式切换"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/text_rest"
+        app:layout_constraintEnd_toStartOf="@id/mode_switcher"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_rest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="重置画面"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/text_user"
+        app:layout_constraintStart_toStartOf="@id/text_mode_choose"
+        app:layout_constraintTop_toBottomOf="@id/text_mode_choose" />
+
+    <TextView
+        android:id="@+id/text_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:text="用户追踪"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/text_mode_choose"
+        app:layout_constraintTop_toBottomOf="@id/text_rest" />
+
+    <TextView
+        android:id="@+id/text_forward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击屏幕上方前进"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/text_backward"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_backward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击屏幕下方后退"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/text_forward" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

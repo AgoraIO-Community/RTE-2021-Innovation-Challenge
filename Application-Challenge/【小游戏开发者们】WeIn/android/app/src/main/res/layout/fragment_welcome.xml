@@ -56,21 +56,21 @@
 
         <ImageView
             android:id="@+id/slogan_1_1"
-            android:layout_width="227dp"
-            android:layout_height="53dp"
+            android:layout_width="119dp"
+            android:layout_height="55dp"
             android:layout_marginStart="48dp"
             android:layout_marginTop="46dp"
-            android:src="@drawable/vliver"
+            android:src="@drawable/hi"
             app:layout_constraintBottom_toTopOf="@+id/slogan_2_1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/slogan_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="119dp"
+            android:layout_height="55dp"
             android:layout_marginTop="22dp"
-            android:src="@drawable/vlive"
+            android:src="@drawable/we_in"
             android:transitionName="slogan_2_welcome"
             app:layout_constraintBottom_toTopOf="@+id/textView"
             app:layout_constraintStart_toStartOf="@+id/slogan_1"

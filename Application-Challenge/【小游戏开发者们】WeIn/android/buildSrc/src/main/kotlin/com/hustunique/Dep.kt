@@ -1,5 +1,7 @@
 object Dep {
 
+    var filamentPath = ""
+
     object Build {
         const val APPLICATION_ID = "com.hustunique.vlive"
         const val MIN_SDK_VERSION = 29

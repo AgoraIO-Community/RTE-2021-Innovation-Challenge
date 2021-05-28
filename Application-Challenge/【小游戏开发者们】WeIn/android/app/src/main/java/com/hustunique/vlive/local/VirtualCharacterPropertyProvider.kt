@@ -22,7 +22,7 @@ class VirtualCharacterPropertyProvider(
     context: Context,
     onPropertyReady: (CharacterProperty) -> Unit,
 ) {
-    private val localVideoRenderThread = HandlerThread("lo cal_video_renderer").apply { start() }
+    private val localVideoRenderThread = HandlerThread("local_video_renderer").apply { start() }
     private val glHandler = Handler(localVideoRenderThread.looper)
 
     private val imageReader = ImageReader.newInstance(120, 160, PixelFormat.RGBA_8888, 3)

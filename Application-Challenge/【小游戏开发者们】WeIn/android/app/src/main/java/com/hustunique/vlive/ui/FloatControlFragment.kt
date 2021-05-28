@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
@@ -14,6 +15,7 @@ import com.hustunique.vlive.R
 import com.hustunique.vlive.databinding.FragmentFloatControlBinding
 import com.hustunique.vlive.local.MemberInfo
 import com.hustunique.vlive.util.ToastUtil
+import com.hustunique.vlive.util.UserInfoManager
 
 /**
  *    author : Yuxuan Xiao
@@ -46,6 +48,7 @@ class FloatControlFragment : Fragment() {
     }
 
     private var userListShow = false
+    private var testsShowed = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,6 +70,14 @@ class FloatControlFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        lifecycleScope.launchWhenCreated {
+            if (UserInfoManager.getFirstTime()) {
+                UserInfoManager.setFirstTime()
+                showText()
+            } else {
+                hideText()
+            }
+        }
         binding.rocker.onUpdate = { radians, progress, roll ->
             viewModel.eventData.postValue(RockerEvent(radians, progress, roll))
         }
@@ -89,7 +100,11 @@ class FloatControlFragment : Fragment() {
             layoutManager = LinearLayoutManager(requireActivity())
             adapter = listAdapter
         }
-        binding.grayLayer.setOnClickListener { }
+        binding.grayLayer.setOnClickListener {
+            if (testsShowed) {
+                hideText()
+            }
+        }
         binding.userChoose.setOnClickListener {
             if (!userListShow && listAdapter.data.size == 0) {
                 ToastUtil.makeShort("暂无其它用户")
@@ -112,6 +127,26 @@ class FloatControlFragment : Fragment() {
         viewModel.memberInfo.observe(viewLifecycleOwner) {
             listAdapter.setList(it)
         }
+    }
+
+    private fun showText() {
+        testsShowed = true
+        setTextVisibility(View.VISIBLE)
+        binding.grayLayer.visibility = View.VISIBLE
+    }
+
+    private fun hideText() {
+        testsShowed = false
+        setTextVisibility(View.GONE)
+        binding.grayLayer.visibility = View.GONE
+    }
+
+    private fun setTextVisibility(visibility: Int) {
+        binding.textForward.visibility = visibility
+        binding.textBackward.visibility = visibility
+        binding.textUser.visibility = visibility
+        binding.textModeChoose.visibility = visibility
+        binding.textRest.visibility = visibility
     }
 }
 

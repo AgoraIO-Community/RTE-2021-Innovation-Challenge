@@ -87,7 +87,7 @@ class FilamentView @JvmOverloads constructor(
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         event?.let {
-            controller?.onTouchEvent(it)
+            controller?.onTouchEvent(it, measuredHeight)
         }
         return true
     }

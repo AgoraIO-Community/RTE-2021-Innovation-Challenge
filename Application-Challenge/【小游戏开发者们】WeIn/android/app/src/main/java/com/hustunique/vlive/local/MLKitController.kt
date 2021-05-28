@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import android.media.Image
 import android.media.ImageReader
 import android.util.Log
+import androidx.camera.core.ImageProxy
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.face.Face
 import com.google.mlkit.vision.face.FaceContour
@@ -82,6 +83,16 @@ class MLKitController(
             if (!processing) process(img)
             else img.close()
         }
+    }
+
+    fun onImageAvailable(imageProxy: ImageProxy) {
+        detector.process(InputImage.fromMediaImage(imageProxy.image!!, imageProxy.imageInfo.rotationDegrees))
+            .addOnSuccessListener { results -> onProcess(results) }
+            .addOnFailureListener { e -> e.printStackTrace() }
+            .addOnCompleteListener {
+                imageProxy.close()
+                processing = false
+            }
     }
 
     companion object {

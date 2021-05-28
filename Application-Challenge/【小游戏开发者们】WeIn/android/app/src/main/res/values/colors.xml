@@ -14,5 +14,6 @@
 
     <color name="translucent_dark">#ccffffff</color>
     <color name="translucent_light">#77ffffff</color>
+    <color name="translucent_bg">#77000000</color>
 
 </resources>

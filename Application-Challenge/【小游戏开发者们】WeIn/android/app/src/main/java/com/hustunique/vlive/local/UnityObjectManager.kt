@@ -4,10 +4,7 @@ import android.util.SparseArray
 import com.hustunique.vlive.data.AddEvent
 import com.hustunique.vlive.data.BaseEvent
 import com.hustunique.vlive.data.EventWrapper
-import com.hustunique.vlive.filament.model_object.FilamentBaseModelObject
-import com.hustunique.vlive.filament.model_object.UnityCubeModelObject
-import com.hustunique.vlive.filament.model_object.UnityModelObject
-import com.hustunique.vlive.filament.model_object.UnitySphereModelObject
+import com.hustunique.vlive.filament.model_object.*
 import com.hustunique.vlive.util.ThreadUtil
 import com.hustunique.vlive.util.putIfAbsent
 
@@ -37,7 +34,13 @@ class UnityObjectManager(
                 it as AddEvent
                 (objList.get(it.id.toInt()) ?: objList.putIfAbsent(
                     it.id.toInt(),
-                    if (it.type.toInt() == 0) UnityCubeModelObject() else UnitySphereModelObject()
+                    when (it.type.toInt()) {
+                        0 -> UnityCubeModelObject()
+                        1 -> UnitySphereModelObject()
+                        2 -> UnityCylinderModelObject()
+                        3 -> UnityPyramidModelObject()
+                        else -> UnityCubeModelObject()
+                    }
                 ) {
                     addObj(it)
                 }).run {

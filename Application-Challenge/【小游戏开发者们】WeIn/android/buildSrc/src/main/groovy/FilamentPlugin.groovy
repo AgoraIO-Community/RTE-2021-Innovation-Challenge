@@ -47,12 +47,9 @@ class TaskWithBinary extends DefaultTask {
         if (binaryPath == null) {
             def tool = ["/bin/${binaryName}.exe", "/bin/${binaryName}"]
             def fullPath = tool.collect { path ->
-                if (System.properties['os.name'] == "Linux") {
-                    Paths.get("/home/little-csd/linuxDisk/androidGroup/filament/out/release/filament", path).toFile()
-                } else {
-                    Paths.get("/Users/xiaoyuxuan/open-source-lib/filament/out/release/filament", path).toFile()
-                }
-//                Paths.get(project.ext.filamentToolsPath.absolutePath, path).toFile()
+                Properties properties = new Properties()
+                properties.load(project.rootProject.file('local.properties').newDataInputStream())
+                new File("${properties.getProperty("filament.dir", "")}$path")
             }
 
             binaryPath = OperatingSystem.current().isWindows() ? fullPath[0] : fullPath[1]
@@ -194,7 +191,7 @@ class IblGenerator extends TaskWithBinary {
                     if (!cmgenArgs) {
                         cmgenArgs =
                                 '-q -x ' + outputPath + ' --format=rgb32f ' +
-                                '--extract-blur=0.08 --extract=' + outputPath.absolutePath
+                                        '--extract-blur=0.08 --extract=' + outputPath.absolutePath
                     }
                     cmgenArgs = cmgenArgs + " " + file
                     errorOutput err
@@ -295,7 +292,7 @@ class FilamentToolsPlugin implements Plugin<Project> {
         project.tasks.register("filamentCompileMaterials", MaterialCompiler) {
             enabled =
                     extension.materialInputDir.isPresent() &&
-                    extension.materialOutputDir.isPresent()
+                            extension.materialOutputDir.isPresent()
             inputDir = extension.materialInputDir.getOrNull()
             outputDir = extension.materialOutputDir.getOrNull()
         }

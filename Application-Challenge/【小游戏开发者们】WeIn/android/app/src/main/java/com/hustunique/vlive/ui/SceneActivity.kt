@@ -22,6 +22,7 @@ import com.hustunique.vlive.filament.model_object.ScreenModelObject
 import com.hustunique.vlive.filament.model_object.UnityCubeModelObject
 import com.hustunique.vlive.local.GroupMemberManager
 import com.hustunique.vlive.local.UnityObjectManager
+import com.hustunique.vlive.local.VCPropertyProviderWithMLKit
 import com.hustunique.vlive.local.VirtualCharacterPropertyProvider
 import com.hustunique.vlive.opengl.GLRender
 import com.hustunique.vlive.remote.Service
@@ -47,7 +48,8 @@ class SceneActivity : AppCompatActivity() {
     }
     private val characterPropertyProvider by lazy {
         if (args.mode != 0) {
-            VirtualCharacterPropertyProvider(this, localController::onCharacterPropertyReady)
+            VCPropertyProviderWithMLKit(this, localController::onCharacterPropertyReady)
+//            VirtualCharacterPropertyProvider(this, localController::onCharacterPropertyReady)
         } else null
     }
 

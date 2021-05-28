@@ -126,11 +126,15 @@ class FilamentLocalController(
             if (animator.over()) {
                 flyingAnimator = null
             }
-        } else if (lastUpdateTime > 0 && isSelected) {
+        } else if (lastUpdateTime > 0 && touchState > 0) {
             val temp = cameraFront.clone()
             temp.y = 0f
             temp.normalized()
-            cameraBottom += temp * (deltaTime * MOVE_PER_SECOND).toFloat()
+            if (touchState == 1) {
+                cameraBottom += temp * (deltaTime * MOVE_PER_SECOND).toFloat()
+            } else {
+                cameraBottom -= temp * (deltaTime * MOVE_PER_SECOND).toFloat()
+            }
         }
 
         lastUpdateTime = now
@@ -196,11 +200,14 @@ class FilamentLocalController(
         else -> Unit
     }
 
-    private var isSelected = false
-    fun onTouchEvent(event: MotionEvent) {
+    // 0: no touch
+    // 1: touching top
+    // 2: touching bottom
+    private var touchState = 0
+    fun onTouchEvent(event: MotionEvent, maxHeight: Int) {
         when (event.actionMasked) {
-            ACTION_DOWN -> isSelected = true
-            ACTION_UP, ACTION_CANCEL -> isSelected = false
+            ACTION_DOWN -> touchState = if (event.y < maxHeight / 2) 1 else 2
+            ACTION_UP, ACTION_CANCEL -> touchState = 0
         }
     }
 
