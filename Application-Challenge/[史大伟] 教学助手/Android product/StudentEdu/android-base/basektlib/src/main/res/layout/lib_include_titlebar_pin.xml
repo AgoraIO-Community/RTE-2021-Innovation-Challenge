@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.kangraoo.basektlib.widget.toolsbar.LibToolBar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?attr/actionBarSize"
+    android:background="@color/color_2196F3"
+    android:id="@+id/toolbar"
+    app:contentInsetLeft="0dp"
+    app:layout_collapseMode="pin"
+    android:elevation="3dp"
+    app:contentInsetStart="0dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout
+
+            android:id="@id/lib_toolbar_left_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:layout_gravity="start|center_vertical"
+            android:orientation="horizontal">
+
+            <include layout="@layout/lib_include_titlebar_left"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@id/lib_toolbar_title"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:singleLine="true"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"/>
+
+        <LinearLayout
+            android:id="@id/lib_toolbar_right_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_gravity="end|center_vertical"
+            android:orientation="horizontal">
+
+            <include layout="@layout/lib_include_titlebar_right"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+
+</com.kangraoo.basektlib.widget.toolsbar.LibToolBar>

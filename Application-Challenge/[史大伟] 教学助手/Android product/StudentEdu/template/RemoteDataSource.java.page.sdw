@@ -1,0 +1,28 @@
+package {{packagename}}.data.source.remote
+
+import com.kangraoo.basektlib.data.DataResult
+import com.kangraoo.basektlib.data.model.toNetMap
+import com.kangraoo.basektlib.data.source.remote.BaseRemoteDataSource
+import com.qdedu.baselibcommon.data.AppHuanJingFactory
+import com.kangraoo.basektlib.exception.LibNetWorkException
+import {{packagename}}.data.source.AppService
+import {{packagename}}.data.source.{{dataSource}}
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import {{packagename}}.data.model.params.*
+import {{packagename}}.data.model.responses.*
+import com.qdedu.baselibcommon.data.model.responses.BasicApiResult
+import com.qdedu.baselibcommon.data.netSuccess
+import com.kangraoo.basektlib.data.netError
+
+/**
+ * 自动生成：by WaTaNaBe on {{now}}.
+ * {{remoteDataSource}}
+ */
+ class {{remoteDataSource}} internal constructor(
+    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
+ ) : BaseRemoteDataSource(), {{dataSource}} {
+
+ //#06#
+ }

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kangaroo.studentedu.ui.activity.PiGaiHomeWorkDetailActivity">
+
+    <include
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        layout="@layout/lib_include_titlebar"
+        />
+
+    <androidx.core.widget.NestedScrollView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include
+                android:id="@+id/include"
+                layout="@layout/item_pi_gai_home_work"/>
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_margin="10dp"
+                android:textSize="17dp"
+                android:layout_width="match_parent"
+                android:padding="5dp"
+                android:id="@+id/pigaicontent"
+                android:hint="请输入批改内容"
+                android:layout_height="100dp"
+                android:gravity="top"
+                app:lib_corners_radius="4dp"
+                app:lib_solid_color="@color/transparent"
+                app:lib_stroke_color="#E3B666"
+                app:lib_stroke_dash_gap="5dp"
+                app:lib_stroke_dash_width="10dp"
+                app:lib_stroke_width="2dp"
+                />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="请选择图片："
+                android:padding="5dp"
+                />
+            <ImageView
+                android:textSize="17dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:padding="5dp"
+                android:id="@+id/pigaiimg"
+                android:src="@mipmap/public_homework_image_select_photo"
+                android:layout_margin="10dp"
+                android:background="@color/gray"
+                />
+
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+    <Button
+
+        android:layout_marginTop="50dp"
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="批改"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="17dp"
+        app:lib_corners_radius="3dp"
+        app:lib_pressed_drawable="#9DD1F6"
+        app:lib_shape="rectangle"
+        app:lib_stroke_width="1dp"
+        app:lib_unenabled_drawable="#9DD1F6"
+        app:lib_unpressed_drawable="#1B82D1"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

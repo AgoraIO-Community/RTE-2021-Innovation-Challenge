@@ -1,0 +1,13 @@
+apply plugin: 'com.aliyun.emas.networkmonitor'
+
+project.dependencies{
+    //线上测试
+    implementation rootProject.ext.dependencies.alicloud.alicloud_android_ha_adapter
+    implementation rootProject.ext.dependencies.alicloud.alicloud_android_apm
+    implementation (rootProject.ext.dependencies.alicloud.alicloud_android_tlog){
+        transitive=true
+    }
+    implementation (rootProject.ext.dependencies.alicloud.alicloud_android_ha_crashreporter){
+        transitive=true
+    }
+}

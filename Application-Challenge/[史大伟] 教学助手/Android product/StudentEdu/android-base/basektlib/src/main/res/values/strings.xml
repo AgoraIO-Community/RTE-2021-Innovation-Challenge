@@ -1,0 +1,599 @@
+<resources>
+    <string name="lib_name" translatable="false">AndroidLib</string>
+
+    <string name="libDebugModeIntroduce">
+        \t\t调试模式:在开发阶段,为了调试及测试方便,
+        提供测试阶段的环境切换,此页面发布后的线上环境不显示。\n
+    </string>
+
+    <string name="libQuit">app 退出</string>
+    <string name="libActivityFrom">来自：</string>
+    <string name="libActivityOutStack"> 出栈</string>
+    <string name="libActivityInStack"> 入栈</string>
+    <string name="libFragmentShow"> 展示</string>
+    <string name="libFragmentClose"> 关闭</string>
+    <string name="libLodingFontIcon">加载字体图标</string>
+    <string name="libCloseThreadPool">关闭线程池</string>
+    <string name="libWebSend">网页请求：</string>
+    <string name="libWebSendSuccess">网页请求成功：</string>
+    <string name="libWebSendFail">网页请求失败：</string>
+    <string name="libWebSendOver">网页加载完成</string>
+    <string name="libLoding">加载中…</string>
+    <string name="libEmptyAllCountNotEmpty">总条数不能为空</string>
+    <string name="libEmptyNowCountNotEmpty">当前页总条数不能为空</string>
+    <string name="libEmptyDataNotEmpty">数据不能为空</string>
+    <string name="libDebugConsole">控制台</string>
+    <string name="libDebugConfigFinish">配置完成</string>
+    <string name="libIsNotEmpty">不能为空</string>
+    <string name="libCrashLogInPhone">奔溃日志已经记录在手机中</string>
+    <string name="libFloatWindowPermission">需要在应用设置中开启悬浮窗权限，是否前往开启权限？</string>
+    <string name="libYes">是</string>
+    <string name="libNo">否</string>
+    <string name="libFloatWindowNotJumpPermission">无法跳转至权限设置页面，请手动设置或向我反馈</string>
+    <string name="libNetSend">发送请求</string>
+    <string name="libNetGet">接收响应：</string>
+    <string name="libNetGetTime">请求时长：</string>
+    <string name="libNetBackData">返回数据：</string>
+    <string name="libRefresh">刷新</string>
+    <string name="libNotData">暂无数据</string>
+    <string name="libTipTitle">提示标题</string>
+    <string name="libTip">提示</string>
+    <string name="libTipMsg">提示内容！</string>
+    <string name="libCancle">取消</string>
+    <string name="libSure">确定</string>
+    <string name="libRefreshing">刷新中…</string>
+    <string name="libRefreshDown">下拉刷新</string>
+    <string name="libRefreshUp">上拉加载</string>
+    <string name="libRefreshContent">松开刷新内容</string>
+    <string name="libFinish">完成</string>
+    <string name="libLodingMore">松开加载更多</string>
+    <string name="libLodingFight">努力加载中…</string>
+    <string name="LibLoadingFailed">加载失败，请点我重试</string>
+    <string name="LibLoadingNoMoreData">没有更多数据</string>
+
+    <string name="libLodingFinish">加载完成</string>
+    <string name="libSFontCheck">字体图标为空,该控件不能正常运行</string>
+    <string name="libNetCheck">当前网络不可用，请检查网络设置</string>
+    <string name="libNetFailCheck">网络请求失败,请检查</string>
+    <string name="libNetNotNetCheck">无网络,请检查</string>
+    <string name="libNetUnknownHostCheck">无法找到服务器</string>
+    <string name="libNetTimeOutCheck">网络请求超时,请检查</string>
+    <string name="libNetErrorCheck">网络错误</string>
+    <string name="libNetSuccessCheck">网络请求成功</string>
+    <string name="libNetJsonErrorCheck">json解析错误</string>
+    <string name="libSslErrorCheck">证书错误</string>
+    <string name="libSocketCloseCheck">链接关闭</string>
+    <string name="libPermissionsReadSdcard">读取存储卡内容</string>
+    <string name="libPermissionsWriteSdcard">写入文件到存储卡</string>
+    <string name="libPermissionsCamera">照相功能</string>
+    <string name="libEmptyPageNetError"> Oops，遇到问题了，刷新试试</string>
+    <string name="libEmptyPageNoData">暂时没有任何数据，去别处看看吧</string>
+    <string name="libEmptyPageCheckCode">页面异常，检查代码</string>
+    <string name="libBackNotJson">返回非json</string>
+    <string name="libEncryptionError">app解密异常,数据重置</string>
+
+    <string name="libDownloadFailCheck">文件下载失败</string>
+    <string name="libDownloadLoding">下载中</string>
+
+    <string name="libDownloadisLoding">当前下载任务正在执行</string>
+
+
+    <string name="libStoragePermisssionCheck">请检查存储权限</string>
+    <string name="libStorageHasWriteCheck">SD卡不可写入</string>
+    <string name="libStorageNoEnoughSpaceCheck">存储空间不足</string>
+
+    <string name="libExitErrorMessage">很抱歉,程序发生异常,即将退出</string>
+
+    <string name="libSaveErrorMessage">数据存储失败</string>
+    <string name="libGetErrorMessage">获取数据失败</string>
+    <string name="libPleaseEnterAppSafeCode">请输入appSafeCode</string>
+
+
+    <string name="libRecordingNotInitialized">录音尚未初始化</string>
+    <string name="libRecording">正在录音</string>
+    <string name="libPleaseCheckRecordPermissions">请检查录音权限</string>
+    <string name="libRecordingNotStarted">录音尚未开始</string>
+    <string name="libRecordingStopped">录音已经停止</string>
+    <string name="libNotRecorded">没有在录音</string>
+
+
+    <string name="libUninitializedPlaybackTool">未初始化播放工具</string>
+    <string name="libMusicPlaying">音乐正在播放</string>
+    <string name="libMediaStreamLoading">媒体流加载中</string>
+    <string name="libMediaStreamLoadingFailure">媒体流装载失败</string>
+    <string name="libNoMusicPlayed">未播放音乐</string>
+
+    <!--字体图标 start-->
+    <string name="lib_icon_home" translatable="false">&#xe900;</string>
+    <string name="lib_icon_home2" translatable="false">&#xe901;</string>
+    <string name="lib_icon_home3" translatable="false">&#xe902;</string>
+    <string name="lib_icon_office" translatable="false">&#xe903;</string>
+    <string name="lib_icon_newspaper" translatable="false">&#xe904;</string>
+    <string name="lib_icon_pencil" translatable="false">&#xe905;</string>
+    <string name="lib_icon_pencil2" translatable="false">&#xe906;</string>
+    <string name="lib_icon_quill" translatable="false">&#xe907;</string>
+    <string name="lib_icon_pen" translatable="false">&#xe908;</string>
+    <string name="lib_icon_blog" translatable="false">&#xe909;</string>
+    <string name="lib_icon_eyedropper" translatable="false">&#xe90a;</string>
+    <string name="lib_icon_droplet" translatable="false">&#xe90b;</string>
+    <string name="lib_icon_paint_format" translatable="false">&#xe90c;</string>
+    <string name="lib_icon_image" translatable="false">&#xe90d;</string>
+    <string name="lib_icon_images" translatable="false">&#xe90e;</string>
+    <string name="lib_icon_camera" translatable="false">&#xe90f;</string>
+    <string name="lib_icon_headphones" translatable="false">&#xe910;</string>
+    <string name="lib_icon_music" translatable="false">&#xe911;</string>
+    <string name="lib_icon_play" translatable="false">&#xe912;</string>
+    <string name="lib_icon_film" translatable="false">&#xe913;</string>
+    <string name="lib_icon_video_camera" translatable="false">&#xe914;</string>
+    <string name="lib_icon_dice" translatable="false">&#xe915;</string>
+    <string name="lib_icon_pacman" translatable="false">&#xe916;</string>
+    <string name="lib_icon_spades" translatable="false">&#xe917;</string>
+    <string name="lib_icon_clubs" translatable="false">&#xe918;</string>
+    <string name="lib_icon_diamonds" translatable="false">&#xe919;</string>
+    <string name="lib_icon_bullhorn" translatable="false">&#xe91a;</string>
+    <string name="lib_icon_connection" translatable="false">&#xe91b;</string>
+    <string name="lib_icon_podcast" translatable="false">&#xe91c;</string>
+    <string name="lib_icon_feed" translatable="false">&#xe91d;</string>
+    <string name="lib_icon_mic" translatable="false">&#xe91e;</string>
+    <string name="lib_icon_book" translatable="false">&#xe91f;</string>
+    <string name="lib_icon_books" translatable="false">&#xe920;</string>
+    <string name="lib_icon_library" translatable="false">&#xe921;</string>
+    <string name="lib_icon_file_text" translatable="false">&#xe922;</string>
+    <string name="lib_icon_profile" translatable="false">&#xe923;</string>
+    <string name="lib_icon_file_empty" translatable="false">&#xe924;</string>
+    <string name="lib_icon_files_empty" translatable="false">&#xe925;</string>
+    <string name="lib_icon_file_text2" translatable="false">&#xe926;</string>
+    <string name="lib_icon_file_picture" translatable="false">&#xe927;</string>
+    <string name="lib_icon_file_music" translatable="false">&#xe928;</string>
+    <string name="lib_icon_file_play" translatable="false">&#xe929;</string>
+    <string name="lib_icon_file_video" translatable="false">&#xe92a;</string>
+    <string name="lib_icon_file_zip" translatable="false">&#xe92b;</string>
+    <string name="lib_icon_copy" translatable="false">&#xe92c;</string>
+    <string name="lib_icon_paste" translatable="false">&#xe92d;</string>
+    <string name="lib_icon_stack" translatable="false">&#xe92e;</string>
+    <string name="lib_icon_folder" translatable="false">&#xe92f;</string>
+    <string name="lib_icon_folder_open" translatable="false">&#xe930;</string>
+    <string name="lib_icon_folder_plus" translatable="false">&#xe931;</string>
+    <string name="lib_icon_folder_minus" translatable="false">&#xe932;</string>
+    <string name="lib_icon_folder_download" translatable="false">&#xe933;</string>
+    <string name="lib_icon_folder_upload" translatable="false">&#xe934;</string>
+    <string name="lib_icon_price_tag" translatable="false">&#xe935;</string>
+    <string name="lib_icon_price_tags" translatable="false">&#xe936;</string>
+    <string name="lib_icon_barcode" translatable="false">&#xe937;</string>
+    <string name="lib_icon_qrcode" translatable="false">&#xe938;</string>
+    <string name="lib_icon_ticket" translatable="false">&#xe939;</string>
+    <string name="lib_icon_cart" translatable="false">&#xe93a;</string>
+    <string name="lib_icon_coin_dollar" translatable="false">&#xe93b;</string>
+    <string name="lib_icon_coin_euro" translatable="false">&#xe93c;</string>
+    <string name="lib_icon_coin_pound" translatable="false">&#xe93d;</string>
+    <string name="lib_icon_coin_yen" translatable="false">&#xe93e;</string>
+    <string name="lib_icon_credit_card" translatable="false">&#xe93f;</string>
+    <string name="lib_icon_calculator" translatable="false">&#xe940;</string>
+    <string name="lib_icon_lifebuoy" translatable="false">&#xe941;</string>
+    <string name="lib_icon_phone" translatable="false">&#xe942;</string>
+    <string name="lib_icon_phone_hang_up" translatable="false">&#xe943;</string>
+    <string name="lib_icon_address_book" translatable="false">&#xe944;</string>
+    <string name="lib_icon_envelop" translatable="false">&#xe945;</string>
+    <string name="lib_icon_pushpin" translatable="false">&#xe946;</string>
+    <string name="lib_icon_location" translatable="false">&#xe947;</string>
+    <string name="lib_icon_location2" translatable="false">&#xe948;</string>
+    <string name="lib_icon_compass" translatable="false">&#xe949;</string>
+    <string name="lib_icon_compass2" translatable="false">&#xe94a;</string>
+    <string name="lib_icon_map" translatable="false">&#xe94b;</string>
+    <string name="lib_icon_map2" translatable="false">&#xe94c;</string>
+    <string name="lib_icon_history" translatable="false">&#xe94d;</string>
+    <string name="lib_icon_clock" translatable="false">&#xe94e;</string>
+    <string name="lib_icon_clock2" translatable="false">&#xe94f;</string>
+    <string name="lib_icon_alarm" translatable="false">&#xe950;</string>
+    <string name="lib_icon_bell" translatable="false">&#xe951;</string>
+    <string name="lib_icon_stopwatch" translatable="false">&#xe952;</string>
+    <string name="lib_icon_calendar" translatable="false">&#xe953;</string>
+    <string name="lib_icon_printer" translatable="false">&#xe954;</string>
+    <string name="lib_icon_keyboard" translatable="false">&#xe955;</string>
+    <string name="lib_icon_display" translatable="false">&#xe956;</string>
+    <string name="lib_icon_laptop" translatable="false">&#xe957;</string>
+    <string name="lib_icon_mobile" translatable="false">&#xe958;</string>
+    <string name="lib_icon_mobile2" translatable="false">&#xe959;</string>
+    <string name="lib_icon_tablet" translatable="false">&#xe95a;</string>
+    <string name="lib_icon_tv" translatable="false">&#xe95b;</string>
+    <string name="lib_icon_drawer" translatable="false">&#xe95c;</string>
+    <string name="lib_icon_drawer2" translatable="false">&#xe95d;</string>
+    <string name="lib_icon_box_add" translatable="false">&#xe95e;</string>
+    <string name="lib_icon_box_remove" translatable="false">&#xe95f;</string>
+    <string name="lib_icon_download" translatable="false">&#xe960;</string>
+    <string name="lib_icon_upload" translatable="false">&#xe961;</string>
+    <string name="lib_icon_floppy_disk" translatable="false">&#xe962;</string>
+    <string name="lib_icon_drive" translatable="false">&#xe963;</string>
+    <string name="lib_icon_database" translatable="false">&#xe964;</string>
+    <string name="lib_icon_undo" translatable="false">&#xe965;</string>
+    <string name="lib_icon_redo" translatable="false">&#xe966;</string>
+    <string name="lib_icon_undo2" translatable="false">&#xe967;</string>
+    <string name="lib_icon_redo2" translatable="false">&#xe968;</string>
+    <string name="lib_icon_forward" translatable="false">&#xe969;</string>
+    <string name="lib_icon_reply" translatable="false">&#xe96a;</string>
+    <string name="lib_icon_bubble" translatable="false">&#xe96b;</string>
+    <string name="lib_icon_bubbles" translatable="false">&#xe96c;</string>
+    <string name="lib_icon_bubbles2" translatable="false">&#xe96d;</string>
+    <string name="lib_icon_bubble2" translatable="false">&#xe96e;</string>
+    <string name="lib_icon_bubbles3" translatable="false">&#xe96f;</string>
+    <string name="lib_icon_bubbles4" translatable="false">&#xe970;</string>
+    <string name="lib_icon_user" translatable="false">&#xe971;</string>
+    <string name="lib_icon_users" translatable="false">&#xe972;</string>
+    <string name="lib_icon_user_plus" translatable="false">&#xe973;</string>
+    <string name="lib_icon_user_minus" translatable="false">&#xe974;</string>
+    <string name="lib_icon_user_check" translatable="false">&#xe975;</string>
+    <string name="lib_icon_user_tie" translatable="false">&#xe976;</string>
+    <string name="lib_icon_quotes_left" translatable="false">&#xe977;</string>
+    <string name="lib_icon_quotes_right" translatable="false">&#xe978;</string>
+    <string name="lib_icon_hour_glass" translatable="false">&#xe979;</string>
+    <string name="lib_icon_spinner" translatable="false">&#xe97a;</string>
+    <string name="lib_icon_spinner2" translatable="false">&#xe97b;</string>
+    <string name="lib_icon_spinner3" translatable="false">&#xe97c;</string>
+    <string name="lib_icon_spinner4" translatable="false">&#xe97d;</string>
+    <string name="lib_icon_spinner5" translatable="false">&#xe97e;</string>
+    <string name="lib_icon_spinner6" translatable="false">&#xe97f;</string>
+    <string name="lib_icon_spinner7" translatable="false">&#xe980;</string>
+    <string name="lib_icon_spinner8" translatable="false">&#xe981;</string>
+    <string name="lib_icon_spinner9" translatable="false">&#xe982;</string>
+    <string name="lib_icon_spinner10" translatable="false">&#xe983;</string>
+    <string name="lib_icon_spinner11" translatable="false">&#xe984;</string>
+    <string name="lib_icon_binoculars" translatable="false">&#xe985;</string>
+    <string name="lib_icon_search" translatable="false">&#xe986;</string>
+    <string name="lib_icon_zoom_in" translatable="false">&#xe987;</string>
+    <string name="lib_icon_zoom_out" translatable="false">&#xe988;</string>
+    <string name="lib_icon_enlarge" translatable="false">&#xe989;</string>
+    <string name="lib_icon_shrink" translatable="false">&#xe98a;</string>
+    <string name="lib_icon_enlarge2" translatable="false">&#xe98b;</string>
+    <string name="lib_icon_shrink2" translatable="false">&#xe98c;</string>
+    <string name="lib_icon_key" translatable="false">&#xe98d;</string>
+    <string name="lib_icon_key2" translatable="false">&#xe98e;</string>
+    <string name="lib_icon_lock" translatable="false">&#xe98f;</string>
+    <string name="lib_icon_unlocked" translatable="false">&#xe990;</string>
+    <string name="lib_icon_wrench" translatable="false">&#xe991;</string>
+    <string name="lib_icon_equalizer" translatable="false">&#xe992;</string>
+    <string name="lib_icon_equalizer2" translatable="false">&#xe993;</string>
+    <string name="lib_icon_cog" translatable="false">&#xe994;</string>
+    <string name="lib_icon_cogs" translatable="false">&#xe995;</string>
+    <string name="lib_icon_hammer" translatable="false">&#xe996;</string>
+    <string name="lib_icon_magic_wand" translatable="false">&#xe997;</string>
+    <string name="lib_icon_aid_kit" translatable="false">&#xe998;</string>
+    <string name="lib_icon_bug" translatable="false">&#xe999;</string>
+    <string name="lib_icon_pie_chart" translatable="false">&#xe99a;</string>
+    <string name="lib_icon_stats_dots" translatable="false">&#xe99b;</string>
+    <string name="lib_icon_stats_bars" translatable="false">&#xe99c;</string>
+    <string name="lib_icon_stats_bars2" translatable="false">&#xe99d;</string>
+    <string name="lib_icon_trophy" translatable="false">&#xe99e;</string>
+    <string name="lib_icon_gift" translatable="false">&#xe99f;</string>
+    <string name="lib_icon_glass" translatable="false">&#xe9a0;</string>
+    <string name="lib_icon_glass2" translatable="false">&#xe9a1;</string>
+    <string name="lib_icon_mug" translatable="false">&#xe9a2;</string>
+    <string name="lib_icon_spoon_knife" translatable="false">&#xe9a3;</string>
+    <string name="lib_icon_leaf" translatable="false">&#xe9a4;</string>
+    <string name="lib_icon_rocket" translatable="false">&#xe9a5;</string>
+    <string name="lib_icon_meter" translatable="false">&#xe9a6;</string>
+    <string name="lib_icon_meter2" translatable="false">&#xe9a7;</string>
+    <string name="lib_icon_hammer2" translatable="false">&#xe9a8;</string>
+    <string name="lib_icon_fire" translatable="false">&#xe9a9;</string>
+    <string name="lib_icon_lab" translatable="false">&#xe9aa;</string>
+    <string name="lib_icon_magnet" translatable="false">&#xe9ab;</string>
+    <string name="lib_icon_bin" translatable="false">&#xe9ac;</string>
+    <string name="lib_icon_bin2" translatable="false">&#xe9ad;</string>
+    <string name="lib_icon_briefcase" translatable="false">&#xe9ae;</string>
+    <string name="lib_icon_airplane" translatable="false">&#xe9af;</string>
+    <string name="lib_icon_truck" translatable="false">&#xe9b0;</string>
+    <string name="lib_icon_road" translatable="false">&#xe9b1;</string>
+    <string name="lib_icon_accessibility" translatable="false">&#xe9b2;</string>
+    <string name="lib_icon_target" translatable="false">&#xe9b3;</string>
+    <string name="lib_icon_shield" translatable="false">&#xe9b4;</string>
+    <string name="lib_icon_power" translatable="false">&#xe9b5;</string>
+    <string name="lib_icon_switchs" translatable="false">&#xe9b6;</string>
+    <string name="lib_icon_power_cord" translatable="false">&#xe9b7;</string>
+    <string name="lib_icon_clipboard" translatable="false">&#xe9b8;</string>
+    <string name="lib_icon_list_numbered" translatable="false">&#xe9b9;</string>
+    <string name="lib_icon_list" translatable="false">&#xe9ba;</string>
+    <string name="lib_icon_list2" translatable="false">&#xe9bb;</string>
+    <string name="lib_icon_tree" translatable="false">&#xe9bc;</string>
+    <string name="lib_icon_menu" translatable="false">&#xe9bd;</string>
+    <string name="lib_icon_menu2" translatable="false">&#xe9be;</string>
+    <string name="lib_icon_menu3" translatable="false">&#xe9bf;</string>
+    <string name="lib_icon_menu4" translatable="false">&#xe9c0;</string>
+    <string name="lib_icon_cloud" translatable="false">&#xe9c1;</string>
+    <string name="lib_icon_cloud_download" translatable="false">&#xe9c2;</string>
+    <string name="lib_icon_cloud_upload" translatable="false">&#xe9c3;</string>
+    <string name="lib_icon_cloud_check" translatable="false">&#xe9c4;</string>
+    <string name="lib_icon_download2" translatable="false">&#xe9c5;</string>
+    <string name="lib_icon_upload2" translatable="false">&#xe9c6;</string>
+    <string name="lib_icon_download3" translatable="false">&#xe9c7;</string>
+    <string name="lib_icon_upload3" translatable="false">&#xe9c8;</string>
+    <string name="lib_icon_sphere" translatable="false">&#xe9c9;</string>
+    <string name="lib_icon_earth" translatable="false">&#xe9ca;</string>
+    <string name="lib_icon_link" translatable="false">&#xe9cb;</string>
+    <string name="lib_icon_flag" translatable="false">&#xe9cc;</string>
+    <string name="lib_icon_attachment" translatable="false">&#xe9cd;</string>
+    <string name="lib_icon_eye" translatable="false">&#xe9ce;</string>
+    <string name="lib_icon_eye_plus" translatable="false">&#xe9cf;</string>
+    <string name="lib_icon_eye_minus" translatable="false">&#xe9d0;</string>
+    <string name="lib_icon_eye_blocked" translatable="false">&#xe9d1;</string>
+    <string name="lib_icon_bookmark" translatable="false">&#xe9d2;</string>
+    <string name="lib_icon_bookmarks" translatable="false">&#xe9d3;</string>
+    <string name="lib_icon_sun" translatable="false">&#xe9d4;</string>
+    <string name="lib_icon_contrast" translatable="false">&#xe9d5;</string>
+    <string name="lib_icon_brightness_contrast" translatable="false">&#xe9d6;</string>
+    <string name="lib_icon_star_empty" translatable="false">&#xe9d7;</string>
+    <string name="lib_icon_star_half" translatable="false">&#xe9d8;</string>
+    <string name="lib_icon_star_full" translatable="false">&#xe9d9;</string>
+    <string name="lib_icon_heart" translatable="false">&#xe9da;</string>
+    <string name="lib_icon_heart_broken" translatable="false">&#xe9db;</string>
+    <string name="lib_icon_man" translatable="false">&#xe9dc;</string>
+    <string name="lib_icon_woman" translatable="false">&#xe9dd;</string>
+    <string name="lib_icon_man_woman" translatable="false">&#xe9de;</string>
+    <string name="lib_icon_happy" translatable="false">&#xe9df;</string>
+    <string name="lib_icon_happy2" translatable="false">&#xe9e0;</string>
+    <string name="lib_icon_smile" translatable="false">&#xe9e1;</string>
+    <string name="lib_icon_smile2" translatable="false">&#xe9e2;</string>
+    <string name="lib_icon_tongue" translatable="false">&#xe9e3;</string>
+    <string name="lib_icon_tongue2" translatable="false">&#xe9e4;</string>
+    <string name="lib_icon_sad" translatable="false">&#xe9e5;</string>
+    <string name="lib_icon_sad2" translatable="false">&#xe9e6;</string>
+    <string name="lib_icon_wink" translatable="false">&#xe9e7;</string>
+    <string name="lib_icon_wink2" translatable="false">&#xe9e8;</string>
+    <string name="lib_icon_grin" translatable="false">&#xe9e9;</string>
+    <string name="lib_icon_grin2" translatable="false">&#xe9ea;</string>
+    <string name="lib_icon_cool" translatable="false">&#xe9eb;</string>
+    <string name="lib_icon_cool2" translatable="false">&#xe9ec;</string>
+    <string name="lib_icon_angry" translatable="false">&#xe9ed;</string>
+    <string name="lib_icon_angry2" translatable="false">&#xe9ee;</string>
+    <string name="lib_icon_evil" translatable="false">&#xe9ef;</string>
+    <string name="lib_icon_evil2" translatable="false">&#xe9f0;</string>
+    <string name="lib_icon_shocked" translatable="false">&#xe9f1;</string>
+    <string name="lib_icon_shocked2" translatable="false">&#xe9f2;</string>
+    <string name="lib_icon_baffled" translatable="false">&#xe9f3;</string>
+    <string name="lib_icon_baffled2" translatable="false">&#xe9f4;</string>
+    <string name="lib_icon_confused" translatable="false">&#xe9f5;</string>
+    <string name="lib_icon_confused2" translatable="false">&#xe9f6;</string>
+    <string name="lib_icon_neutral" translatable="false">&#xe9f7;</string>
+    <string name="lib_icon_neutral2" translatable="false">&#xe9f8;</string>
+    <string name="lib_icon_hipster" translatable="false">&#xe9f9;</string>
+    <string name="lib_icon_hipster2" translatable="false">&#xe9fa;</string>
+    <string name="lib_icon_wondering" translatable="false">&#xe9fb;</string>
+    <string name="lib_icon_wondering2" translatable="false">&#xe9fc;</string>
+    <string name="lib_icon_sleepy" translatable="false">&#xe9fd;</string>
+    <string name="lib_icon_sleepy2" translatable="false">&#xe9fe;</string>
+    <string name="lib_icon_frustrated" translatable="false">&#xe9ff;</string>
+    <string name="lib_icon_frustrated2" translatable="false">&#xea00;</string>
+    <string name="lib_icon_crying" translatable="false">&#xea01;</string>
+    <string name="lib_icon_crying2" translatable="false">&#xea02;</string>
+    <string name="lib_icon_point_up" translatable="false">&#xea03;</string>
+    <string name="lib_icon_point_right" translatable="false">&#xea04;</string>
+    <string name="lib_icon_point_down" translatable="false">&#xea05;</string>
+    <string name="lib_icon_point_left" translatable="false">&#xea06;</string>
+    <string name="lib_icon_warning" translatable="false">&#xea07;</string>
+    <string name="lib_icon_notification" translatable="false">&#xea08;</string>
+    <string name="lib_icon_question" translatable="false">&#xea09;</string>
+    <string name="lib_icon_plus" translatable="false">&#xea0a;</string>
+    <string name="lib_icon_minus" translatable="false">&#xea0b;</string>
+    <string name="lib_icon_info" translatable="false">&#xea0c;</string>
+    <string name="lib_icon_cancel_circle" translatable="false">&#xea0d;</string>
+    <string name="lib_icon_blocked" translatable="false">&#xea0e;</string>
+    <string name="lib_icon_cross" translatable="false">&#xea0f;</string>
+    <string name="lib_icon_checkmark" translatable="false">&#xea10;</string>
+    <string name="lib_icon_checkmark2" translatable="false">&#xea11;</string>
+    <string name="lib_icon_spell_check" translatable="false">&#xea12;</string>
+    <string name="lib_icon_enter" translatable="false">&#xea13;</string>
+    <string name="lib_icon_exit" translatable="false">&#xea14;</string>
+    <string name="lib_icon_play2" translatable="false">&#xea15;</string>
+    <string name="lib_icon_pause" translatable="false">&#xea16;</string>
+    <string name="lib_icon_stop" translatable="false">&#xea17;</string>
+    <string name="lib_icon_previous" translatable="false">&#xea18;</string>
+    <string name="lib_icon_next" translatable="false">&#xea19;</string>
+    <string name="lib_icon_backward" translatable="false">&#xea1a;</string>
+    <string name="lib_icon_forward2" translatable="false">&#xea1b;</string>
+    <string name="lib_icon_play3" translatable="false">&#xea1c;</string>
+    <string name="lib_icon_pause2" translatable="false">&#xea1d;</string>
+    <string name="lib_icon_stop2" translatable="false">&#xea1e;</string>
+    <string name="lib_icon_backward2" translatable="false">&#xea1f;</string>
+    <string name="lib_icon_forward3" translatable="false">&#xea20;</string>
+    <string name="lib_icon_first" translatable="false">&#xea21;</string>
+    <string name="lib_icon_last" translatable="false">&#xea22;</string>
+    <string name="lib_icon_previous2" translatable="false">&#xea23;</string>
+    <string name="lib_icon_next2" translatable="false">&#xea24;</string>
+    <string name="lib_icon_eject" translatable="false">&#xea25;</string>
+    <string name="lib_icon_volume_high" translatable="false">&#xea26;</string>
+    <string name="lib_icon_volume_medium" translatable="false">&#xea27;</string>
+    <string name="lib_icon_volume_low" translatable="false">&#xea28;</string>
+    <string name="lib_icon_volume_mute" translatable="false">&#xea29;</string>
+    <string name="lib_icon_volume_mute2" translatable="false">&#xea2a;</string>
+    <string name="lib_icon_volume_increase" translatable="false">&#xea2b;</string>
+    <string name="lib_icon_volume_decrease" translatable="false">&#xea2c;</string>
+    <string name="lib_icon_loop" translatable="false">&#xea2d;</string>
+    <string name="lib_icon_loop2" translatable="false">&#xea2e;</string>
+    <string name="lib_icon_infinite" translatable="false">&#xea2f;</string>
+    <string name="lib_icon_shuffle" translatable="false">&#xea30;</string>
+    <string name="lib_icon_arrow_up_left" translatable="false">&#xea31;</string>
+    <string name="lib_icon_arrow_up" translatable="false">&#xea32;</string>
+    <string name="lib_icon_arrow_up_right" translatable="false">&#xea33;</string>
+    <string name="lib_icon_arrow_right" translatable="false">&#xea34;</string>
+    <string name="lib_icon_arrow_down_right" translatable="false">&#xea35;</string>
+    <string name="lib_icon_arrow_down" translatable="false">&#xea36;</string>
+    <string name="lib_icon_arrow_down_left" translatable="false">&#xea37;</string>
+    <string name="lib_icon_arrow_left" translatable="false">&#xea38;</string>
+    <string name="lib_icon_arrow_up_left2" translatable="false">&#xea39;</string>
+    <string name="lib_icon_arrow_up2" translatable="false">&#xea3a;</string>
+    <string name="lib_icon_arrow_up_right2" translatable="false">&#xea3b;</string>
+    <string name="lib_icon_arrow_right2" translatable="false">&#xea3c;</string>
+    <string name="lib_icon_arrow_down_right2" translatable="false">&#xea3d;</string>
+    <string name="lib_icon_arrow_down2" translatable="false">&#xea3e;</string>
+    <string name="lib_icon_arrow_down_left2" translatable="false">&#xea3f;</string>
+    <string name="lib_icon_arrow_left2" translatable="false">&#xea40;</string>
+    <string name="lib_icon_circle_up" translatable="false">&#xea41;</string>
+    <string name="lib_icon_circle_right" translatable="false">&#xea42;</string>
+    <string name="lib_icon_circle_down" translatable="false">&#xea43;</string>
+    <string name="lib_icon_circle_left" translatable="false">&#xea44;</string>
+    <string name="lib_icon_tab" translatable="false">&#xea45;</string>
+    <string name="lib_icon_move_up" translatable="false">&#xea46;</string>
+    <string name="lib_icon_move_down" translatable="false">&#xea47;</string>
+    <string name="lib_icon_sort_alpha_asc" translatable="false">&#xea48;</string>
+    <string name="lib_icon_sort_alpha_desc" translatable="false">&#xea49;</string>
+    <string name="lib_icon_sort_numeric_asc" translatable="false">&#xea4a;</string>
+    <string name="lib_icon_sort_numberic_desc" translatable="false">&#xea4b;</string>
+    <string name="lib_icon_sort_amount_asc" translatable="false">&#xea4c;</string>
+    <string name="lib_icon_sort_amount_desc" translatable="false">&#xea4d;</string>
+    <string name="lib_icon_command" translatable="false">&#xea4e;</string>
+    <string name="lib_icon_shift" translatable="false">&#xea4f;</string>
+    <string name="lib_icon_ctrl" translatable="false">&#xea50;</string>
+    <string name="lib_icon_opt" translatable="false">&#xea51;</string>
+    <string name="lib_icon_checkbox_checked" translatable="false">&#xea52;</string>
+    <string name="lib_icon_checkbox_unchecked" translatable="false">&#xea53;</string>
+    <string name="lib_icon_radio_checked" translatable="false">&#xea54;</string>
+    <string name="lib_icon_radio_checked2" translatable="false">&#xea55;</string>
+    <string name="lib_icon_radio_unchecked" translatable="false">&#xea56;</string>
+    <string name="lib_icon_crop" translatable="false">&#xea57;</string>
+    <string name="lib_icon_make_group" translatable="false">&#xea58;</string>
+    <string name="lib_icon_ungroup" translatable="false">&#xea59;</string>
+    <string name="lib_icon_scissors" translatable="false">&#xea5a;</string>
+    <string name="lib_icon_filter" translatable="false">&#xea5b;</string>
+    <string name="lib_icon_font" translatable="false">&#xea5c;</string>
+    <string name="lib_icon_ligature" translatable="false">&#xea5d;</string>
+    <string name="lib_icon_ligature2" translatable="false">&#xea5e;</string>
+    <string name="lib_icon_text_height" translatable="false">&#xea5f;</string>
+    <string name="lib_icon_text_width" translatable="false">&#xea60;</string>
+    <string name="lib_icon_font_size" translatable="false">&#xea61;</string>
+    <string name="lib_icon_bold" translatable="false">&#xea62;</string>
+    <string name="lib_icon_underline" translatable="false">&#xea63;</string>
+    <string name="lib_icon_italic" translatable="false">&#xea64;</string>
+    <string name="lib_icon_strikethrough" translatable="false">&#xea65;</string>
+    <string name="lib_icon_omega" translatable="false">&#xea66;</string>
+    <string name="lib_icon_sigma" translatable="false">&#xea67;</string>
+    <string name="lib_icon_page_break" translatable="false">&#xea68;</string>
+    <string name="lib_icon_superscript" translatable="false">&#xea69;</string>
+    <string name="lib_icon_subscript" translatable="false">&#xea6a;</string>
+    <string name="lib_icon_superscript2" translatable="false">&#xea6b;</string>
+    <string name="lib_icon_subscript2" translatable="false">&#xea6c;</string>
+    <string name="lib_icon_text_color" translatable="false">&#xea6d;</string>
+    <string name="lib_icon_pagebreak" translatable="false">&#xea6e;</string>
+    <string name="lib_icon_clear_formatting" translatable="false">&#xea6f;</string>
+    <string name="lib_icon_table" translatable="false">&#xea70;</string>
+    <string name="lib_icon_table2" translatable="false">&#xea71;</string>
+    <string name="lib_icon_insert_template" translatable="false">&#xea72;</string>
+    <string name="lib_icon_pilcrow" translatable="false">&#xea73;</string>
+    <string name="lib_icon_ltr" translatable="false">&#xea74;</string>
+    <string name="lib_icon_rtl" translatable="false">&#xea75;</string>
+    <string name="lib_icon_section" translatable="false">&#xea76;</string>
+    <string name="lib_icon_paragraph_left" translatable="false">&#xea77;</string>
+    <string name="lib_icon_paragraph_center" translatable="false">&#xea78;</string>
+    <string name="lib_icon_paragraph_right" translatable="false">&#xea79;</string>
+    <string name="lib_icon_paragraph_justify" translatable="false">&#xea7a;</string>
+    <string name="lib_icon_indent_increase" translatable="false">&#xea7b;</string>
+    <string name="lib_icon_indent_decrease" translatable="false">&#xea7c;</string>
+    <string name="lib_icon_share" translatable="false">&#xea7d;</string>
+    <string name="lib_icon_new_tab" translatable="false">&#xea7e;</string>
+    <string name="lib_icon_embed" translatable="false">&#xea7f;</string>
+    <string name="lib_icon_embed2" translatable="false">&#xea80;</string>
+    <string name="lib_icon_terminal" translatable="false">&#xea81;</string>
+    <string name="lib_icon_share2" translatable="false">&#xea82;</string>
+    <string name="lib_icon_mail" translatable="false">&#xea83;</string>
+    <string name="lib_icon_mail2" translatable="false">&#xea84;</string>
+    <string name="lib_icon_mail3" translatable="false">&#xea85;</string>
+    <string name="lib_icon_mail4" translatable="false">&#xea86;</string>
+    <string name="lib_icon_amazon" translatable="false">&#xea87;</string>
+    <string name="lib_icon_google" translatable="false">&#xea88;</string>
+    <string name="lib_icon_google2" translatable="false">&#xea89;</string>
+    <string name="lib_icon_google3" translatable="false">&#xea8a;</string>
+    <string name="lib_icon_google_plus" translatable="false">&#xea8b;</string>
+    <string name="lib_icon_google_plus2" translatable="false">&#xea8c;</string>
+    <string name="lib_icon_google_plus3" translatable="false">&#xea8d;</string>
+    <string name="lib_icon_hangouts" translatable="false">&#xea8e;</string>
+    <string name="lib_icon_google_drive" translatable="false">&#xea8f;</string>
+    <string name="lib_icon_facebook" translatable="false">&#xea90;</string>
+    <string name="lib_icon_facebook2" translatable="false">&#xea91;</string>
+    <string name="lib_icon_instagram" translatable="false">&#xea92;</string>
+    <string name="lib_icon_whatsapp" translatable="false">&#xea93;</string>
+    <string name="lib_icon_spotify" translatable="false">&#xea94;</string>
+    <string name="lib_icon_telegram" translatable="false">&#xea95;</string>
+    <string name="lib_icon_twitter" translatable="false">&#xea96;</string>
+    <string name="lib_icon_vine" translatable="false">&#xea97;</string>
+    <string name="lib_icon_vk" translatable="false">&#xea98;</string>
+    <string name="lib_icon_renren" translatable="false">&#xea99;</string>
+    <string name="lib_icon_sina_weibo" translatable="false">&#xea9a;</string>
+    <string name="lib_icon_rss" translatable="false">&#xea9b;</string>
+    <string name="lib_icon_rss2" translatable="false">&#xea9c;</string>
+    <string name="lib_icon_youtube" translatable="false">&#xea9d;</string>
+    <string name="lib_icon_youtube2" translatable="false">&#xea9e;</string>
+    <string name="lib_icon_twitch" translatable="false">&#xea9f;</string>
+    <string name="lib_icon_vimeo" translatable="false">&#xeaa0;</string>
+    <string name="lib_icon_vimeo2" translatable="false">&#xeaa1;</string>
+    <string name="lib_icon_lanyrd" translatable="false">&#xeaa2;</string>
+    <string name="lib_icon_flickr" translatable="false">&#xeaa3;</string>
+    <string name="lib_icon_flickr2" translatable="false">&#xeaa4;</string>
+    <string name="lib_icon_flickr3" translatable="false">&#xeaa5;</string>
+    <string name="lib_icon_flickr4" translatable="false">&#xeaa6;</string>
+    <string name="lib_icon_dribbble" translatable="false">&#xeaa7;</string>
+    <string name="lib_icon_behance" translatable="false">&#xeaa8;</string>
+    <string name="lib_icon_behance2" translatable="false">&#xeaa9;</string>
+    <string name="lib_icon_deviantart" translatable="false">&#xeaaa;</string>
+    <string name="lib_icon_steam" translatable="false">&#xeaac;</string>
+    <string name="lib_icon_steam2" translatable="false">&#xeaad;</string>
+    <string name="lib_icon_dropbox" translatable="false">&#xeaae;</string>
+    <string name="lib_icon_onedrive" translatable="false">&#xeaaf;</string>
+    <string name="lib_icon_github" translatable="false">&#xeab0;</string>
+    <string name="lib_icon_npm" translatable="false">&#xeab1;</string>
+    <string name="lib_icon_basecamp" translatable="false">&#xeab2;</string>
+    <string name="lib_icon_trello" translatable="false">&#xeab3;</string>
+    <string name="lib_icon_wordpress" translatable="false">&#xeab4;</string>
+    <string name="lib_icon_joomla" translatable="false">&#xeab5;</string>
+    <string name="lib_icon_ello" translatable="false">&#xeab6;</string>
+    <string name="lib_icon_blogger" translatable="false">&#xeab7;</string>
+    <string name="lib_icon_blogger2" translatable="false">&#xeab8;</string>
+    <string name="lib_icon_tumblr" translatable="false">&#xeab9;</string>
+    <string name="lib_icon_tumblr2" translatable="false">&#xeaba;</string>
+    <string name="lib_icon_yahoo" translatable="false">&#xeabb;</string>
+    <string name="lib_icon_yahoo2" translatable="false">&#xeabc;</string>
+    <string name="lib_icon_tux" translatable="false">&#xeabd;</string>
+    <string name="lib_icon_appleinc" translatable="false">&#xeabe;</string>
+    <string name="lib_icon_finder" translatable="false">&#xeabf;</string>
+    <string name="lib_icon_android" translatable="false">&#xeac0;</string>
+    <string name="lib_icon_windows" translatable="false">&#xeac1;</string>
+    <string name="lib_icon_windows8" translatable="false">&#xeac2;</string>
+    <string name="lib_icon_soundcloud" translatable="false">&#xeac3;</string>
+    <string name="lib_icon_soundcloud2" translatable="false">&#xeac4;</string>
+    <string name="lib_icon_skype" translatable="false">&#xeac5;</string>
+    <string name="lib_icon_reddit" translatable="false">&#xeac6;</string>
+    <string name="lib_icon_hackernews" translatable="false">&#xeac7;</string>
+    <string name="lib_icon_wikipedia" translatable="false">&#xeac8;</string>
+    <string name="lib_icon_linkedin" translatable="false">&#xeac9;</string>
+    <string name="lib_icon_linkedin2" translatable="false">&#xeaca;</string>
+    <string name="lib_icon_lastfm" translatable="false">&#xeacb;</string>
+    <string name="lib_icon_lastfm2" translatable="false">&#xeacc;</string>
+    <string name="lib_icon_delicious" translatable="false">&#xeacd;</string>
+    <string name="lib_icon_stumbleupon" translatable="false">&#xeace;</string>
+    <string name="lib_icon_stumbleupon2" translatable="false">&#xeacf;</string>
+    <string name="lib_icon_stackoverflow" translatable="false">&#xead0;</string>
+    <string name="lib_icon_pinterest" translatable="false">&#xead1;</string>
+    <string name="lib_icon_pinterest2" translatable="false">&#xead2;</string>
+    <string name="lib_icon_xing" translatable="false">&#xead3;</string>
+    <string name="lib_icon_xing2" translatable="false">&#xead4;</string>
+    <string name="lib_icon_flattr" translatable="false">&#xead5;</string>
+    <string name="lib_icon_foursquare" translatable="false">&#xead6;</string>
+    <string name="lib_icon_yelp" translatable="false">&#xead7;</string>
+    <string name="lib_icon_paypal" translatable="false">&#xead8;</string>
+    <string name="lib_icon_chrome" translatable="false">&#xead9;</string>
+    <string name="lib_icon_firefox" translatable="false">&#xeada;</string>
+    <string name="lib_icon_IE" translatable="false">&#xeadb;</string>
+    <string name="lib_icon_edge" translatable="false">&#xeadc;</string>
+    <string name="lib_icon_safari" translatable="false">&#xeadd;</string>
+    <string name="lib_icon_opera" translatable="false">&#xeade;</string>
+    <string name="lib_icon_file_pdf" translatable="false">&#xeadf;</string>
+    <string name="lib_icon_file_openoffice" translatable="false">&#xeae0;</string>
+    <string name="lib_icon_file_word" translatable="false">&#xeae1;</string>
+    <string name="lib_icon_file_excel" translatable="false">&#xeae2;</string>
+    <string name="lib_icon_libreoffice" translatable="false">&#xeae3;</string>
+    <string name="lib_icon_html_five" translatable="false">&#xeae4;</string>
+    <string name="lib_icon_html_five2" translatable="false">&#xeae5;</string>
+    <string name="lib_icon_css3" translatable="false">&#xeae6;</string>
+    <string name="lib_icon_git" translatable="false">&#xeae7;</string>
+    <string name="lib_icon_codepen" translatable="false">&#xeae8;</string>
+    <string name="lib_icon_svg" translatable="false">&#xeae9;</string>
+    <string name="lib_icon_IcoMoon" translatable="false">&#xeaea;</string>
+    <!--字体图标 end-->
+
+</resources>

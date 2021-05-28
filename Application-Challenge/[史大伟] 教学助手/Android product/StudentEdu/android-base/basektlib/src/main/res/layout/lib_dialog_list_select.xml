@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/lib_dialog_white_solid"
+    >
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:textColor="@color/color_111111"
+        android:paddingTop="14dp"
+        android:paddingLeft="18dp"
+        android:paddingBottom="14dp"
+        android:paddingRight="18dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textSize="@dimen/textSize16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="selectDialog"
+        />
+
+    <include layout="@layout/lib_divider"/>
+
+    <ScrollView
+        android:id="@+id/svView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/llList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tvCancle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="14dp"
+        android:paddingLeft="18dp"
+        android:paddingBottom="14dp"
+        android:paddingRight="18dp"
+        android:text="@string/libCancle"
+        android:textColor="@color/color_111111"
+        android:background="?android:attr/selectableItemBackground"
+        android:textSize="@dimen/textSize16" />
+
+</LinearLayout>

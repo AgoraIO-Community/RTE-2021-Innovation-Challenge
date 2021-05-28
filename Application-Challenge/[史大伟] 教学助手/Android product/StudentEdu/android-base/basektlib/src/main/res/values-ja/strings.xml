@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="libDebugModeIntroduce">
+        \t\tテストモード：開発段階で、テストやテストのために便利なように
+        テスト段階の環境の切り替えを提供します。このページの発表後の線上の環境は表示されません。\n
+    </string>
+
+    <string name="libQuit">app 脱退</string>
+    <string name="libActivityFrom">から：</string>
+    <string name="libActivityOutStack"> 出庫</string>
+    <string name="libActivityInStack"> 入庫</string>
+    <string name="libFragmentShow"> 展示</string>
+    <string name="libFragmentClose">クローズ</string>
+    <string name="libLodingFontIcon">フォントをロードしました。</string>
+    <string name="libCloseThreadPool">線程池を閉める</string>
+    <string name="libWebSend">ウェブサイト要求：</string>
+    <string name="libWebSendSuccess">Webリクエストが成功しました：</string>
+    <string name="libWebSendFail">ホームページ要求失敗：</string>
+    <string name="libWebSendOver">ページローディング完了</string>
+
+    <string name="libLoding">ロード中…</string>
+    <string name="libEmptyAllCountNotEmpty">総枚数は空けてはならない</string>
+    <string name="libEmptyNowCountNotEmpty">現在のページの合計数は空になることはできません。</string>
+    <string name="libEmptyDataNotEmpty">データは空にしてはいけません。</string>
+    <string name="libDebugConsole">コントロール台</string>
+    <string name="libDebugConfigFinish">構成が完了しています。</string>
+    <string name="libIsNotEmpty">空になることができません</string>
+    <string name="libCrashLogInPhone">「ログ」は携帯電話に記録されている</string>
+    <string name="libFloatWindowPermission">アプリケーションの設定には、浮遊窓の権限を開き、権限をオンにする必要がありますか</string>
+    <string name="libYes">はい</string>
+    <string name="libNo">いいえ</string>
+    <string name="libFloatWindowNotJumpPermission">権限の設定ページにジャンプすることができません。</string>
+    <string name="libNetSend">送信依頼 </string>
+    <string name="libNetGet">受信応答：</string>
+    <string name="libNetGetTime">要求時長：</string>
+    <string name="libNetBackData">データに戻る：</string>
+    <string name="libRefresh">更新</string>
+    <string name="libNotData">データがありません</string>
+    <string name="libTipTitle">タイトルをヒント</string>
+    <string name="libTip">ヒント</string>
+    <string name="libTipMsg">内容をヒント！</string>
+    <string name="libCancle">キャンセル</string>
+    <string name="libSure">確定</string>
+    <string name="libRefreshing">更新中…</string>
+    <string name="libRefreshDown">下ラ更新</string>
+    <string name="libRefreshUp">上で引っ張る</string>
+    <string name="libRefreshContent">松がより更新内容</string>
+    <string name="libFinish">完成</string>
+    <string name="libLodingMore">松がより多くロードされている</string>
+    <string name="libLodingFight">にリロードするよう努力しています。</string>
+    <string name="libLodingFinish">ロード完了</string>
+    <string name="LibLoadingFailed">のロードに失敗しました。もう一度試してみます。</string>
+    <string name="LibLoadingNoMoreData">もっと多くのデータがありません</string>
+
+    <string name="libSFontCheck">フォントのアイコンを空にして、このコントロールは正常に実行できません</string>
+    <string name="libNetCheck">現在のネットワークは利用できないので、ネットワーク設定をチェックしてください。</string>
+    <string name="libNetFailCheck">ネットワークの要求に失敗しました、チェックしてください。</string>
+    <string name="libNetNotNetCheck">ネットがないので、チェックしてください。</string>
+    <string name="libNetUnknownHostCheck">サーバが見つかりませんでした。</string>
+    <string name="libNetTimeOutCheck">ネットワークの要求が超時になっていることを確認してください。</string>
+    <string name="libNetErrorCheck">ネットワークエラー</string>
+    <string name="libNetSuccessCheck">ネットワークの要求に成功した。</string>
+    <string name="libNetJsonErrorCheck">json解析エラー</string>
+    <string name="libSslErrorCheck">証明書エラー</string>
+    <string name="libSocketCloseCheck">リンクオフ</string>
+    <string name="libPermissionsReadSdcard">メモリーカードの内容を読み込む</string>
+    <string name="libPermissionsWriteSdcard"> ファイルをメモリーカードに書き込む</string>
+    <string name="libPermissionsCamera">写真機能</string>
+    <string name="libEmptyPageNetError"> Oops、問題に遭遇し、更新してみた。</string>
+    <string name="libEmptyPageNoData">今は何のデータもなく、他のところへ行ってみましょう。</string>
+    <string name="libEmptyPageCheckCode">ページの異常、チェックコード</string>
+    <string name="libBackNotJson">jsonに戻らない</string>
+    <string name="libEncryptionError">異常、データリセット</string>
+
+    <string name="libDownloadFailCheck">ファイルのダウンロードに失敗</string>
+    <string name="libDownloadLoding">ダウンロード中</string>
+
+    <string name="libDownloadisLoding">現在のダウンロードの任務は実行中です</string>
+
+    <string name="libStoragePermisssionCheck">保存権限を確認してください。</string>
+
+    <string name="libStorageHasWriteCheck">SDカードは書き込み不可</string>
+    <string name="libStorageNoEnoughSpaceCheck">記憶空間が不足しています</string>
+
+    <string name="libExitErrorMessage">すみません、プログラムに異常が発生しました。まもなく終了します。</string>
+
+    <string name="libSaveErrorMessage">データ格納に失敗しました。</string>
+    <string name="libGetErrorMessage">でデータの取得に失敗しました。</string>
+
+    <string name="libPleaseEnterAppSafeCode">appSafeCode入力してください</string>
+
+    <string name="libRecordingNotInitialized">録音はまだ初期化されていません。</string>
+    <string name="libRecording">録音中</string>
+    <string name="libPleaseCheckRecordPermissions">録音権限を確認してください。</string>
+    <string name="libRecordingNotStarted">録音はまだ開始されていません。</string>
+    <string name="libRecordingStopped">録音は終了しました。</string>
+    <string name="libNotRecorded">録音されていません。</string>
+
+    <string name="libUninitializedPlaybackTool">未初期化再生ツール</string>
+    <string name="libMusicPlaying">音楽が流れています</string>
+    <string name="libMediaStreamLoading">メディアストリーム負荷中</string>
+    <string name="libMediaStreamLoadingFailure">メディアストリームのロードに失敗しました。</string>
+    <string name="libNoMusicPlayed">未再生音楽</string>
+
+
+
+</resources>

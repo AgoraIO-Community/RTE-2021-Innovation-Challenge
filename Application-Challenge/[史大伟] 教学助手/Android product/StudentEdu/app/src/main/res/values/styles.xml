@@ -1,0 +1,19 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Lib.AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/lib_color_orange</item>
+        <item name="colorPrimaryDark">@color/lib_color_lightsalmon</item>
+        <item name="colorAccent">@color/lib_color_darkorange</item>
+    </style>
+
+    <style name="test">
+        <item name="lib_corners_radius">20dp</item>
+        <item name="lib_gradient_angle">270</item>
+        <item name="lib_gradient_type">linear</item>
+        <item name="lib_gradient_start_color">@android:color/holo_blue_bright</item>
+        <item name="lib_gradient_end_color">@android:color/holo_blue_dark</item>
+        <item name="lib_ripple_enable">true</item>
+        <item name="lib_ripple_color">@android:color/holo_blue_light</item>
+    </style>
+</resources>

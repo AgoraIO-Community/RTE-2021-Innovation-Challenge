@@ -1,0 +1,114 @@
+<resources>
+
+    <string name="libDebugModeIntroduce">
+        \t\tDebug mode: in the development stage, for debugging and testing convenience,
+Provide environment switch during the test phase. The online environment after this page is not displayed.\n
+    </string>
+
+    <string name="libQuit">app quit</string>
+
+    <string name="libActivityFrom">from:</string>
+    <string name="libActivityOutStack"> out stack</string>
+    <string name="libActivityInStack"> in stack</string>
+    <string name="libFragmentShow">show</string>
+    <string name="libFragmentClose">close</string>
+    <string name="libLodingFontIcon" > loading Font Icon </string>
+    <string name="libCloseThreadPool" > Close thread pool </string>
+    <string name="libWebSend" > Web page request: </string>
+    <string name="libWebSendSuccess">Web page request succeeded: </string>
+    <string name="libWebSendFail">Web page request failed: </string>
+    <string name="libWebSendOver">Page loading completed </string>
+
+    <string name="libLoding" > loading &#8230;</string>
+    <string name="libEmptyAllCountNotEmpty" > the total number of entries can not be empty </string>
+    <string name="libEmptyNowCountNotEmpty" > the total number of current pages can not be empty </string>
+    <string name="libEmptyDataNotEmpty" > data cannot be empty </string>
+    <string name="libDebugConsole" > console </string>
+    <string name="libDebugConfigFinish" > configuration completes </string>
+    <string name="libIsNotEmpty" > cannot be empty </string>.
+    <string name="libCrashLogInPhone" > crashes log has been recorded in mobile phone </string>
+    <string name="libFloatWindowPermission"> You need to open suspended window permissions in the application settings. Are you going to open permissions? </string>
+    <string name="libYes" > yes </string>.
+    <string name="libNo" > no </string>
+    <string name="libFloatWindowNotJumpPermission"> cannot jump to the permission settings page. Please set it manually or feedback to me </string>.
+    <string name="libNetSend" > send request </string>
+    <string name="libNetGet" > receive response:</string>
+    <string name="libNetGetTime">receive Time：</string>
+    <string name="libNetBackData" > Return data: </string>
+    <string name= "libRefresh" > refresh </string>
+    <string name= "libNotData" > no data </string>.
+    <string name= "libTipTitle" > prompt Title </string>
+    <string name= "libTip" > prompt </string>
+    <string name= "libTipMsg" > prompt content! </string>
+    <string name= "libCancle" > Cancel </string>
+    <string name= "libSure" > sure </string>
+    <string name= "libRefreshing" > refresh &#8230; </string>
+    <string name= "libRefreshDown" > drop-down refresh </string>
+    <string name= "libRefreshUp" > pull up load </string>
+    <string name= "libRefreshContent" > loosen and refresh content </string>
+    <string name= "libFinish" > finish </string>
+    <string name= "libLodingMore" > loosening load more </string>
+    <string name= "libLodingFight" > hard loading &#8230;</string>
+    <string name= "libLodingFinish" > loading completes </string>
+    <string name="LibLoadingFailed">Load failure, please click on me to try again </string>
+    <string name="LibLoadingNoMoreData">No more data</string>
+
+    <string name= "libSFontCheck" > font icon is empty, and the control can not run </string>
+    <string name= "libNetCheck" > the current network is not available. Please check the network settings </string>
+    <string name= "libNetFailCheck" > network request failed. Please check </string>.
+    <string name= "libNetNotNetCheck" > no network. Please check </string>.
+    <string name="libNetUnknownHostCheck">Server cannot be found</string>
+
+    <string name= "libNetTimeOutCheck" > network request timeout. Please check </string>.
+    <string name= "libNetErrorCheck" > network error </string>
+    <string name= "libNetSuccessCheck" > network request successfully </string>
+    <string name= "libNetJsonErrorCheck" >json parse error </string>
+    <string name="libSslErrorCheck">ssl Error</string>
+    <string name="libSocketCloseCheck">Socket Close</string>
+    <string name= "libPermissionsReadSdcard" > reads memory card contents </string>
+    <string name= "libPermissionsWriteSdcard" > write files to memory card </string>
+    <string name= "libPermissionsCamera" > camera function </string>
+    <string name= "libEmptyPageNetError" > Oops, encountered problems, refresh try </string>
+    <string name= "libEmptyPageNoData" > there is no data for the time being. Let\'s look elsewhere. </string>
+    <string name= "libEmptyPageCheckCode" > page exceptions, check code </string>
+    <string name="libBackNotJson">Return is not json</string>
+    <string name="libEncryptionError">App Encryption is error,Data reset</string>
+
+    <string name="libDownloadFailCheck">File download failed</string>
+    <string name="libDownloadLoding">download</string>
+    <string name="libDownloadisLoding">The current download task is in progress</string>
+
+    <string name="libStoragePermisssionCheck">Check storage permissions</string>
+    <string name="libStorageHasWriteCheck">SD card is not writable</string>
+    <string name="libStorageNoEnoughSpaceCheck">storage no enough space</string>
+
+
+    <string name="libExitErrorMessage">Sorry, the program has an exception and is about to quit </string>
+
+    <string name="libSaveErrorMessage">Data storage failure</string>
+    <string name="libGetErrorMessage">Failure to retrieve data </string>
+    <string name="libPleaseEnterAppSafeCode">Enter appSafeCode Please</string>
+
+    <string name="libRecordingNotInitialized">Recording has not been initialized </string>
+
+    <string name="libRecording">Recording </string>
+
+    <string name="libPleaseCheckRecordPermissions">Please check the recording permissions </string>
+
+    <string name="libRecordingNotStarted">Recording has not started yet </string>
+
+    <string name="libRecordingStopped">Recording has stopped </string>
+
+    <string name="libNotRecorded">Not recorded </string>
+
+    <string name="libUninitializedPlaybackTool">uninitialized playback tool</string>
+
+    <string name="libMusicPlaying">The music is playing </string>
+
+    <string name="libMediaStreamLoading">In media stream loading </string>
+
+    <string name="libMediaStreamLoadingFailure">Media stream loading failure</string>
+
+    <string name="libNoMusicPlayed">No music played </string>
+
+</resources>

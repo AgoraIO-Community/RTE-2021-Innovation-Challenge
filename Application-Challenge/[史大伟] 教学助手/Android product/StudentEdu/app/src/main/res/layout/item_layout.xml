@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:padding="8dp"
+    android:layout_gravity="center_horizontal">
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+
+        app:lib_corners_radius="20dp"
+        app:lib_ripple_color="#FFEB3B"
+        app:lib_ripple_enable="true"
+        app:lib_solid_color="@color/lib_color_darkgray"
+        app:lib_stroke_color="#03A9F4"
+        app:lib_stroke_width="2dp">
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/ic_baseline_apartment_24"
+            tools:layout_editor_absoluteX="131dp"
+            tools:layout_editor_absoluteY="1dp" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="板块"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="statusbarutil_fake_status_bar_view" />
+    <item type="id" name="statusbarutil_translucent_view" />
+    <item type="id" name="lib_toolbar_title" />
+    <item type="id" name="lib_toolbar_left_layout" />
+    <item type="id" name="lib_toolbar_right_layout" />
+
+    <item type="id" name="lib_toolbar_right_img1" />
+    <item type="id" name="lib_toolbar_right_img2" />
+    <item type="id" name="lib_toolbar_right_text1" />
+    <item type="id" name="lib_toolbar_right_text2" />
+
+    <item type="id" name="lib_toolbar_left_img1" />
+    <item type="id" name="lib_toolbar_left_img2" />
+    <item type="id" name="lib_toolbar_left_text1" />
+    <item type="id" name="lib_toolbar_left_text2" />
+
+
+    <item type="id" name="lib_toolbar_right" />
+    <item type="id" name="lib_toolbar_left" />
+    <item type="id" name="lib_toolbar_left_text" />
+
+
+    <item type="id" name="swipe_layout" />
+    <item type="id" name="pb_loading" />
+    <item type="id" name="web_layout" />
+
+    <item type="id" name="swipe_target" />
+    <item type="id" name="swipe_load_more_footer" />
+
+
+    <item type="id" name="baseAdapter_swiping_support" />
+    <item type="id" name="baseAdapter_dragging_support" />
+
+    <item type="id" name="lib_drop_down_menu_list" />
+
+</resources>
