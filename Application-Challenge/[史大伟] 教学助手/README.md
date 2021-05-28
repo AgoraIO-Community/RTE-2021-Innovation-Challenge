@@ -12,6 +12,7 @@
 
 项目包含内容：
 Android project
+安装包
 
 第三方：
 
