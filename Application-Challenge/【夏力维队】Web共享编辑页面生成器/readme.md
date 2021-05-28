@@ -32,5 +32,9 @@
 #### Demo截屏
 1. Pages列表页
 ![Pages列表页](img/pages.png "Pages列表页")
+
 2. Page Edit编辑页面
 ![Page Edit编辑页面](img/page_edit.png "Page Edit编辑页面")
+
+3. Page Edit组件合集
+![Page Edit组件合集](img/page_edit_tools.png "Page Edit组件合集")
