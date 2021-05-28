@@ -44,7 +44,7 @@ Android project
 
 ## 主功能界面
 
-![](assets/student_main.png)
+![](assets/student_main2.png)
 
 学生主要有4种功能
 
