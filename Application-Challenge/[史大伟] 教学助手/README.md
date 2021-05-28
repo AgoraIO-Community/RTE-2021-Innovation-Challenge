@@ -11,8 +11,9 @@
 - os : Android 5.0 +
 
 项目包含内容：
-Android project
-安装包
+
+- Android project
+- 安装包
 
 第三方：
 
