@@ -83,6 +83,7 @@ pip install -r requirment.txt
 链接：https://pan.baidu.com/s/15LKf13h4HcINNHK5Qqu77w 
 提取码：t3ib 
 将模型放在根目录即可
+
 cd C:\Program Files (x86)\Intel\openvino_2021.2.185\bin 执行.bat激活环境
 
 运行server.py
