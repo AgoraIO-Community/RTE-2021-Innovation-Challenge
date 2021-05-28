@@ -50,10 +50,9 @@ class UriMappingHandler(WebRequest):
 
         link_list = self.request.uri.split("?")
         uri_mapping = {
-            "/"             :"c4dc62dd0d874571bf29c664be7005ee",
-            "/register"     :"9b30f584a1cf4005996ec4d5e4170cbc",
-            "/foundary"     :"3fd957fe2c03457985d943f79ba55d10",
-            "/login"        :"2bdd7f8ab0374f1c9b45c9d29b13cc81",
+            "/"             :"65e3c7d9b038406ab5c6c8e8087351e1",
+            "/register"     :"093fcb33d4f6445fa8adcb42301fd633",
+            "/login"        :"20bea2293afd4de6a4c675de25b28f53",
         }
         block_id = uri_mapping.get(link_list[0],None)
 

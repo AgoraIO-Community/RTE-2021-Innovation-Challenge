@@ -101,11 +101,16 @@ $ ->
                         md5 = event.data
                         # console.log "md5", md5, file
 
-                        Qiniu_UploadUrl_https = "https://up.qbox.me"
+                        # Qiniu_UploadUrl_https = "https://up.qbox.me"
+                        # if window.location.protocol == "https:"
+                        #     Qiniu_UploadUrl = Qiniu_UploadUrl_https
+                        # else
+                        #     Qiniu_UploadUrl = "http://up.qiniu.com"
+                        Qiniu_UploadUrl_https = "https://up-z1.qiniup.com"
                         if window.location.protocol == "https:"
                             Qiniu_UploadUrl = Qiniu_UploadUrl_https
                         else
-                            Qiniu_UploadUrl = "http://up.qiniu.com"
+                            Qiniu_UploadUrl = "http://up-z1.qiniup.com"
 
                         worker_aim_url = "/api/video/check"
                         $.post worker_aim_url,

@@ -108,11 +108,11 @@
             worker.onmessage = function(event) {
               var Qiniu_UploadUrl, Qiniu_UploadUrl_https, md5, worker_aim_url;
               md5 = event.data;
-              Qiniu_UploadUrl_https = "https://up.qbox.me";
+              Qiniu_UploadUrl_https = "https://up-z1.qiniup.com";
               if (window.location.protocol === "https:") {
                 Qiniu_UploadUrl = Qiniu_UploadUrl_https;
               } else {
-                Qiniu_UploadUrl = "http://up.qiniu.com";
+                Qiniu_UploadUrl = "http://up-z1.qiniup.com";
               }
               worker_aim_url = "/api/video/check";
               return $.post(worker_aim_url, {
