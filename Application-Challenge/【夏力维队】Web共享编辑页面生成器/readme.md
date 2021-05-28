@@ -28,3 +28,6 @@
 2. 使用NoMagic for mysql，改装mysql为key-value模式，类nosql使用
 3. 本项目限制提交账户配置信息setting.py auth.py
 4. 项目体验地址：[demo体验](https://findmaster.xialiwei.com) 请使用邮箱注册后使用
+
+#### Demo截屏
+![Pages列表页](img/pages.png "Pages列表页")
