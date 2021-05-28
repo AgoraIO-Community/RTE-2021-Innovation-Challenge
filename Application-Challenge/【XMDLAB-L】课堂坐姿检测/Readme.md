@@ -26,7 +26,11 @@
 
 ## 项目展示		
 
-下图展示本项目后端处理结果,样例视频在VideoDemo文件夹下
+下图展示本项目后端处理结果,样例视频在百度云连接下
+
+下载地址：
+链接：https://pan.baidu.com/s/15LKf13h4HcINNHK5Qqu77w 
+提取码：t3ib 
 
 ![](img/3.png)
 
@@ -75,7 +79,10 @@ C:\ProgramFiles(x86)\Intel\openvino_2021.2.185\deployment_tools\open_model_zoo\d
 pip install -r requirment.txt
 
 ### 运行指南
-
+下载模型以及示例视频
+链接：https://pan.baidu.com/s/15LKf13h4HcINNHK5Qqu77w 
+提取码：t3ib 
+将模型放在根目录即可
 cd C:\Program Files (x86)\Intel\openvino_2021.2.185\bin 执行.bat激活环境
 
 运行server.py
