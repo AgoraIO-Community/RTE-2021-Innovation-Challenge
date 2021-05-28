@@ -11,6 +11,7 @@
     "private": "true",
     "scripts": {
         "start": "node packages/node_modules/node-red/red.js",
+        "devices": "badcert devices",
         "monitor": "node mqtt-monitor.js",
         "test": "grunt",
         "build": "grunt build",
