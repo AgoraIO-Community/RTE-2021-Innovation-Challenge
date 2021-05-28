@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/mode_switcher"
+        android:layout_width="@dimen/round_btn_size"
+        android:layout_height="@dimen/round_btn_size"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/round_btn_bg_light"
+        android:src="@drawable/mode_switcher"
+        app:layout_constraintBottom_toTopOf="@id/reset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/reset"
+        android:layout_width="@dimen/round_btn_size"
+        android:layout_height="@dimen/round_btn_size"
+        android:background="@drawable/round_btn_bg_light"
+        android:src="@drawable/reset"
+        app:layout_constraintBottom_toTopOf="@id/user_choose"
+        app:layout_constraintStart_toStartOf="@id/mode_switcher"
+        app:layout_constraintTop_toBottomOf="@id/mode_switcher" />
+
+
+    <com.hustunique.vlive.ui.RockerView
+        android:id="@+id/rocker"
+        android:layout_width="146dp"
+        android:layout_height="146dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginBottom="36dp"
+        android:visibility="gone"
+        app:bg_color="@color/translucent_light"
+        app:fg_color="@color/translucent_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:outer_circle_radius="8dp"
+        app:outer_line_gap="10dp"
+        app:outer_line_width="8dp"
+        app:radius_diff="30dp" />
+
+
+    <View
+        android:id="@+id/gray_layer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#cc000000"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/user_recycler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/user_choose"
+        android:layout_width="@dimen/round_btn_size"
+        android:layout_height="@dimen/round_btn_size"
+        android:layout_marginBottom="70dp"
+        android:background="@drawable/round_btn_bg_light"
+        android:src="@drawable/user_choose"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/reset"
+        app:layout_constraintTop_toBottomOf="@id/reset" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

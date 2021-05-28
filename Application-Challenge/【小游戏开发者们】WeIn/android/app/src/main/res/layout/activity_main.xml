@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn_main_entry"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="Start"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_model_entry"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="Model"
+        app:layout_constraintTop_toBottomOf="@id/btn_main_entry" />
+
+    <Button
+        android:id="@+id/btn_ar_core_entry"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="AR Core"
+        app:layout_constraintTop_toBottomOf="@id/btn_model_entry" />
+
+    <Button
+        android:id="@+id/btn_agora_entry"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="Agora"
+        app:layout_constraintTop_toBottomOf="@id/btn_ar_core_entry" />
+
+    <Button
+        android:id="@+id/btn_scene_entry"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="Scene"
+        app:layout_constraintTop_toBottomOf="@id/btn_agora_entry" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
