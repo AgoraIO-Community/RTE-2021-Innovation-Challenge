@@ -32,10 +32,7 @@ Android project
 由于本项目没有后台，很多功能和数据都是在本地做的处理
 [截图]
 一个app提供两种身份登录（学生，老师），两种权限（学生，老师）
-![](assets/login.jpg)
-![](assets/login_user.jpg)
-![](assets/login_user_student.jpg)
-![](assets/login_teacher.jpg)
+![](assets/login.png)
 老师分为2种类型
 1. 普通老师（带有白板功能）
 2. 体育老师等艺术类老师（带有直播功能）
