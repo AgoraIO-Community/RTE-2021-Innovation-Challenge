@@ -1,0 +1,38 @@
+query userTable {
+  users @view(type: "table") {
+    id @id
+    name
+    role
+    createdAt
+  }
+}
+
+query userList {
+  users @view(type: "list") {
+    id @id
+    name
+    role
+  }
+}
+
+query userKanban {
+  users @view(type: "kanban") {
+    id @id
+    name
+    role @groupBy
+  }
+}
+
+mutation createOneUserForm(
+  $data: UserCreateInput!
+    @value(pick: ["name", "role", "email"])
+    @label(name: "姓名", role: "角色", email: "邮箱")
+    @placeholder(email: "邮箱将用于接收通知")
+) {
+  createOneUser(data: $data) @view(type: "form") {
+    id @id
+    name
+    role
+    createdAt
+  }
+}

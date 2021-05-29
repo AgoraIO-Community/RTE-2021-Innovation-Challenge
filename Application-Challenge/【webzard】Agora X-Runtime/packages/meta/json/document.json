@@ -1,0 +1,454 @@
+{
+  "types": [
+    {
+      "name": "classTable",
+      "is": "query",
+      "attributes": [],
+      "selections": [
+        {
+          "name": "classes",
+          "attributes": [
+            {
+              "name": "view",
+              "arguments": [
+                {
+                  "name": "type",
+                  "type": "String",
+                  "value": "table"
+                }
+              ]
+            }
+          ],
+          "selections": [
+            {
+              "name": "id",
+              "attributes": [
+                {
+                  "name": "id",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            },
+            {
+              "name": "name",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            },
+            {
+              "name": "teacher",
+              "attributes": [],
+              "selections": [
+                {
+                  "name": "id",
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "arguments": []
+                    }
+                  ],
+                  "selections": [],
+                  "arguments": [],
+                  "nullable": false,
+                  "list": false,
+                  "baseType": "Int"
+                },
+                {
+                  "name": "name",
+                  "attributes": [],
+                  "selections": [],
+                  "arguments": [],
+                  "nullable": false,
+                  "list": false,
+                  "baseType": "String"
+                }
+              ],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Object",
+              "customType": "User"
+            }
+          ],
+          "arguments": [],
+          "nullable": false,
+          "list": true,
+          "baseType": "Object",
+          "customType": "Class"
+        }
+      ],
+      "variables": []
+    },
+    {
+      "name": "userTable",
+      "is": "query",
+      "attributes": [],
+      "selections": [
+        {
+          "name": "users",
+          "attributes": [
+            {
+              "name": "view",
+              "arguments": [
+                {
+                  "name": "type",
+                  "type": "String",
+                  "value": "table"
+                }
+              ]
+            }
+          ],
+          "selections": [
+            {
+              "name": "id",
+              "attributes": [
+                {
+                  "name": "id",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            },
+            {
+              "name": "name",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            },
+            {
+              "name": "role",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Enum",
+              "customType": "Role"
+            },
+            {
+              "name": "createdAt",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "customType": "DateTime"
+            }
+          ],
+          "arguments": [],
+          "nullable": false,
+          "list": true,
+          "baseType": "Object",
+          "customType": "User"
+        }
+      ],
+      "variables": []
+    },
+    {
+      "name": "userList",
+      "is": "query",
+      "attributes": [],
+      "selections": [
+        {
+          "name": "users",
+          "attributes": [
+            {
+              "name": "view",
+              "arguments": [
+                {
+                  "name": "type",
+                  "type": "String",
+                  "value": "list"
+                }
+              ]
+            }
+          ],
+          "selections": [
+            {
+              "name": "id",
+              "attributes": [
+                {
+                  "name": "id",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            },
+            {
+              "name": "name",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            },
+            {
+              "name": "role",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Enum",
+              "customType": "Role"
+            }
+          ],
+          "arguments": [],
+          "nullable": false,
+          "list": true,
+          "baseType": "Object",
+          "customType": "User"
+        }
+      ],
+      "variables": []
+    },
+    {
+      "name": "userKanban",
+      "is": "query",
+      "attributes": [],
+      "selections": [
+        {
+          "name": "users",
+          "attributes": [
+            {
+              "name": "view",
+              "arguments": [
+                {
+                  "name": "type",
+                  "type": "String",
+                  "value": "kanban"
+                }
+              ]
+            }
+          ],
+          "selections": [
+            {
+              "name": "id",
+              "attributes": [
+                {
+                  "name": "id",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            },
+            {
+              "name": "name",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            },
+            {
+              "name": "role",
+              "attributes": [
+                {
+                  "name": "groupBy",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Enum",
+              "customType": "Role"
+            }
+          ],
+          "arguments": [],
+          "nullable": false,
+          "list": true,
+          "baseType": "Object",
+          "customType": "User"
+        }
+      ],
+      "variables": []
+    },
+    {
+      "name": "createOneUserForm",
+      "is": "mutation",
+      "attributes": [],
+      "selections": [
+        {
+          "name": "createOneUser",
+          "attributes": [
+            {
+              "name": "view",
+              "arguments": [
+                {
+                  "name": "type",
+                  "type": "String",
+                  "value": "form"
+                }
+              ]
+            }
+          ],
+          "selections": [
+            {
+              "name": "id",
+              "attributes": [
+                {
+                  "name": "id",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            },
+            {
+              "name": "name",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            },
+            {
+              "name": "role",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Enum",
+              "customType": "Role"
+            },
+            {
+              "name": "createdAt",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "customType": "DateTime"
+            }
+          ],
+          "arguments": [
+            {
+              "name": "data",
+              "type": "Variable",
+              "value": "data"
+            }
+          ],
+          "nullable": false,
+          "list": false,
+          "baseType": "Object",
+          "customType": "User"
+        }
+      ],
+      "variables": [
+        {
+          "name": "data",
+          "type": "UserCreateInput",
+          "nullable": false,
+          "attributes": [
+            {
+              "name": "value",
+              "arguments": [
+                {
+                  "name": "pick",
+                  "type": "List",
+                  "values": [
+                    {
+                      "type": "String",
+                      "value": "name"
+                    },
+                    {
+                      "type": "String",
+                      "value": "role"
+                    },
+                    {
+                      "type": "String",
+                      "value": "email"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "label",
+              "arguments": [
+                {
+                  "name": "name",
+                  "type": "String",
+                  "value": "姓名"
+                },
+                {
+                  "name": "role",
+                  "type": "String",
+                  "value": "角色"
+                },
+                {
+                  "name": "email",
+                  "type": "String",
+                  "value": "邮箱"
+                }
+              ]
+            },
+            {
+              "name": "placeholder",
+              "arguments": [
+                {
+                  "name": "email",
+                  "type": "String",
+                  "value": "邮箱将用于接收通知"
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "email",
+              "baseType": "String",
+              "nullable": false,
+              "list": false
+            },
+            {
+              "name": "name",
+              "baseType": "String",
+              "nullable": false,
+              "list": false
+            },
+            {
+              "name": "role",
+              "baseType": "Enum",
+              "customType": "Role",
+              "nullable": false,
+              "list": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+query classTable {
+  classes @view(type: "table") {
+    id @id
+    name
+    teacher {
+      id @id
+      name
+    }
+  }
+}

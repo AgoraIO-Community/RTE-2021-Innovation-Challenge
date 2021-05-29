@@ -1,0 +1,44 @@
+query classTable {
+  classes {
+    id
+    name
+    teacher {
+      id
+      name
+    }
+  }
+}
+
+query userTable {
+  users {
+    id
+    name
+    role
+    createdAt
+  }
+}
+
+query userList {
+  users {
+    id
+    name
+    role
+  }
+}
+
+query userKanban {
+  users {
+    id
+    name
+    role
+  }
+}
+
+mutation createOneUserForm($data: UserCreateInput!) {
+  createOneUser(data: $data) {
+    id
+    name
+    role
+    createdAt
+  }
+}

@@ -2858,6 +2858,11 @@ prepend-http@^2.0.0:
   resolved "http://192.168.26.29:7001/prepend-http/download/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
 
+prettier@^2.3.0:
+  version "2.3.0"
+  resolved "http://192.168.26.29:7001/prettier/download/prettier-2.3.0.tgz#b6a5bf1284026ae640f17f7ff5658a7567fc0d18"
+  integrity sha1-tqW/EoQCauZA8X9/9WWKdWf8DRg=
+
 promise@^7.1.1:
   version "7.3.1"
   resolved "http://192.168.26.29:7001/promise/download/promise-7.3.1.tgz#064b72602b18f90f29192b8b1bc418ffd1ebd3bf"

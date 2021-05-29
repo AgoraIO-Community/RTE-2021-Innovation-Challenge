@@ -12,7 +12,7 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  DateTime: any;
+  DateTime: string;
 };
 
 export type AffectedRowsOutput = {
@@ -921,10 +921,36 @@ export type UserWhereUniqueInput = {
   id?: Maybe<Scalars['Int']>;
 };
 
-export type UsersQueryVariables = Exact<{ [key: string]: never; }>;
+export type ClassTableQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type UsersQuery = (
+export type ClassTableQuery = (
+  { __typename?: 'Query' }
+  & { classes: Array<(
+    { __typename?: 'Class' }
+    & Pick<Class, 'id' | 'name'>
+    & { teacher: (
+      { __typename?: 'User' }
+      & Pick<User, 'id' | 'name'>
+    ) }
+  )> }
+);
+
+export type UserTableQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type UserTableQuery = (
+  { __typename?: 'Query' }
+  & { users: Array<(
+    { __typename?: 'User' }
+    & Pick<User, 'id' | 'name' | 'role' | 'createdAt'>
+  )> }
+);
+
+export type UserListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type UserListQuery = (
   { __typename?: 'Query' }
   & { users: Array<(
     { __typename?: 'User' }
@@ -932,9 +958,63 @@ export type UsersQuery = (
   )> }
 );
 
+export type UserKanbanQueryVariables = Exact<{ [key: string]: never; }>;
 
-export const UsersDocument = gql`
-    query users {
+
+export type UserKanbanQuery = (
+  { __typename?: 'Query' }
+  & { users: Array<(
+    { __typename?: 'User' }
+    & Pick<User, 'id' | 'name' | 'role'>
+  )> }
+);
+
+export type CreateOneUserFormMutationVariables = Exact<{
+  data: UserCreateInput;
+}>;
+
+
+export type CreateOneUserFormMutation = (
+  { __typename?: 'Mutation' }
+  & { createOneUser: (
+    { __typename?: 'User' }
+    & Pick<User, 'id' | 'name' | 'role' | 'createdAt'>
+  ) }
+);
+
+
+export const ClassTableDocument = gql`
+    query classTable {
+  classes {
+    id
+    name
+    teacher {
+      id
+      name
+    }
+  }
+}
+    `;
+
+export function useClassTableQuery(options: Omit<Urql.UseQueryArgs<ClassTableQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<ClassTableQuery>({ query: ClassTableDocument, ...options });
+};
+export const UserTableDocument = gql`
+    query userTable {
+  users {
+    id
+    name
+    role
+    createdAt
+  }
+}
+    `;
+
+export function useUserTableQuery(options: Omit<Urql.UseQueryArgs<UserTableQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<UserTableQuery>({ query: UserTableDocument, ...options });
+};
+export const UserListDocument = gql`
+    query userList {
   users {
     id
     name
@@ -943,6 +1023,33 @@ export const UsersDocument = gql`
 }
     `;
 
-export function useUsersQuery(options: Omit<Urql.UseQueryArgs<UsersQueryVariables>, 'query'> = {}) {
-  return Urql.useQuery<UsersQuery>({ query: UsersDocument, ...options });
+export function useUserListQuery(options: Omit<Urql.UseQueryArgs<UserListQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<UserListQuery>({ query: UserListDocument, ...options });
+};
+export const UserKanbanDocument = gql`
+    query userKanban {
+  users {
+    id
+    name
+    role
+  }
+}
+    `;
+
+export function useUserKanbanQuery(options: Omit<Urql.UseQueryArgs<UserKanbanQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<UserKanbanQuery>({ query: UserKanbanDocument, ...options });
+};
+export const CreateOneUserFormDocument = gql`
+    mutation createOneUserForm($data: UserCreateInput!) {
+  createOneUser(data: $data) {
+    id
+    name
+    role
+    createdAt
+  }
+}
+    `;
+
+export function useCreateOneUserFormMutation() {
+  return Urql.useMutation<CreateOneUserFormMutation, CreateOneUserFormMutationVariables>(CreateOneUserFormDocument);
 };

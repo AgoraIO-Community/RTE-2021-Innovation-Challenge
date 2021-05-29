@@ -2,8 +2,13 @@ generates:
   ../meta/json/data.json:
     schema: ../meta/dsl/data.graphql
     plugins:
-      - ./meta/meta-plugin.js
-  ../uigen/src/generated/graphql-components.ts:
+      - ./meta/meta-schema-plugin.js
+  ../meta/json/document.json:
+    schema: ../data/schema.graphql
+    documents: ../meta/dsl/document/*.graphql
+    plugins:
+      - ./meta/meta-document-plugin.js
+  ../uigen/src/generated/data-components.ts:
     schema: ../data/schema.graphql
     documents: ../uigen/src/generated/*.graphql
     plugins:
@@ -12,3 +17,5 @@ generates:
       - typescript-urql
     config:
       withHooks: true
+      scalars:
+        DateTime: string

@@ -1,0 +1,20 @@
+import React from "react";
+import { CombinedError } from "urql";
+import { <%- imports.join(', ')  %> } from "./data-components";
+
+export type AsyncResult<T> = {
+  data: T;
+  fetching: boolean;
+  error: CombinedError | undefined | null;
+};
+
+export type FieldsRenderer<T> = {
+  [K in keyof T]?: (result: AsyncResult<T[K]>) => React.ReactNode;
+};
+
+export type Renderer = {
+  <% for (type of types) { -%>
+  <%- type.name %>?: ((result: AsyncResult<<%- type.name %>>) => React.ReactNode)
+    | FieldsRenderer<<%- type.name %>>;
+  <% } -%>
+};
