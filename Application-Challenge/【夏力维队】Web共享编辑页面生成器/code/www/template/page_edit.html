@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% if handler.title == "" %}
+    <title>Page Edit</title>
+    {% else %}
+    <title>{{ handler.title }} | Page Edit</title>
+    {% end if %}
+    <meta charset="utf-8">
+    <meta http-equiv="description" content="">
+    <meta name="keywords" content="">
+    <meta name="referrer" content="no-referrer">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:100,300,400,500,700,900">
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="/static/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="/static/js/tools.js?t={{ handler.time_now }}"></script>
+    <script type="text/javascript" src="/static/js/video.min.js"></script>
+    <script type="text/javascript" src="/static/js/videojs-contrib-hlsjs.min.js"></script>
+    <link rel="stylesheet" href="/static/css/video-js.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/page.css?t={{handler.time_now}}">
+    <style type="text/css">
+        
+        .card{
+            position: absolute;
+            width: fit-content;
+            width: -moz-fit-content;
+        }
+        .page_agora_tools{
+            position: fixed;
+            top: 44px;
+            right: 20px;
+            width: auto;
+            max-width: 120px;
+            height: fit-content;
+            height: -moz-fit-content;
+            background-color: rgba(255,255,255,0.8);
+            border-radius: 4px;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+            z-index: 99999999999999;
+        }
+        .page_terminal_tools{
+            position: fixed;
+            bottom: 40px;
+            left: 80px;
+            width: auto;
+            height: fit-content;
+            height: -moz-fit-content;
+            background-color: rgba(0,0,0,0.8);
+            border-radius: 4px;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+            z-index: 99999999999999;
+        }
+        .page_terminal_tool{
+            position: relative;
+            height: 28px;
+            display: flex;
+            width: 220px;
+        }
+        .page_terminal_tools>.page_terminal_tool>.terminal_console{
+            padding-left: 75px;
+            background: transparent;
+            color: rgba(34, 228, 34, 0.9);
+            font-size: 12px;
+            border-radius: 4px;
+            border: 1px solid transparent;
+            text-overflow: ellipsis;
+        }
+        .page_terminal_tools>.page_terminal_tool>.terminal_console_span{
+            position: absolute;
+            left: 10px;
+            font-size: 12px;
+            top: 4px;
+            color: rgba(34, 228, 34, 0.9);
+        }
+        .page_edit_tools{
+            position: fixed;
+            bottom: 20px;
+            left: 10px;
+            width: auto;
+            height: fit-content;
+            height: -moz-fit-content;
+            background-color: #ffffff;
+            border-radius: 4px;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+            z-index: 99999999999999;
+        }
+        .page_edit_tools_list{
+            position: relative;
+            width: 50px;
+            height: fit-content;
+            height: -moz-fit-content;
+            overflow-y: auto;
+        }
+        .current_now{
+            box-shadow: 0px 0px 0px 2px #03a9f4;
+        }
+        .dom>div>p{
+            min-height: 20px;
+        }
+        body{
+            background-image: url(/static/img/bg@2x.png);
+            background-position: center top;
+            background-size: {{ int(handler.grid_graph.get('w','30'))*2 }}px {{ int(handler.grid_graph.get('h','30'))*2 }}px;
+        }
+        .main_area{
+            margin-top: 22px;
+            width: {{ int(handler.main_area.get('w','1024')) }}px;
+            height: {{ int(handler.main_area.get('h','0')) }}px;
+        }
+        .device_img_area{
+            position: fixed;
+            /*left: 0px;*/
+            top: 22px;
+            z-index: 0;
+            background-image: url(/static/img/device_map/device_map@2x.png);
+            background-size: 100% auto;
+            background-position: 0px 0px;
+            /*background-repeat: no-repeat;*/
+            width: 1920px;
+            min-height: 600px;
+        }
+        .top_area{
+            width: 100%;
+            height: 22px;
+            background-color: #410099;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            display: flex;
+            z-index: 99999999999999;
+        }
+        .top_area>a>div{
+            color: white;
+            font-size: 12px;
+            line-height: 22px;
+            margin: 0px 10px;
+            cursor: pointer;
+            opacity: 0.5;
+        }
+        .top_area>a>div:hover{
+            opacity: 1;
+        }
+        .top_area_info{
+            width: auto;
+            height: 16px;
+            background-color: #ffffff;
+            position: fixed;
+            top: 42px;
+            left: 10px;
+            display: flex;
+            z-index: 99999999999999;
+            border-radius: 4px;
+            padding: 8px 12px;
+        }
+        .top_area_info>div>img{
+            width: 100%;
+            height: auto;
+        }
+        .top_area_info_logo_line{
+            width: 84px;
+            height: 16px;
+            display: flex;
+        }
+        .top_area_info_input_line{
+            display: flex;
+            width: 160px;
+        }
+        .top_area_info_input_line>input{
+            width: 100%;
+            border: 0;
+            background: #fff;
+            font-size: 12px;
+            padding: 0px 10px;
+            margin-top: 1px;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 0;
+            box-shadow: none;
+            text-overflow: ellipsis;
+        }
+        .page_edit_tools>div>.add_btn{
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 30px;
+            height: 30px;
+            border: 0px;
+            margin: 5px 10px;
+            cursor: pointer;
+            background-color: transparent;
+            border-radius: 4px;
+        }
+        .page_edit_tools>div>.add_btn:hover{
+            box-shadow: 0px 2px 4px rgb(0 0 0 / 30%);
+        }
+        .add_btn_text{
+            background-image: url(/static/img/add_btn_text.png);
+            background-size: 60%;
+        }
+        .add_btn_img{
+            background-image: url(/static/img/add_btn_img.png);
+            background-size: 70%;
+        }
+        .add_btn_video{
+            background-image: url(/static/img/add_btn_video.png);
+            background-size: 90%;
+        }
+        .add_btn_iframe{
+            background-image: url(/static/img/add_btn_iframe_html.png);
+            background-size: 90%;
+        }
+        .add_btn_iframe_pin{
+            background-image: url(/static/img/add_btn_iframe_pin.png);
+            background-size: 70%;
+        }
+        .add_btn_domcopy{
+            background-image: url(/static/img/page/copy_false.png);
+            background-size: 70%;
+        }
+        .add_btn_domcopy.has_copy{
+            background-image: url(/static/img/page/copy_true.png);
+        }
+        .add_btn_more_select{
+            background-image: url(/static/img/page/more_select_off.png);
+            background-size: 65%;
+        }
+        .add_btn_more_select.show{
+            background-image: url(/static/img/page/more_select_on.png);
+        }
+        .add_btn_area_select{
+            background-image: url(/static/img/page/area_select_off.png);
+            background-size: 65%;
+        }
+        .add_btn_area_select.show{
+            background-image: url(/static/img/page/area_select_on.png);
+        }
+        .add_btn_more{
+            background-image: url(/static/img/add_btn_more_hide.png);
+            background-size: 90%;   
+        }
+        .add_btn_more.show{
+            background-image: url(/static/img/add_btn_more.png);
+        }
+        .block_permission_area,.block_grid_graph_area,
+        .block_desc_area,.block_comment_entities_setting_area,.block_main_area_area{
+            position: relative;
+            padding: 10px 5px;
+        }
+        .page_edit_tools_list_cover{
+            width: 270px;
+            overflow: auto;
+            height: 100%;
+            position: absolute;
+            bottom: 0px;
+            left: 60px;
+            box-shadow: 0px 4px 12px rgb(0 0 0 / 30%);
+            background-color: #ffffff;
+            border-radius: 4px;
+            word-break: break-all;
+            padding: 0px 15px;
+        }
+        .top_area_info_collection_line_now{
+            background-image: url(/static/img/stars_in_no.png);
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+        }
+        .top_area_info_collection_line_now.stars_in{
+            background-image: url(/static/img/stars_in_no.png);
+        }
+        .block_permission_span_btns_title,
+        .block_grid_graph_title,
+        .block_main_area_title,
+        .block_desc_title,
+        .block_comment_entities_setting_area_title{
+            color: #999;font-size: 12px;
+        }
+        .block_permission_span_btns{
+            margin-left: 20px; 
+        }
+        .block_permission_span_btns>span{
+            margin-right: 10px;
+            color: #ccc;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .block_permission_span_btns>span.selected{
+            color: #4a65f6;
+        }
+        .iframe_tool>textarea{
+            box-shadow: rgb(0 0 0 / 16%) 0px 2px 4px, rgb(0 0 0 / 16%) 0px 3px 6px;
+            border: 1px solid rgb(153, 153, 153);
+            padding: 5px 15px 5px 5px;
+            border-radius: 4px;
+            color: rgba(34, 228, 34, 0.9);
+            background: rgba(0, 0, 0, 0.8);
+            margin: 0px;
+            min-width: 180px;
+            min-height: 60px;
+            font-size: 12px;
+        }
+        .loading_flag{
+            width: 0%;
+            height: 4px;
+            background: #f44336;
+            border-radius: 2px;
+        }
+        .network_now{
+            position: fixed;
+            right: 20px;
+            top: 30px;
+            font-size: 12px;
+        }
+        .add_iframe_pin_hover_info{
+            width:30px;
+            height:20px;
+            opacity:0.5;
+            overflow:hidden;
+        }
+        textarea.block_desc_content {
+            padding: 5px 10px;
+            width: -webkit-fill-available;
+            width: -moz-available;
+            font-size: 12px;
+            border: 1px solid #b2b2b2;
+            border-radius: 4px;
+            margin-top: 10px;
+            resize: vertical;
+            color: #666;
+            min-height: 60px;
+        }
+        .block_desc_content_save,.block_grid_graph_save,.block_main_area_save,.block_comment_entities_add{
+            margin-left: 20px;
+            color: #4a65f6;
+            cursor: pointer;
+        }
+        .block_desc_content_unsave{
+            color: #999;
+            font-size: 12px;
+        }
+        .block_grid_graph_area>div>div,.block_main_area_area>div>div{
+            color: #ccc;
+            font-size: 12px;
+            cursor: pointer;
+            margin-left: 20px;
+            margin-top: 5px;
+            display: flex;
+        }
+        .block_grid_graph_area>div>div>p,.block_main_area_area>div>div>p{
+            width: 80px;
+        }
+        .block_grid_graph_area>div>div>input,.block_main_area_area>div>div>input{
+            width: 80px;
+            color: #666;
+        }
+        .comment_entity_line{
+            margin: 10px 10px 5px 20px;
+            font-size: 12px;
+            color: #ccc;
+        }
+        .comment_entity_line>p{
+            width: 200px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .comment_entity_line_tools{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .comment_entity_line_tools>div{
+            margin-right: 5px;
+        }
+        .comment_entity_line_tools>div:hover{
+            color: #999999;
+            cursor: pointer;
+        }
+        button.add.add_btn.add_btn_domcopy.has_copy:after {
+            content: attr(data-value);
+            background-color: rgba(255,87,34,1);
+            color: white;
+            font-size: 12px;
+            padding: 3px 6px;
+            border-radius: 8px;
+            position: fixed;
+            margin-top: -20px;
+            max-width: 18px;
+            transform: scale(0.5);
+        }
+        .card_move:hover:after{
+            content: attr(data-position);
+            font-size: 12px;
+            position: absolute;
+            top: -20px;
+            color: #999;
+            text-shadow: 0px 0px 2px rgb(255 255 255);
+        }
+    </style>
+</head>
+<body>
+    <div class="base_area">
+        <div class="main_area">
+            
+            <div class="device_img_area"></div>
+            {% for dom in handler.doms %}
+
+            <div    id="{{ dom[0] }}" class="card dom dom_{{ dom[1] }} {{dom[2].get('s','')}}" 
+                    data-tree="{{ dom[0] }}" 
+                    style="
+                    left: {{dom[2]['x']}}px;
+                    top: {{dom[2]['y']}}px;
+                    width: {{dom[2].get('w','0')}}px;
+                    height: {{dom[2].get('h','0')}}px;
+                    z-index: {{dom[2].get('z','0')}};
+                    ">
+                    <style>{% raw dom[4]%}</style>
+                <div class="sections" contenteditable="true">
+                {% if dom[3]== "" or dom[3]==None %}
+                
+                    {% if dom[1] in ["text"] %}
+                        <div class="section">text</div>
+                    {% elif dom[1] in ["button"] %}
+                        <div class="section"><button>button</button></div>
+                    {% elif dom[1] in ["img"] %}
+                        <div class="section"><img src="/static/img/need_add_img.png"></div>
+                    {% elif dom[1] in ["video"] %}
+                        <div class="section" contenteditable="false">
+                            <div>video_src:<input class="video_src"></div>
+                            <div>video_type:<input class="video_type"></div>
+                            <div>video_poster:<input class="video_poster"></div>
+                            <div>
+                                <button class="video_add">upload video</button>
+                                <button class="video_save">save</button>
+                            </div>
+                        </div>
+                    {% elif dom[1] in ["iframe"] %}
+                        <div class="section" contenteditable="false">
+                            <div class="iframe_tool">
+                                <textarea class="iframe_html" placeholder="/* html code */"></textarea>
+                            </div>
+                            <div class="iframe_tool"><button class="iframe_save">save</button></div>
+                        </div>
+                    {% else %}
+                        <div class="section"><br></div>
+                    {% end if %}
+                {% else %}
+                    {% if dom[1] in ["video"] %}
+                        <div class="section" contenteditable="false">
+                            {% if isinstance(dom[3],dict) %}
+                            <video  id="player_{{dom[0]}}" 
+                                    width="{{dom[2].get('w','0')}}" height="{{dom[2].get('h','0')}}"
+                                    class="video-js vjs-default-skin" poster="{{ dom[3].get('poster','http://ofcourse-cdn0.xialiwei.com/8485dd011df647469f30735307c99273_d2b9f24bcf89aacd3da496a252bdeac1?imageView2')}}" controls>
+                                <source src="{{dom[3].get('src','')}}" type="{{dom[3].get('type','')}}">
+                                <!-- .m3u8 application/x-mpegURL -->
+                            </video>
+                            <script type="text/javascript">
+                                videojs('#player_{{dom[0]}}');
+                            </script>
+                            <div>video_src:<input class="video_src" value="{{dom[3].get('src','')}}"></div>
+                            <div>video_type:<input class="video_type" value="{{dom[3].get('type','')}}"></div>
+                            <div>video_poster:<input class="video_poster" value="{{ dom[3].get('poster','http://ofcourse-cdn0.xialiwei.com/8485dd011df647469f30735307c99273_d2b9f24bcf89aacd3da496a252bdeac1?imageView2')}}"></div>
+                            <div>
+                                <button class="video_add">upload video</button>
+                                <button class="video_save">save</button>
+                            </div>
+                            {% else %}
+                            <div>video_src:<input class="video_src"></div>
+                            <div>video_type:<input class="video_type"></div>
+                            <div>video_poster:<input class="video_poster"></div>
+                            <div>
+                                <button class="video_add">upload video</button>
+                                <button class="video_save">save</button>
+                            </div>
+                            {% end if %}
+                        </div>
+                    {% elif dom[1] in ["iframe"] %}
+                            <div class="section" contenteditable="false">
+                                {% if isinstance(dom[3],dict) %}
+                                {% raw dom[3].get('html','') %}
+                                <script type="text/javascript">
+                                    $("#{{dom[0]}}>.sections>.section>iframe").css({
+                                        "width":"{{dom[2].get('w','0')}}px",
+                                        "height":"{{dom[2].get('h','0')}}px",
+                                    })
+                                </script>
+                                <div class="iframe_tool">
+                                    <textarea class="iframe_html" placeholder="/* html code */">{{ dom[3].get('html','') }}</textarea>
+                                </div>
+                                <div class="iframe_tool"><button class="iframe_save">save</button></div>
+                                {% else %}
+                                <div class="iframe_tool">
+                                    <textarea class="iframe_html" placeholder="/* html code */"></textarea>
+                                </div>
+                                <div class="iframe_tool"><button class="iframe_save">save</button></div>
+                                {% end if %}
+                            </div>
+                    {% else %}
+                        {% raw dom[3] %}
+                    {% end if %}
+                {% end if %}
+                </div>
+                <div class="card_move"></div>
+                <div class="card_more_select"></div>
+                <div class="card_copy"></div>
+                <div class="card_del"></div>
+                <div class="resize_btn"></div>
+                <div class="card_z_index z_index_max"></div>
+                <div class="card_z_index z_index_up"></div>
+                <div class="card_z_index z_index_down"></div>
+                <div class="card_z_index z_index_min"></div>
+                <div class="card_z_index z_index_num">{{dom[2].get('z','0')}}</div>
+                <div class="card_scroll_auto">
+                    <div class="card_scroll_auto_svg"></div>
+                </div>
+                <div class="card_text_align text_align_left"></div>
+                <div class="card_text_align text_align_center"></div>
+                <div class="card_text_align text_align_right"></div>
+                <div class="card_font_size font_size_big"></div>
+                <div class="card_font_size font_size_small"></div>
+                <div class="card_font_color">
+                    <div class="card_font_color_demo">
+                    </div>
+                </div>
+
+                
+            </div>
+            {% end for %}
+        </div>
+    </div>
+    {% if handler.user_id in handler.editors %}
+    <div class="page_terminal_tools card just_tool_move">
+        <div class="page_terminal_tool">
+            <input class="terminal_console" type="" name="">
+            <span class="terminal_console_span">CONSOLE $</span>
+        </div>
+        <div class="card_move"></div>
+    </div>
+    {% end if %}
+    <div class="page_agora_tools card just_tool_move">
+        <form id="join-form">
+            <div class="row join-info-group hide">
+              <div class="col-sm">
+                <p class="join-info-text">APP ID</p>
+                <input id="appid" type="text" placeholder="Enter the appid" required>
+                <p class="tips">You find your APP ID in the <a href="https://console.agora.io/projects">Agora Console</a></p>
+              </div>
+              <div class="col-sm">
+                <p class="join-info-text">Token(optional)</p>
+                <input id="token" type="text" placeholder="Enter the app token">
+                <p class="tips">To create a temporary token, <a href="https://console.agora.io/projects">edit your project</a> in Agora Console.</p>
+              </div>
+              <div class="col-sm">
+                <p class="join-info-text">Channel Name</p>
+                <input id="channel" type="text" placeholder="Enter the channel name" required>
+                <p class="tips">You create a channel when you create a temporary token. You guessed it, in <a href="https://console.agora.io/projects">Agora Console</a></p>
+              </div>
+              <div class="col-sm">
+                <p class="join-info-text">User ID(optional)</p>
+                <input id="uid" type="text" placeholder="Enter the user ID">
+              </div>
+            </div>
+
+            <!--
+              Join or leave a Video Call channel.
+            -->
+            <div class="button-group hide">
+              <button id="join" type="submit" class="btn btn-primary btn-sm">Join</button>
+              <button id="leave" type="button" class="btn btn-primary btn-sm" disabled>Leave</button>
+            </div>
+            <div class="page_agora_btns">
+                <div class="page_agora_btn join_room">Join Room</div>
+                <div class="page_agora_btn leave_room">Leave Room</div>
+            </div>
+          </form>
+        <div class="row video-group">
+            <div class="col">
+                <p id="local-player-name" class="player-name"></p>
+                <div id="local-player" class="player"></div>
+            </div>
+            <div class="w-100"></div>
+            <div class="col">
+                <div id="remote-playerlist"></div>
+            </div>
+        </div>
+        <div class="card_move"></div>
+    </div>
+    <style type="text/css">
+        .page_agora_btn{
+            margin: 5px;
+            border: 1px solid black;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .page_agora_tools>.video-group>div>.player-name,
+        .page_agora_tools>.video-group>div>#remote-playerlist>div>.player-name{
+            display: none;
+        }
+        .page_agora_tools>.video-group>div>.player,
+        .page_agora_tools>.video-group>div>#remote-playerlist>div>.player{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+
+    <div class="page_edit_tools card just_tool_move">
+        <div class="page_edit_tools_list">
+            <button class="add add_btn add_btn_area_select" data-type="area_select"></button>
+            <button class="add add_btn add_btn_text" data-type="text"></button>
+            <button class="add add_btn add_btn_img" data-type="img"></button>
+            <button class="add add_btn add_btn_video" data-type="video"></button>
+            <button class="add add_btn add_btn_iframe_pin" data-type="pin"></button>
+            <button class="add add_btn add_btn_iframe" data-type="iframe"></button>
+            <button class="add add_btn add_btn_domcopy" data-type="domcopy"></button>
+            <button class="add add_btn add_btn_more_select" data-type="more_select"></button>
+            <button class="add_btn add_btn_more"></button>
+            <!-- <button class="add" data-type="button">button</button>
+            <button class="add" data-type="canvas">canvas</button>
+            <button class="add" data-type="input">input</button>
+            <button class="add" data-type="textarea">textarea</button> -->
+            <div class="block_save_area hide">
+                <div>dom_owner:<input class="dom_owner"></div>
+                <div>dom_current:<input class="dom_current"><button class="save hide">save</button></div>
+            </div>
+            <div class="dom_position hide">
+                dom x:<input class="dom_position_x" type="text">,y:<input class="dom_position_y" type="text"></div>
+            <div class="dom_style hide">
+                dom w:<input class="dom_position_w" type="text">,h:<input class="dom_position_h" type="text"></div>
+            <div class="dom_zindex hide">
+                dom z:<input class="dom_position_z" type="text"></div>
+            <div class="dom_css hide">dom css:<textarea class="dom_css"></textarea></div>
+            <div class="dom_content hide">dom content:<textarea class="dom_content"></textarea></div>
+            <div class="block_width hide">main_area width:<input class="block_width" type="text" class=""></div>
+            <div class="block_height hide">main_area height:<input class="block_height" type="text" class=""></div>
+        </div>
+        <div class="page_edit_tools_list_cover hide">
+            <div class="block_desc_area">
+                <div>
+                    <p class="block_desc_title">DESCRIPTION·描述<span class="block_desc_content_unsave hide">*</span>
+                        {% if handler.user_id in handler.editors %}
+                        <span class="block_desc_content_save">save</span>
+                        {% end if %}
+                    </p>
+                    <div class="block_desc_content_area">
+                        <textarea class="block_desc_content" placeholder="Set Your Page Description">{{ handler.desc }}</textarea>
+                    </div>
+                </div>
+            </div>
+            {% if handler.user_id in handler.editors %}
+            <div class="block_permission_area">
+                <div>
+                    <p class="block_permission_span_btns_title">PERMISSION·权限状态</p>
+                    <div class="block_permission_span_btns">
+                        
+                        {% for permission in ["private","publish","public"] %}
+                        <span
+                        {% if permission == handler.permission %}
+                        class="selected"
+                        {% end if %}
+                        data-value="{{permission}}">{{ handler.permission_btns[permission]}}</span><br>
+                        {% end for %}
+                    </div>
+                </div>
+            </div>
+            <div class="block_comment_entities_setting_area">
+                <div>
+                    <p class="block_comment_entities_setting_area_title">COMMENTS·评论区<span class="block_comment_entities_add">add</span></p>
+                    <div class="comment_entities">
+                        {% for comment_entity in handler.comment_entities %}
+                        <div class="comment_entity_line">
+                            <p>block: {{ comment_entity }}</p>
+                            <div class="comment_entity_line_tools">
+                                <div class="load_card">Load·载入</div>
+                                <div class="manager">Manage·管理</div>
+                            </div>
+                        </div>
+                        {% end if %}
+                    </div>
+                </div>
+            </div>
+            <div class="block_main_area_area">
+                <div>
+                    <p class="block_main_area_title">MAIN AREA·屏幕主区参考<span class="block_main_area_save">save</span></p>
+                    <div><p>WIDTH·宽: </p><input class="block_main_area block_main_area_w" type="number"
+                        value="{{
+                        handler.main_area.get('w','1024')
+                    }}"></div>
+                    <div><p>HEIGHT·高:</p><input class="block_main_area block_main_area_h" type="number"
+                        value="{{
+                        handler.main_area.get('h','0')
+                    }}"></div>
+                </div>
+            </div>
+            <div class="block_grid_graph_area">
+                <div>
+                    <p class="block_grid_graph_title">GRID GRAPH·网格参考<span class="block_grid_graph_save">save</span></p>
+                    <div><p>WIDTH·宽: </p><input class="block_grid_graph block_grid_graph_w" type="number"
+                        value="{{
+                        handler.grid_graph.get('w','30')
+                    }}"></div>
+                    <div><p>HEIGHT·高:</p><input class="block_grid_graph block_grid_graph_h" type="number"
+                        value="{{
+                        handler.grid_graph.get('h','30')
+                    }}"></div>
+                </div>
+            </div>
+            {% end if %}
+            <div class="block_editors_area">
+                {% if handler.user_id in handler.editors %}
+                <div class="block_editors_tool">
+                    editor:<span class="block_editor_id">None</span>
+                    <br><input class="block_editors_search"><button class="add">add</button><button class="del">del</button>
+                </div>
+                {% end if %}
+                editors
+                <div class="block_editors_list"></div>
+            </div>
+            <div class="block_readers_area">
+                {% if handler.user_id in handler.editors %}
+                <div class="block_readers_tool">
+                    reader:<span class="block_reader_id">None</span>
+                    <br><input class="block_readers_search"><button class="add">add</button><button class="del">del</button>
+                </div>
+                {% end if %}
+                readers
+                <div class="block_readers_list"></div>
+            </div>
+            <div class="block_blackers_area">
+                {% if handler.user_id in handler.editors %}
+                <div class="block_blackers_tool">
+                    blacker:<span class="block_blacker_id">None</span>
+                    <br><input class="block_blackers_search"><button class="add">add</button><button class="del">del</button>
+                </div>
+                {% end if %}
+                blackers
+                <div class="block_blackers_list"></div>
+            </div>
+            <div class="block_members_area">
+                members
+                <div class="block_members_list"></div>
+            </div>
+            <div class="hide">
+                <input id="img_add_upload" type="file" accept="image/*" multiple="multiple">
+                <input id="video_add_upload" type="file" accept="video/*">
+            </div>
+        </div>
+        <div class="card_move"></div>
+    </div>
+    <div class="top_area_info card just_tool_move">
+        <div class="card_move"></div>
+        <div class="top_area_info_logo_line">
+            <img src="/static/img/oflogo_line.png?v=99">
+        </div>
+        <div class="top_area_info_input_line">
+            <input class="top_area_info_title" type="" name="" value='{{ handler.title }}' placeholder="Set Your Page Title">
+        </div>
+        <div class="top_area_info_collection_line">
+            {% if handler.user_id in handler.stars %}
+                <div class="top_area_info_collection_line_now stars_in"></div>
+            {% else %}
+                <div class="top_area_info_collection_line_now"></div>
+            {% end if %}
+        </div>
+        <div style="display: flex;margin:0px 5px;">
+            <img src="/static/img/info_line_row.png" style="width: 1px;height: auto;">
+        </div>
+        <div class="top_area_info_contribute_line">
+            <div>contribute</div>
+        </div>
+    </div>
+    <div class="top_area">
+        <a href="/"><div>HOME</div></a>
+        <a href="/home/pages"><div>PAGES</div></a>
+        <a href="/home/page/{{handler.block_id}}" target="_blank"><div>PAGE VIEW</div></a>
+        {% if handler.fork_allow %}
+        <a href="/api/page/fork?aim_id={{ handler.block_id }}" target="_blank" style="margin-left: 30px;"><div>FORK PAGE</div></a>
+        {% end if %}
+    </div>
+</body>
+<script type="text/javascript">
+    var WEBSOCKET_URL = "{{ handler.websocket_url }}";
+    var BLOCK_ID = "{{ handler.block_id }}";
+    var USER_ID = "{{ handler.user_id }}";
+    var PAGE_TYPE = "page_edit";
+</script>
+
+<script type="text/javascript" src="/static/js/agora/AgoraRTC_N.js"></script>
+<script type="text/javascript" src="/static/js/agora/basicVideoCall.js"></script>
+<script type="text/javascript" src="/static/js/page.js?t={{handler.time_now}}"></script>
+<script type="text/javascript" src="/static/js/page_edit.js?t={{handler.time_now}}"></script>
+<script type="text/javascript" src="/static/js/card_move_btn.js?t={{ handler.time_now }}"></script>
+<script type="text/javascript" src="/static/js/page_edit_image.js?t={{ handler.time_now }}"></script>
+<script type="text/javascript" src="/static/js/page_edit_video.js?t={{ handler.time_now }}"></script>
+
+
+</html>

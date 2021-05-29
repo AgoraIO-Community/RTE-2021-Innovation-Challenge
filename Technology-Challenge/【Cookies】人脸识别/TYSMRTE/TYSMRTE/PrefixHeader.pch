@@ -1,0 +1,16 @@
+//
+//  PrefixHeader.pch
+//  TYSMRTE
+//
+//  Created by Jele on 18/5/2021.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <Foundation/Foundation.h>
+#import "APPID.h"
+
+#endif /* PrefixHeader_pch */

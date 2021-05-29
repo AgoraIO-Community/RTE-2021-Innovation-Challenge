@@ -1,0 +1,262 @@
+*{
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    width: 100%;
+    min-height: 100%;
+    font-family: "Noto Sans SC",sans-serif;
+}
+a:link{
+    text-decoration:none;
+}
+a:visited{
+    text-decoration:none;
+}
+a:hover{
+    text-decoration:none;
+}
+a:active{
+    text-decoration:none;
+}
+a{
+    text-decoration:none;
+}
+.base_area{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.main_area{
+    width: 1024px;
+    height: auto;
+    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.2);
+}
+.main_area>div{
+    width: 1024px;
+    position: relative;
+}
+.of_top{
+    
+}
+
+
+.of_course{
+    min-height: 500px;
+}
+
+.of_course_online_compulsory_list{
+    display: flex;
+    flex-wrap: wrap;
+}
+.of_course_online_compulsory_item{
+    flex: 1;
+    width: 220px;
+    height: 220px;
+    background-color: #000;
+    border-radius: 5px;
+    margin: 5px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.of_course_online_compulsory{
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background-size: cover;
+    background-position: center;
+}
+.of_course_online_compulsory:hover{
+    opacity: 1;
+}
+
+
+
+
+
+
+
+.of_copyright{
+    text-align: center;
+}
+.of_copyright>p{
+    font-size: 12px;
+    font-weight: normal;
+    margin: 100px 0px 10px;
+    transform: scale(0.7);
+}
+.of_footer{
+    background-color: #FCED5A;
+    height: 240px;
+}
+.card_move{
+    position: absolute;
+}
+.card_move_line{
+    position: relative;
+    margin: 20px;
+}
+.img_logo{
+    width: 40px;
+    height: 40px;
+}
+.link_btn_bottom{
+    color: #000;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #000;
+    width: 120px;
+    font-size: 14px;
+    transform: scale(0.7);
+}
+.link_btn_left{
+    color: #000;
+    padding-left: 20px;
+    border-left: 1px solid #000;
+    width: 200px;
+    font-size: 14px;
+    transform: scale(0.7);
+    position: relative;
+    height: 80px;
+}
+.link_btn_left>p{
+    position: absolute;
+    top: 45px;
+    left: 20px;
+    font-size: 12px;
+    font-weight: lighter;
+}
+.link_btn_left>p>a>img{
+    margin-right: 20px;
+    width: 25px;
+    height: 25px;
+}
+.of_foundary{
+    background: #EFF9F4;
+    position: relative;
+    height: 300px;
+}
+.of_foundary_box>a>img{
+    width: 120px;
+    height: 120px;
+}
+.of_foundary_box>a>img.nocomein{
+    transform: scaleY(0.25);
+}
+.of_foundary_box>a>img.comein{;
+    animation: of_foundary_box_img 500ms ease-in-out;
+    -webkit-animation: of_foundary_box_img 500ms ease-in-out;
+}
+
+@keyframes of_foundary_box_img {
+  0% {
+    transform: scaleY(0.25);
+  }
+  25% {
+    transform: scaleY(0.5);
+  }
+  75% {
+    transform: scaleY(0.8);
+  }
+  100% {
+    transform: scaleY(1.0);
+  }
+}
+.of_foundary_box_logo>a>img{
+    width: 123px;
+    height: 74px;
+}
+.of_foundary_box_logo>a>img.nocomein{
+    opacity: 0;
+    transform: scaleX(0.1) translateX(-60px);
+}
+.of_foundary_box_logo>a>img.comein{
+    animation: of_foundary_box_logo 1000ms ease-in-out;
+    -webkit-animation: of_foundary_box_logo 1000ms ease-in-out;
+}
+@keyframes of_foundary_box_logo {
+  0% {
+    opacity: 0;
+    transform: scaleX(0.1) translateX(-60px);
+  }
+  25% {
+    opacity: 0;
+    transform: scaleX(0.1) translateX(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1.0) translateX(0px);
+  }
+}
+.of_foundary_box_desc>p{
+    font-size: 40px;
+    width: 520px;
+    height: 120px;
+    overflow: hidden;
+    font-weight: bold;
+}
+.of_foundary_box_desc>p.nocomein{
+    width: 0px;
+}
+.of_foundary_box_desc>p.comein{
+    animation: of_foundary_box_desc 2500ms ease-in-out;
+    -webkit-animation: of_foundary_box_desc 2500ms ease-in-out;
+}
+@keyframes of_foundary_box_desc {
+  0% {
+    width: 0px;
+  }
+  10% {
+    width: 0px;
+  }
+  100% {
+    width: 520px;
+  }
+}
+.of_foundary_box_about{
+    transform: scale(0.8);
+}
+.of_foundary_box_about>p{
+    width: 300px;
+    overflow: hidden;
+}
+.of_foundary_box_about>p.nocomein{
+    height: 0px;
+}
+.of_foundary_box_about>p.comein{
+    animation: of_foundary_box_about 4000ms ease-in-out;
+    -webkit-animation: of_foundary_box_about 4000ms ease-in-out;
+}
+@keyframes of_foundary_box_about {
+  0% {
+    opacity: 0;
+    height: 0px;
+  }
+  25% {
+    opacity: 0;
+    height: auto;
+  }
+  100% {
+    opacity: 1;
+    height: auto;
+  }
+}
+.wechat_qrcode{
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    width: 80px;
+    height: 80px;
+    background: #fced5a;
+    box-shadow: 2px 2px;
+}
+
+.hide{
+    display: none;
+}
+

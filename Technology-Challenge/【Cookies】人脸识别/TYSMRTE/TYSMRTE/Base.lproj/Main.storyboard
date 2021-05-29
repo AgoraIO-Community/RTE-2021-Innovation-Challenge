@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xFt-qK-Xja">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UsF-iz-Znm">
+                                <rect key="frame" x="267" y="594.5" width="138" height="258.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="UsF-iz-Znm" secondAttribute="height" multiplier="8:15" id="5oP-3q-xFM"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mdq-tb-LsL">
+                                <rect key="frame" x="0.0" y="692" width="267" height="150"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zz-W5-1UG">
+                                        <rect key="frame" x="0.0" y="0.0" width="267" height="50"/>
+                                        <state key="normal" title="load extension"/>
+                                        <connections>
+                                            <action selector="tapExtension:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Phz-FG-t0J"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0B-ZN-1C9">
+                                        <rect key="frame" x="0.0" y="50" width="267" height="50"/>
+                                        <state key="normal" title="join"/>
+                                        <connections>
+                                            <action selector="joinChannel" destination="BYZ-38-t0r" eventType="touchUpInside" id="kOC-Ef-ESG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ziB-0A-d5D">
+                                        <rect key="frame" x="0.0" y="100" width="267" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="aZt-ky-x62"/>
+                                        </constraints>
+                                        <state key="normal" title="switch camera"/>
+                                        <connections>
+                                            <action selector="switchCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d8f-GN-0U1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8nb-9q-ct7">
+                                <rect key="frame" x="302" y="44" width="112" height="47"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                <state key="normal" title="Feature"/>
+                                <connections>
+                                    <action selector="tapMenu:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lJX-c0-jK8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xFt-qK-Xja" secondAttribute="trailing" id="0jv-E1-jr0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8nb-9q-ct7" secondAttribute="trailing" id="4VB-Gr-VW3"/>
+                            <constraint firstItem="xFt-qK-Xja" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Lh9-Cd-4Qi"/>
+                            <constraint firstItem="UsF-iz-Znm" firstAttribute="leading" secondItem="mdq-tb-LsL" secondAttribute="trailing" id="N1p-jl-jFd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xFt-qK-Xja" secondAttribute="bottom" id="OG1-BE-Q5h"/>
+                            <constraint firstItem="mdq-tb-LsL" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-20" id="RQR-FT-lrP"/>
+                            <constraint firstItem="UsF-iz-Znm" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:3" id="UtB-Dk-b8o"/>
+                            <constraint firstItem="8nb-9q-ct7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eG7-eU-Jhq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UsF-iz-Znm" secondAttribute="trailing" constant="9" id="fXY-d5-cld"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UsF-iz-Znm" secondAttribute="bottom" constant="9" id="h7E-cr-wdA"/>
+                            <constraint firstItem="xFt-qK-Xja" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="kxT-J0-4YJ"/>
+                            <constraint firstItem="mdq-tb-LsL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="q9R-9d-GKy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="extensionButton" destination="0Zz-W5-1UG" id="Her-FD-bTt"/>
+                        <outlet property="featureButton" destination="8nb-9q-ct7" id="GHU-7d-l2R"/>
+                        <outlet property="joinButton" destination="l0B-ZN-1C9" id="W6S-EJ-PCf"/>
+                        <outlet property="localVideo" destination="UsF-iz-Znm" id="8an-r6-FRR"/>
+                        <outlet property="remoteVideo" destination="xFt-qK-Xja" id="xGU-Dd-Opn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-88" y="52"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

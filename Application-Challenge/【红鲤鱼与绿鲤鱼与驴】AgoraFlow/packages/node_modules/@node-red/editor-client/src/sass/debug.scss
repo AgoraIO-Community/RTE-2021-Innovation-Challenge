@@ -1,0 +1,256 @@
+/**
+ * Copyright JS Foundation and other contributors, http://js.foundation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+
+.red-ui-debug-window {
+    padding:0;
+    margin:0;
+    background: $secondary-background;
+    line-height: 20px;
+    .red-ui-debug-msg-payload {
+        font-size: 14px;
+    }
+}
+
+.red-ui-debug-content {
+    position: absolute;
+    top: 43px;
+    bottom: 0px;
+    left:0px;
+    right: 0px;
+    overflow-y: scroll;
+}
+.red-ui-debug-filter-box {
+    position:absolute;
+    top: 42px;
+    left: 0px;
+    right: 0px;
+    z-index: 20;
+    background: $tertiary-background;
+    padding: 10px;
+    border-bottom: 1px solid $secondary-border-color;
+    box-shadow: 0 2px 6px $shadow;
+}
+.red-ui-debug-filter-row {
+    .red-ui-nodeList {
+        margin: 10px 0;
+    }
+}
+
+.red-ui-debug-msg {
+    position: relative;
+    border-bottom: 1px solid $debug-message-border;
+    border-left: 8px solid $debug-message-border;
+    border-right: 8px solid $debug-message-border;
+    padding: 2px;
+    &>.red-ui-debug-msg-meta .red-ui-debug-msg-tools {
+        display: none;
+    }
+
+    &.red-ui-debug-msg-hover {
+        border-right-color: $debug-message-border-hover;
+        &>.red-ui-debug-msg-meta .red-ui-debug-msg-tools {
+            display: inline-block;
+        }
+    }
+}
+.red-ui-debug-msg-row {
+    .red-ui-debug-msg-tools-pin {
+        display: none;
+    }
+    &.red-ui-debug-msg-row-pinned .red-ui-debug-msg-tools-pin {
+        display: inline-block;
+    }
+    &:hover {
+        background: $debug-message-background-hover;
+        &>.red-ui-debug-msg-tools {
+            .red-ui-debug-msg-tools-copy {
+                display: inline-block;
+            }
+            .red-ui-debug-msg-tools-pin {
+                display: inline-block;
+            }
+            .red-ui-debug-msg-tools-other {
+                display: inline-block;
+            }
+        }
+    }
+}
+.red-ui-debug-msg-meta .red-ui-debug-msg-tools {
+    .red-ui-button-small {
+        font-size: 11px;
+    }
+}
+.red-ui-debug-msg-tools {
+    .button-group:not(:last-child) {
+        margin-right: 3px;
+    }
+    .red-ui-button-small {
+        height: 16px;
+        line-height: 14px;
+        font-size: 8px;
+        border-radius: 1px;
+        padding: 0 3px;
+        min-width: 18px;
+    }
+}
+
+.red-ui-debug-msg-meta {
+    background: $debug-message-background;
+    font-size: 11px;
+    color: $secondary-text-color-inactive;
+}
+.red-ui-debug-msg-date {
+    padding: 1px 5px 1px 1px;
+}
+.red-ui-debug-msg-topic {
+    display: block;
+    color: $debug-message-text-color-meta;
+}
+.red-ui-debug-msg-name {
+    padding: 1px 5px;
+    color: $secondary-text-color-inactive;
+}
+.red-ui-debug-msg-tools {
+    position: absolute;
+    top: 3px;
+    right: 1px;
+    .red-ui-debug-msg-tools-copy {
+        display: none;
+    }
+    .red-ui-debug-msg-tools-other {
+        display: none;
+    }
+}
+.red-ui-debug-msg-payload {
+    display: block;
+    padding: 2px;
+    background: $debug-message-background;
+    font-family: $monospace-font;
+    font-size: 13px !important;
+}
+.red-ui-debug-msg-level-log {
+    border-left-color: $debug-message-border;
+    border-right-color: $debug-message-border;
+}
+.red-ui-debug-msg-level-30 {
+    border-left-color: $debug-message-border-warning;
+    border-right-color: $debug-message-border-warning;
+}
+.red-ui-debug-msg-level-20 {
+    border-left-color: $debug-message-border-error;
+    border-right-color: $debug-message-border-error;
+}
+.red-ui-debug-msg-object-entry {
+    position: relative;
+    padding-left: 15px;
+}
+.red-ui-debug-msg-element {
+    color: $debug-message-text-color;
+    line-height: 1.3em;
+    overflow-wrap: break-word;
+}
+.red-ui-debug-msg-object-key {
+    color: $debug-message-text-color-object-key;
+}
+.red-ui-debug-msg-object-value {
+
+}
+.red-ui-debug-msg-object-handle {
+    color: $secondary-text-color;
+    font-size: 1em;
+    width: 1em;
+    text-align: center;
+    transition: transform 0.1s ease-in-out;
+    transform: rotate(90deg);
+}
+.red-ui-debug-msg-element:not(.red-ui-debug-msg-top-level)>.red-ui-debug-msg-expandable>.red-ui-debug-msg-object-handle {
+    margin-left: -1em;
+}
+.red-ui-debug-msg-object-entry>.red-ui-debug-msg-expandable>.red-ui-debug-msg-object-handle {
+    margin-left: -1em;
+}
+.red-ui-debug-msg-object-entry.collapsed>span>.red-ui-debug-msg-object-handle {
+    transform: rotate(0deg);
+}
+.red-ui-debug-msg-element.collapsed>span>.red-ui-debug-msg-object-handle {
+    transform: rotate(0deg);
+}
+.red-ui-debug-msg-object-entry.collapsed > .red-ui-debug-msg-object-entry {
+    display:none;
+}
+.red-ui-debug-msg-element.collapsed .red-ui-debug-msg-object-entry {
+    display:none;
+}
+.red-ui-debug-msg-element:not(.collapsed)>.red-ui-debug-msg-expandable>.red-ui-debug-msg-object-value>.red-ui-debug-msg-object-header {
+    display:none;
+}
+.red-ui-debug-msg-element.collapsed .red-ui-debug-msg-buffer-opts {
+    display: none;
+}
+.red-ui-debug-msg-element.collapsed .red-ui-debug-msg-object-type-header {
+    display:none;
+}
+.red-ui-debug-msg-object-entry pre {
+    font-family: $monospace-font;
+    font-size: 13px;
+    line-height: 1.2em;
+    margin: 0 0 0 -1em;
+}
+
+.red-ui-debug-msg-type-other { color: $debug-message-text-color-msg-type-other; }
+.red-ui-debug-msg-type-string { color: $debug-message-text-color-msg-type-string; }
+.red-ui-debug-msg-type-null { color: $debug-message-text-color-msg-type-null; font-style: italic;}
+.red-ui-debug-msg-type-meta { color: $debug-message-text-color-msg-type-meta; font-style: italic;}
+.red-ui-debug-msg-type-number { color: $debug-message-text-color-msg-type-number; };
+.red-ui-debug-msg-type-number-toggle { cursor: pointer;}
+
+.red-ui-debug-msg-type-string {
+    white-space: pre-wrap;
+}
+
+.red-ui-debug-msg-row {
+    display: block;
+    padding: 4px 2px 2px;
+    position: relative;
+    &.red-ui-debug-msg-row-pinned {
+        background: $secondary-background-selected;
+    }
+}
+.red-ui-debug-msg-expandable {
+    cursor: pointer;
+}
+.red-ui-debug-msg-expandable:hover .red-ui-debug-msg-object-handle {
+    color:$secondary-text-color-hover;
+}
+
+.red-ui-debug-msg-buffer-opts {
+    margin-left: 5px;
+}
+
+.red-ui-debug-msg-buffer-raw > .red-ui-debug-msg-string-rows {
+    display: none;
+}
+.red-ui-debug-msg-buffer-string > .red-ui-debug-msg-array-rows {
+    display: none;
+}
+.red-ui-debug-msg-type-string-swatch {
+    display: inline-block;
+    width: 1.1em;
+    height: 0.9em;
+    vertical-align: middle;
+    border-radius: 3px;
+    margin: 0 4px;
+}
