@@ -17,7 +17,7 @@ typora-copy-images-to: ScreenShorts
 
 在刷b站的时候，经常看到会有一些视频，“不同国家人看《XXX》（某部电影）预告片时的反应”类的视频，如下图（截图来源于[众老外看《复仇者联盟3：无限战争》预告片时的反应](https://www.bilibili.com/video/BV1sW411a7Ca?from=search&seid=14916927644342390513)）
 
-<img src=".\ScreenShorts\image-1.png" alt="image-1" style="zoom: 50%;" />
+<img src=".\ScreenShorts\image-1.png" alt="image-1" style="zoom: 50%;" width="470" height="270" />
 
 此项目就是以此为灵感，可以邀请一群兴趣相近的朋友，选择感兴趣的视频，加入到一个“房间”（Channel），同步在每个人的设备上播放视频；
 
@@ -27,9 +27,9 @@ typora-copy-images-to: ScreenShorts
 
 ### 截图
 
-<img src=".\ScreenShorts\image-2.jpg" alt="image-2" style="zoom: 33%;" />
+<img src=".\ScreenShorts\image-2.jpg" alt="image-2" style="zoom: 33%;" width="360" height="750" />
 
-（实例视频来源于网络）
+（项目中示例视频来源于网络）
 
 ## 运行说明
 ------
