@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main"
+    android:fitsSystemWindows="true"
+    app:layoutDescription="@xml/fragment_welcome_scene">
+
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/actor_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layoutDescription="@xml/fragment_welcome_actor_scene">
+
+
+        <ImageView
+            android:id="@+id/actor_img"
+            android:layout_width="wrap_content"
+            android:layout_height="288dp"
+            android:layout_marginTop="56dp"
+            android:src="@drawable/actor"
+            android:transitionName="welcome_actor_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_corner_bg"
+        app:layoutDescription="@xml/fragment_welcome_contentlayout_scene"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <ImageView
+            android:id="@+id/slogan_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="46dp"
+            android:src="@drawable/welcome"
+            android:transitionName="slogan_1_welcome"
+            app:layout_constraintBottom_toTopOf="@+id/slogan_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/slogan_1_1"
+            android:layout_width="119dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="46dp"
+            android:src="@drawable/hi"
+            app:layout_constraintBottom_toTopOf="@+id/slogan_2_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/slogan_2"
+            android:layout_width="119dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="22dp"
+            android:src="@drawable/we_in"
+            android:transitionName="slogan_2_welcome"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="@+id/slogan_1"
+            app:layout_constraintTop_toBottomOf="@+id/slogan_1" />
+
+        <ImageView
+            android:id="@+id/slogan_2_1"
+            android:layout_width="274dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/sign_you_in"
+            app:layout_constraintStart_toStartOf="@+id/slogan_1_1"
+            app:layout_constraintTop_toBottomOf="@+id/slogan_1_1" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="110dp"
+            android:text="虚拟现实多人视频通话，\n远程聚会或会议。"
+            android:textColor="#ffb5c2e0"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@+id/login_button"
+            app:layout_constraintStart_toStartOf="@+id/slogan_2"
+            app:layout_constraintTop_toBottomOf="@+id/slogan_2" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="48dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="170dp"
+            android:textColorHint="@color/color_normal"
+            app:boxBackgroundColor="@color/translucent"
+            app:errorEnabled="false"
+            app:hintTextAppearance="@style/text_in_layout_hint_Style"
+            app:layout_constraintBottom_toTopOf="@+id/login_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/slogan_2_1">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/txt_bg"
+                android:hint="请输入用户名"
+                android:paddingStart="0dp"
+                android:paddingTop="40dp"
+                android:paddingEnd="0dp"
+                android:textColor="@color/color_main"
+                android:textColorHint="@color/color_normal" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="48dp"
+            android:layout_marginBottom="60dp"
+            android:background="@drawable/login_btn_bg"
+            android:gravity="center"
+            android:paddingVertical="13dp"
+            android:text="登录"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>
