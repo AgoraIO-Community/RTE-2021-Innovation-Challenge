@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="2dip">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray_normal"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:id="@+id/rl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:minHeight="52dp"
+        android:orientation="horizontal"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp">
+
+        <ImageView
+            android:id="@+id/btn_set_mode_voice"
+            style="@style/ease_chat_input_button_size"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/ease_chatting_setmode_voice_btn"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/btn_set_mode_keyboard"
+            style="@style/ease_chat_input_button_size"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/ease_chatting_setmode_keyboard_btn"
+            android:visibility="gone" />
+
+        <FrameLayout
+            android:id="@+id/btn_press_to_speak"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginBottom="6dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/ease_chat_press_speak_btn"
+                android:gravity="center"
+                android:minHeight="32dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:text="@string/button_pushtotalk"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/edittext_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginBottom="6dp"
+            android:layout_weight="1"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:visibility="visible">
+
+            <com.hyphenate.easeui.modules.chat.EaseInputEditText
+                android:id="@+id/et_sendmessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ease_send_message_et_bg"
+                android:focusableInTouchMode="true"
+                android:imeOptions="actionSend"
+                android:maxLines="4"
+                android:minHeight="32dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="3dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="3dp"
+                android:textSize="18sp" />
+
+        </FrameLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_face"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:id="@+id/iv_face_normal"
+                android:layout_width="@dimen/ease_chat_primary_menu_icon_size"
+                android:layout_height="@dimen/ease_chat_primary_menu_icon_size"
+                android:padding="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ease_chatting_biaoqing_btn_normal"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/iv_face_checked"
+                android:layout_width="@dimen/ease_chat_primary_menu_icon_size"
+                android:layout_height="@dimen/ease_chat_primary_menu_icon_size"
+                android:padding="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ease_chatting_setmode_keyboard_btn"
+                android:visibility="invisible" />
+
+        </RelativeLayout>
+
+        <CheckBox
+            android:id="@+id/btn_more"
+            android:layout_width="@dimen/ease_chat_primary_menu_more_icon_size"
+            android:layout_height="@dimen/ease_chat_primary_menu_more_icon_size"
+            android:layout_marginEnd="@dimen/ease_chat_primary_margin_right"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/ease_type_select_btn"
+            android:button="@null"
+            android:visibility="visible" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/btn_send"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/ease_chat_primary_menu_send_icon_height_size"
+                android:layout_marginBottom="6dp"
+                android:background="@null"
+                android:gravity="center"
+                android:paddingEnd="16dp"
+                android:text="@string/button_send"
+                android:textColor="#ff67db5c"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
