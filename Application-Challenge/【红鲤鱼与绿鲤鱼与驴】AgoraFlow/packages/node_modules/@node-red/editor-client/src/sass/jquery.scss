@@ -1,0 +1,195 @@
+/**
+ * Copyright JS Foundation and other contributors, http://js.foundation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+
+.ui-widget {
+    font-size: 14px !important;
+    font-family: $primary-font;
+}
+.ui-widget input, .ui-widget div[contenteditable="true"], .ui-widget select, .ui-widget textarea, .ui-widget button {
+    font-size: 14px !important;
+    font-family: $primary-font;
+}
+.ui-widget input, .ui-widget div[contenteditable="true"] {
+    box-shadow: none;
+}
+
+.ui-widget-header {
+    color: $header-text-color;
+}
+
+/* jQuery Theme overrides */
+.ui-tabs .ui-tabs-panel {
+    padding: 0px;
+}
+
+.ui-autocomplete {
+    max-height: 250px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.ui-dialog {
+    border-radius: 1px;
+    background: $secondary-background;
+    padding: 0;
+    @include component-shadow;
+}
+.ui-dialog .ui-dialog-content {
+    padding: 25px 25px 10px 25px;
+}
+.ui-dialog .ui-dialog-title {
+    width: auto;
+}
+.ui-dialog .ui-dialog-titlebar {
+    padding: 10px;
+    background: $primary-background;
+    border: none;
+    border-bottom: 1px solid $primary-border-color;
+    border-radius: 0;
+}
+.ui-dialog .ui-dialog-buttonpane.ui-widget-content {
+    background: $tertiary-background;
+
+}
+.ui-corner-all {
+    border-radius: 1px;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    background: $primary-background;
+}
+.ui-dialog-no-close .ui-dialog-titlebar-close {
+    display: none;
+}
+
+.ui-dialog-buttonset {
+    text-align: right;
+}
+
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+    float: none;
+}
+
+.ui-dialog-buttonset button {
+    @include workspace-button;
+    font-size: 14px;
+    padding: 6px 14px;
+    margin-right: 8px;
+    border-radius: 2px;
+    color: $workspace-button-color;
+    background: $workspace-button-background;
+
+    &.leftButton {
+        float: left;
+        margin-top: 7px;
+    }
+    &:not(.leftButton):not(:last-child) {
+        margin-right: 16px;
+    }
+
+    &.primary {
+        border-color: $workspace-button-background-primary;
+        color: $workspace-button-color-primary !important;
+        background: $workspace-button-background-primary;
+        &:not(.disabled):hover {
+            border-color: $workspace-button-background-primary-hover;
+            background: $workspace-button-background-primary-hover;
+            color: $workspace-button-color-primary !important;
+        }
+        &.disabled {
+            border-color: $form-input-border-color;
+            color: $workspace-button-color-disabled !important;
+            background: $workspace-button-background;
+        }
+    }
+    &.disabled {
+        background: none;
+    }
+    &.disabled {
+        background: none;
+    }
+    &.disabled:focus {
+        outline: none;
+    }
+    .ui-button-text {
+        padding: 0;
+    }
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+    padding: .3em 1em .5em 1em;
+}
+
+.ui-spinner {
+    border-radius: 4px;
+    padding: 0;
+    border: 1px solid $form-input-border-color;
+}
+.ui-spinner input {
+    background: $form-input-background;
+    margin: 0 17px 0 0;
+    padding: 6px;
+    border: none;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    &:focus {
+        outline: none;
+    }
+}
+
+
+.ui-widget-overlay {
+    @include shade;
+    z-index: 100;
+    opacity: 1;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default,
+.ui-button,
+html .ui-button.ui-state-disabled:hover,
+html .ui-button.ui-state-disabled:active {
+    border: 1px solid $secondary-border-color;
+    background: $form-button-background;
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus,
+.ui-button:hover, .ui-button:focus {
+    border: 1px solid $secondary-border-color;
+    background: $workspace-button-background-hover;
+    color: $workspace-button-color-hover;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+    border: 1px solid $secondary-border-color;
+    background: $workspace-button-background-active;
+    font-weight: normal;
+    color: $workspace-button-color-active;
+}
+
+.ui-state-active .ui-icon, .ui-button:active .ui-icon {
+    background-image: url(../vendor/jquery/css/base/images/ui-icons_777777_256x240.png);
+}

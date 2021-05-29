@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pages</title>
+    <meta charset="utf-8">
+    <meta http-equiv="description" content="">
+    <meta name="referrer" content="no-referrer">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:100,300,400,500,700,900">
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="/static/js/tools.js?t={{ handler.time_now }}"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/pages.css?t={{handler.time_now}}">
+    <style type="text/css">
+        .create_page_area{
+            position: absolute;
+            border-radius: 8px;
+            top: 84px;
+            right: 15px;
+            background-color: #ffffff;
+            padding: 10px;
+            box-shadow: 0px 4px 8px rgb(0 0 0 / 30%);
+        }
+        .pages_tools_area{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            padding: 0px 15px;
+        }
+        .pages_add_new_page_btn{
+            display: flex;
+            width: auto;
+            height: 32px;
+            text-align: center;
+            justify-content: center;
+            background: #5217a2;
+            color: white;
+            border-radius: 6px;
+            border: 1px solid #1b1f2326;
+            align-items: center;
+            cursor: pointer;
+            padding: 0px 18px;
+            font-size: 14px;
+            margin-left: 10px;
+            box-shadow: 0px 2px 4px rgb(0 0 0 / 20%);
+        }
+        .pages_add_new_page_btn:hover{
+            background: #410099;
+        }
+        .pages_add_new_page_btn>.icon{
+            background-color: rgba(255,255,255,0.8);
+            -webkit-mask-image: url(/static/img/pages/page.svg);
+            -webkit-mask-size: 16px 16px;
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-position: center center;
+            mask-image: url(/static/img/pages/page.svg);
+            mask-size: 16px 16px;
+            mask-repeat: no-repeat;
+            mask-position: center center;
+            width: 16px;
+            height: 16px;
+            margin-right: 3px;
+            margin-top: 0px;
+            cursor: pointer;
+        }
+        .top_area_fix,.foot_area_fix{
+            width: 100%;
+            height: 44px;
+        }
+        .add_new_page{
+            width: 100%;
+            height: 32px;
+            background: #5217a2;
+            color: white;
+            border-radius: 4px;
+            border: 1px solid #1b1f2326;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .add_new_page:hover{
+            background: #410099;
+        }
+        .add_new_page_title{
+            padding: 5px 10px;
+            width: -webkit-fill-available;
+            width: -moz-available;
+            color: #333;
+            font-size: 16px;
+            border: 1px solid #b2b2b2;
+            border-radius: 4px;
+            text-overflow: ellipsis;
+        }
+        .add_new_page_desc{
+            padding: 5px 10px;
+            width: -webkit-fill-available;
+            width: -moz-available;
+            font-size: 12px;
+            border: 1px solid #b2b2b2;
+            border-radius: 4px;
+            margin-top: 10px;
+            resize: vertical;
+            color: #666;
+        }
+        .pages_search_input{
+            padding: 4px 10px;
+            font-size: 14px;
+            height: 22px;
+            border-radius: 6px;
+            min-width: 200px;
+            width: -webkit-fill-available;
+            width: -moz-available;
+            border: 1px solid #1b1f2326;
+        }
+        .remove_search_btn{
+            color: #2196f3;
+            cursor:pointer;
+            margin-left: 15px;
+        }
+        .no_has_page{
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top_area">
+        <a href="/"><div>HOME</div></a>
+        <a href="/home/pages"><div>PAGES</div></a>
+    </div>
+    <div class="top_area_fix"></div>
+    <div class="create_page_area hide">
+        <div><input class="add_new_page_title" type="text" placeholder="title·标题"></div>
+        <div><textarea class="add_new_page_desc" placeholder="description·描述"></textarea></div>
+        <div><button class="add_new_page">add new page</button></div>
+    </div>
+    <div class="pages_tools_area">
+        <div class="pages_tools_item">
+            <input class="pages_search_input" type="" name="" placeholder="Find a page...">
+        </div>
+        <div class="pages_tools_item">
+            <button class="pages_add_new_page_btn">
+                <div class="icon"></div><span>New</span>
+            </button>
+        </div>
+    </div>
+    <div class="pages_top_list hide"></div>
+    <div class="pages_list"></div>
+    <div class="foot_area_fix"></div>
+</body>
+<script type="text/javascript"></script>
+<script type="text/javascript" src="/static/js/pages.js?t={{handler.time_now}}"></script>
+</html>
