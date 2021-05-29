@@ -1,5 +1,8 @@
 ### **强烈推荐您通过PDF图文介绍了解本项目  [单击查看](https://github.com/asmite/RTE-2021-Innovation-Challenge/blob/master/Application-Challenge/%E3%80%90%E8%AE%B8%E7%9B%BC%E7%9B%BC%E3%80%91%E4%B8%AD%E5%8D%8E%E5%BF%97%E6%84%BF%E8%80%85-%E4%B8%80%E9%94%AE%E5%91%BC%E6%95%91/%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D.pdf)**
 
+## 在线体验
+体验地址：https://vivo.asplay.cn/demo/
+
 ## 项目背景
 本系统为2020年11月立项开发的一套微信公众号平台系统，系统面向中华志愿者协会应急救援志愿者委员会2000万会员，提供资讯、活动组织、成员招募、时长认证、福利发放、一键呼救等功能
 
