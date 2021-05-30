@@ -216,7 +216,7 @@ Scope: com.htc.upm
 
 # Demo Download
 
-[Android apk](android/WeIn-releasae.apk)
+[Android apk](android/WeIn-release.apk)
 
 # LICENSE
 
