@@ -27,8 +27,7 @@ import com.hustunique.vlive.local.VirtualCharacterPropertyProvider
 import com.hustunique.vlive.opengl.GLRender
 import com.hustunique.vlive.remote.Service
 import com.hustunique.vlive.util.ToastUtil
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class SceneActivity : AppCompatActivity() {
 
@@ -142,7 +141,10 @@ class SceneActivity : AppCompatActivity() {
         lifecycleScope.launchWhenCreated {
             Service.channelJoin(args.cid, args.mode).apply {
                 if (!successful) {
-                    ToastUtil.makeShort("加入房间失败 $msg")
+                    ToastUtil.makeLong("加入房间失败 $msg")
+                    withContext(Dispatchers.IO) {
+                        delay(1000)
+                    }
                     finish()
                     return@apply
                 }

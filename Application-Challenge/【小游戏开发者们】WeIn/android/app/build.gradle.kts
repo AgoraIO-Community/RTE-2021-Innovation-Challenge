@@ -65,6 +65,17 @@ android {
         }
     }
 
+    signingConfigs {
+        create("release") {
+            storeFile = file("../keystore/key")
+            keyAlias = "key0"
+            keyPassword = "123456"
+            storePassword = "123456"
+            isV1SigningEnabled = true
+            isV2SigningEnabled = true
+        }
+    }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = true
@@ -72,9 +83,11 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
         }
 
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
