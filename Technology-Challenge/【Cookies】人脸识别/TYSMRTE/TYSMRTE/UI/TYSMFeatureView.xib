@@ -56,7 +56,7 @@
                                 </button>
                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSV-42-0O9">
                                     <rect key="frame" x="250" y="0.0" width="125" height="141"/>
-                                    <state key="normal" title="张嘴表情"/>
+                                    <state key="normal" title="打哈欠表情"/>
                                     <connections>
                                         <action selector="tapButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="NkH-kf-wA0"/>
                                     </connections>
