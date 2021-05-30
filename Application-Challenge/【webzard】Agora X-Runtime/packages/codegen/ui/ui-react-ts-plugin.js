@@ -7,7 +7,7 @@ const viewImportMap = {
   table: ["Table", "Thead", "Tbody", "Tr", "Td", "Th"],
   list: ["List", "ListItem", "Flex"],
   kanban: ["Flex", "VStack", "HStack", "Box", "Heading", "Text"],
-  form: ["FormErrorMessage", "FormLabel", "FormControl", "Input", "Button"],
+  form: ["FormErrorMessage", "FormLabel", "FormControl", "Button"],
 };
 const SCALARS = new Set(["Int", "Float", "String", "Boolean", "DateTime"]);
 
@@ -29,7 +29,12 @@ module.exports = async function (dataMeta, documentMeta) {
     "PopoverHeader",
     "PopoverBody",
   ]);
-  const dataImportSet = new Set(["Scalars"]);
+  const dataImportSet = new Set([
+    "Scalars",
+    ...dataMeta.types
+      .filter((type) => type.is === "enum")
+      .map((enumType) => enumType.name),
+  ]);
 
   function formatVariableType(variable) {
     if (SCALARS.has(variable.type)) {
@@ -152,8 +157,8 @@ module.exports = async function (dataMeta, documentMeta) {
               ...nestField,
               path: nestPath,
               safePath,
-              label: labelMap[nestField.name] || nestField.name,
-              placeholder: placeholderMap[nestField.name],
+              label: labelMap[nestPath] || nestPath,
+              placeholder: placeholderMap[nestPath],
             });
           }
         }
@@ -189,6 +194,18 @@ module.exports = async function (dataMeta, documentMeta) {
         componentImports: Array.from(componentImportSet),
         dataImports: Array.from(dataImportSet),
         views,
+        enumOptionsRawMap: dataMeta.types
+          .filter((type) => type.is === "enum")
+          .reduce((prev, cur) => {
+            prev[cur.name] = `[${cur.fields
+              .find((f) => f.name === "members")
+              .enum.map((item) => {
+                const value = ` ${cur.name}.${capitalizeFirst(item)}`;
+                return `{ text: ${value}, value: ${value} }`;
+              })
+              .join(", ")}]`;
+            return prev;
+          }, {}),
         common: {
           capitalizeFirst,
         },

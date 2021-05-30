@@ -42,3 +42,15 @@ mutation createOneUserForm($data: UserCreateInput!) {
     createdAt
   }
 }
+
+mutation updateOneUserForm(
+  $data: UserUpdateInput!
+  $where: UserWhereUniqueInput!
+) {
+  updateOneUser(data: $data, where: $where) {
+    id
+    name
+    role
+    createdAt
+  }
+}

@@ -11,6 +11,7 @@
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@toast-ui/react-calendar": "^1.0.5",
+    "dayjs": "^1.10.5",
     "framer-motion": "^4",
     "graphql": "^15.5.0",
     "graphql-tag": "^2.12.4",

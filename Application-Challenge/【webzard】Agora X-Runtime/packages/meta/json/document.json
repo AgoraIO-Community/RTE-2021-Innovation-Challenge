@@ -449,6 +449,228 @@
           ]
         }
       ]
+    },
+    {
+      "name": "updateOneUserForm",
+      "is": "mutation",
+      "attributes": [],
+      "selections": [
+        {
+          "name": "updateOneUser",
+          "attributes": [
+            {
+              "name": "view",
+              "arguments": [
+                {
+                  "name": "type",
+                  "type": "String",
+                  "value": "form"
+                }
+              ]
+            }
+          ],
+          "selections": [
+            {
+              "name": "id",
+              "attributes": [
+                {
+                  "name": "id",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            },
+            {
+              "name": "name",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            },
+            {
+              "name": "role",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Enum",
+              "customType": "Role"
+            },
+            {
+              "name": "createdAt",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "customType": "DateTime"
+            }
+          ],
+          "arguments": [
+            {
+              "name": "data",
+              "type": "Variable",
+              "value": "data"
+            },
+            {
+              "name": "where",
+              "type": "Variable",
+              "value": "where"
+            }
+          ],
+          "nullable": true,
+          "list": false,
+          "baseType": "Object",
+          "customType": "User"
+        }
+      ],
+      "variables": [
+        {
+          "name": "data",
+          "type": "UserUpdateInput",
+          "nullable": false,
+          "attributes": [
+            {
+              "name": "value",
+              "arguments": [
+                {
+                  "name": "pick",
+                  "type": "List",
+                  "values": [
+                    {
+                      "type": "String",
+                      "value": "name"
+                    },
+                    {
+                      "type": "String",
+                      "value": "role"
+                    },
+                    {
+                      "type": "String",
+                      "value": "email"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "label",
+              "arguments": [
+                {
+                  "name": "name",
+                  "type": "String",
+                  "value": "姓名"
+                },
+                {
+                  "name": "role",
+                  "type": "String",
+                  "value": "角色"
+                },
+                {
+                  "name": "email",
+                  "type": "String",
+                  "value": "邮箱"
+                }
+              ]
+            },
+            {
+              "name": "placeholder",
+              "arguments": [
+                {
+                  "name": "email",
+                  "type": "String",
+                  "value": "邮箱将用于接收通知"
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "email",
+              "baseType": "InputObject",
+              "customType": "StringFieldUpdateOperationsInput",
+              "fields": [
+                {
+                  "name": "set",
+                  "baseType": "String",
+                  "nullable": true,
+                  "list": false
+                }
+              ],
+              "nullable": true,
+              "list": false
+            },
+            {
+              "name": "name",
+              "baseType": "InputObject",
+              "customType": "StringFieldUpdateOperationsInput",
+              "fields": [
+                {
+                  "name": "set",
+                  "baseType": "String",
+                  "nullable": true,
+                  "list": false
+                }
+              ],
+              "nullable": true,
+              "list": false
+            },
+            {
+              "name": "role",
+              "baseType": "InputObject",
+              "customType": "EnumRoleFieldUpdateOperationsInput",
+              "fields": [
+                {
+                  "name": "set",
+                  "baseType": "Enum",
+                  "customType": "Role",
+                  "nullable": true,
+                  "list": false
+                }
+              ],
+              "nullable": true,
+              "list": false
+            }
+          ]
+        },
+        {
+          "name": "where",
+          "type": "UserWhereUniqueInput",
+          "nullable": false,
+          "attributes": [
+            {
+              "name": "value",
+              "arguments": [
+                {
+                  "name": "pick",
+                  "type": "List",
+                  "values": [
+                    {
+                      "type": "String",
+                      "value": "id"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "id",
+              "baseType": "Int",
+              "nullable": true,
+              "list": false
+            }
+          ]
+        }
+      ]
     }
   ]
 }

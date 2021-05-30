@@ -1,9 +1,11 @@
 import React from "react";
 import { CombinedError } from "urql";
 import { useForm } from "react-hook-form";
+import { renderer } from "../renderer";
 import {
   Spinner,
   Center,
+  Text,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -23,21 +25,20 @@ import {
   HStack,
   Box,
   Heading,
-  Text,
   FormErrorMessage,
   FormLabel,
   FormControl,
-  Input,
   Button,
 } from "@chakra-ui/react";
 import {
   Scalars,
+  Role,
   useClassTableQuery,
   useUserTableQuery,
   useUserListQuery,
   useUserKanbanQuery,
-  Role,
   useCreateOneUserFormMutation,
+  useUpdateOneUserFormMutation,
 } from "./data-components";
 
 export const Error: React.FC<{ error: CombinedError }> = ({ error }) => {
@@ -313,10 +314,9 @@ export const CreateOneUserForm: React.FC = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <FormControl isInvalid={Boolean(errors.data?.email)}>
-        <FormLabel htmlFor="data.email">邮箱</FormLabel>
-        <Input
+        <FormLabel htmlFor="data.email">data.email</FormLabel>
+        <renderer.mutation.String
           id="data.email"
-          placeholder="邮箱将用于接收通知"
           {...register("data.email", {
             required: "This is required",
           })}
@@ -326,8 +326,8 @@ export const CreateOneUserForm: React.FC = () => {
         </FormErrorMessage>
       </FormControl>
       <FormControl isInvalid={Boolean(errors.data?.name)}>
-        <FormLabel htmlFor="data.name">姓名</FormLabel>
-        <Input
+        <FormLabel htmlFor="data.name">data.name</FormLabel>
+        <renderer.mutation.String
           id="data.name"
           {...register("data.name", {
             required: "This is required",
@@ -338,15 +338,104 @@ export const CreateOneUserForm: React.FC = () => {
         </FormErrorMessage>
       </FormControl>
       <FormControl isInvalid={Boolean(errors.data?.role)}>
-        <FormLabel htmlFor="data.role">角色</FormLabel>
-        <Input
+        <FormLabel htmlFor="data.role">data.role</FormLabel>
+        <renderer.mutation.Enum
           id="data.role"
           {...register("data.role", {
             required: "This is required",
           })}
+          options={[
+            { text: Role.Teacher, value: Role.Teacher },
+            { text: Role.Student, value: Role.Student },
+            { text: Role.Admin, value: Role.Admin },
+          ]}
         />
         <FormErrorMessage>
           {errors.data?.role && errors.data.role.message}
+        </FormErrorMessage>
+      </FormControl>
+      <Button mt={4} isLoading={isSubmitting} type="submit">
+        Submit
+      </Button>
+    </form>
+  );
+};
+
+export type UpdateOneUserFormValues = {
+  data: {
+    email?: {
+      set?: Scalars["String"];
+    };
+    name?: {
+      set?: Scalars["String"];
+    };
+    role?: {
+      set?: Role;
+    };
+  };
+  where: {
+    id?: Scalars["Int"];
+  };
+};
+export const UpdateOneUserForm: React.FC = () => {
+  const [, trigger] = useUpdateOneUserFormMutation();
+  const {
+    handleSubmit,
+    register,
+    formState: { errors, isSubmitting },
+  } = useForm<UpdateOneUserFormValues>();
+
+  async function onSubmit(values: UpdateOneUserFormValues) {
+    await trigger(values);
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <FormControl isInvalid={Boolean(errors.data?.email?.set)}>
+        <FormLabel htmlFor="data.email.set">data.email.set</FormLabel>
+        <renderer.mutation.String
+          id="data.email.set"
+          {...register("data.email.set", {})}
+        />
+        <FormErrorMessage>
+          {errors.data?.email?.set && errors.data.email.set.message}
+        </FormErrorMessage>
+      </FormControl>
+      <FormControl isInvalid={Boolean(errors.data?.name?.set)}>
+        <FormLabel htmlFor="data.name.set">data.name.set</FormLabel>
+        <renderer.mutation.String
+          id="data.name.set"
+          {...register("data.name.set", {})}
+        />
+        <FormErrorMessage>
+          {errors.data?.name?.set && errors.data.name.set.message}
+        </FormErrorMessage>
+      </FormControl>
+      <FormControl isInvalid={Boolean(errors.data?.role?.set)}>
+        <FormLabel htmlFor="data.role.set">data.role.set</FormLabel>
+        <renderer.mutation.Enum
+          id="data.role.set"
+          {...register("data.role.set", {})}
+          options={[
+            { text: Role.Teacher, value: Role.Teacher },
+            { text: Role.Student, value: Role.Student },
+            { text: Role.Admin, value: Role.Admin },
+          ]}
+        />
+        <FormErrorMessage>
+          {errors.data?.role?.set && errors.data.role.set.message}
+        </FormErrorMessage>
+      </FormControl>
+      <FormControl isInvalid={Boolean(errors.where?.id)}>
+        <FormLabel htmlFor="where.id">where.id</FormLabel>
+        <renderer.mutation.Int
+          id="where.id"
+          {...register("where.id", {
+            valueAsNumber: true,
+          })}
+        />
+        <FormErrorMessage>
+          {errors.where?.id && errors.where.id.message}
         </FormErrorMessage>
       </FormControl>
       <Button mt={4} isLoading={isSubmitting} type="submit">

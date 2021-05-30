@@ -178,7 +178,10 @@ function variableDefNameToFields(
     const baseType = mapBaseType(typename, typeMap);
     if (walkedObjects.has(typename)) {
       continue;
-    } else if (baseType === "InputObject") {
+    } else if (
+      baseType === "InputObject" &&
+      !typename.includes("FieldUpdateOperationsInput")
+    ) {
       walkedObjects.add(typename);
     }
     fields.push({

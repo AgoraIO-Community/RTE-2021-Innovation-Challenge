@@ -1,6 +1,7 @@
 import React from 'react';
 import { CombinedError } from "urql";
 import { useForm } from "react-hook-form";
+import { renderer } from "../renderer";
 import { <%- componentImports.join(', ') %> } from '@chakra-ui/react';
 import { <%- dataImports.join(', ') %> } from "./data-components";
 
@@ -192,12 +193,14 @@ export const <%- form.componentName %>: React.FC = () => {
         <% for (field of variable.flattenedFields) { -%>
           <FormControl isInvalid={Boolean(errors.<%- field.safePath %>)}>
             <FormLabel htmlFor="<%- field.path %>"><%- field.label %></FormLabel>
-            <Input
+            <renderer.mutation.<%- field.baseType %>
               id="<%- field.path %>"
               <%- field.placeholder ? `placeholder="${field.placeholder}"` : '' %>
               {...register("<%- field.path %>", {
                 <%- field.nullable ? '' : 'required: "This is required",' %>
+                <%- ["Int", "Float"].includes(field.baseType) ? 'valueAsNumber: true,' : '' %>
               })}
+              <%- field.baseType === 'Enum' ? `options={${enumOptionsRawMap[field.customType]}}` : ''  %>
             />
             <FormErrorMessage>
               {errors.<%- field.safePath %> && errors.<%- field.path %>.message}

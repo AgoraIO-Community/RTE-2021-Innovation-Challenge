@@ -982,6 +982,20 @@ export type CreateOneUserFormMutation = (
   ) }
 );
 
+export type UpdateOneUserFormMutationVariables = Exact<{
+  data: UserUpdateInput;
+  where: UserWhereUniqueInput;
+}>;
+
+
+export type UpdateOneUserFormMutation = (
+  { __typename?: 'Mutation' }
+  & { updateOneUser?: Maybe<(
+    { __typename?: 'User' }
+    & Pick<User, 'id' | 'name' | 'role' | 'createdAt'>
+  )> }
+);
+
 
 export const ClassTableDocument = gql`
     query classTable {
@@ -1052,4 +1066,18 @@ export const CreateOneUserFormDocument = gql`
 
 export function useCreateOneUserFormMutation() {
   return Urql.useMutation<CreateOneUserFormMutation, CreateOneUserFormMutationVariables>(CreateOneUserFormDocument);
+};
+export const UpdateOneUserFormDocument = gql`
+    mutation updateOneUserForm($data: UserUpdateInput!, $where: UserWhereUniqueInput!) {
+  updateOneUser(data: $data, where: $where) {
+    id
+    name
+    role
+    createdAt
+  }
+}
+    `;
+
+export function useUpdateOneUserFormMutation() {
+  return Urql.useMutation<UpdateOneUserFormMutation, UpdateOneUserFormMutationVariables>(UpdateOneUserFormDocument);
 };

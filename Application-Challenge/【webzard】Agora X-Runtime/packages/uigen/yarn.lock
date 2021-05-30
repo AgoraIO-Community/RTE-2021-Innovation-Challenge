@@ -1092,6 +1092,11 @@ csstype@^3.0.2, csstype@^3.0.6:
   resolved "http://192.168.26.29:7001/csstype/download/csstype-3.0.8.tgz#d2266a792729fb227cd216fb572f43728e1ad340"
   integrity sha1-0iZqeScp+yJ80hb7Vy9Dco4a00A=
 
+dayjs@^1.10.5:
+  version "1.10.5"
+  resolved "http://192.168.26.29:7001/dayjs/download/dayjs-1.10.5.tgz#5600df4548fc2453b3f163ebb2abbe965ccfb986"
+  integrity sha1-VgDfRUj8JFOz8WPrsqu+llzPuYY=
+
 debug@^4.1.0:
   version "4.3.1"
   resolved "http://192.168.26.29:7001/debug/download/debug-4.3.1.tgz#f0d229c505e0c6d8c49ac553d1b13dc183f6b2ee"

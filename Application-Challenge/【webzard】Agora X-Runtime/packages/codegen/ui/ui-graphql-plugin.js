@@ -9,13 +9,15 @@ function formatSelections(selections) {
     output.push(selection.name);
 
     if (selection.arguments.length) {
+      output.push("(");
       for (const argument of selection.arguments) {
         output.push(
-          `(${argument.name}: ${argument.type === "Variable" ? "$" : ""}${
+          `${argument.name}: ${argument.type === "Variable" ? "$" : ""}${
             argument.value
-          })`
+          }`
         );
       }
+      output.push(")");
     }
 
     if (selection.selections.length) {

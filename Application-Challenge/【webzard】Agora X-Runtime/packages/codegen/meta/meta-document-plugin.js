@@ -70,9 +70,9 @@ module.exports = {
                 astNode,
                 typeMap,
                 new Set()
-              ).filter((field) =>
-                pickList ? pickList.includes(field.name) : true
-              );
+              ).filter((field) => {
+                return pickList ? pickList.includes(field.name) : true;
+              });
 
               type.variables.push(variable);
             }

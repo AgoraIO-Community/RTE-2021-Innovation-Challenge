@@ -36,3 +36,18 @@ mutation createOneUserForm(
     createdAt
   }
 }
+
+mutation updateOneUserForm(
+  $data: UserUpdateInput!
+    @value(pick: ["name", "role", "email"])
+    @label(name: "姓名", role: "角色", email: "邮箱")
+    @placeholder(email: "邮箱将用于接收通知")
+  $where: UserWhereUniqueInput! @value(pick: ["id"])
+) {
+  updateOneUser(data: $data, where: $where) @view(type: "form") {
+    id @id
+    name
+    role
+    createdAt
+  }
+}

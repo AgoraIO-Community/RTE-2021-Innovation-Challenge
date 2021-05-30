@@ -28,7 +28,16 @@ const schema = makeSchema({
   },
 });
 
-const server = new ApolloServer({ schema });
+const server = new ApolloServer({
+  schema,
+  mocks: process.env.MOCKS
+    ? {
+        DateTime() {
+          return new Date().toISOString();
+        },
+      }
+    : undefined,
+});
 
 const port = process.env.PORT || 8080;
 server.listen(port).then(({ url }) => {

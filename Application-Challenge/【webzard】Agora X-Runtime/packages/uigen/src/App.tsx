@@ -1,15 +1,12 @@
 import React from "react";
 import { Box, Heading } from "@chakra-ui/react";
-import { useForm } from "react-hook-form";
 import {
-  Role,
-  useCreateOneUserFormMutation,
-} from "./generated/data-components";
-import {
+  ClassTable,
   UserTable,
   UserList,
   UserKanban,
   CreateOneUserForm,
+  UpdateOneUserForm,
 } from "./generated/ui-components";
 
 import Calendar from "@toast-ui/react-calendar";
@@ -30,25 +27,8 @@ const getDate = (type: string, start: any, value: number, operator: string) => {
 };
 
 function App() {
-  const [, trigger] = useCreateOneUserFormMutation();
-  const {
-    handleSubmit,
-    register,
-    formState: { errors, isSubmitting },
-  } = useForm<{
-    data: {
-      name: string;
-    };
-    email: string;
-    role: Role;
-  }>();
-
-  async function onSubmit(values: { name: string; email: string; role: Role }) {
-    console.log(values);
-  }
-
   return (
-    <Box width="full">
+    <Box width="full" p="12">
       <Box>
         <Heading>table</Heading>
         <UserTable />
@@ -149,6 +129,8 @@ function App() {
       <Box>
         <Heading>Form</Heading>
         <CreateOneUserForm />
+        <Heading>---</Heading>
+        <UpdateOneUserForm />
       </Box>
     </Box>
   );
