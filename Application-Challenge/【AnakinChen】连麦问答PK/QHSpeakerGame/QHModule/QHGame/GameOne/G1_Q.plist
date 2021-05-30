@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Q1</key>
+	<dict>
+		<key>t</key>
+		<string>明朝时期的皇帝有？</string>
+		<key>a</key>
+		<array>
+			<string>朱元璋</string>
+			<string>朱允炆</string>
+			<string>朱棣</string>
+			<string>朱高炽</string>
+			<string>朱瞻基</string>
+			<string>朱祁镇</string>
+			<string>朱祁钰</string>
+			<string>朱见深</string>
+			<string>朱祐樘</string>
+			<string>朱厚照</string>
+			<string>朱厚熜</string>
+			<string>朱载坖</string>
+			<string>朱翊钧
+</string>
+			<string>朱常洛</string>
+			<string>朱由校</string>
+			<string>朱由检</string>
+		</array>
+	</dict>
+	<key>Q2</key>
+	<dict>
+		<key>t</key>
+		<string>水浒传人物</string>
+		<key>a</key>
+		<array>
+			<string>宋江</string>
+			<string>卢俊义</string>
+			<string>吴用</string>
+		</array>
+	</dict>
+	<key>Q3</key>
+	<dict>
+		<key>t</key>
+		<string>四季</string>
+		<key>a</key>
+		<array>
+			<string>春天</string>
+			<string>夏天</string>
+			<string>秋天</string>
+			<string>冬天</string>
+		</array>
+	</dict>
+</dict>
+</plist>

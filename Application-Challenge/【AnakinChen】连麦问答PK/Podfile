@@ -1,0 +1,17 @@
+use_frameworks!
+platform :ios, '11.0'
+
+
+# Import CocoaPods sources
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'QHSpeakerGame' do
+
+pod 'HyphenateChat'
+
+    pod 'Masonry', '~> 1.1.0'
+    pod 'HyphenateChat', '~> 3.8.1'
+    pod 'AgoraRtcEngine_iOS', '~> 3.4.2'
+    pod 'MBProgressHUD', '~> 1.2.0'
+
+end
