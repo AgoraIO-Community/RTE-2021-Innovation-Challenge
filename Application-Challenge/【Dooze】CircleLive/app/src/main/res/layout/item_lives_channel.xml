@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="20dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="20dp"
+    app:cardCornerRadius="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_channel_cover"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="16dp"
+            android:src="@drawable/default_avatar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_channel_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_channel_cover"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_channel_cover"
+            app:layout_constraintTop_toTopOf="@id/iv_channel_cover"
+            tools:text="神奇的小猫咪小小猫咪猫咪小猫咪铲屎小猫咪小猫咪官" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_channel_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/iv_channel_cover"
+            app:layout_constraintTop_toBottomOf="@id/iv_channel_cover"
+            tools:text="神奇的小猫咪神奇的小猫咪神奇的小猫咪铲屎官铲屎官铲屎官" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_channel_user_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="12sp"
+            app:drawableStartCompat="@drawable/ic_live_small"
+            app:drawableTint="@color/textColorSecondary"
+            app:layout_constraintEnd_toStartOf="@id/ll_channel_actions"
+            app:layout_constraintStart_toStartOf="@id/iv_channel_cover"
+            app:layout_constraintTop_toBottomOf="@id/tv_channel_desc"
+            tools:text="神奇的小猫咪铲屎官" />
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ll_channel_actions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/tv_channel_my_live_status"
+            app:layout_constraintEnd_toStartOf="@id/tv_channel_my_live_status"
+            app:layout_constraintStart_toEndOf="@id/tv_channel_user_info"
+            app:layout_constraintTop_toTopOf="@id/tv_channel_my_live_status">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_channel_subscriber"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="12dp"
+                android:padding="6dp"
+                android:src="@drawable/ic_subsciber"
+                app:tint="@color/textColorSecondary"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_channel_delete"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="12dp"
+                android:padding="6dp"
+                android:src="@drawable/ic_delete"
+                android:visibility="gone"
+                app:tint="@color/textColorSecondary"
+                tools:visibility="visible" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_channel_my_live_status"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/colorAccent"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:text="@string/live"
+            android:textColor="@color/ui_white"
+            android:textSize="12sp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ll_channel_actions"
+            app:layout_constraintTop_toBottomOf="@id/tv_channel_desc" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_channel_notify"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:drawableStart="@drawable/ic_notify_small"
+            android:drawablePadding="10dp"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="10sp"
+            android:visibility="gone"
+            app:drawableTint="@color/textColorSecondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/iv_channel_cover"
+            app:layout_constraintTop_toBottomOf="@id/tv_channel_my_live_status"
+            tools:ignore="SmallSp"
+            tools:text="神奇的小猫咪神奇的小猫咪神奇的小猫咪铲屎官铲屎官铲屎官" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.google.android.material.card.MaterialCardView>
