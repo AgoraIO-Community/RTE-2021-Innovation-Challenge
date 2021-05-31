@@ -1,0 +1,39 @@
+/**
+ * Copyright JS Foundation and other contributors, http://js.foundation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+
+#red-ui-drop-target {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    background: $dnd-background;
+    display:table;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index:100;
+    div {
+        pointer-events: none;
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 40px;
+        color: $dnd-color;
+        i {
+            pointer-events: none;
+            font-size: 80px;
+        }
+    }
+}
