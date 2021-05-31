@@ -51,3 +51,9 @@ mutation updateOneUserForm(
     createdAt
   }
 }
+
+mutation deleteOneUserForm($where: UserWhereUniqueInput! @value(pick: ["id"])) {
+  deleteOneUser(where: $where) @view(type: "form") {
+    id @id
+  }
+}

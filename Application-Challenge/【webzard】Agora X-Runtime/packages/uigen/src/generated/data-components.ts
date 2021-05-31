@@ -996,6 +996,19 @@ export type UpdateOneUserFormMutation = (
   )> }
 );
 
+export type DeleteOneUserFormMutationVariables = Exact<{
+  where: UserWhereUniqueInput;
+}>;
+
+
+export type DeleteOneUserFormMutation = (
+  { __typename?: 'Mutation' }
+  & { deleteOneUser?: Maybe<(
+    { __typename?: 'User' }
+    & Pick<User, 'id'>
+  )> }
+);
+
 
 export const ClassTableDocument = gql`
     query classTable {
@@ -1080,4 +1093,15 @@ export const UpdateOneUserFormDocument = gql`
 
 export function useUpdateOneUserFormMutation() {
   return Urql.useMutation<UpdateOneUserFormMutation, UpdateOneUserFormMutationVariables>(UpdateOneUserFormDocument);
+};
+export const DeleteOneUserFormDocument = gql`
+    mutation deleteOneUserForm($where: UserWhereUniqueInput!) {
+  deleteOneUser(where: $where) {
+    id
+  }
+}
+    `;
+
+export function useDeleteOneUserFormMutation() {
+  return Urql.useMutation<DeleteOneUserFormMutation, DeleteOneUserFormMutationVariables>(DeleteOneUserFormDocument);
 };

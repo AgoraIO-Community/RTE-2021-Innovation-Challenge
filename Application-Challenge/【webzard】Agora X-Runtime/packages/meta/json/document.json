@@ -671,6 +671,87 @@
           ]
         }
       ]
+    },
+    {
+      "name": "deleteOneUserForm",
+      "is": "mutation",
+      "attributes": [],
+      "selections": [
+        {
+          "name": "deleteOneUser",
+          "attributes": [
+            {
+              "name": "view",
+              "arguments": [
+                {
+                  "name": "type",
+                  "type": "String",
+                  "value": "form"
+                }
+              ]
+            }
+          ],
+          "selections": [
+            {
+              "name": "id",
+              "attributes": [
+                {
+                  "name": "id",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            }
+          ],
+          "arguments": [
+            {
+              "name": "where",
+              "type": "Variable",
+              "value": "where"
+            }
+          ],
+          "nullable": true,
+          "list": false,
+          "baseType": "Object",
+          "customType": "User"
+        }
+      ],
+      "variables": [
+        {
+          "name": "where",
+          "type": "UserWhereUniqueInput",
+          "nullable": false,
+          "attributes": [
+            {
+              "name": "value",
+              "arguments": [
+                {
+                  "name": "pick",
+                  "type": "List",
+                  "values": [
+                    {
+                      "type": "String",
+                      "value": "id"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "id",
+              "baseType": "Int",
+              "nullable": true,
+              "list": false
+            }
+          ]
+        }
+      ]
     }
   ]
 }

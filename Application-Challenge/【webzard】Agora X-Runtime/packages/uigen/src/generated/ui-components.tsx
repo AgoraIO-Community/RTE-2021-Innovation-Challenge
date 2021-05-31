@@ -39,6 +39,7 @@ import {
   useUserKanbanQuery,
   useCreateOneUserFormMutation,
   useUpdateOneUserFormMutation,
+  useDeleteOneUserFormMutation,
 } from "./data-components";
 
 export const Error: React.FC<{ error: CombinedError }> = ({ error }) => {
@@ -426,6 +427,44 @@ export const UpdateOneUserForm: React.FC = () => {
           {errors.data?.role?.set && errors.data.role.set.message}
         </FormErrorMessage>
       </FormControl>
+      <FormControl isInvalid={Boolean(errors.where?.id)}>
+        <FormLabel htmlFor="where.id">where.id</FormLabel>
+        <renderer.mutation.Int
+          id="where.id"
+          {...register("where.id", {
+            valueAsNumber: true,
+          })}
+        />
+        <FormErrorMessage>
+          {errors.where?.id && errors.where.id.message}
+        </FormErrorMessage>
+      </FormControl>
+      <Button mt={4} isLoading={isSubmitting} type="submit">
+        Submit
+      </Button>
+    </form>
+  );
+};
+
+export type DeleteOneUserFormValues = {
+  where: {
+    id?: Scalars["Int"];
+  };
+};
+export const DeleteOneUserForm: React.FC = () => {
+  const [, trigger] = useDeleteOneUserFormMutation();
+  const {
+    handleSubmit,
+    register,
+    formState: { errors, isSubmitting },
+  } = useForm<DeleteOneUserFormValues>();
+
+  async function onSubmit(values: DeleteOneUserFormValues) {
+    await trigger(values);
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
       <FormControl isInvalid={Boolean(errors.where?.id)}>
         <FormLabel htmlFor="where.id">where.id</FormLabel>
         <renderer.mutation.Int

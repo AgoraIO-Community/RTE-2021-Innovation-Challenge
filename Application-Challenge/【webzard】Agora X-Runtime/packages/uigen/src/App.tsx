@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Heading } from "@chakra-ui/react";
+import RGL, { WidthProvider, Layout } from "react-grid-layout";
 import {
-  ClassTable,
   UserTable,
   UserList,
   UserKanban,
   CreateOneUserForm,
   UpdateOneUserForm,
+  DeleteOneUserForm,
 } from "./generated/ui-components";
 
 import Calendar from "@toast-ui/react-calendar";
 import "tui-calendar/dist/tui-calendar.css";
+
+import "./App.css";
 
 const today = new Date();
 const getDate = (type: string, start: any, value: number, operator: string) => {
@@ -26,21 +29,52 @@ const getDate = (type: string, start: any, value: number, operator: string) => {
   return start;
 };
 
+const GridLayout = WidthProvider(RGL);
+
 function App() {
+  const [layout, setLayout] = useState<Layout[]>([
+    { i: "UserTable", x: 0, y: 0, w: 6, h: 3 },
+    { i: "UserList", x: 7, y: 0, w: 6, h: 3 },
+    { i: "UserKanban", x: 0, y: 3, w: 6, h: 3 },
+    { i: "CreateOneUserForm", x: 7, y: 3, w: 6, h: 3 },
+    { i: "UpdateOneUserForm", x: 0, y: 6, w: 6, h: 3 },
+    { i: "DeleteOneUserForm", x: 7, y: 6, w: 6, h: 3 },
+  ]);
+
   return (
     <Box width="full" p="12">
-      <Box>
-        <Heading>table</Heading>
-        <UserTable />
-      </Box>
-      <Box>
-        <Heading>list</Heading>
-        <UserList />
-      </Box>
-      <Box>
-        <Heading>kanban</Heading>
-        <UserKanban />
-      </Box>
+      <GridLayout
+        className="layout"
+        layout={layout}
+        onLayoutChange={(value) => setLayout(value)}
+        cols={12}
+        style={{ backgroundColor: "lightgray" }}
+      >
+        <Box key="UserTable" rounded="md" p="6" backgroundColor="white">
+          <Heading>table</Heading>
+          <UserTable />
+        </Box>
+        <Box key="UserList" rounded="md" p="6" backgroundColor="white">
+          <Heading>list</Heading>
+          <UserList />
+        </Box>
+        <Box key="UserKanban" rounded="md" p="6" backgroundColor="white">
+          <Heading>kanban</Heading>
+          <UserKanban />
+        </Box>
+        <Box key="CreateOneUserForm" rounded="md" p="6" backgroundColor="white">
+          <Heading>CreateOneUserForm</Heading>
+          <CreateOneUserForm />
+        </Box>
+        <Box key="UpdateOneUserForm" rounded="md" p="6" backgroundColor="white">
+          <Heading>UpdateOneUserForm</Heading>
+          <UpdateOneUserForm />
+        </Box>
+        <Box key="DeleteOneUserForm" rounded="md" p="6" backgroundColor="white">
+          <Heading>DeleteOneUserForm</Heading>
+          <DeleteOneUserForm />
+        </Box>
+      </GridLayout>
       <Box>
         <Heading>Calendar</Heading>
         <Calendar
@@ -125,12 +159,6 @@ function App() {
           useCreationPopup
           view="month"
         />
-      </Box>
-      <Box>
-        <Heading>Form</Heading>
-        <CreateOneUserForm />
-        <Heading>---</Heading>
-        <UpdateOneUserForm />
       </Box>
     </Box>
   );

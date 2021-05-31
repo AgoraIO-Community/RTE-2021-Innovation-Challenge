@@ -54,3 +54,9 @@ mutation updateOneUserForm(
     createdAt
   }
 }
+
+mutation deleteOneUserForm($where: UserWhereUniqueInput!) {
+  deleteOneUser(where: $where) {
+    id
+  }
+}

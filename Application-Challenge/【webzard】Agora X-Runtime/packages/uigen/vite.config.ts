@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/graphql": {
-        target: "http://localhost:8080",
+        target: "http://192.168.31.227:31874",
         headers: {
           Host: "x-runtime-data.x-runtime.example.com",
         },
