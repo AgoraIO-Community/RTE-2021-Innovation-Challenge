@@ -48,14 +48,23 @@ def index():
 '''
 获取视频列表
 '''
-
-
 @app.route('/video_list', methods=['GET'])
 def videoList():
     with open('static/info.json', 'r', encoding='utf-8') as fp:
         json_data = json.load(fp)
         response = make_response(json.dumps(json_data), 200)
         return response
+
+'''
+获取用户推荐列表
+'''
+@app.route('/recommend', methods=['GET'])
+def userRecommend():
+    with open('static/user/recommend.json', 'r', encoding='utf-8') as fp:
+        json_data = json.load(fp)
+        response = make_response(json.dumps(json_data['10234532']), 200)
+        return response
+
 
 
 @app.route('/getToken', methods=['POST'])

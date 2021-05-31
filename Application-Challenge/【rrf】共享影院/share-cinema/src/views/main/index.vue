@@ -21,66 +21,29 @@
       <el-aside width="auto">
         <div class="recommend-aside">
           <div><p>猜你想聊</p></div>
-          <div class="user">
+                    <div v-for="item in recommend" :key="item.id">
+            <div class="user">
             <div class="avatar">
               <el-avatar
+                :size="mini"
                 src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
               ></el-avatar>
             </div>
             <div class="aside">
-              <div class="label">五婶萨达 <span>在线</span></div>
+              <div class="label">{{item.username}} <span>在线</span></div>
               <div class="info">
-                <div>你们看过19部相同的作品</div>
+                <div>你们看过{{item.numbers}}部相同的作品</div>
                 <div>
-                  你们共同的标签 <el-tag type="info">运动</el-tag
-                  ><el-tag type="info">青春</el-tag
-                  ><el-tag type="info">冒险</el-tag>
+                  你们共同的标签 
+                    <el-tag v-for="i in item.tags" :key="i" type="info">{{i}}</el-tag>
                 </div>
-                <div>ta正在看<b>《排球少年》</b></div>
+                <div>ta正在看<b>《{{item.viewing}}》</b></div>
                 <div class="join-button"><el-button>加入房间</el-button></div>
               </div>
             </div>
           </div>
-          <div class="user">
-            <div class="avatar">
-              <el-avatar
-                src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
-              ></el-avatar>
-            </div>
-            <div class="aside">
-              <div class="label">乱武 <span>在线</span></div>
-              <div class="info">
-                <div>你们看过7部相同的作品</div>
-                <div>
-                  你们共同的标签 <el-tag type="info">动作</el-tag
-                  ><el-tag type="info">冒险</el-tag
-                  ><el-tag type="info">历史</el-tag>
-                </div>
-                <div>ta正在看<b>《觉醒年代》</b></div>
-                <div class="join-button"><el-button>加入房间</el-button></div>
-              </div>
-            </div>
           </div>
-          <div class="user">
-            <div class="avatar">
-              <el-avatar
-                src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
-              ></el-avatar>
-            </div>
-            <div class="aside">
-              <div class="label">青231321dsa <span>在线</span></div>
-              <div class="info">
-                <div>你们看过3部相同的作品</div>
-                <div>
-                  你们共同的标签 <el-tag type="info">冒险</el-tag
-                  ><el-tag type="info">革命</el-tag
-                  ><el-tag type="info">悬疑</el-tag>
-                </div>
-                <div>ta正在看<b>《追踪疑犯》</b></div>
-                <div class="join-button"><el-button>加入房间</el-button></div>
-              </div>
-            </div>
-          </div>
+          
           <div class="control">
             <el-button type="primary" icon="el-icon-refresh-right"
               >换一批</el-button
@@ -136,7 +99,7 @@
             </div>
           </div>
         </div>
-        <div class="title">网易游戏</div>
+        <div class="title">游戏推荐</div>
         <div class="container">
           <div
             v-for="item in containerData.game_list"
@@ -177,6 +140,7 @@ export default {
       containerData: [],
       channelName: "",
       visiableSwitcher: true,
+      recommend: [],
     };
   },
   mounted() {
@@ -187,6 +151,12 @@ export default {
         this.carouselData = res.data.ad_list;
       })
       .catch((err) => console.log(err));
+
+    axios
+      .get("/server/recommend")
+      .then((res) => {
+        this.recommend = res.data
+      })
   },
   methods: {
     createVideoPage(id) {
