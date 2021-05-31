@@ -44,6 +44,10 @@
 
 # 学生端
 
+视频地址：
+
+[![学生视频](assets/video.png)](video/student.mp4)
+
 ## 主功能界面
 
 ![](assets/student_main2.png)
@@ -84,6 +88,10 @@
 
 
 # 老师端
+
+视频地址：
+
+[![老师视频](assets/video.png)](video/teacher.mp4)
 
 ![](assets/teacher.png)
 ![](assets/teacher2.png)
