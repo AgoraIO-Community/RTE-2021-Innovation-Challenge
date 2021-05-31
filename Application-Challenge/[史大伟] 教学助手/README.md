@@ -93,6 +93,8 @@
 
 [![老师视频](assets/video.png)](video/teacher.mp4)
 
+<iframe width="854" height="480" src="video/teacher.mp4" frameborder="0" allowfullscreen></iframe>
+
 ![](assets/teacher.png)
 ![](assets/teacher2.png)
 
