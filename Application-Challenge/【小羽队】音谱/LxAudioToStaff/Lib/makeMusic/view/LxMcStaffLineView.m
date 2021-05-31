@@ -378,7 +378,7 @@
     }
     [self.midiValuePlay mstart:noteView.miditag + noteView.alter velocity:80 channel:0];
  
-    debugLog(@"播放midi%ld 力度:%ld",noteView.miditag + noteView.alter,noteView.strength == 0 ? 80 :noteView.strength);
+//    debugLog(@"播放midi%ld 力度:%ld",noteView.miditag + noteView.alter,noteView.strength == 0 ? 80 :noteView.strength);
 }
 
 - (void)midiStopWithNoteView:(LxMcNoteView *)noteView
@@ -909,7 +909,7 @@
 /** 播放或关闭midi **/
 - (void)midiplayWithTag:(NSInteger)miditag
 {
-    debugLog(@"播放miditag = %ld",miditag);
+//    debugLog(@"播放miditag = %ld",miditag);
 //    [self.midiValuePlay playMidiValue:miditag velocity:80 channel:0];
     [self.midiValuePlay mstart:miditag velocity:80 channel:0];
 }

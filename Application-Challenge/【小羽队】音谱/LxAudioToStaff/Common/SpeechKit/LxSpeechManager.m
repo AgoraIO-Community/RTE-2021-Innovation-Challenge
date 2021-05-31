@@ -6,9 +6,9 @@
 //
 
 #import "LxSpeechManager.h"
-//#import <AgoraRtcKit/AgoraMediaIO.h>
+#import <AgoraRtcKit/AgoraMediaIO.h>
 #import "NSString+Helper.h"
-@interface LxSpeechManager()<AVAudioRecorderDelegate>
+@interface LxSpeechManager()<AVAudioRecorderDelegate,AgoraRtcEngineDelegate,AgoraAudioFrameDelegate>
 
 //<AgoraRtcEngineDelegate,AgoraAudioFrameDelegate>
 
@@ -39,21 +39,22 @@
 #pragma mark - ************************CallFunction************************
 - (void)lx_checkSpeechAuthBlock:(void(^)(SFSpeechRecognizerAuthorizationStatus status))block{
     
-//    AgoraRtcEngineKit *test = [AgoraRtcEngineKit sharedEngineWithAppId:@"7df06986a1ab443b8509c25bc9eff83c" delegate:self];
-//    AgoraAudioRecordingConfiguration *recordConfig = [[AgoraAudioRecordingConfiguration alloc] init];
-//    NSString *recoredPath = [NSString stringWithFormat:@"%@/record.m4a",kResourceCachePath];
-//    recordConfig.filePath = recoredPath;
-//    recordConfig.recordingQuality = AgoraAudioRecordingQualityHigh;
-//   int deleteSet = [test setAudioFrameDelegate:self];
-//    debugLog(@"设置录音代理成功%d",deleteSet);
-//
-//   int recordStartSuccess = [test startAudioRecordingWithConfig:recordConfig];
-//    debugLog(@"开启录制成功 %d",recordStartSuccess);
+    AgoraRtcEngineKit *test = [AgoraRtcEngineKit sharedEngineWithAppId:@"7df06986a1ab443b8509c25bc9eff83c" delegate:self];
+    AgoraAudioRecordingConfiguration *recordConfig = [[AgoraAudioRecordingConfiguration alloc] init];
+    NSString *recoredPath = [NSString stringWithFormat:@"%@/record.m4a",kResourceCachePath];
+    recordConfig.filePath = recoredPath;
+    
+    recordConfig.recordingQuality = AgoraAudioRecordingQualityHigh;
+   int deleteSet = [test setAudioFrameDelegate:self];
+    debugLog(@"设置录音代理成功%d",deleteSet);
+
+   int recordStartSuccess = [test startAudioRecordingWithConfig:recordConfig];
+    debugLog(@"开启录制成功 %d",recordStartSuccess);
    
-    NSArray *supportLocals = [SFSpeechRecognizer supportedLocales];
-    for (NSLocale *loc in supportLocals) {
-        debugLog(loc.localeIdentifier);
-    }
+//    NSArray *supportLocals = [SFSpeechRecognizer supportedLocales];
+//    for (NSLocale *loc in supportLocals) {
+//        debugLog(loc.localeIdentifier);
+//    }
 
     
     NSLocale *chineseLocal = [NSLocale localeWithLocaleIdentifier:@"zh-CN"];

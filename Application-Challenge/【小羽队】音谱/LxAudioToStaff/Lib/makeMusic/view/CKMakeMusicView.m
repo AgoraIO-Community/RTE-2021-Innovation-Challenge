@@ -211,7 +211,7 @@ typedef struct {
 }
 
 - (void)scrollTox:(CGFloat)scrollX {
-    debugLog(@"滚动距离%f",scrollX);
+//    debugLog(@"滚动距离%f",scrollX);
     [UIView animateWithDuration:0.25 animations:^{
       [self.scrollView setContentOffset:CGPointMake(MAX(scrollX, 0), 0)];
     }];
@@ -219,7 +219,7 @@ typedef struct {
 
 #pragma mark  -- MakeMusicScrollBarDelegate
 - (void)resetOriginX:(CGFloat)offset_x {
-    debugLog(@"滑动距离%f",offset_x);
+//    debugLog(@"滑动距离%f",offset_x);
     self.scrollView.contentOffset = CGPointMake(-offset_x, 0);
 }
 
@@ -412,7 +412,7 @@ typedef struct {
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
-    debugLog(@"scroll.x = %f contentSize = %f",_scrollView.contentOffset.x,_scrollView.contentSize.width);
+//    debugLog(@"scroll.x = %f contentSize = %f",_scrollView.contentOffset.x,_scrollView.contentSize.width);
 }
 
 - (BOOL)isZoomOut

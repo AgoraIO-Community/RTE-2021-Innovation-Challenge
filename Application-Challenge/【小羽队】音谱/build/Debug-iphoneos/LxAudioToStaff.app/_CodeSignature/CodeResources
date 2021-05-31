@@ -54,7 +54,7 @@
 		</data>
 		<key>Frameworks/AgoraAIDenoiseExtension.framework/AgoraAIDenoiseExtension</key>
 		<data>
-		CMU+i+cA4TeqfzwUJfYN65T+33g=
+		c3vZvdACc4J+Ww/BT18+ZUJS3hA=
 		</data>
 		<key>Frameworks/AgoraAIDenoiseExtension.framework/Info.plist</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>Frameworks/AgoraCore.framework/AgoraCore</key>
 		<data>
-		POR3gsCFvsjxMgth0ZIdqtbbl60=
+		xgCNrvsV+Rh6EPRcSrRCbrTWnFY=
 		</data>
 		<key>Frameworks/AgoraCore.framework/Info.plist</key>
 		<data>
@@ -78,7 +78,7 @@
 		</data>
 		<key>Frameworks/AgoraRtcKit.framework/AgoraRtcKit</key>
 		<data>
-		KqsD2AYdFBWONNnF7xNTVGpjGNQ=
+		jUXW2+JmF1PjIc4zs/DAWiByEBg=
 		</data>
 		<key>Frameworks/AgoraRtcKit.framework/Info.plist</key>
 		<data>
@@ -90,7 +90,7 @@
 		</data>
 		<key>Frameworks/AgoraSoundTouch.framework/AgoraSoundTouch</key>
 		<data>
-		f2p8pf8W5/IXIC9oLRIXhZ524nI=
+		sIwrXTRMiKr+QQUkH1RpXkRiATI=
 		</data>
 		<key>Frameworks/AgoraSoundTouch.framework/Info.plist</key>
 		<data>
@@ -102,7 +102,7 @@
 		</data>
 		<key>Frameworks/Agorafdkaac.framework/Agorafdkaac</key>
 		<data>
-		ngXAHeon48KGzmDY5rH0gdDnjwA=
+		qkUdjlYRmFc24vtr2IYvuL7SU+4=
 		</data>
 		<key>Frameworks/Agorafdkaac.framework/Info.plist</key>
 		<data>
@@ -114,7 +114,7 @@
 		</data>
 		<key>Frameworks/AsyncDisplayKit.framework/AsyncDisplayKit</key>
 		<data>
-		IisyEYY8ALp9NdoOO/MYKea+Jg0=
+		hOlW/9o5ZpDyW1qlsosnksJQYdM=
 		</data>
 		<key>Frameworks/AsyncDisplayKit.framework/Info.plist</key>
 		<data>
@@ -130,7 +130,7 @@
 		</data>
 		<key>Frameworks/MBProgressHUD.framework/MBProgressHUD</key>
 		<data>
-		GuiBB+Ih/DsOF8nbriq0u6QaKRk=
+		9+q/1VQKpWeegraUfunHQrerf8A=
 		</data>
 		<key>Frameworks/MBProgressHUD.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -142,7 +142,7 @@
 		</data>
 		<key>Frameworks/Masonry.framework/Masonry</key>
 		<data>
-		XOIYn+OpXP379oliuz954BazWOE=
+		1YgZ9YVgC3c4iJSjaqNNoJigvcg=
 		</data>
 		<key>Frameworks/Masonry.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -154,7 +154,7 @@
 		</data>
 		<key>Frameworks/PINCache.framework/PINCache</key>
 		<data>
-		M2iS8oGYETcayx2qIZi1bai/Pm4=
+		XpUmJ3/rxHEtzLrV054PiJca0ms=
 		</data>
 		<key>Frameworks/PINCache.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -166,7 +166,7 @@
 		</data>
 		<key>Frameworks/PINOperation.framework/PINOperation</key>
 		<data>
-		jx0p3qsCCIA2E5PwXslHGdV4eOE=
+		njE8pQL3tbxXPvPSS1JOOeguSrA=
 		</data>
 		<key>Frameworks/PINOperation.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -178,7 +178,7 @@
 		</data>
 		<key>Frameworks/PINRemoteImage.framework/PINRemoteImage</key>
 		<data>
-		gz2YAEVlMhHOopzJn2LYr9ymxK4=
+		7EcM/lW7plbvsGaWNIck2BDvloQ=
 		</data>
 		<key>Frameworks/PINRemoteImage.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -190,7 +190,7 @@
 		</data>
 		<key>Frameworks/YYKit.framework/YYKit</key>
 		<data>
-		jlwA8iuA2jUDsnX4SZcSQj6kr9o=
+		keeyj1HeAvfbydV41eglk5goQaE=
 		</data>
 		<key>Frameworks/YYKit.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -262,7 +262,7 @@
 		</data>
 		<key>Frameworks/pop.framework/pop</key>
 		<data>
-		s+4Fx/WnOx92xMwid7lkU9vXJ+Y=
+		DqkBvKv/TV4fzQyQJZjZrQb/6jw=
 		</data>
 		<key>FullFunction_A.png</key>
 		<data>
@@ -302,7 +302,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ZunUD6QTgwoUGp3llJ/OieIkjak=
+		79T6WL4S8jgUxKFQbuDFO3X7EZQ=
 		</data>
 		<key>LxMcGrandStaff@2x.png</key>
 		<data>
@@ -1847,7 +1847,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			t3VsYjoc6mm6/dSLQi4E8FCFHyo5FG69nVo3Lak4twI=
+			ALvFDgIGvNVlkJ29WMwtiGENfREC8XzyVG01Hj4Upz8=
 			</data>
 		</dict>
 		<key>Frameworks/AgoraAIDenoiseExtension.framework/Info.plist</key>
@@ -1868,7 +1868,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			E/zAPdoOtXSgJnb5zGbZQXOukIyImFCVt9Xj/uGeVqA=
+			Ci5byghJY2uqh05modDs1HFGKbNb+Eu/YEo2f4vF3xw=
 			</data>
 		</dict>
 		<key>Frameworks/AgoraCore.framework/Info.plist</key>
@@ -1889,7 +1889,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RL5BOZRDHixvDMgffydPIurEp7TA17EiMgLB6bklnJk=
+			XyCWyke841fvBW/1X9W8OM4jsMRkM/kbrvdUWU/gVsM=
 			</data>
 		</dict>
 		<key>Frameworks/AgoraRtcKit.framework/Info.plist</key>
@@ -1910,7 +1910,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VlrdrDieeYupxJc821jZIobPZbqalEO6aCHoqQCjCL8=
+			D95BlyWcRzJVRm2geaUp+Se3KAeHLSRmXsK14XDjots=
 			</data>
 		</dict>
 		<key>Frameworks/AgoraSoundTouch.framework/Info.plist</key>
@@ -1931,7 +1931,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			bNx+OacfIeGkk+wR+/ntHZk5pDsdcapOtkw5sbJdw/o=
+			pn+8Dkp69UQ383n2k6qN86ttLOLVUV2k2pATjF3RM4Q=
 			</data>
 		</dict>
 		<key>Frameworks/Agorafdkaac.framework/Info.plist</key>
@@ -1952,7 +1952,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			750n/hpYOEpyOTbR0pfzYT5FuxOX8a54rX7bBFhqVmg=
+			4B9uwVXsmfu/VYjqryYXwm9lK9bS4awJGbPm+i+520g=
 			</data>
 		</dict>
 		<key>Frameworks/AsyncDisplayKit.framework/Info.plist</key>
@@ -1980,7 +1980,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			aCYDESXA4Q5rU7OBAHxhp4QdlFHgHClRF7qCWq1t7SU=
+			ORfwwozR730RXQVsFkxnCMgAPdMpxsx6FfOzM3VEgoM=
 			</data>
 		</dict>
 		<key>Frameworks/MBProgressHUD.framework/_CodeSignature/CodeResources</key>
@@ -2001,7 +2001,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			hClmeOekvGcahsbXc6xyyo/384I/QsSY5LVrO2qvx1w=
+			EMcurZ34MJQlajFCva/Zl7XKMyFAOd8/8AiIAkPgZwk=
 			</data>
 		</dict>
 		<key>Frameworks/Masonry.framework/_CodeSignature/CodeResources</key>
@@ -2022,7 +2022,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			hKU4Q9i6717rhUQ3eRJ/3HSUvrKzK4ht1KAUgMCyFr8=
+			Xy7GZMLPqqLFFzsS6IImgTq2sPpMD0/oVnIj5VN23Og=
 			</data>
 		</dict>
 		<key>Frameworks/PINCache.framework/_CodeSignature/CodeResources</key>
@@ -2043,7 +2043,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uK1Vl1Djh1+Y2nsZ3k8yk/2IxJWtJgqophsw1Wng7Ww=
+			V/aT6gFCWKIb4DGYfjyq8KJgBWlhMRnOGW3eFDB/HU4=
 			</data>
 		</dict>
 		<key>Frameworks/PINOperation.framework/_CodeSignature/CodeResources</key>
@@ -2064,7 +2064,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4e4nmjon9VU3VhSfG6/a7doIklw/80sG9dY1+a+l/V0=
+			slHbbrGgRACGs9szOGTst8nW0+eUjygsHLzdoN1qlhc=
 			</data>
 		</dict>
 		<key>Frameworks/PINRemoteImage.framework/_CodeSignature/CodeResources</key>
@@ -2085,7 +2085,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			rdCgdP6/fIM9kWBawRF8OZia7vPHqu1Rz/zrsQPHhPc=
+			uId5dDGLElfnW28nUSAmloHC0V3LUrcwHCwHBV67x1g=
 			</data>
 		</dict>
 		<key>Frameworks/YYKit.framework/_CodeSignature/CodeResources</key>
@@ -2211,7 +2211,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			W2jrK2y+QFxXYt2jy2wQxXP/77Mr/SUp8XGsXISCmSw=
+			v3/nLrhCp+LDp20F1m0PNwVUhcHPTq9pXPhI9aMeopE=
 			</data>
 		</dict>
 		<key>FullFunction_A.png</key>
