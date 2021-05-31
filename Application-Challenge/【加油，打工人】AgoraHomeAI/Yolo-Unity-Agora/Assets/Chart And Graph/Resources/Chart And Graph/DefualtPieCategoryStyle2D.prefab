@@ -1,0 +1,259 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &147712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 22400766}
+  - component: {fileID: 11429950}
+  - component: {fileID: 11470102}
+  - component: {fileID: 11491442}
+  - component: {fileID: 11483794}
+  m_Layer: 0
+  m_Name: DefualtPieCategoryStyle2D
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &22400766
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147712}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -59.44, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &11429950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad4d11f0b40946e4787e4581407e3b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mPreviewObject: {fileID: 0}
+  OnRedraw:
+    m_PersistentCalls:
+      m_Calls: []
+  keepOrthoSize: 0
+  paperEffectText: 0
+  vRSpaceText: 0
+  vRSpaceScale: 0.1
+  maintainLabelSize: 0
+  PieClicked:
+    m_PersistentCalls:
+      m_Calls: []
+  PieHovered:
+    m_PersistentCalls:
+      m_Calls: []
+  NonHovered:
+    m_PersistentCalls:
+      m_Calls: []
+  meshSegements: 20
+  startAngle: 94.8
+  angleSpan: 360
+  spacingAngle: 2
+  radius: 100
+  torusRadius: 0
+  extrusion: 4.42
+  Data:
+    mCategories:
+    - Name: A
+      Materials:
+        Normal: {fileID: 2100000, guid: ba1479ea605865245b636d6b3996f5a4, type: 2}
+        Hover: {r: 1, g: 1, b: 1, a: 1}
+        Selected: {r: 0, g: 0, b: 0, a: 0}
+      RadiusScale: 1
+      DepthScale: 1
+      DepthOffset: 0
+    - Name: B
+      Materials:
+        Normal: {fileID: 2100000, guid: 6e197c2f133bdc84bb930e4bb0ba8aa7, type: 2}
+        Hover: {r: 1, g: 1, b: 1, a: 1}
+        Selected: {r: 0, g: 0, b: 0, a: 0}
+      RadiusScale: 1
+      DepthScale: 1
+      DepthOffset: 0
+    - Name: C
+      Materials:
+        Normal: {fileID: 2100000, guid: 4465fd36cfe236e4f91c41b7028b42fc, type: 2}
+        Hover: {r: 1, g: 1, b: 1, a: 1}
+        Selected: {r: 0, g: 0, b: 0, a: 0}
+      RadiusScale: 1
+      DepthScale: 1
+      DepthOffset: 0
+    - Name: D
+      Materials:
+        Normal: {fileID: 2100000, guid: 6d77138dd214b22459b54d5a09176324, type: 2}
+        Hover: {r: 1, g: 1, b: 1, a: 1}
+        Selected: {r: 0, g: 0, b: 0, a: 0}
+      RadiusScale: 1
+      DepthScale: 1
+      DepthOffset: 0
+    - Name: E
+      Materials:
+        Normal: {fileID: 2100000, guid: 17e6c60474da53742b24e6b561e0191d, type: 2}
+        Hover: {r: 1, g: 1, b: 1, a: 1}
+        Selected: {r: 0, g: 0, b: 0, a: 0}
+      RadiusScale: 1
+      DepthScale: 1
+      DepthOffset: 0
+    - Name: F
+      Materials:
+        Normal: {fileID: 2100000, guid: 32e777e9c95677b47be2c48058a923bd, type: 2}
+        Hover: {r: 1, g: 1, b: 1, a: 1}
+        Selected: {r: 0, g: 0, b: 0, a: 0}
+      RadiusScale: 1
+      DepthScale: 1
+      DepthOffset: 0
+    - Name: G
+      Materials:
+        Normal: {fileID: 2100000, guid: e18eebaae017082429347f9ddc92e62c, type: 2}
+        Hover: {r: 1, g: 1, b: 1, a: 1}
+        Selected: {r: 0, g: 0, b: 0, a: 0}
+      RadiusScale: 1
+      DepthScale: 1
+      DepthOffset: 0
+    mGroups:
+    - Pie
+    mData:
+    - GroupName: Pie
+      ColumnName: A
+      Amount: 50.54
+    - GroupName: Pie
+      ColumnName: B
+      Amount: 27
+    - GroupName: Pie
+      ColumnName: C
+      Amount: 11.34
+    - GroupName: Pie
+      ColumnName: D
+      Amount: 0
+    - GroupName: Pie
+      ColumnName: E
+      Amount: 0
+    - GroupName: Pie
+      ColumnName: F
+      Amount: 0
+    - GroupName: Pie
+      ColumnName: G
+      Amount: 0
+  clockWise: 0
+  prefab: {fileID: 114000011816695716, guid: 174751ce50250cf4291f5c015fd4be43, type: 3}
+  lineThickness: 1
+  lineSpacing: 29.01
+  lineMaterial: {fileID: 2100000, guid: 31586efb0db1c9e46be88a009131b71e, type: 2}
+  Container: {fileID: 0}
+  Title: {fileID: 0}
+  Info: {fileID: 0}
+  Image: {fileID: 0}
+--- !u!114 &11470102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb3e26fd06b41d4baa022120f5cd617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPrefab: {fileID: 11436712, guid: 7d3333514541d2c458fe1fa5abe5763e, type: 3}
+  textFormat:
+    prefix: 
+    suffix: '%'
+    customFormat: 
+  fontSize: 14
+  fontSharpness: 3
+  seperation: 61.2
+  location:
+    Breadth: 0
+    Depth: 0
+  alignment: 1
+  fractionDigits: 0
+--- !u!114 &11491442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147712}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 683c1c28d013cce4c9128c952dbdca81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPrefab: {fileID: 0}
+  textFormat:
+    prefix: 
+    suffix: 
+    customFormat: 
+  fontSize: 14
+  fontSharpness: 1
+  seperation: 163
+  location:
+    Breadth: 0
+    Depth: 0
+  alignment: 0
+  visibleLabels: 0
+--- !u!114 &11483794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a90fab185f83f4bb1b1df9f16c7732, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnimateOnStart: 1
+  AnimateOnEnable: 1
+  AnimateSpan: 360
+  AnimationTime: 2
+  Curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

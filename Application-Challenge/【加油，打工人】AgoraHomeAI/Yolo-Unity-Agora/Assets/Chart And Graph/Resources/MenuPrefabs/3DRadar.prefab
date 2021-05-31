@@ -1,0 +1,195 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &112556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 498080}
+  - component: {fileID: 11479506}
+  - component: {fileID: 11475204}
+  - component: {fileID: 11456588}
+  - component: {fileID: 11456886}
+  m_Layer: 0
+  m_Name: 3DRadar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &498080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112556}
+  m_LocalRotation: {x: 0.2538424, y: 0.0000019319486, z: -0.0000005070175, w: 0.96724564}
+  m_LocalPosition: {x: 0, y: 1.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &11479506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aa7b1dfc92745e4b9dfb1886a0124b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mPreviewObject: {fileID: 0}
+  OnRedraw:
+    m_PersistentCalls:
+      m_Calls: []
+  keepOrthoSize: 0
+  paperEffectText: 0
+  vRSpaceText: 0
+  vRSpaceScale: 0.1
+  maintainLabelSize: 0
+  radius: 3.86
+  angle: 0
+  axisPointMaterial: {fileID: 2100000, guid: be539abcba8dc8447a2c5de8c26c535f, type: 2}
+  axisLineMaterial: {fileID: 2100000, guid: b1e193d868e75174580b89fdbfe236c7, type: 2}
+  axisThickness: 0.28
+  axisPointSize: 0.85
+  axisAdd: -0.27
+  totalAxisDevisions: 3
+  PointClicked:
+    m_PersistentCalls:
+      m_Calls: []
+  PointHovered:
+    m_PersistentCalls:
+      m_Calls: []
+  NonHovered:
+    m_PersistentCalls:
+      m_Calls: []
+  Data:
+    mCategories:
+    - Name: Player 1
+      Seperation: -1.41
+      Curve: 0.62
+      FillMaterial: {fileID: 2100000, guid: 0dbd738f5c4b6544997e70d2a0981040, type: 2}
+      FillSmoothing: 10
+      LinePrefab: {fileID: 11416982, guid: bc48e63022c82e841adfd41036230ed4, type: 3}
+      LineHover: {fileID: 0}
+      LineThickness: 0.16
+      LineMaterial: {fileID: 2100000, guid: 0dbd738f5c4b6544997e70d2a0981040, type: 2}
+      PointPrefab: {fileID: 159358, guid: 5531d1ad319e2ed4986e55cd4e2d2041, type: 3}
+      PointHover: {fileID: 0}
+      PointSize: 0.5
+      PointMaterial: {fileID: 2100000, guid: 0dbd738f5c4b6544997e70d2a0981040, type: 2}
+      MaxValue: -1
+    mGroups:
+    - Stat 1
+    - Stat 2
+    - Stat 3
+    - Stat 4
+    - Stat 5
+    - Stat 6
+    mData:
+    - GroupName: Stat 1
+      ColumnName: Player 1
+      Amount: 6
+    - GroupName: Stat 2
+      ColumnName: Player 1
+      Amount: 8
+    - GroupName: Stat 3
+      ColumnName: Player 1
+      Amount: 9
+    - GroupName: Stat 4
+      ColumnName: Player 1
+      Amount: 6
+    - GroupName: Stat 5
+      ColumnName: Player 1
+      Amount: 8
+    - GroupName: Stat 6
+      ColumnName: Player 1
+      Amount: 12
+    automaticMaxValue: 0
+    maxValue: 15
+  axisPrefab: {fileID: 11436120, guid: ec7eb211c7a36f946bbd98c3f624882e, type: 3}
+  axisPointPrefab: {fileID: 158100, guid: 55d7d844af8662b49aec5292beed1e50, type: 3}
+--- !u!114 &11475204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5935733d0eb5b48ba1db228c83f0f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPrefab: {fileID: 0}
+  textFormat:
+    prefix: 
+    suffix: 
+    customFormat: 
+  fontSize: 5
+  fontSharpness: 3
+  seperation: 0.86
+  location:
+    Breadth: 0
+    Depth: -1.2
+  alignment: 0
+--- !u!114 &11456588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb3e26fd06b41d4baa022120f5cd617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPrefab: {fileID: 0}
+  textFormat:
+    prefix: 
+    suffix: 
+    customFormat: 
+  fontSize: 5
+  fontSharpness: 3
+  seperation: -2.52
+  location:
+    Breadth: 90.68
+    Depth: -3.69
+  alignment: 0
+  fractionDigits: 0
+--- !u!114 &11456886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 683c1c28d013cce4c9128c952dbdca81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPrefab: {fileID: 114000011523374616, guid: 7c86db16ee4151f4d9ed59479b2fdfbf,
+    type: 3}
+  textFormat:
+    prefix: 
+    suffix: 
+    customFormat: 
+  fontSize: 6
+  fontSharpness: 3
+  seperation: 0
+  location:
+    Breadth: 0
+    Depth: -1.86
+  alignment: 0
+  visibleLabels: 0

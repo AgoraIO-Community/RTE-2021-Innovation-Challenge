@@ -1,0 +1,17 @@
+﻿The Background Texture Access sample shows how to use two shaders to manipulate the background video. One shader turns the video into inverted black-and-white and another distorts the video where you touch on the screen.
+
+Key Functionality
+- Apply shaders to video background
+
+Targets
+https://developer.vuforia.com/sites/default/files/sample-apps/targets/tarmac.pdf
+
+Instructions
+- Point camera at target to view
+- Tap and drag to distort video background
+- Double tap to access options menu
+
+Terms of Use
+https://developer.vuforia.com/legal/EULA
+
+© 2012-2015 Qualcomm Connected Experiences, Inc. All Rights Reserved.

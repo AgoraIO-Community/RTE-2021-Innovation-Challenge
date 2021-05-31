@@ -1,0 +1,334 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &124928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 22406806}
+  - component: {fileID: 11434936}
+  - component: {fileID: 11498636}
+  - component: {fileID: 11458424}
+  - component: {fileID: 11405636}
+  - component: {fileID: 11492012}
+  m_Layer: 5
+  m_Name: 2DBubble
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &22406806
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124928}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -100, y: -100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &11434936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b652978617146ea49983ac4601def914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mPreviewObject: {fileID: 0}
+  OnRedraw:
+    m_PersistentCalls:
+      m_Calls: []
+  keepOrthoSize: 0
+  paperEffectText: 0
+  vRSpaceText: 0
+  vRSpaceScale: 0.1
+  maintainLabelSize: 0
+  autoScrollHorizontally: 0
+  horizontalScrolling: 0
+  autoScrollVertically: 0
+  verticalScrolling: 0
+  raycastTarget: 1
+  MousePan:
+    m_PersistentCalls:
+      m_Calls: []
+  horizontalPanning: 0
+  verticalPanning: 0
+  heightRatio: 298.6
+  widthRatio: 600
+  PointClicked:
+    m_PersistentCalls:
+      m_Calls: []
+  PointHovered:
+    m_PersistentCalls:
+      m_Calls: []
+  NonHovered:
+    m_PersistentCalls:
+      m_Calls: []
+  itemFormat: <?x>:<?y>
+  Data:
+    automaticVerticalViewGap: 0
+    automaticVerticallView: 1
+    automaticcHorizontaViewGap: 0
+    automaticHorizontalView: 1
+    horizontalViewSize: 10
+    horizontalViewOrigin: 0
+    verticalViewSize: 10
+    verticalViewOrigin: 0
+    mSerializedData:
+    - Name: Player 1
+      InitialData: []
+      IsBezierCurve: 0
+      SegmentsPerCurve: 10
+      Depth: 0
+      LineHoverPrefab: {fileID: 11494010, guid: 87cd6d8b7ca9527449e32ecefc4015c5,
+        type: 3}
+      PointHoverPrefab: {fileID: 11475216, guid: 4a41e955daff3f142be4eabb11bb8add,
+        type: 3}
+      LinePrefab: {fileID: 0}
+      Material: {fileID: 0}
+      LineTiling:
+        EnableTiling: 1
+        TileFactor: 45.5
+      FillPrefab: {fileID: 0}
+      InnerFill: {fileID: 0}
+      LineThickness: 2.5799999237060547
+      StetchFill: 0
+      DotPrefab: {fileID: 0}
+      PointMaterial: {fileID: 2100000, guid: ebb54d1636b926a4ba4403bba1cc1dc6, type: 2}
+      PointSize: 40
+      ViewOrder: 0
+      AllowNonFunctionsBeta: 0
+    - Name: Player 2
+      InitialData: []
+      IsBezierCurve: 0
+      SegmentsPerCurve: 10
+      Depth: 0
+      LineHoverPrefab: {fileID: 11494010, guid: 87cd6d8b7ca9527449e32ecefc4015c5,
+        type: 3}
+      PointHoverPrefab: {fileID: 11475216, guid: 4a41e955daff3f142be4eabb11bb8add,
+        type: 3}
+      LinePrefab: {fileID: 0}
+      Material: {fileID: 0}
+      LineTiling:
+        EnableTiling: 1
+        TileFactor: 45.5
+      FillPrefab: {fileID: 0}
+      InnerFill: {fileID: 0}
+      LineThickness: 2.5799999237060547
+      StetchFill: 0
+      DotPrefab: {fileID: 0}
+      PointMaterial: {fileID: 2100000, guid: fa0b3a0e33fedd249b4527b6027ba69e, type: 2}
+      PointSize: 40
+      ViewOrder: 1
+      AllowNonFunctionsBeta: 0
+  LineClicked:
+    m_PersistentCalls:
+      m_Calls: []
+  LineHovered:
+    m_PersistentCalls:
+      m_Calls: []
+  fitToContainer: 0
+  fitMargin:
+    left: 0
+    top: 0
+    right: 0
+    bottom: 0
+--- !u!114 &11498636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7598682dc3bb9174d9546fe226cab95a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SimpleView: 1
+  format: 0
+  depth:
+    Automatic: 0
+    Value: 0
+  mainDivisions:
+    messure: 0
+    unitsPerDivision: 0
+    total: 3
+    material: {fileID: 2100000, guid: 387acf3cc0524344980e92fa3f38dfd1, type: 2}
+    materialTiling:
+      EnableTiling: 1
+      TileFactor: 10
+    markBackLength:
+      Automatic: 1
+      Value: 0.5
+    markLength:
+      Automatic: 1
+      Value: 0.5
+    markDepth:
+      Automatic: 1
+      Value: 0.5
+    markThickness: 3
+    textPrefab: {fileID: 0}
+    textPrefix: 
+    textSuffix: 
+    fractionDigits: 2
+    fontSize: 12
+    fontSharpness: 3
+    textDepth: 0
+    textSeperation: -31.51
+    alignment: 1
+  subDivisions:
+    messure: 0
+    unitsPerDivision: 0
+    total: 3
+    material: {fileID: 2100000, guid: 387acf3cc0524344980e92fa3f38dfd1, type: 2}
+    materialTiling:
+      EnableTiling: 1
+      TileFactor: 10
+    markBackLength:
+      Automatic: 1
+      Value: 0.5
+    markLength:
+      Automatic: 1
+      Value: 0.5
+    markDepth:
+      Automatic: 1
+      Value: 0.5
+    markThickness: 3
+    textPrefab: {fileID: 0}
+    textPrefix: 
+    textSuffix: 
+    fractionDigits: 2
+    fontSize: 12
+    fontSharpness: 3
+    textDepth: 0
+    textSeperation: -31.51
+    alignment: 1
+--- !u!114 &11458424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08395b16192f9114e8ad4953e48f90bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SimpleView: 1
+  format: 0
+  depth:
+    Automatic: 0
+    Value: 0
+  mainDivisions:
+    messure: 0
+    unitsPerDivision: 0
+    total: 3
+    material: {fileID: 2100000, guid: 387acf3cc0524344980e92fa3f38dfd1, type: 2}
+    materialTiling:
+      EnableTiling: 1
+      TileFactor: 11.52
+    markBackLength:
+      Automatic: 1
+      Value: 0.5
+    markLength:
+      Automatic: 1
+      Value: 0.5
+    markDepth:
+      Automatic: 1
+      Value: 0.5
+    markThickness: 3
+    textPrefab: {fileID: 0}
+    textPrefix: 
+    textSuffix: 
+    fractionDigits: 2
+    fontSize: 12
+    fontSharpness: 3
+    textDepth: 0
+    textSeperation: -13.17
+    alignment: 1
+  subDivisions:
+    messure: 0
+    unitsPerDivision: 0
+    total: 3
+    material: {fileID: 2100000, guid: 387acf3cc0524344980e92fa3f38dfd1, type: 2}
+    materialTiling:
+      EnableTiling: 1
+      TileFactor: 11.52
+    markBackLength:
+      Automatic: 1
+      Value: 0.5
+    markLength:
+      Automatic: 1
+      Value: 0.5
+    markDepth:
+      Automatic: 1
+      Value: 0.5
+    markThickness: 3
+    textPrefab: {fileID: 0}
+    textPrefix: 
+    textSuffix: 
+    fractionDigits: 2
+    fontSize: 12
+    fontSharpness: 3
+    textDepth: 0
+    textSeperation: -13.17
+    alignment: 1
+--- !u!114 &11405636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09bf2e39f5ebfa409a492a80a326b3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sensitivity: 0
+--- !u!114 &11492012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb3e26fd06b41d4baa022120f5cd617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPrefab: {fileID: 114000011523374616, guid: 7c86db16ee4151f4d9ed59479b2fdfbf,
+    type: 3}
+  textFormat:
+    prefix: 
+    suffix: 
+    customFormat: 
+  fontSize: 14
+  fontSharpness: 1
+  seperation: 14.03
+  location:
+    Breadth: 0
+    Depth: 0
+  alignment: 0
+  fractionDigits: 0
