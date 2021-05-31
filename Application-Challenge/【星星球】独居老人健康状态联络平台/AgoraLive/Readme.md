@@ -48,7 +48,7 @@ pip install requirement.txt
 
 将mypose/process.py中的load_Info中checkpoint = torch.load(args.checkpoint_path, map_location='cpu')改为checkpoint = torch.load(args.checkpoint_path, map_location='gpu')
 
-##### 下载模型
+##### 下载模型到mypose文件夹下
 
 百度云下载：
 
