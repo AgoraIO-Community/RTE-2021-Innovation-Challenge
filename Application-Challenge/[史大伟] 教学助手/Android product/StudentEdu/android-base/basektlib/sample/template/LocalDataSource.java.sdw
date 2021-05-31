@@ -1,0 +1,8 @@
+    /**
+     * 自动生成：by WaTaNaBe on {{now}}.
+     * #{{title}}#
+     * #{{remarks}}#
+     */
+    override suspend fun {{name}}(param: {{params}}): DataResult<BasicApiResult<{{response}}>> {
+        TODO("Not yet implemented")
+    }

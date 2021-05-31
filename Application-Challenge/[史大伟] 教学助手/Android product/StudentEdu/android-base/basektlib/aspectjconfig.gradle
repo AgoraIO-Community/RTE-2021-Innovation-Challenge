@@ -1,0 +1,48 @@
+//project.dependencies{
+//    implementation 'org.aspectj:aspectjrt:1.9.5'
+//    api 'com.github.hss01248.aop-android:logforaop:1.0.1'
+//}
+//def isNoop(){
+//    for (String s : gradle.startParameter.taskNames) {
+//        if (s.contains("ultiChannel") | s.contains("elease")) {
+//            return true
+//        } else if (s.contains("ebug") | s.contains("ommon")) {
+//            return false
+//        }
+//    }
+//    return null
+//}
+//if(!isNoop()){
+//    apply plugin: 'com.hujiang.android-aspectjx'
+////为加快编译速度,需要自己将扫描的包路径添加到include里.  性能差距: 4min vs 4s
+//    aspectjx {
+////排除所有package路径中包含`android.support`的class文件及库（jar文件）:Invalid byte tag in constant pool
+//        exclude 'com.google','com.taobao','com.alibaba','module-info','com.squareup.haha','versions.9','com.tencent','android.support',
+//        'androidx',
+//        'com.squareup',
+//        'com.alipay',
+//        'org.apache',
+//        'com.alipay',
+//        'com.facebook',
+//        'cn.jiguang',
+//        'com.github',
+//        'com.meizu',
+//        'com.huawei',
+//        'com.qiyukf',
+//        'com.sina',
+//        'io.reactivex',
+//        'de.greenrobot.event',
+//        'com.netease.neliveplayer',
+//        'com.umeng',
+//        'im.yixin',
+//        'com.commonsware',
+//        'io.fabric',
+//        'rx.android',
+//        'com.android'
+//        //必须要加入aspect注解所在的包路径
+////        include 'com.qdedu.base_module_test.aop'
+//
+//    }
+//}
+
+//aop暂时不用

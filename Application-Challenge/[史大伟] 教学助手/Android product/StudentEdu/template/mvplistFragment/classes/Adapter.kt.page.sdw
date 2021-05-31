@@ -1,0 +1,19 @@
+package {{packageName}}.adapter
+
+import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.module.LoadMoreModule
+import com.chad.library.adapter.base.viewholder.BaseViewHolder
+import {{applicationPackage}}.R
+import kotlinx.android.synthetic.main.{{itemlayoutName}}.view.*
+
+/**
+ * 自动生成：by WaTaNaBe on {{now}}
+ * #{{remarks}}#
+ */
+class {{adapterClass}} :BaseQuickAdapter<#Entity#, BaseViewHolder>(R.layout.{{itemlayoutName}}),LoadMoreModule {
+    
+    override fun convert(holder: BaseViewHolder, item: #Entity#) {
+    
+    }
+    
+}

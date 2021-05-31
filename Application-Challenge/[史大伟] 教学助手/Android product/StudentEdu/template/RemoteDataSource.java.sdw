@@ -1,0 +1,18 @@
+
+    /**
+     * 自动生成：by WaTaNaBe on {{now}}.
+     * #{{title}}#
+     * #{{remarks}}#
+     */
+    override suspend fun {{name}}(param: {{params}})= withContext(ioDispatcher) {
+        try {
+            val data = AppService.getApiService(AppHuanJingFactory.appModel.apiDomains).{{name}}Async({{pap}})
+            if(data.isSuccessful) {
+                return@withContext DataResult.Success(data.body()!!).netSuccess()
+            }else{
+                return@withContext DataResult.Error(LibNetWorkException(data.code(),data.message())).netError()
+            }
+        } catch (e: Exception) {
+            return@withContext DataResult.Error(e).netError()
+        }
+    }

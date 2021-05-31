@@ -1,0 +1,24 @@
+<resources>
+
+    <dimen name="textSize16">16sp</dimen>
+    <dimen name="lib_line">0.45dp</dimen>
+    <dimen name="lib_line_1">1dp</dimen>
+
+
+
+
+
+
+
+
+    <dimen name="refresh_header_height">80dp</dimen>
+    <dimen name="load_more_footer_height_classic">60dp</dimen>
+
+    <dimen name="textSize12">12sp</dimen>
+    <dimen name="textSize14">14sp</dimen>
+    <dimen name="textSize18">18sp</dimen>
+    <dimen name="textSize20">20sp</dimen>
+
+
+
+</resources>
