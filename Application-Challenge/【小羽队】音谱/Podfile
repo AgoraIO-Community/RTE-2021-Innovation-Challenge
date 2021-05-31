@@ -1,0 +1,24 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'LxAudioToStaff' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+pod 'MBProgressHUD', '~> 1.2.0', :inhibit_warnings => true
+pod 'Masonry', '~> 1.1.0', :inhibit_warnings => true
+pod 'YYKit', '~> 1.0.9', :inhibit_warnings => true
+pod 'AsyncDisplayKit', '~> 2.2.1', :inhibit_warnings => true
+pod 'pop', '~> 1.0.9', :inhibit_warnings => true
+pod 'AgoraAudio_iOS', :inhibit_warnings => true 
+  # Pods for LxAudioToStaff
+
+  target 'LxAudioToStaffTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'LxAudioToStaffUITests' do
+    # Pods for testing
+  end
+
+end

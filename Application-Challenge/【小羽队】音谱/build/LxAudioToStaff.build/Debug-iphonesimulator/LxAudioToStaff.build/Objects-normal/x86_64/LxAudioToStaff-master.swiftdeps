@@ -1,0 +1,5 @@
+version: "Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)"
+options: "90e8a3565941d167bc3d8cc3a84abe12"
+build_time: [1622445200, 906045000]
+inputs:
+  "/Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Lib/makeMusic/MidiPlay.swift": [1622405590, 65960221]
