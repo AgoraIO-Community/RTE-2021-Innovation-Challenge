@@ -30,13 +30,15 @@ dependencies: \
   /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Lib/makeMusic/view/CKBellView.h \
   /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Lib/makeMusic/view/LxMcStaffLineView+MeasureLayout.h \
   /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Lib/makeMusic/model/CKNoteModel.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxHelp/Inheritance_Default/UIKit/UIAlertController/LxAlertController.h \
   /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/UIImage/UIImage+Default.h \
   /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/UIImageView/UIImageView+Default.h \
   /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Lib/makeMusic/Tool/CKMixAudioTool.h \
   /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Lib/makeMusic/LxXmlTransform/LxNoteToXmlHelp.h \
   /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxHelp/Animation/WeBasicAnimation.h \
-  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxHelp/Inheritance_Default/UIKit/UIAlertController/LxAlertController.h \
   /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Lib/makeMusic/LxStaffNoteModel.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxHelp/Category_Default/objc/NSString/NSString+Helper.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Controllser/LxRecordListVc.h \
   /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Lib/makeMusic/model/YPNodeTypeModel.h \
   /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Lib/makeMusic/model/LxMcMeasureModel.h \
   /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Lib/makeMusic/controller/FullFunction/CKMakeMusic_AllFuntion.h

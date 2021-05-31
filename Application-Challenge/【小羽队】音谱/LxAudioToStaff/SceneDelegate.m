@@ -45,6 +45,9 @@
 - (void)sceneWillEnterForeground:(UIScene *)scene {
     // Called as the scene transitions from the background to the foreground.
     // Use this method to undo the changes made on entering the background.
+    [[AVAudioSession sharedInstance] setActive:NO error:nil];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategorySoloAmbient mode:AVAudioSessionModeDefault options:AVAudioSessionCategoryOptionDuckOthers error:nil];
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
 }
 
 

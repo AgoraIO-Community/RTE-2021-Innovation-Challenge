@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		268141820250BDF8E3188F22 /* Pods_LxAudioToStaff_LxAudioToStaffUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 060CF774AC566FAA2320C541 /* Pods_LxAudioToStaff_LxAudioToStaffUITests.framework */; };
 		421E837517D9142F2A060C0F /* Pods_LxAudioToStaff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F60E1BF8A00E037AC12F5AEA /* Pods_LxAudioToStaff.framework */; };
+		B4A8126526652B7000B1236A /* LxRecordListVc.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A8126326652B7000B1236A /* LxRecordListVc.m */; };
+		B4A8126626652B7000B1236A /* LxRecordListVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4A8126426652B7000B1236A /* LxRecordListVc.xib */; };
+		B4A8126A26652F4000B1236A /* LxRecordListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A8126826652F4000B1236A /* LxRecordListCell.m */; };
+		B4A8126B26652F4000B1236A /* LxRecordListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4A8126926652F4000B1236A /* LxRecordListCell.xib */; };
 		B4DB88C3265F7AA500C501EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DB88C2265F7AA500C501EC /* AppDelegate.m */; };
 		B4DB88C6265F7AA500C501EC /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DB88C5265F7AA500C501EC /* SceneDelegate.m */; };
 		B4DB88C9265F7AA500C501EC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DB88C8265F7AA500C501EC /* ViewController.m */; };
@@ -493,6 +497,12 @@
 		5FC4A36B903BFE931DBDF84C /* Pods-LxAudioToStaff.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LxAudioToStaff.debug.xcconfig"; path = "Target Support Files/Pods-LxAudioToStaff/Pods-LxAudioToStaff.debug.xcconfig"; sourceTree = "<group>"; };
 		921FE68795755CAC8AF75C3E /* Pods-LxAudioToStaff-LxAudioToStaffUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LxAudioToStaff-LxAudioToStaffUITests.debug.xcconfig"; path = "Target Support Files/Pods-LxAudioToStaff-LxAudioToStaffUITests/Pods-LxAudioToStaff-LxAudioToStaffUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A8249C30394314B3AA2AF2DF /* Pods-LxAudioToStaff-LxAudioToStaffUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LxAudioToStaff-LxAudioToStaffUITests.release.xcconfig"; path = "Target Support Files/Pods-LxAudioToStaff-LxAudioToStaffUITests/Pods-LxAudioToStaff-LxAudioToStaffUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B4A8126226652B7000B1236A /* LxRecordListVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LxRecordListVc.h; sourceTree = "<group>"; };
+		B4A8126326652B7000B1236A /* LxRecordListVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LxRecordListVc.m; sourceTree = "<group>"; };
+		B4A8126426652B7000B1236A /* LxRecordListVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LxRecordListVc.xib; sourceTree = "<group>"; };
+		B4A8126726652F4000B1236A /* LxRecordListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LxRecordListCell.h; sourceTree = "<group>"; };
+		B4A8126826652F4000B1236A /* LxRecordListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LxRecordListCell.m; sourceTree = "<group>"; };
+		B4A8126926652F4000B1236A /* LxRecordListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LxRecordListCell.xib; sourceTree = "<group>"; };
 		B4DB88BE265F7AA500C501EC /* LxAudioToStaff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LxAudioToStaff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4DB88C1265F7AA500C501EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B4DB88C2265F7AA500C501EC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1094,6 +1104,19 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B4A8126126652B5A00B1236A /* Controllser */ = {
+			isa = PBXGroup;
+			children = (
+				B4A8126226652B7000B1236A /* LxRecordListVc.h */,
+				B4A8126326652B7000B1236A /* LxRecordListVc.m */,
+				B4A8126426652B7000B1236A /* LxRecordListVc.xib */,
+				B4A8126726652F4000B1236A /* LxRecordListCell.h */,
+				B4A8126826652F4000B1236A /* LxRecordListCell.m */,
+				B4A8126926652F4000B1236A /* LxRecordListCell.xib */,
+			);
+			path = Controllser;
+			sourceTree = "<group>";
+		};
 		B4DB88B5265F7AA500C501EC = {
 			isa = PBXGroup;
 			children = (
@@ -1127,6 +1150,7 @@
 				B4DB88C5265F7AA500C501EC /* SceneDelegate.m */,
 				B4DB88C7265F7AA500C501EC /* ViewController.h */,
 				B4DB88C8265F7AA500C501EC /* ViewController.m */,
+				B4A8126126652B5A00B1236A /* Controllser */,
 				B4DB88CA265F7AA500C501EC /* Main.storyboard */,
 				B4DB88CD265F7AA800C501EC /* Assets.xcassets */,
 				B4DB88CF265F7AA800C501EC /* LaunchScreen.storyboard */,
@@ -2578,6 +2602,7 @@
 				B4DB8DDF26649DF800C501EC /* seal_stand31.png in Resources */,
 				B4DB8C5D265F83FB00C501EC /* maoty1_00001@2x.png in Resources */,
 				B4DB8D7B265FCB4000C501EC /* seal4.png in Resources */,
+				B4A8126626652B7000B1236A /* LxRecordListVc.xib in Resources */,
 				B4DB8AF6265F83FA00C501EC /* rightNotes_AllFuntion.plist in Resources */,
 				B4DB8B38265F83FA00C501EC /* leftNotes_AllFuntion.plist in Resources */,
 				B4DB8B92265F83FA00C501EC /* an_daodao01_00006@2x.png in Resources */,
@@ -2611,6 +2636,7 @@
 				B4DB8DE126649DF800C501EC /* seal_stand1.png in Resources */,
 				B4DB8D75265FCB4000C501EC /* seal29.png in Resources */,
 				B4DB8B84265F83FA00C501EC /* an_daodao01_00034@2x.png in Resources */,
+				B4A8126B26652F4000B1236A /* LxRecordListCell.xib in Resources */,
 				B4DB8C61265F83FB00C501EC /* maoty1_00011@2x.png in Resources */,
 				B4DB8BAA265F83FA00C501EC /* selected_write_43_ruding@2x.png in Resources */,
 				B4DB8B3D265F83FA00C501EC /* write_roll_texture@2x.png in Resources */,
@@ -2796,6 +2822,7 @@
 				B4DB8D42265FC17A00C501EC /* LxMusicNode.m in Sources */,
 				B4DB8C8D265F83FB00C501EC /* MackMusicVcScrollBar.m in Sources */,
 				B4DB8D11265F87C500C501EC /* UIButton+EnlargeEdge.m in Sources */,
+				B4A8126A26652F4000B1236A /* LxRecordListCell.m in Sources */,
 				B4DB8D0B265F87C500C501EC /* LxVideoPlayNode.m in Sources */,
 				B4DB8D24265F87C500C501EC /* NSMutableArray+Helper.m in Sources */,
 				B4DB8D0F265F87C500C501EC /* UIImage+Pixels.m in Sources */,
@@ -2808,6 +2835,7 @@
 				B4DB8C7F265F83FB00C501EC /* LxMcStaffLineView+Default.m in Sources */,
 				B4DB8D0D265F87C500C501EC /* LxPreciseTimeDelay.m in Sources */,
 				B4DB8C7E265F83FB00C501EC /* LxMcClefExchangeBtn.m in Sources */,
+				B4A8126526652B7000B1236A /* LxRecordListVc.m in Sources */,
 				B4DB8D32265F8A8B00C501EC /* CKNoteModel.m in Sources */,
 				B4DB8D1C265F87C500C501EC /* ButtonAni.m in Sources */,
 				B4DB8D07265F87C400C501EC /* LxAlertAction.m in Sources */,
@@ -3040,7 +3068,7 @@
 					"$(PROJECT_DIR)/LxAudioToStaff/Lib/makeMusic/Tool",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = lx.audioToStaff.demo.LxAudioToStaff;
+				PRODUCT_BUNDLE_IDENTIFIER = lx.audioToStaff.demo.LxAudioToStafft;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LxAudioToStaff/Lib/makeMusic/LxAudioToStaff-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";

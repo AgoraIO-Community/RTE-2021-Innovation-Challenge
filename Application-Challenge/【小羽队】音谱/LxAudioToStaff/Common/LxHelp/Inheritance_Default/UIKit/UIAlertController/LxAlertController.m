@@ -85,7 +85,12 @@
                                                             block:^(LxAlertAction *clickAction) {
                                                                 if (block) {
                                                                     UITextField *filed = [alertController.textFields firstObject];
-                                                                    block(clickAction.click_index,filed.text);
+                                                                    if (filed.text.length < 1 && filed.placeholder.length > 0) {
+                                                                        block(clickAction.click_index,filed.placeholder);
+                                                                    }else{
+                                                                        block(clickAction.click_index,filed.text);
+                                                                    }
+                                                                   
                                                                 }
                                                                 [alertController dismissViewControllerAnimated:YES completion:nil];
                                                             }];

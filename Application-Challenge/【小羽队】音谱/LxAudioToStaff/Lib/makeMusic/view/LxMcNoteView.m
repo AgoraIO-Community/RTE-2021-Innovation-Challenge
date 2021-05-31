@@ -18,6 +18,8 @@
 #import <pop/POP.h>
 #import "UIImage+Default.h"
 #import "UIImage+YYAdd.h"
+#import "NSString+Helper.h"
+#import "NSDictionary+Helper.h"
 #define kNoteBoeyOffsetY kMcStaffSpace * 0.3
 @interface LxMcNoteView ()
 /******************************************************音符部件***************************************************************/
@@ -757,6 +759,27 @@
     else{
         return [super hitTest:point withEvent:event];
     }
+}
+
+- (NSString *)lx_Json{
+    NSString *infoStr = nil;
+    NSDictionary *info = @{
+        @"noteType" : @(self.noteType),
+        @"isUpClef" : @(self.isUpClef),
+        @"miditag"  : @(self.miditag),
+    };
+    
+    infoStr = [info lx_JsonString];
+    return infoStr;
+}
+
++ (LxMcNoteView *)lx_noteViewWithDic:(NSDictionary *)info{
+    LxMcNoteView *noteView = [LxMcNoteView lx_defaultNoteViewWithNoteType:[info[@"noteType"] integerValue]
+                                                                   isRest:NO
+                                                                    isDot:NO];
+    noteView.isUpClef = [info[@"isUpClef"] boolValue];
+    noteView.miditag = [info[@"miditag"] integerValue];
+    return noteView;
 }
 
 /*

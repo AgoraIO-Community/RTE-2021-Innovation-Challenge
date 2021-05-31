@@ -21,4 +21,6 @@ dependencies: \
   /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/UIImage/UIImage+Default.h \
   /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/UIImageView/UIImageView+Default.h \
   /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/UIView/UIView+Default.h \
-  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Lib/makeMusic/view/LxMcNoteView+Bubble.h
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Lib/makeMusic/view/LxMcNoteView+Bubble.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxHelp/Category_Default/objc/NSString/NSString+Helper.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxHelp/Category_Default/objc/NSDictionary/NSDictionary+Helper.h

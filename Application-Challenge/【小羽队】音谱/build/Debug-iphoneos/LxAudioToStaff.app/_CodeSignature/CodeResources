@@ -4,13 +4,21 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>AppIcon60x60@2x.png</key>
+		<data>
+		6X3kzTcTg9Va3p6kwlvRH7LUM/k=
+		</data>
+		<key>AppIcon76x76@2x~ipad.png</key>
+		<data>
+		L4odFIAZ0FLpjvvBq7yEdyHUdkM=
+		</data>
 		<key>Assets.car</key>
 		<data>
-		4ZzE/BZBuNV5JA0BZWS+O+Krv24=
+		5dKzRsHB0gU9SLpWa339MfrnyFY=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		Y9GJNrD4mrjlZgG+FtxPJXvPt3M=
+		UMKe40vrnMreLjtmgVLG2iHaKPg=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -18,15 +26,15 @@
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		5LteuzfMDOczh/DkLa8GRqDFan8=
+		tT+zzSwvRXW751ZCrveQ+cQeL3g=
 		</data>
 		<key>Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib/objects-14.0+.nib</key>
 		<data>
-		GAwCxRnwHh0xbzO4FQLFpsWr/+k=
+		XpePU1kOkx82GsxqlrCdwA0CRfM=
 		</data>
 		<key>Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib/runtime.nib</key>
 		<data>
-		6vfRAK0RejiW+xMC5frpoEiMJD8=
+		Xs1Ggudxzr3a0RaCSNWQhspVbH4=
 		</data>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
@@ -34,11 +42,11 @@
 		</data>
 		<key>Base.lproj/Main.storyboardc/UINavigationController-rb2-df-33A.nib/objects-14.0+.nib</key>
 		<data>
-		hz0rmh7FO9fmz9JlomLjimU2UQQ=
+		jRWU9PjLi5T4fHpj46yZvmGhKLs=
 		</data>
 		<key>Base.lproj/Main.storyboardc/UINavigationController-rb2-df-33A.nib/runtime.nib</key>
 		<data>
-		LcNdhAJjFPPY1m9wL0tz159KaBA=
+		oejXOOZIMOqOrNaWRfJ/kTxHK/E=
 		</data>
 		<key>Delete_cancel_rudin2@2x.png</key>
 		<data>
@@ -46,7 +54,7 @@
 		</data>
 		<key>Frameworks/AgoraAIDenoiseExtension.framework/AgoraAIDenoiseExtension</key>
 		<data>
-		D9iAFp/Co2tLesav6vpUZvHee6M=
+		CMU+i+cA4TeqfzwUJfYN65T+33g=
 		</data>
 		<key>Frameworks/AgoraAIDenoiseExtension.framework/Info.plist</key>
 		<data>
@@ -58,7 +66,7 @@
 		</data>
 		<key>Frameworks/AgoraCore.framework/AgoraCore</key>
 		<data>
-		iK1fGTfkqVhqhC0nheWeKk2/YnM=
+		POR3gsCFvsjxMgth0ZIdqtbbl60=
 		</data>
 		<key>Frameworks/AgoraCore.framework/Info.plist</key>
 		<data>
@@ -70,7 +78,7 @@
 		</data>
 		<key>Frameworks/AgoraRtcKit.framework/AgoraRtcKit</key>
 		<data>
-		Gy6cVMfkmQw0U42xvcu4aNiNwYA=
+		KqsD2AYdFBWONNnF7xNTVGpjGNQ=
 		</data>
 		<key>Frameworks/AgoraRtcKit.framework/Info.plist</key>
 		<data>
@@ -82,7 +90,7 @@
 		</data>
 		<key>Frameworks/AgoraSoundTouch.framework/AgoraSoundTouch</key>
 		<data>
-		gbjmHI4KiE19zXhgD47dNjrCDhI=
+		f2p8pf8W5/IXIC9oLRIXhZ524nI=
 		</data>
 		<key>Frameworks/AgoraSoundTouch.framework/Info.plist</key>
 		<data>
@@ -94,7 +102,7 @@
 		</data>
 		<key>Frameworks/Agorafdkaac.framework/Agorafdkaac</key>
 		<data>
-		YJFaA8Lb2jHY7kYhNc1pfF62g8Q=
+		ngXAHeon48KGzmDY5rH0gdDnjwA=
 		</data>
 		<key>Frameworks/Agorafdkaac.framework/Info.plist</key>
 		<data>
@@ -106,7 +114,7 @@
 		</data>
 		<key>Frameworks/AsyncDisplayKit.framework/AsyncDisplayKit</key>
 		<data>
-		j6yb6SoyvjVwcR4D+4ffZGOZ1r4=
+		IisyEYY8ALp9NdoOO/MYKea+Jg0=
 		</data>
 		<key>Frameworks/AsyncDisplayKit.framework/Info.plist</key>
 		<data>
@@ -122,7 +130,7 @@
 		</data>
 		<key>Frameworks/MBProgressHUD.framework/MBProgressHUD</key>
 		<data>
-		JPaFpwl6IQKLeE0T/FSzEMO++JM=
+		GuiBB+Ih/DsOF8nbriq0u6QaKRk=
 		</data>
 		<key>Frameworks/MBProgressHUD.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -134,7 +142,7 @@
 		</data>
 		<key>Frameworks/Masonry.framework/Masonry</key>
 		<data>
-		JbUHjJoyGOW+77XtF3f2hnerfpQ=
+		XOIYn+OpXP379oliuz954BazWOE=
 		</data>
 		<key>Frameworks/Masonry.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -146,7 +154,7 @@
 		</data>
 		<key>Frameworks/PINCache.framework/PINCache</key>
 		<data>
-		27QC71PniBSkYwyX321DeNWmOlE=
+		M2iS8oGYETcayx2qIZi1bai/Pm4=
 		</data>
 		<key>Frameworks/PINCache.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -158,7 +166,7 @@
 		</data>
 		<key>Frameworks/PINOperation.framework/PINOperation</key>
 		<data>
-		TBPehX9FJljp3HOFoTNwsryZLYE=
+		jx0p3qsCCIA2E5PwXslHGdV4eOE=
 		</data>
 		<key>Frameworks/PINOperation.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -170,7 +178,7 @@
 		</data>
 		<key>Frameworks/PINRemoteImage.framework/PINRemoteImage</key>
 		<data>
-		iQTgcSdSqTqL1ueSpIh21qOLsA4=
+		gz2YAEVlMhHOopzJn2LYr9ymxK4=
 		</data>
 		<key>Frameworks/PINRemoteImage.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -182,7 +190,7 @@
 		</data>
 		<key>Frameworks/YYKit.framework/YYKit</key>
 		<data>
-		ambMwF705MNpbIFmrJjexKW2fiM=
+		jlwA8iuA2jUDsnX4SZcSQj6kr9o=
 		</data>
 		<key>Frameworks/YYKit.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -254,7 +262,7 @@
 		</data>
 		<key>Frameworks/pop.framework/pop</key>
 		<data>
-		zRaOpv2uolBWmMszsN8sey908ts=
+		s+4Fx/WnOx92xMwid7lkU9vXJ+Y=
 		</data>
 		<key>FullFunction_A.png</key>
 		<data>
@@ -294,7 +302,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		7pqCg/9BGwMOhaXVh4Z1TF+euDs=
+		ZunUD6QTgwoUGp3llJ/OieIkjak=
 		</data>
 		<key>LxMcGrandStaff@2x.png</key>
 		<data>
@@ -303,6 +311,18 @@
 		<key>LxMusicCreationVc.nib</key>
 		<data>
 		pWUGLcOzQOMnwYntz2Nr5veSIF8=
+		</data>
+		<key>LxRecordListCell.nib/objects-14.0+.nib</key>
+		<data>
+		srqB46AGIxIE2penNzEI9VsICJE=
+		</data>
+		<key>LxRecordListCell.nib/runtime.nib</key>
+		<data>
+		aHWxoHAb/KNcALC2L07nbi6Biw4=
+		</data>
+		<key>LxRecordListVc.nib</key>
+		<data>
+		XkYjXWUSFaFZUur4L89aWkXjp2g=
 		</data>
 		<key>MMaccompany1.mp3</key>
 		<data>
@@ -782,7 +802,7 @@
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		fhCjKFsQwjbMlJtzK2I2y1JN+iQ=
+		EIAIWBoSibujiNUV3xMMbEI4pYc=
 		</data>
 		<key>exampleNodes.xml</key>
 		<data>
@@ -1739,18 +1759,32 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>AppIcon60x60@2x.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			f7ACEcE7FpsaFj1RT9w/gu1K7YvlHgq/1uLc3uEbmS8=
+			</data>
+		</dict>
+		<key>AppIcon76x76@2x~ipad.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Cv9OxmeHI1k5tDIUSI4bdQeHclo0WeCIlY2EJTS6/ck=
+			</data>
+		</dict>
 		<key>Assets.car</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			yGvvc0gNThFddtk4gz5jFCtCzcwUoAtCzgxfy9pYNdE=
+			MLYkJUMiBBoeCtd0Pmt/wCPJDhUoYukzByTg6lUMIjk=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			s3x/c2yhyC270JmpYeFrIkur3tqnC8gUS15xx6LbXW0=
+			wigmZIvV2NQRbjYo+Cnhi6vyeMyh5m1x5ZIoJfGTmiw=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/Info.plist</key>
@@ -1764,21 +1798,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			idwElRpGKPrGC3IgP9mm0ZRWL3T0pmATvnAXCpG7g5w=
+			aki8mMEEEyl2oS5C3S3q5kd5b1W4xls7WCLS/Xd6PBk=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib/objects-14.0+.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2m2D/1ZDxJ1DA9FslsrVSG82jlR8j4F6wncnkQfa57w=
+			AkMxPeG+SiIo+4mqvvBFt6XlsLHL6QoC/tZfIGhfW8k=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pFD3OltgTuwt3mZwNzHTVgbBIfsvdCgK9z2AvkZPA6o=
+			LRiZwDY6a1WUYz4WWjdLIInpdDtWp2SuEIz9Jvcdys4=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
@@ -1792,14 +1826,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			AHdgW+qMUls3FZLW8LQx9lbHkTamysNooK2oBrhblB4=
+			uOxzPq+KAhzmIzmEOwlC09rl2I0PCwrYk+Hkd+VG2NQ=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/UINavigationController-rb2-df-33A.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PTJqrzXULsmX7/aMMFpojLH8oupfEgTPKLfwhO54Qm8=
+			lWv7IWZN21JnmZ75AdJgtBZyUMKBPhAKKVf7pj9AdhE=
 			</data>
 		</dict>
 		<key>Delete_cancel_rudin2@2x.png</key>
@@ -1813,7 +1847,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RQKSv9FVdzU53YiAynSvZPhi7/A6GYXhunZRLlTkKyw=
+			t3VsYjoc6mm6/dSLQi4E8FCFHyo5FG69nVo3Lak4twI=
 			</data>
 		</dict>
 		<key>Frameworks/AgoraAIDenoiseExtension.framework/Info.plist</key>
@@ -1834,7 +1868,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			GW/in/Saa1ifUrII9vUq5uYBxOXMx3b8oDjcKPzrnis=
+			E/zAPdoOtXSgJnb5zGbZQXOukIyImFCVt9Xj/uGeVqA=
 			</data>
 		</dict>
 		<key>Frameworks/AgoraCore.framework/Info.plist</key>
@@ -1855,7 +1889,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			k2vzfUTYWEFOFyKDSCC5f3CFVnXdgqwLEES67yU1M/M=
+			RL5BOZRDHixvDMgffydPIurEp7TA17EiMgLB6bklnJk=
 			</data>
 		</dict>
 		<key>Frameworks/AgoraRtcKit.framework/Info.plist</key>
@@ -1876,7 +1910,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			juPRIdpvsICUKTRv6EITCbfyqJHO/4E8+Arv0a1LHEk=
+			VlrdrDieeYupxJc821jZIobPZbqalEO6aCHoqQCjCL8=
 			</data>
 		</dict>
 		<key>Frameworks/AgoraSoundTouch.framework/Info.plist</key>
@@ -1897,7 +1931,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			8YuX5YcGfrTjLJzYPkxGhId16zud4UkJ6YkMBmEGjW4=
+			bNx+OacfIeGkk+wR+/ntHZk5pDsdcapOtkw5sbJdw/o=
 			</data>
 		</dict>
 		<key>Frameworks/Agorafdkaac.framework/Info.plist</key>
@@ -1918,7 +1952,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xpBsowg5ZYUXmn8pOWTxw82QwxJbF7GXPBBSbACKpQA=
+			750n/hpYOEpyOTbR0pfzYT5FuxOX8a54rX7bBFhqVmg=
 			</data>
 		</dict>
 		<key>Frameworks/AsyncDisplayKit.framework/Info.plist</key>
@@ -1946,7 +1980,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Si7VBApcy3xhD2GoYAoZL+lPEO6CB8B2lEavEE2uado=
+			aCYDESXA4Q5rU7OBAHxhp4QdlFHgHClRF7qCWq1t7SU=
 			</data>
 		</dict>
 		<key>Frameworks/MBProgressHUD.framework/_CodeSignature/CodeResources</key>
@@ -1967,7 +2001,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			x+f8deZeImgsviaGepXZRo6fuECHXBaFbV97p1jlQz8=
+			hClmeOekvGcahsbXc6xyyo/384I/QsSY5LVrO2qvx1w=
 			</data>
 		</dict>
 		<key>Frameworks/Masonry.framework/_CodeSignature/CodeResources</key>
@@ -1988,7 +2022,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0i5Cwn3CSTEZF4GXarLCIcR8MdrlVxijTZGE7Jeluzw=
+			hKU4Q9i6717rhUQ3eRJ/3HSUvrKzK4ht1KAUgMCyFr8=
 			</data>
 		</dict>
 		<key>Frameworks/PINCache.framework/_CodeSignature/CodeResources</key>
@@ -2009,7 +2043,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YEfxif9XRxZA8dFVUuAGoVU06vy6LN+Saw1IFPKHcdc=
+			uK1Vl1Djh1+Y2nsZ3k8yk/2IxJWtJgqophsw1Wng7Ww=
 			</data>
 		</dict>
 		<key>Frameworks/PINOperation.framework/_CodeSignature/CodeResources</key>
@@ -2030,7 +2064,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6+evuhUW11XalyHnrPF6hz6IIE7Eetq7Og9r5IkwGWc=
+			4e4nmjon9VU3VhSfG6/a7doIklw/80sG9dY1+a+l/V0=
 			</data>
 		</dict>
 		<key>Frameworks/PINRemoteImage.framework/_CodeSignature/CodeResources</key>
@@ -2051,7 +2085,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QerAY7EqR3qKZSZmlwq5mgL/fj4YkYy0lUOXsAIcV4w=
+			rdCgdP6/fIM9kWBawRF8OZia7vPHqu1Rz/zrsQPHhPc=
 			</data>
 		</dict>
 		<key>Frameworks/YYKit.framework/_CodeSignature/CodeResources</key>
@@ -2177,7 +2211,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YlAf8obh2FCF0YTcwiyjXBD4+UzCmHbeh6K+2O46vNQ=
+			W2jrK2y+QFxXYt2jy2wQxXP/77Mr/SUp8XGsXISCmSw=
 			</data>
 		</dict>
 		<key>FullFunction_A.png</key>
@@ -2255,6 +2289,27 @@
 			<key>hash2</key>
 			<data>
 			/Clq82tY9RVBmbnazhZy/X5M5SmnrycOlrrGKcDJi9c=
+			</data>
+		</dict>
+		<key>LxRecordListCell.nib/objects-14.0+.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			FuAdoWitRHlAExPXzdB6Z+L7YvIL26lgwiFUdn0VBzE=
+			</data>
+		</dict>
+		<key>LxRecordListCell.nib/runtime.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			lqbv7ALM1bgpTJZZQrg2sVEKUVqpg4aehKwgzLu4uf0=
+			</data>
+		</dict>
+		<key>LxRecordListVc.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			MKRiySKTiKnJ6bITZ0hdZvgCyME1aW6HtzpqSgb53C0=
 			</data>
 		</dict>
 		<key>MMaccompany1.mp3</key>
@@ -3087,7 +3142,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			u1WZhZH4u5Hv65I0+P1tiYpoEpmTj8SPnZASXpAQY08=
+			Tpc/AAU7/aF/JnAv608JpRLQ3ERPoJC9Rec9fd2dpis=
 			</data>
 		</dict>
 		<key>exampleNodes.xml</key>

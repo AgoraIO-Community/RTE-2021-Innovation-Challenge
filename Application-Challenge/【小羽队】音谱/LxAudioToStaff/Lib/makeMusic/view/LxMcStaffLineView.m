@@ -341,7 +341,7 @@
         CGFloat scrollWidth = [_delegate scrollView].width;
         if (playNotes.count) {
 //            CGFloat positionX = ( [self.queuePlayNotes firstObject].center.x - scrollWidth / 2.f) * (self.playPosition / [self.queuePlayNotes firstObject].playEventPosition);
-            CGFloat offset_X = MAX(0, MIN(CGRectGetWidth(self.frame) - scrollWidth - 40 ,[self.queuePlayNotes firstObject].center.x - scrollWidth / 2.f));
+            CGFloat offset_X = MAX(0, MIN(CGRectGetWidth(self.frame) - scrollWidth + 80 ,[self.queuePlayNotes firstObject].center.x - scrollWidth / 2.f));
 //            debugLog(@"当前音符%p,x =- %f 当前时间%f",[self.queuePlayNotes firstObject],[self.queuePlayNotes firstObject].center.x,positionX);
             [UIView animateWithDuration:[self.queuePlayNotes firstObject].playEventPosition - self.playPosition animations:^{
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -1211,6 +1211,7 @@
                 tapNoteView.isDot = self.modelDot;
                 tapNoteView.headDirection = LxMcNoteHead_center;
                 [tapNoteView changeCandyUI:self.candy];
+                tapNoteView.tapMove = YES;
                 if (self.modelNodeType >= 50) {//放置强弱标记
                     [self setStrength:tapNoteView touchPoint:touchPoint];
                 }else {

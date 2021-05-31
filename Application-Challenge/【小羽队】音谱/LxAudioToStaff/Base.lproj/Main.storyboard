@@ -21,12 +21,12 @@
                                 <color key="backgroundColor" red="0.84942329376293335" green="0.80558173850086656" blue="1" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apj-Sa-JDw">
-                                <rect key="frame" x="664" y="349" width="62" height="40"/>
+                                <rect key="frame" x="663" y="349" width="62" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="62" id="a8w-Q6-FUU"/>
                                     <constraint firstAttribute="height" constant="40" id="gkg-mM-p80"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="18"/>
                                 <state key="normal" title="音区5">
                                     <color key="titleColor" red="0.92941176470588238" green="1" blue="0.91764705882352937" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -37,21 +37,13 @@
                                     <action selector="clickOctaveBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="abh-2E-wng"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="record.circle" catalog="system" highlightedImage="pause.circle" translatesAutoresizingMaskIntoConstraints="NO" id="gba-z4-gyr">
-                                <rect key="frame" x="751" y="329.5" width="80" height="79"/>
-                                <color key="tintColor" red="0.92156862745098034" green="0.42352941176470588" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="I6G-Sg-6hq"/>
-                                    <constraint firstAttribute="width" constant="80" id="qLE-gr-Tv8"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Dd-TB-RQI">
-                                <rect key="frame" x="587" y="349" width="62" height="40"/>
+                                <rect key="frame" x="586" y="349" width="62" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="rI1-BC-bDH"/>
                                     <constraint firstAttribute="width" constant="62" id="yaE-9x-Wb9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="18"/>
                                 <state key="normal" title="音区4">
                                     <color key="titleColor" red="0.92941176470588238" green="1" blue="0.91764705882352937" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -63,12 +55,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rb-Yw-bzH">
-                                <rect key="frame" x="510" y="349" width="62" height="40"/>
+                                <rect key="frame" x="509" y="349" width="62" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="62" id="Jpi-M8-gfz"/>
                                     <constraint firstAttribute="height" constant="40" id="LBs-Fr-M0b"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="18"/>
                                 <state key="normal" title="音区3">
                                     <color key="titleColor" red="0.92941176470588238" green="1" blue="0.91764705882352937" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -80,12 +72,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NfP-0B-Ghh">
-                                <rect key="frame" x="287" y="349" width="95" height="40"/>
+                                <rect key="frame" x="324" y="349" width="95" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="95" id="dGP-3N-AEm"/>
                                     <constraint firstAttribute="height" constant="40" id="kVI-ji-nvm"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="17"/>
                                 <state key="normal" title="编辑模式">
                                     <color key="titleColor" red="0.92941176470588238" green="1" blue="0.91764705882352937" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -96,31 +88,89 @@
                                     <action selector="clickEditModeBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tCS-3n-T1x"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="du4-fk-iiY">
+                                <rect key="frame" x="20" y="20" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="aiy-Dd-fno"/>
+                                    <constraint firstAttribute="height" constant="35" id="pTb-dy-WyI"/>
+                                </constraints>
+                                <state key="normal" image="refresh"/>
+                                <connections>
+                                    <action selector="clickRefreshBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="znR-Ca-c2h"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVt-FD-JDU">
+                                <rect key="frame" x="831" y="15" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="5Vi-7W-Uht"/>
+                                    <constraint firstAttribute="width" constant="45" id="DiU-fo-qMZ"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="record"/>
+                                <connections>
+                                    <action selector="clickRecordListBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iPU-ar-uhd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYN-O5-RUv">
+                                <rect key="frame" x="430.5" y="20" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="2SY-mY-KX5"/>
+                                    <constraint firstAttribute="width" constant="35" id="MM5-WB-EFU"/>
+                                </constraints>
+                                <state key="normal" image="save"/>
+                                <connections>
+                                    <action selector="clickSaveBTN:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bRB-YG-BvS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNq-Zw-ok1">
+                                <rect key="frame" x="751" y="329.5" width="80" height="79"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="47C-uE-x4t"/>
+                                    <constraint firstAttribute="height" constant="80" id="Zrk-p4-xpJ"/>
+                                </constraints>
+                                <color key="tintColor" red="0.95902174709999999" green="0.4324272871" blue="0.47918152809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" backgroundImage="record.circle" catalog="system"/>
+                                <state key="selected" backgroundImage="pause.circle" catalog="system"/>
+                                <state key="highlighted" backgroundImage="pause.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="clickBeginRecord:" destination="BYZ-38-t0r" eventType="touchDown" id="JFN-Rn-VJM"/>
+                                    <action selector="clickEndOutRecord:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="UYv-rc-aZB"/>
+                                    <action selector="clickEndRecord:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xZi-c3-ixu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <constraints>
-                            <constraint firstItem="gba-z4-gyr" firstAttribute="leading" secondItem="Apj-Sa-JDw" secondAttribute="trailing" constant="25" id="7zp-c5-Hgk"/>
+                            <constraint firstItem="LNq-Zw-ok1" firstAttribute="leading" secondItem="Apj-Sa-JDw" secondAttribute="trailing" constant="26" id="2gE-kC-xqc"/>
+                            <constraint firstItem="du4-fk-iiY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="5OQ-y0-V0G"/>
+                            <constraint firstAttribute="trailing" secondItem="eVt-FD-JDU" secondAttribute="trailing" constant="20" id="69v-3f-xhx"/>
                             <constraint firstItem="8Dd-TB-RQI" firstAttribute="centerY" secondItem="Apj-Sa-JDw" secondAttribute="centerY" id="AEf-a7-Ody"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LNq-Zw-ok1" secondAttribute="trailing" constant="21" id="ApG-Qg-Afu"/>
                             <constraint firstItem="nde-42-Az1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="EXd-1G-bXF"/>
                             <constraint firstAttribute="bottom" secondItem="nde-42-Az1" secondAttribute="bottom" id="M5m-5A-q0P"/>
                             <constraint firstItem="Apj-Sa-JDw" firstAttribute="leading" secondItem="8Dd-TB-RQI" secondAttribute="trailing" constant="15" id="Mr8-Od-ZKL"/>
                             <constraint firstItem="NfP-0B-Ghh" firstAttribute="centerY" secondItem="6rb-Yw-bzH" secondAttribute="centerY" id="QvF-6P-ZmM"/>
+                            <constraint firstItem="LNq-Zw-ok1" firstAttribute="bottom" secondItem="nde-42-Az1" secondAttribute="bottom" constant="-5" id="VU1-cL-tJf"/>
+                            <constraint firstItem="EYN-O5-RUv" firstAttribute="centerX" secondItem="nde-42-Az1" secondAttribute="centerX" id="WzQ-Ya-MPh"/>
                             <constraint firstItem="nde-42-Az1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XNg-1P-jXl"/>
                             <constraint firstItem="6rb-Yw-bzH" firstAttribute="centerY" secondItem="8Dd-TB-RQI" secondAttribute="centerY" id="XfF-UG-tzr"/>
                             <constraint firstAttribute="trailing" secondItem="nde-42-Az1" secondAttribute="trailing" id="YWp-2C-o8t"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gba-z4-gyr" secondAttribute="trailing" constant="21" id="cOk-ed-jdR"/>
-                            <constraint firstAttribute="bottom" secondItem="gba-z4-gyr" secondAttribute="bottom" constant="5" id="cwN-Jv-EjE"/>
-                            <constraint firstItem="6rb-Yw-bzH" firstAttribute="leading" secondItem="NfP-0B-Ghh" secondAttribute="trailing" constant="128" id="lfa-EU-H5g"/>
+                            <constraint firstItem="Apj-Sa-JDw" firstAttribute="centerY" secondItem="LNq-Zw-ok1" secondAttribute="centerY" id="ZM0-rJ-paa"/>
+                            <constraint firstItem="du4-fk-iiY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="g7G-ga-aML"/>
+                            <constraint firstItem="6rb-Yw-bzH" firstAttribute="leading" secondItem="NfP-0B-Ghh" secondAttribute="trailing" constant="90" id="lfa-EU-H5g"/>
+                            <constraint firstItem="EYN-O5-RUv" firstAttribute="centerY" secondItem="du4-fk-iiY" secondAttribute="centerY" id="oWc-WM-7nF"/>
                             <constraint firstItem="8Dd-TB-RQI" firstAttribute="leading" secondItem="6rb-Yw-bzH" secondAttribute="trailing" constant="15" id="qPA-Ws-Rv6"/>
-                            <constraint firstItem="Apj-Sa-JDw" firstAttribute="centerY" secondItem="gba-z4-gyr" secondAttribute="centerY" id="vyo-7e-Cyj"/>
+                            <constraint firstItem="eVt-FD-JDU" firstAttribute="centerY" secondItem="du4-fk-iiY" secondAttribute="centerY" id="scJ-6d-LIc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oH3-Tt-ujo"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="backImageView" destination="nde-42-Az1" id="YDs-Jt-TgV"/>
+                        <outlet property="cancelBtn" destination="eVt-FD-JDU" id="JhR-l8-agO"/>
                         <outlet property="editModeBtn" destination="NfP-0B-Ghh" id="WLs-XN-rUa"/>
-                        <outlet property="recordImageView" destination="gba-z4-gyr" id="BWB-W1-rc3"/>
+                        <outlet property="recordBtn" destination="LNq-Zw-ok1" id="SVn-7z-uY9"/>
+                        <outlet property="refreshBtn" destination="du4-fk-iiY" id="4zI-II-GJX"/>
+                        <outlet property="saveBtn" destination="EYN-O5-RUv" id="Eyt-hd-5H2"/>
                         <outletCollection property="octaveBtns" destination="6rb-Yw-bzH" id="U6v-rt-IJe"/>
                         <outletCollection property="octaveBtns" destination="8Dd-TB-RQI" id="ahJ-DB-eX3"/>
                         <outletCollection property="octaveBtns" destination="Apj-Sa-JDw" id="Jgy-4p-KSw"/>
@@ -151,6 +201,9 @@
     <resources>
         <image name="backGroundImage" width="300" height="168"/>
         <image name="pause.circle" catalog="system" width="128" height="121"/>
+        <image name="record" width="150" height="150"/>
         <image name="record.circle" catalog="system" width="128" height="121"/>
+        <image name="refresh" width="150" height="150"/>
+        <image name="save" width="150" height="150"/>
     </resources>
 </document>

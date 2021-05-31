@@ -7,7 +7,7 @@
 
 #import "ViewController.h"
 #import "CKMakeMusic.h"
-
+#import "LxAlertController.h"
 #import <YYKit/YYKit.h>
 #import "UIImage+Default.h"
 #import "UIView+Default.h"
@@ -19,6 +19,8 @@
 #import "WeBasicAnimation.h"
 #import "LxAlertController.h"
 #import "LxStaffNoteModel.h"
+#import "NSString+Helper.h"
+#import "LxRecordListVc.h"
 #import "YPNodeTypeModel.h"
 #import "LxMcMeasureModel.h"
 #import "CKMakeMusic_AllFuntion.h"
@@ -28,7 +30,10 @@ UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) UIImageView *zoomScaleView;
 @property (weak, nonatomic) IBOutlet UIImageView *backImageView;
-@property (weak, nonatomic) IBOutlet UIButton *playBtn;
+@property (weak, nonatomic) IBOutlet UIButton *refreshBtn;
+@property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
+@property (weak, nonatomic) IBOutlet UIButton *recordBtn;
+
 /**
  作曲游戏所有视图
  */
@@ -42,8 +47,8 @@ UIGestureRecognizerDelegate>
 //音符类型数组
 @property (strong,nonatomic) NSMutableArray *nodeTypeModelArray;
 
-@property (weak, nonatomic) IBOutlet UIImageView *recordImageView;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *octaveBtns;
+@property (weak, nonatomic) IBOutlet UIButton *saveBtn;
 
 /** Lx description   当前选择音区  **/
 @property (assign, nonatomic) NSInteger octaveIndex;
@@ -58,6 +63,11 @@ UIGestureRecognizerDelegate>
     // Do any additional setup after loading the view.
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+}
+
 - (void)setupDefault{
     self.makeMusic = [[CKMakeMusic_AllFuntion alloc] init];
     CKMakeMusicView *makeMusicView = [self.makeMusic makeMusicView];
@@ -66,13 +76,15 @@ UIGestureRecognizerDelegate>
     
     WF;
     makeMusicView.playCompleted = ^{
-        weakSelf.recordImageView.alpha = 1;
+        weakSelf.recordBtn.alpha = 1;
         for (UIButton *btn in weakSelf.octaveBtns) {
             btn.alpha = 1;
         }
         weakSelf.zoomScaleView.userInteractionEnabled = YES;
         weakSelf.editModeBtn.alpha = 1;
         [weakSelf zoomScaleInAni];
+        weakSelf.refreshBtn.alpha = weakSelf.cancelBtn.alpha = self.saveBtn.alpha = 1;
+        
     };
     
     /** 设置缩放按钮 **/
@@ -87,10 +99,6 @@ UIGestureRecognizerDelegate>
     UITapGestureRecognizer *zoomTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(zoomViewTapGesture:)];
     [self.zoomScaleView addGestureRecognizer:zoomTap];
     
-    UILongPressGestureRecognizer *pressGes = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(sendRecordLongPressGesture:)];
-    pressGes.numberOfTouchesRequired = 1;
-    [self.recordImageView addGestureRecognizer:pressGes];
-
     [self.view insertSubview:self.makeMusicView atIndex:1];
     
     [LxSpeechManager.sharedInstance lx_checkSpeechAuthBlock:^(SFSpeechRecognizerAuthorizationStatus status) {
@@ -106,7 +114,7 @@ UIGestureRecognizerDelegate>
                 break;
             case SFSpeechRecognizerAuthorizationStatusDenied:{
                 [MBProgressHUD lx_showHudWithTitle:@"不给授权翻译，你玩个啥？考虑清楚!" hideCompletion:^{
-                   
+                    
                 }];
             }
                 break;
@@ -129,9 +137,12 @@ UIGestureRecognizerDelegate>
         }
     }];
     [self.octaveBtns[1] sendActionsForControlEvents:UIControlEventTouchUpInside];
-    
+    [mNotificationCenter addObserver:self selector:@selector(enterForeGroundNotification:) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
+- (void)enterForeGroundNotification:(NSNotification *)not{
+    [self zoomScaleInAni];
+}
 
 - (void)creatNodeTypeModelArray{
     self.nodeTypeModelArray = [NSMutableArray array];
@@ -184,14 +195,14 @@ UIGestureRecognizerDelegate>
         
         [_nodeTypeModelArray addObject:nodeModel];
     }
-
+    
     
 }
 
 - (void)zoomScaleOutAni
 {
     
-
+    
     NSMutableArray *aniArray = [WeBasicAnimation setGifArr:37
                                                    strpath:@"seal%d"
                                                    strpath:@"seal%d"];
@@ -206,7 +217,7 @@ UIGestureRecognizerDelegate>
 - (void)zoomScaleInAni
 {
     
-
+    
     NSMutableArray *aniArray = [WeBasicAnimation setGifArr:37
                                                    strpath:@"seal_stand%d"
                                                    strpath:@"seal_stand%d"];
@@ -219,30 +230,36 @@ UIGestureRecognizerDelegate>
 }
 
 
-#pragma mark - ************************ClickAction************************
-
-- (IBAction)clickPlayButton:(id)sender {
-    
-    if ([self.makeMusicView.tabsView checkMeasuresRight]) {
-        
-        [self.makeMusicView.tabsView playNoteViewsWithQueueNoteS];
-      
+- (void)showNotesWithRecordName:(NSString *)name{
+    NSArray *noteInfos = [mUserDefaults objectForKey:name];
+    if (noteInfos) {
+        [self clickRefreshBtn:nil];
+        for (NSString *infoStr in noteInfos) {
+            NSDictionary *info = [infoStr lx_getDictionary];
+            LxMcNoteView *note = [LxMcNoteView lx_noteViewWithDic:info];
+            
+            [self.makeMusicView.tabsView addNodeWithNoeView:note superOffsetPoint:CGPointZero miditag:note.miditag];
+        }
     }
 }
+
+#pragma mark - ************************ClickAction************************
+
+
 
 - (IBAction)clickEditModeBtn:(UIButton *)sender {
     sender.selected = !sender.selected;
     if (sender.selected) {
         [sender setTitle:@"滚动模式" forState:UIControlStateNormal];
         self.makeMusicView.tabsView.userInteractionEnabled = NO;
-        self.recordImageView.alpha = 0;
+        self.recordBtn.alpha = 0;
         for (UIButton *btn in self.octaveBtns) {
             btn.alpha = 0;
         }
     }else{
         [sender setTitle:@"编辑模式" forState:UIControlStateNormal];
         self.makeMusicView.tabsView.userInteractionEnabled = YES;
-        self.recordImageView.alpha = 1;
+        self.recordBtn.alpha = 1;
         for (UIButton *btn in self.octaveBtns) {
             btn.alpha = 1;
         }
@@ -278,7 +295,7 @@ UIGestureRecognizerDelegate>
     switch (gesture.state) {
         case UIGestureRecognizerStateBegan:
         {
-          
+            
         }
             break;
         case UIGestureRecognizerStateChanged:
@@ -289,78 +306,131 @@ UIGestureRecognizerDelegate>
         default:
         {
             self.zoomScaleView.userInteractionEnabled = NO;
-            self.recordImageView.alpha = 0;
+            self.recordBtn.alpha = 0;
             for (UIButton *btn in self.octaveBtns) {
                 btn.alpha = 0;
             }
             self.editModeBtn.alpha = 0;
             [self.makeMusicView.tabsView playNoteViewsWithQueueNoteS];
             [self zoomScaleOutAni];
+            self.refreshBtn.alpha = self.cancelBtn.alpha = self.saveBtn.alpha = 0;
+            self.makeMusicView.tabsView.userInteractionEnabled = NO;
         }
             break;
     }
 }
 
-- (void)sendRecordLongPressGesture:(UILongPressGestureRecognizer *)gesture{
-    debugLog(@"长按了录音按钮%ld",gesture.state);
-    switch (gesture.state) {
-        case UIGestureRecognizerStateBegan:
-        {
-            self.recordImageView.highlighted = YES;
-            self.recordImageView.tintColor = [UIColor lx_colorWithHexString:@"#EDFFEA"];
-            [LxSpeechManager.sharedInstance lx_startRecord];
-        }
-            break;
-        case UIGestureRecognizerStateChanged:
-        case UIGestureRecognizerStatePossible:
-        {
-            break;
-        }
-        default:
-        {
-            WF;
-            [LxSpeechManager.sharedInstance lx_stopRecordWithTransBlock:^(NSMutableArray<NSString *> * _Nonnull strs) {
-                for (NSString *letter in strs) {
-                    LxMcNoteView *noteView = [LxMcNoteView lx_defaultNoteViewWithNoteType:MusicNodeQuarter isRest:NO isDot:NO];
-                    noteView.userInteractionEnabled = YES;
-                    NSInteger midiTag = 0;
-                    if ([letter isEqualToString:@"D"]) {
-                        midiTag = 60 + (weakSelf.octaveIndex - 4) * 12;
-                    }else if ([letter isEqualToString:@"R"]){
-                        midiTag = 62 + (weakSelf.octaveIndex - 4) * 12;
-                    }
-                    else if ([letter isEqualToString:@"M"]){
-                        midiTag = 64 + (weakSelf.octaveIndex - 4) * 12;
-                    }
-                    else if ([letter isEqualToString:@"F"]){
-                        midiTag = 65 + (weakSelf.octaveIndex - 4) * 12;
-                    }
-                    else if ([letter isEqualToString:@"S"]){
-                        midiTag = 67 + (weakSelf.octaveIndex - 4) * 12;
-                    }
-                    else if ([letter isEqualToString:@"L"]){
-                        midiTag = 69 + (weakSelf.octaveIndex - 4) * 12;
-                    }
-                    else if ([letter isEqualToString:@"X"]){
-                        midiTag = 71 + (weakSelf.octaveIndex - 4) * 12;
-                    }
-                    if (midiTag >= 60) {
-                        noteView.isUpClef = YES;
-                    }else{
-                        noteView.isUpClef = NO;
-                    }
-                    [self.makeMusicView.tabsView resetMidiPlay];
-                    [self.makeMusicView.tabsView addNodeWithNoeView:noteView superOffsetPoint:CGPointZero miditag:midiTag];
-                }
-                
-                
-                
-            }];
-            self.recordImageView.highlighted = NO;
-            self.recordImageView.tintColor = [UIColor lx_colorWithHexString:@"#EB6C74"];
-        }
-            break;
-    }
+- (IBAction)clickRefreshBtn:(id)sender {
+    
+    [self.makeMusicView.tabsView resetDefaultStaffLineView];
+    [self.makeMusicView.tabsView measureAdd];
 }
+
+- (IBAction)clickRecordListBtn:(id)sender {
+    LxRecordListVc *vc = [[LxRecordListVc alloc] init];
+    self.modalPresentationStyle = UIModalPresentationFullScreen;
+    WF;
+    [vc setBlock:^(NSString * _Nonnull recordName) {
+        [weakSelf showNotesWithRecordName:recordName];
+    }];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+- (IBAction)clickSaveBTN:(id)sender {
+    
+    NSArray <LxMcNoteView *>* tempNotes = [self.makeMusicView.tabsView.ClefMeasureModelArray.firstObject allNoteViewsArray];
+    if (tempNotes.count < 1) {
+        [MBProgressHUD lx_showHudWithTitle:@"没有音符你保存个啥？赶紧点去" hideCompletion:nil];
+        return;
+    }
+    NSString *fileName = [NSString lx_currentDateStr];
+    LxAlertController *vc = [LxAlertController lx_alertShowWithTitle:@"保存"
+                                                             message:@"是否进行记录保存？"
+                                                  textfiledHolderStr:fileName
+                                                        actionTitles:@[@"取消",@"确定"]
+                                                        actionStyles:@[@(UIAlertActionStyleCancel),@(UIAlertActionStyleDefault)]
+                                                     clickIndexBlock:^(NSInteger clickIndex, NSString *text) {
+        
+        if (clickIndex == 1) {
+            NSArray <LxMcNoteView *>* notes = [self.makeMusicView.tabsView.ClefMeasureModelArray.firstObject allNoteViewsArray];
+
+            NSMutableArray *infos = [[NSMutableArray alloc] init];
+            for (LxMcNoteView *note in notes) {
+                NSString *noteStr = [note lx_Json];
+                [infos addObject:noteStr];
+            }
+            [mUserDefaults setObject:infos forKey:text];
+            [mUserDefaults synchronize];
+            NSMutableArray *namesArray = [NSMutableArray arrayWithArray:[mUserDefaults objectForKey:@"recordNames"]];
+            if (!namesArray) {
+                namesArray = [[NSMutableArray alloc] init];
+            }
+            [namesArray insertObject:text atIndex:0];
+            [mUserDefaults setObject:namesArray forKey:@"recordNames"];
+        }
+        
+    }];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (IBAction)clickBeginRecord:(UIButton *)sender {
+    self.recordBtn.selected = YES;
+    self.recordBtn.tintColor = [UIColor lx_colorWithHexString:@"#EDFFEA"];
+    [LxSpeechManager.sharedInstance lx_startRecord];
+    
+}
+
+- (IBAction)clickEndRecord:(UIButton *)sender {
+    [self endRecord];
+}
+
+- (IBAction)clickEndOutRecord:(UIButton *)sender {
+    [self endRecord];
+    
+}
+
+- (void)endRecord{
+    WF;
+    [LxSpeechManager.sharedInstance lx_stopRecordWithTransBlock:^(NSMutableArray<NSString *> * _Nonnull strs) {
+        for (NSString *letter in strs) {
+            LxMcNoteView *noteView = [LxMcNoteView lx_defaultNoteViewWithNoteType:MusicNodeQuarter isRest:NO isDot:NO];
+            noteView.userInteractionEnabled = YES;
+            NSInteger midiTag = 0;
+            if ([letter isEqualToString:@"D"]) {
+                midiTag = 60 + (weakSelf.octaveIndex - 4) * 12;
+            }else if ([letter isEqualToString:@"R"]){
+                midiTag = 62 + (weakSelf.octaveIndex - 4) * 12;
+            }
+            else if ([letter isEqualToString:@"M"]){
+                midiTag = 64 + (weakSelf.octaveIndex - 4) * 12;
+            }
+            else if ([letter isEqualToString:@"F"]){
+                midiTag = 65 + (weakSelf.octaveIndex - 4) * 12;
+            }
+            else if ([letter isEqualToString:@"S"]){
+                midiTag = 67 + (weakSelf.octaveIndex - 4) * 12;
+            }
+            else if ([letter isEqualToString:@"L"]){
+                midiTag = 69 + (weakSelf.octaveIndex - 4) * 12;
+            }
+            else if ([letter isEqualToString:@"X"]){
+                midiTag = 71 + (weakSelf.octaveIndex - 4) * 12;
+            }
+            if (midiTag >= 60) {
+                noteView.isUpClef = YES;
+            }else{
+                noteView.isUpClef = NO;
+            }
+            [self.makeMusicView.tabsView resetMidiPlay];
+            [self.makeMusicView.tabsView addNodeWithNoeView:noteView superOffsetPoint:CGPointZero miditag:midiTag];
+        }
+        
+        
+        
+    }];
+    self.recordBtn.selected = NO;
+    self.recordBtn.tintColor = [UIColor lx_colorWithHexString:@"#EB6C74"];
+}
+
+
 
 @end

@@ -77,7 +77,6 @@
 
 - (CGFloat)noteTypeBeatsForNoteType:(MusicNodeType)noteType isDot:(BOOL)isDot;
 
-/** Lx description   根据当前纵列index，插入音符  **/
-- (void)lx_addNote:(LxMcNoteView *)noteView;
+
 
 @end

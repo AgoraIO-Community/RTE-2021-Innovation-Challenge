@@ -247,5 +247,8 @@ typedef struct {
  **/
 - (NSString *)nodeTypeString;
 
+- (NSString *)lx_Json;
+
++ (LxMcNoteView *)lx_noteViewWithDic:(NSDictionary *)info;
 
 @end
