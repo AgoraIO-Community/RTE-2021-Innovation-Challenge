@@ -54,18 +54,14 @@
 }
 
 - (void)initializeAgoraEngine {
+    
     AgoraRtcEngineConfig *cfg = [AgoraRtcEngineConfig new];
     
     cfg.appId = appId;
-    
-    //  BDVideoFilterManager *provider = [BDVideoFilterManager sharedInstance];
-    //  [provider loadPlugin];
-    //  BDVideoExtensionObject *obj = [provider mediaFilterExtension];
-    //  cfg.mediaFilterExtensions = @[obj];
+
     TYSMExtensionManger *manager = [TYSMExtensionManger sharedInstance];
     [manager loadPluginWithVendor:TYSM_VENDOR_NAME_BRF];
     NSArray *plugs = [manager getPlugins];
-    NSLog(@"%@",plugs);
     cfg.mediaFilterExtensions = plugs;
     
     cfg.eventDelegate = self;
@@ -177,11 +173,9 @@
         _popupController4.offsetSpacing = -30;
         
         _popupController4.willPresentBlock = ^(zhPopupController * _Nonnull popupController) {
-            //        w_self.isLight = YES;
         };
         
         _popupController4.willDismissBlock = ^(zhPopupController * _Nonnull popupController) {
-            //        w_self.isLight = NO;
         };
     }
     
@@ -196,13 +190,7 @@
     self.featureButton.enabled = sender.selected;
     
     for (TYSM_VENDOR_NAME vendorName in TYSMExtensionManger.sharedInstance.vendorNames) {
-//        if (sender.selected == NO) {
-////            [[TYSMExtensionManger sharedInstance] unloadPluginWithVendor:TYSM_VENDOR_NAME_BRF];
-//            [AgoraRtcEngineKit destroy];
-//
-//        } else {
             [self.agoraKit enableExtensionWithVendor:AgoraMediaSourceTypeVideoCamera vendor:vendorName enabled:sender.selected];
-//        }
     }
     
 }
@@ -241,12 +229,11 @@
     };
 }
 
-// ViewController.m
-// 监听 didJoinedOfUid 回调
-// 远端主播加入频道时，会触发该回调
 - (void)rtcEngine:(AgoraRtcEngineKit *)engine didJoinedOfUid:(NSUInteger)uid elapsed:(NSInteger)elapsed {
     NSLog(@"远端主播加入");
 }
+
+#pragma mark - AgoraMediaFilterEventDelegate
 
 - (void)onEvent:(NSString *)vendor key:(NSString *)key json_value:(NSString *)json_value {
     NSLog(@"%@ %@ %@",vendor,key,json_value);

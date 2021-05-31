@@ -8,9 +8,6 @@
 #import <Foundation/Foundation.h>
 #import <TYSMExtension/TYSMVendor.h>
 
-// 需要公开一下文件额 Include of non-modular header inside framework module
-//#import <AgoraRtcKit2/AgoraMediaFilterExtensionDelegate.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TYSMExtensionManger : NSObject
