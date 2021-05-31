@@ -341,11 +341,14 @@
         CGFloat scrollWidth = [_delegate scrollView].width;
         if (playNotes.count) {
 //            CGFloat positionX = ( [self.queuePlayNotes firstObject].center.x - scrollWidth / 2.f) * (self.playPosition / [self.queuePlayNotes firstObject].playEventPosition);
-            CGFloat offset_X = MAX(0, MIN(CGRectGetWidth(self.frame) - scrollWidth ,[self.queuePlayNotes firstObject].center.x - scrollWidth / 2.f));
+            CGFloat offset_X = MAX(0, MIN(CGRectGetWidth(self.frame) - scrollWidth - 40 ,[self.queuePlayNotes firstObject].center.x - scrollWidth / 2.f));
 //            debugLog(@"当前音符%p,x =- %f 当前时间%f",[self.queuePlayNotes firstObject],[self.queuePlayNotes firstObject].center.x,positionX);
             [UIView animateWithDuration:[self.queuePlayNotes firstObject].playEventPosition - self.playPosition animations:^{
-                [self.delegate scrollTox:offset_X];
-                [self.delegate reSetScrollViewContent];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.delegate scrollTox:offset_X];
+                });
+                
+//                [self.delegate reSetScrollViewContent];
             }];
         }
         for (LxMcNoteView *noteView in playNotes) {
@@ -480,6 +483,8 @@
     _originAvalibleOffsetX = 0;
     
     _originAvalibleOffsetX += 18;
+    
+    [self originOffsetXAdd:38];
     /** 五线部分 **/
     _stafflineLayerArray = [[NSMutableArray alloc] initWithCapacity:10];
     CGFloat centerY = CGRectGetHeight(self.frame)/2.f;
@@ -511,24 +516,26 @@
     }
     /** 首小节线 **/
     CAShapeLayer *zeroUpMeasureLineLayer = [CAShapeLayer lx_defaultLineLayerWithDirection:LxShapeLayerDirectionVer width:kMcStaffMeasureLineRude height:kMcStaffSpace * 14.f - kMcStaffLineRude * 2 /** 减去一个线粗，因为layer绘图，前后各多了一半的线粗 **/];
-    zeroUpMeasureLineLayer.strokeColor = kMcStaffLineColor;
+    zeroUpMeasureLineLayer.strokeColor = kMcStaffLineColor.CGColor;
     zeroUpMeasureLineLayer.position = CGPointMake(_originAvalibleOffsetX,centerY - 7 * kMcStaffSpace + kMcStaffLineRude);
     
     [self.layer addSublayer:zeroUpMeasureLineLayer];
     self.firstLineLayer = zeroUpMeasureLineLayer;
     
-    /** 高音谱 **/
-    [self originOffsetXAdd:kMcNoteMinBaseSpace];
+    
     /** Lx description   添加大谱表  **/
-    UIImage *grandStaffImage = [UIImage imageNamed:@"LxMcGrandStaff@2x"];
+    UIImage *grandStaffImage = [[UIImage imageNamed:@"LxMcGrandStaff@2x"] rt_tintedImageWithColor:kMcStaffLineColor level:1];
     CALayer *grandStaffLayer = [CALayer layer];
     grandStaffLayer.contents = (id)grandStaffImage.CGImage;
-    grandStaffLayer.frame = CGRectMake(0, self.firstLineLayer.frame.origin.y, grandStaffImage.size.width / grandStaffImage.size.height * kMcStaffSpace * 14, kMcStaffSpace * 14);
+    grandStaffLayer.frame = CGRectMake(_originAvalibleOffsetX - grandStaffImage.size.width / grandStaffImage.size.height * kMcStaffSpace * 14 -  10, self.firstLineLayer.frame.origin.y, grandStaffImage.size.width / grandStaffImage.size.height * kMcStaffSpace * 14, kMcStaffSpace * 14);
     [self.layer addSublayer:grandStaffLayer];
     self.grandStaffLayer = grandStaffLayer;
+    /** 高音谱 **/
+    [self originOffsetXAdd:kMcNoteMinBaseSpace];
     
     
-    UIImage *clefUpImage = [UIImage imageNamed:@"write_clef_up_rudin@2x"];
+    
+    UIImage *clefUpImage = [[UIImage imageNamed:@"write_clef_up_rudin@2x"] rt_tintedImageWithColor:kMcStaffLineColor level:1];
     CALayer *clefUp = [CALayer layer];
     [clefUp lx_setImage:clefUpImage];
     clefUp.anchorPoint = CGPointMake(0.5, 0.5);
@@ -538,7 +545,7 @@
     self.clefUpLayer = clefUp;
     /** 低音谱 **/
     
-    UIImage *clefDoImage = [UIImage imageNamed:@"write_clef_do_rudin@2x"];
+    UIImage *clefDoImage = [[UIImage imageNamed:@"write_clef_do_rudin@2x"] rt_tintedImageWithColor:kMcStaffLineColor level:1];
     CALayer *clefDo = [CALayer layer];
     [clefDo lx_setImage:clefDoImage];
     clefDo.anchorPoint = CGPointMake(0.5,0.5);
@@ -569,7 +576,7 @@
         default:
             break;
     }
-    UIImage *bImage = [UIImage imageNamed:beatsImage];
+    UIImage *bImage = [[UIImage imageNamed:beatsImage] rt_tintedImageWithColor:kMcStaffLineColor level:1];
     CALayer *beatsUpLayer = [CALayer layer];
     [beatsUpLayer lx_setImage:bImage];
     beatsUpLayer.anchorPoint = CGPointMake(0.5,0.5);
@@ -1386,18 +1393,18 @@
         self.measureEndLayer.strokeColor = [UIColor lx_colorWithHexString:@"#e6cc72"].CGColor;
     }else {
         [self.clefUpLayer setScaleImage:@"write_clef_up_rudin@2x"];
-        self.firstLineLayer.strokeColor = kMcStaffLineColor;
+        self.firstLineLayer.strokeColor = kMcStaffLineColor.CGColor;
         for (CALayer *lineLayer in _stafflineLayerArray) {
-            lineLayer.backgroundColor = kMcStaffLineColor;
+            lineLayer.backgroundColor = kMcStaffLineColor.CGColor;
         }
         for (CALayer *lineLayer in _stafflinePlusLayerArray) {
-            lineLayer.backgroundColor = kMcStaffLineColor;
+            lineLayer.backgroundColor = kMcStaffLineColor.CGColor;
         }
         for (LxMcMeasureModel *measureModel in self.ClefMeasureModelArray) {
-            measureModel.measureLayer.strokeColor = kMcStaffLineColor;
-            measureModel.measureIndexLayer.foregroundColor = kMcStaffLineColor;
+            measureModel.measureLayer.strokeColor = kMcStaffLineColor.CGColor;
+            measureModel.measureIndexLayer.foregroundColor = kMcStaffLineColor.CGColor;
         }
-        self.measureEndLayer.strokeColor = kMcStaffLineColor;
+        self.measureEndLayer.strokeColor = kMcStaffLineColor.CGColor;
     }
     //设置高音谱符号颜色
     if (!candy) {
@@ -1444,7 +1451,7 @@
       
         [path addLineToPoint:CGPointMake(kMcStaffMeasureLineRude / 2.f, 7 * kMcStaffSpace - _measureEndLayer.lineWidth / 2.f)];
         _measureEndLayer.path = path.CGPath;
-        _measureEndLayer.strokeColor = kMcStaffLineColor;
+        _measureEndLayer.strokeColor = kMcStaffLineColor.CGColor;
         [self.layer addSublayer:_measureEndLayer];
         return _measureEndLayer;
     }
@@ -1497,7 +1504,7 @@
 - (CALayer *)defaultStaffLineLayerWithWidth:(CGFloat)width
 {
     CALayer *layer = [CALayer layer];
-    layer.backgroundColor = self.candy ? [UIColor lx_colorWithHexString:@"#e6cc72"].CGColor : kMcStaffLineColor;//e6cc72
+    layer.backgroundColor = self.candy ? [UIColor lx_colorWithHexString:@"#e6cc72"].CGColor : kMcStaffLineColor.CGColor;//e6cc72
     layer.frame = CGRectMake(0, 0, width, kMcStaffLineRude);
     return layer;
 }

@@ -111,7 +111,7 @@ static NSString *const spaceScaleKey = @"spaceScaleKey";
 /** 全音符的时值 **/
 #define kMcNoteWholeDuration 2.4f
 /** 五线谱颜色 **/
-#define kMcStaffLineColor [UIColor colorWithRed:0 green:0 blue:0 alpha:1].CGColor
+#define kMcStaffLineColor [UIColor colorWithRed:1 green:1 blue:1 alpha:1]
 /** 五线谱缩放比例（默认为1） **/
 #define kMcStaffZoomScale 1.3
 /** 五线谱以外UI缩放比例 **/

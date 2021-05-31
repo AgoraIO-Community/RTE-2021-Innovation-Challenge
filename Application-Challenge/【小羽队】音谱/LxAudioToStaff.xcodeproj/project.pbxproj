@@ -3029,7 +3029,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ADM37CQZ5K;
 				ENABLE_BITCODE = NO;
-				GCC_PREFIX_HEADER = /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Common/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = "/Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/PrefixHeader.pch";
 				INFOPLIST_FILE = LxAudioToStaff/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3060,7 +3060,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ADM37CQZ5K;
 				ENABLE_BITCODE = NO;
-				GCC_PREFIX_HEADER = /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Common/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = "/Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/PrefixHeader.pch";
 				INFOPLIST_FILE = LxAudioToStaff/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

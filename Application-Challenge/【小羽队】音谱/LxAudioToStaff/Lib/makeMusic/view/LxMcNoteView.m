@@ -374,7 +374,9 @@
 //        if(self.noteType == MusicNodeHalf ) {
 //            [self.layerNoteHead setScaleImage:@"write_halfHead@2x"];
 //        }else {
-        UIImage *headImage = [UIImage imageNamed:@"write_quaterHead@2x"];
+        
+    
+        UIImage *headImage = [[UIImage imageNamed:@"write_quaterHead@2x"] rt_tintedImageWithColor:kMcStaffLineColor level:1];
             [self.layerNoteHead lx_setImage:headImage];
 //        }
 
@@ -634,7 +636,7 @@
 //        self.playStarLayer.frame = CGRectInset(self.layerNoteHead.frame, -5, -5);
         self.playStarLayer.opacity = playState ? 1 : 0;
         
-        UIColor *color = playState ? [UIColor lx_rbgColorWithR:242.f G:230.f B:119.f alpha:1] : [UIColor blackColor];
+        UIColor *color = playState ? [UIColor lx_rbgColorWithR:242.f G:230.f B:119.f alpha:1] : kMcStaffLineColor;
         if (self.isRest) {
             self.layerNoteBody.opacity = 0;
             if (self.noteType == MusicNodeHalf&&self.isDot) {

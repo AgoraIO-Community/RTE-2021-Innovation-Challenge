@@ -254,7 +254,7 @@ UIGestureRecognizerDelegate>
     for (UIButton *btn in self.octaveBtns) {
         if (sender == btn) {
             btn.selected = YES;
-            btn.layer.borderColor = [UIColor lx_colorWithHexString:@"#EB6C74"].CGColor;
+            btn.layer.borderColor = [UIColor lx_colorWithHexString:@"#EDFFEA"].CGColor;
             btn.layer.borderWidth = 2;
             btn.layer.cornerRadius = 10;
             btn.tintColor = [UIColor clearColor];
@@ -307,7 +307,7 @@ UIGestureRecognizerDelegate>
         case UIGestureRecognizerStateBegan:
         {
             self.recordImageView.highlighted = YES;
-            self.recordImageView.tintColor = [UIColor lx_colorWithHexString:@"#6186EB"];
+            self.recordImageView.tintColor = [UIColor lx_colorWithHexString:@"#EDFFEA"];
             [LxSpeechManager.sharedInstance lx_startRecord];
         }
             break;

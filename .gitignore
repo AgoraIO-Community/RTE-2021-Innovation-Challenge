@@ -3,4 +3,7 @@
 *.xcworkspacedata
 *.xcsettings
 *.xcbkptlist
+*.xcfilelist
+*.modulemap
+*.hmap
 Pods

@@ -1,31 +1,31 @@
 dependencies: \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/usr/include/mach-o/dyld.modulemap \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Lib/makeMusic/view/LxMcNoteView.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Lib/makeMusic/controller/LxMcStaffHeader.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Lib/makeMusic/LxMusicDefine.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Common/QHDefine.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/UIView/UIView+QHUIViewCtg.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/UIImage/UIImage+RTTint.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/Calayer/CALayer+Default.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/UIColor/UIColor+Default.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/Calayer/CATextLayer+Default.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/UIFont/UIFont+Default.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Common/LxHelp/LxHelpConfiguration.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/UIView/MBProgressHUD+Helper.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Common/LxLibrary.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Common/MacroDefine.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Common/SpeechKit/LxSpeechManager.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Common/PrefixHeader.pch \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Lib/makeMusic/view/LxMcStaffLineView.m \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Lib/makeMusic/view/LxMcStaffLineView.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Lib/makeMusic/view/LxMcClefExchangeBtn.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/Calayer/CAShapeLayer+Default.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/UIImage/UIImage+Default.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Lib/makeMusic/view/LxMcStaffLineView+MeasureLayout.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Lib/makeMusic/model/LxMcMeasureModel.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Lib/makeMusic/view/LxMcNoteView+Bubble.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/UIView/UIView+Default.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Lib/makeMusic/LxMusicCreationTool/LxMcLineManager.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/LxAudioToStaff/Lib/makeMusic/view/LxMcStaffLineView+Default.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/build/LxAudioToStaff.build/Debug-iphoneos/LxAudioToStaff.build/DerivedSources/LxAudioToStaff-Swift.h
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Lib/makeMusic/view/LxMcNoteView.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Lib/makeMusic/controller/LxMcStaffHeader.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Lib/makeMusic/LxMusicDefine.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/QHDefine.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/UIView/UIView+QHUIViewCtg.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/UIImage/UIImage+RTTint.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/Calayer/CALayer+Default.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/UIColor/UIColor+Default.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/Calayer/CATextLayer+Default.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/UIFont/UIFont+Default.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxHelp/LxHelpConfiguration.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/UIView/MBProgressHUD+Helper.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxLibrary.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/MacroDefine.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/SpeechKit/LxSpeechManager.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/PrefixHeader.pch \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Lib/makeMusic/view/LxMcStaffLineView.m \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Lib/makeMusic/view/LxMcStaffLineView.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Lib/makeMusic/view/LxMcClefExchangeBtn.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/Calayer/CAShapeLayer+Default.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/UIImage/UIImage+Default.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Lib/makeMusic/view/LxMcStaffLineView+MeasureLayout.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Lib/makeMusic/model/LxMcMeasureModel.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Lib/makeMusic/view/LxMcNoteView+Bubble.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/LxHelp/Category_Default/UIKit/UIView/UIView+Default.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Lib/makeMusic/LxMusicCreationTool/LxMcLineManager.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Lib/makeMusic/view/LxMcStaffLineView+Default.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/build/LxAudioToStaff.build/Debug-iphoneos/LxAudioToStaff.build/DerivedSources/LxAudioToStaff-Swift.h

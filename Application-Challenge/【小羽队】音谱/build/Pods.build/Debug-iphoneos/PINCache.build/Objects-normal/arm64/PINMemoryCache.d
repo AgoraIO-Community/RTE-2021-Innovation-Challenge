@@ -1,17 +1,17 @@
 dependencies: \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/Pods/PINCache/Source/PINMemoryCache.m \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/build/Pods.build/Debug-iphoneos/PINCache.build/module.modulemap \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/Pods/Target\ Support\ Files/PINCache/PINCache-prefix.pch \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/Pods/PINCache/Source/PINMemoryCache.m \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/build/Pods.build/Debug-iphoneos/PINCache.build/module.modulemap \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/Pods/Target\ Support\ Files/PINCache/PINCache-prefix.pch \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk/usr/include/mach-o/dyld.modulemap \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/Pods/PINCache/Source/PINMemoryCache.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/Pods/PINCache/Source/PINCacheMacros.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/Pods/PINCache/Source/PINCaching.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/Pods/PINCache/Source/PINCacheObjectSubscripting.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/build/Pods.build/Debug-iphoneos/PINOperation.build/module.modulemap \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/Pods/PINOperation/Source/PINOperationGroup.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/Pods/PINOperation/Source/PINOperationQueue.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/Pods/PINOperation/Source/PINOperationTypes.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/Pods/PINOperation/Source/PINOperationMacros.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/Pods/PINOperation/Source/PINOperation.h \
-  /Users/davinlee/MineProject/AudioTostaff/LxAudioToStaff/Pods/Target\ Support\ Files/PINOperation/PINOperation-umbrella.h
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/Pods/PINCache/Source/PINMemoryCache.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/Pods/PINCache/Source/PINCacheMacros.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/Pods/PINCache/Source/PINCaching.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/Pods/PINCache/Source/PINCacheObjectSubscripting.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/build/Pods.build/Debug-iphoneos/PINOperation.build/module.modulemap \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/Pods/PINOperation/Source/PINOperationGroup.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/Pods/PINOperation/Source/PINOperationQueue.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/Pods/PINOperation/Source/PINOperationTypes.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/Pods/PINOperation/Source/PINOperationMacros.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/Pods/PINOperation/Source/PINOperation.h \
+  /Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/Pods/Target\ Support\ Files/PINOperation/PINOperation-umbrella.h

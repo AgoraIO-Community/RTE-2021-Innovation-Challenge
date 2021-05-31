@@ -1277,7 +1277,7 @@
     }
     [path addLineToPoint:CGPointMake(kMcStaffMeasureLineRude / 2.f, 7 * kMcStaffSpace - kMcStaffLineRude)];
     measureLineLayer.path = path.CGPath;
-    measureLineLayer.strokeColor = kMcStaffLineColor;
+    measureLineLayer.strokeColor = kMcStaffLineColor.CGColor;
     measureLineLayer.position = CGPointMake(offset_x - CGRectGetWidth(measureLineLayer.frame)/2.f, centerY);
     return measureLineLayer;
 }
@@ -1289,7 +1289,7 @@
     indexLayer.string = [NSString stringWithFormat:@"%ld",index];
     debugLog(@"%@",[NSString stringWithFormat:@"%ld",index]);
     indexLayer.frame = CGRectMake(0, 0, 45, 45);
-    indexLayer.foregroundColor = kMcStaffLineColor;
+    indexLayer.foregroundColor = kMcStaffLineColor.CGColor;
     return indexLayer;
 }
 
