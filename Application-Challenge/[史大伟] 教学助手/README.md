@@ -46,7 +46,8 @@
 
 视频地址：
 
-[![学生视频](assets/video.png)](video/student.mp4)
+老师视频地址：[video/student.mp4](video/student.mp4)
+
 
 ## 主功能界面
 
@@ -91,9 +92,8 @@
 
 视频地址：
 
-[![老师视频](assets/video.png)](video/teacher.mp4)
+老师视频地址：[video/teacher.mp4](video/teacher.mp4)
 
-<iframe width="854" height="480" src="video/teacher.mp4" frameborder="0" allowfullscreen></iframe>
 
 ![](assets/teacher.png)
 ![](assets/teacher2.png)
