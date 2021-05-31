@@ -83,6 +83,7 @@ UIGestureRecognizerDelegate>
         weakSelf.zoomScaleView.userInteractionEnabled = YES;
         weakSelf.editModeBtn.alpha = 1;
         [weakSelf zoomScaleInAni];
+        weakSelf.makeMusicView.tabsView.userInteractionEnabled = YES;
         weakSelf.refreshBtn.alpha = weakSelf.cancelBtn.alpha = self.saveBtn.alpha = 1;
         
     };
@@ -324,6 +325,7 @@ UIGestureRecognizerDelegate>
     
     [self.makeMusicView.tabsView resetDefaultStaffLineView];
     [self.makeMusicView.tabsView measureAdd];
+    [self.makeMusicView scrollTox:0];
 }
 
 - (IBAction)clickRecordListBtn:(id)sender {
