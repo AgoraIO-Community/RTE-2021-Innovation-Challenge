@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_top_radius_16"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="15sp"
+        tools:text="风口浪尖法式咖啡哦我如何是更好的说法风口浪尖法式咖啡哦我如何是更好的说法" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="13sp"
+        tools:text="风口浪尖法式咖啡哦我如何是更好的说法风口浪尖法式咖啡哦我如何是更好的说法" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_button_primary_r10"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="@string/okay"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        tools:enabled="false" />
+
+</LinearLayout>
