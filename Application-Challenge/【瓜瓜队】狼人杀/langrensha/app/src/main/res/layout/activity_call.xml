@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.CallActivity">
+
+    <RelativeLayout
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#BBE4FF">
+
+        <ImageView
+            android:id="@+id/iamge_back_to_home"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@mipmap/back_to_home"
+            android:layout_marginStart="15dp"/>
+
+        <TextView
+            android:id="@+id/text_game_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="一起来玩狼人杀"
+            android:layout_centerHorizontal="true"
+            android:textSize="22sp"
+            android:layout_marginTop="5dp"
+            android:layout_centerVertical="true"/>
+
+<!--        <TextView-->
+<!--            android:id="@+id/text_room_id"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="房间ID:123456"-->
+<!--            android:textSize="12sp"-->
+<!--            android:layout_alignLeft="@id/text_game_title"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginBottom="5dp"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/text_room_key"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="密码:666666"-->
+<!--            android:textSize="12sp"-->
+<!--            android:layout_alignRight="@id/text_game_title"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginBottom="5dp"/>-->
+
+
+
+
+    </RelativeLayout>
+
+    <com.qgmodel.qggame.container.GridVideoViewContainer
+        android:isScrollContainer="false"
+        android:layout_below="@id/navigation"
+        android:id="@+id/grid_video_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <RelativeLayout
+        android:id="@+id/bottom_tool"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp">
+
+        <ImageView
+            android:id="@+id/image_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/haoyou"
+            android:layout_marginLeft="20dp"
+            android:visibility="invisible"/>
+
+        <LinearLayout
+            android:id="@+id/microphone_and_camera"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/image_chat"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/micrphone_and_video_bg">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/image_microphone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/forbit_microphone"/>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/image_video"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/camera"/>
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/image_ready"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ready"
+            android:layout_toRightOf="@id/microphone_and_camera"
+            android:layout_marginLeft="5dp"/>
+
+        <ImageView
+            android:id="@+id/image_start_game"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/microphone_and_camera"
+            android:src="@mipmap/start_game"
+            android:visibility="invisible"/>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
