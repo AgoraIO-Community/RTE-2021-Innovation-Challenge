@@ -186,9 +186,10 @@
         noteView.miditag = miditag;
         LxMcMeasureModel *currentModel = [self searchMeasureModelWithHeadRealPoint:realHeadPoint];
         [self setAlter:noteView withMeasureModel:currentModel];
-        debugLog((@"\n%@\ntag = %ld  alter = %ld\n%@\n"),@"✅✅✅✅✅✅✅✅✅✅✅",miditag,noteView.alter,@"✅✅✅✅✅✅✅✅✅✅✅");
+//        debugLog((@"\n%@\ntag = %ld  alter = %ld\n%@\n"),@"✅✅✅✅✅✅✅✅✅✅✅",miditag,noteView.alter,@"✅✅✅✅✅✅✅✅✅✅✅");
         /** 播放midi音 **/
-        if (!noteView.isRest && noteView.miditag > 0) {
+        if (!noteView.isRest && noteView.miditag > 0 && noteView.tapMove) {
+            
             [self midiplayWithTag:noteView.miditag + noteView.alter];
             [self performSelector:@selector(midiStopWithTag:) withObject:[NSNumber numberWithInteger:noteView.miditag + noteView.alter] afterDelay:0.1];
         }
@@ -230,7 +231,7 @@
         noteView.miditag = miditag;
         LxMcMeasureModel *currentModel = [self searchMeasureModelWithHeadRealPoint:realHeadPoint];
         [self setAlter:noteView withMeasureModel:currentModel];
-         debugLog((@"\n%@\ntag = %ld  alter = %ld\n%@\n"),@"✅✅✅✅✅✅✅✅✅✅✅",miditag,noteView.alter,@"✅✅✅✅✅✅✅✅✅✅✅");
+//         debugLog((@"\n%@\ntag = %ld  alter = %ld\n%@\n"),@"✅✅✅✅✅✅✅✅✅✅✅",miditag,noteView.alter,@"✅✅✅✅✅✅✅✅✅✅✅");
         /** 播放midi音 **/
         if (!noteView.isRest && noteView.miditag > 0) {
             [self midiplayWithTag:noteView.miditag + noteView.alter];
@@ -401,7 +402,7 @@
     NSMutableArray *additionLineArray  = [self additionLineArrayWithNoteView:noteView];
     CALayer *clefCenterLineLayer = noteView.isUpClef ? self.stafflineLayerArray[2] : self.stafflineLayerArray[7];//高低音谱的中间线
     if (checkAddLineCount != noteView.additionStaffLineCount) {
-        debugLog(@"附加%ld",checkAddLineCount);
+//        debugLog(@"附加%ld",checkAddLineCount);
         for (CALayer *layer in additionLineArray) {
             [layer removeFromSuperlayer];
             [self.stafflineLayerArray removeObject:layer];
@@ -830,7 +831,7 @@
     {
        
         CGFloat limitLineOffsetUnit = kMcStaffSpace / 3.f;/** 针对线的判断上下比例 **/
-        debugLog(@"%f",CGRectGetHeight(self.frame)/2.f);
+//        debugLog(@"%f",CGRectGetHeight(self.frame)/2.f);
         if (point.y > CGRectGetHeight(self.frame)/2.f) {//属于低音谱
             noteView.isUpClef = NO;
             NSMutableArray *miditagArray = [NSMutableArray arrayWithArray:self.lowMiditagArray];
@@ -895,7 +896,7 @@
         CALayer *clefCenterLayer = noteView.isUpClef ? self.stafflineLayerArray[2] : self.stafflineLayerArray[7];
         noteView.rightHeadPosition = CGPointMake(point.x, CGRectGetMidY(clefCenterLayer.frame));
     }
-    debugLog(@"选定midi = %ld",midiTag);
+//    debugLog(@"选定midi = %ld",midiTag);
     return midiTag;
 }
 /** 设置五线谱元素粗细 **/
@@ -1199,7 +1200,7 @@
 //            self.backgroundColor = [UIColor lx_randomColor];
             CGPoint touchPoint = [gesture locationInView:self];
             LxMcNoteView *tapNoteView = [self noteViewWithTouchPoint:touchPoint];
-            debugLog(@"手势点击位置x = %f, y = %f",touchPoint.x,touchPoint.y);
+//            debugLog(@"手势点击位置x = %f, y = %f",touchPoint.x,touchPoint.y);
             if (tapNoteView &&
                 [tapNoteView isKindOfClass:[LxMcNoteView class]] &&
                 self.lineTapState) {
@@ -1228,7 +1229,7 @@
                         }
                         /** 上加、下加线处理 **/
                         [self checkAdditionLineAndRelayoutWithNoteView:tapNoteView realHeadPoint:CGPointMake(tapNoteView.centerX + [tapNoteView judgePointToCenter].x, tapNoteView.centerY + [tapNoteView judgePointToCenter].y)];
-                        debugLog(@"点击tag= %ld",(long)tapNoteView.miditag);
+                        
                         LxMcMeasureModel *model = self.ClefMeasureModelArray.firstObject;
 
                         if (model.measureEndOffsetX  > model.measureBeginOffsetX + [self defaultMeasureScreenWidth]) {

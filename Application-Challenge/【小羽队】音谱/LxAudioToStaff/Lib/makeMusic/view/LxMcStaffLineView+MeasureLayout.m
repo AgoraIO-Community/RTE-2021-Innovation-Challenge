@@ -92,7 +92,7 @@
     
     CGPoint realHeadPoint = CGPointMake(noteView.center.x + offsetPoint.x + [noteView judgePointToCenter].x,
                                         noteView.center.y + offsetPoint.y + [noteView judgePointToCenter].y);
-    debugLog(@"实际判断位置x = %f,y = %f",realHeadPoint.x,realHeadPoint.y);
+//    debugLog(@"实际判断位置x = %f,y = %f",realHeadPoint.x,realHeadPoint.y);
     if (miditag == 0) {
         miditag = [self miditagWithRealPoint:realHeadPoint
                                 dragNoteView:noteView];

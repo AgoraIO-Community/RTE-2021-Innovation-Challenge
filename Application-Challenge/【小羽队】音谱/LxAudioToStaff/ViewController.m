@@ -106,7 +106,7 @@ UIGestureRecognizerDelegate>
         switch (status) {
             case SFSpeechRecognizerAuthorizationStatusAuthorized:
             {
-                debugLog(@"授权成功");
+//                debugLog(@"授权成功");
             }
                 break;
             case SFSpeechRecognizerAuthorizationStatusRestricted:{
@@ -326,6 +326,7 @@ UIGestureRecognizerDelegate>
     [self.makeMusicView.tabsView resetDefaultStaffLineView];
     [self.makeMusicView.tabsView measureAdd];
     [self.makeMusicView scrollTox:0];
+    
 }
 
 - (IBAction)clickRecordListBtn:(id)sender {
@@ -422,8 +423,9 @@ UIGestureRecognizerDelegate>
             }else{
                 noteView.isUpClef = NO;
             }
-            [self.makeMusicView.tabsView resetMidiPlay];
+            
             [self.makeMusicView.tabsView addNodeWithNoeView:noteView superOffsetPoint:CGPointZero miditag:midiTag];
+            [self.makeMusicView.tabsView resetMidiPlay];
         }
         
         

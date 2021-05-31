@@ -3067,7 +3067,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LxAudioToStaff/Lib/makeMusic/Tool",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.HaiLun.SmartPainoGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LxAudioToStaff/Lib/makeMusic/LxAudioToStaff-Bridging-Header.h";
@@ -3098,7 +3098,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LxAudioToStaff/Lib/makeMusic/Tool",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.HaiLun.SmartPainoGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LxAudioToStaff/Lib/makeMusic/LxAudioToStaff-Bridging-Header.h";

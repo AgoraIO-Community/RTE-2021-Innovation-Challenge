@@ -21,7 +21,8 @@
 @property (strong,nonatomic) SFSpeechAudioBufferRecognitionRequest *recognitionRequest;
 /** Lx description   当前录音文件名称  **/
 @property (strong, nonatomic) NSString *currentFileName;
-
+@property (strong,nonatomic) AgoraRtcEngineKit *agoraKit;
+@property (strong, nonatomic) NSMutableArray *bestTransStrs;
 @end
 
 @implementation LxSpeechManager
@@ -39,17 +40,9 @@
 #pragma mark - ************************CallFunction************************
 - (void)lx_checkSpeechAuthBlock:(void(^)(SFSpeechRecognizerAuthorizationStatus status))block{
     
-    AgoraRtcEngineKit *test = [AgoraRtcEngineKit sharedEngineWithAppId:@"7df06986a1ab443b8509c25bc9eff83c" delegate:self];
-    AgoraAudioRecordingConfiguration *recordConfig = [[AgoraAudioRecordingConfiguration alloc] init];
-    NSString *recoredPath = [NSString stringWithFormat:@"%@/record.m4a",kResourceCachePath];
-    recordConfig.filePath = recoredPath;
     
-    recordConfig.recordingQuality = AgoraAudioRecordingQualityHigh;
-   int deleteSet = [test setAudioFrameDelegate:self];
-    debugLog(@"设置录音代理成功%d",deleteSet);
-
-   int recordStartSuccess = [test startAudioRecordingWithConfig:recordConfig];
-    debugLog(@"开启录制成功 %d",recordStartSuccess);
+//    [agoraKit enableAudio];
+    
    
 //    NSArray *supportLocals = [SFSpeechRecognizer supportedLocales];
 //    for (NSLocale *loc in supportLocals) {
@@ -95,15 +88,15 @@
 
 /** Lx description   开始录制  **/
 - (void)lx_startRecord{
-    
+    [self startEngine];
     [self initEngine];
     
-    AVAudioFormat *recordingFormat = [[self.audioEngine inputNode] outputFormatForBus:0];
-    [[self.audioEngine inputNode] installTapOnBus:0 bufferSize:1024 format:recordingFormat block:^(AVAudioPCMBuffer * _Nonnull buffer, AVAudioTime * _Nonnull when) {
-        [self.recognitionRequest appendAudioPCMBuffer:buffer];
-    }];
-    [self.audioEngine prepare];
-    [self.audioEngine startAndReturnError:nil];
+//    AVAudioFormat *recordingFormat = [[self.audioEngine inputNode] outputFormatForBus:0];
+//    [[self.audioEngine inputNode] installTapOnBus:0 bufferSize:1024 format:recordingFormat block:^(AVAudioPCMBuffer * _Nonnull buffer, AVAudioTime * _Nonnull when) {
+//        [self.recognitionRequest appendAudioPCMBuffer:buffer];
+//    }];
+//    [self.audioEngine prepare];
+//    [self.audioEngine startAndReturnError:nil];
     
 }
 
@@ -111,28 +104,76 @@
 - (void)lx_stopRecordWithTransBlock:(TransStringBlock)block{
     self.transBLock = [block copy];
     [self releaseEngine];
+    [self stopEngine];
     
-//    [self performSelector:@selector(test) withObject:nil afterDelay:3];
-    NSString *a;
-    [self test];
+    
+//    [self test];
+}
+
+#pragma mark - ************************Function************************
+- (void)startEngine{
+    AgoraRtcEngineConfig *config = [[AgoraRtcEngineConfig alloc] init];
+    config.appId = @"7df06986a1ab443b8509c25bc9eff83c";
+    config.areaCode = 4294967295;
+    
+    AgoraLogConfig *logConfig = [[AgoraLogConfig alloc] init];
+    logConfig.level = AgoraLogLevelInfo;
+    config.logConfig = logConfig;
+    
+    AgoraRtcEngineKit *agoraKit = [AgoraRtcEngineKit sharedEngineWithConfig:config delegate:self];
+    [agoraKit disableVideo];
+    
+    [agoraKit setChannelProfile:AgoraChannelProfileLiveBroadcasting];
+    [agoraKit setClientRole:AgoraClientRoleBroadcaster];
+    [agoraKit setAudioFrameDelegate:self];
+    [agoraKit setRecordingAudioFrameParametersWithSampleRate:44100 channel:1 mode:AgoraAudioRawFrameOperationModeReadWrite samplesPerCall:4410];
+    [agoraKit setMixedAudioFrameParametersWithSampleRate:44100 samplesPerCall:4410];
+    [agoraKit setPlaybackAudioFrameParametersWithSampleRate:44100 channel:1 mode:AgoraAudioRawFrameOperationModeReadWrite samplesPerCall:4410];
+    [agoraKit setDefaultAudioRouteToSpeakerphone:YES];
+    self.agoraKit = agoraKit;
+    
+   NSInteger code = [agoraKit joinChannelByToken:@"0067df06986a1ab443b8509c25bc9eff83cIABA7MVVPbq+YyTigelZoVX/QE9J9WjIA2OE0pDstX5ldbfv3IMAAAAAEADEZWnphIS2YAEAAQCDhLZg" channelId:@"1" info:nil uid:0 options:[[AgoraRtcChannelMediaOptions alloc]init]];
+    debugLog(@"加入房间成功%ld",(long)code);
+}
+
+- (void)stopEngine{
+    
+//    [self.agoraKit stopAudioRecording];
+//    [self.agoraKit stopChannelMediaRelay];
+//    [self.agoraKit stopAllEffects];
+    [self.agoraKit leaveChannel:^(AgoraChannelStats * _Nonnull stat) {
+//        [self performSelector:@selector(test) withObject:nil afterDelay:1];
+//        [self test];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self test];
+        });
+        
+    }];
+    self.agoraKit.delegate = nil;
+    self.agoraKit = nil;
+    
 }
 
 - (void)test{
-    [[AVAudioSession sharedInstance] setActive:NO error:nil];
+    
+//    [[AVAudioSession sharedInstance] setActive:NO error:nil];
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategorySoloAmbient mode:AVAudioSessionModeDefault options:AVAudioSessionCategoryOptionDuckOthers error:nil];
-    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    if (self.transBLock) {
+        self.transBLock(self.bestTransStrs);
+    }
+//    [[AVAudioSession sharedInstance] setActive:YES error:nil];
 }
 
 #pragma mark - ************************Function************************
 - (void)initEngine{
-    if (!self.audioEngine) {
-        self.audioEngine = [[AVAudioEngine alloc] init];
-    }
+//    if (!self.audioEngine) {
+//        self.audioEngine = [[AVAudioEngine alloc] init];
+//    }
     
-    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-    
-    [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord mode:AVAudioSessionModeMeasurement options:AVAudioSessionCategoryOptionDuckOthers error:nil];
-    [audioSession setActive:YES withOptions:AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation error:nil];
+//    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+//
+//    [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord mode:AVAudioSessionModeMeasurement options:AVAudioSessionCategoryOptionDuckOthers error:nil];
+//    [audioSession setActive:YES withOptions:AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation error:nil];
     
     if (self.recognitionRequest) {
         [self.recognitionRequest endAudio];
@@ -145,43 +186,59 @@
     } else {
       
     }
-//    self.recognitionRequest.interactionIdentifier = @"多瑞米发唆拉稀1234567";
     
     [self.speechRecognizer recognitionTaskWithRequest:self.recognitionRequest delegate:self];
 }
 
 - (void)releaseEngine {
-    [[self.audioEngine inputNode] removeTapOnBus:0];
-    [self.audioEngine stop];
-    [self.audioEngine reset];
+//    [[self.audioEngine inputNode] removeTapOnBus:0];
+//    [self.audioEngine stop];
+//    [self.audioEngine reset];
     
     [self.recognitionRequest endAudio];
     self.recognitionRequest = nil;
 }
 //#pragma mark - ************************RtcRecordDelegate************************
-//- (BOOL)onRecordAudioFrame:(AgoraAudioFrame* _Nonnull)frame{
-//
-//    debugLog(@"录制buffer大小%ld",(long)frame.bytesPerSample);
-//    return YES;
-//}
-//
-//- (BOOL)onMixedAudioFrame:(AgoraAudioFrame * _Nonnull)frame {
-//    return YES;
-//}
-//
-//
-//- (BOOL)onPlaybackAudioFrame:(AgoraAudioFrame * _Nonnull)frame {
-//    return YES;
-//}
-//
-//
-//- (BOOL)onPlaybackAudioFrameBeforeMixing:(AgoraAudioFrame * _Nonnull)frame uid:(NSUInteger)uid {
-//    return YES;
-//}
-//
-//- (BOOL)isSpeakerphoneEnabled{
-//    return YES;
-//}
+- (BOOL)onRecordAudioFrame:(AgoraAudioFrame* _Nonnull)frame{
+
+//    debugLog(@"录制buffer大小%@",frame.buffer);
+    AVAudioFormat *audioFormat = [[AVAudioFormat alloc] initWithCommonFormat:AVAudioPCMFormatInt16 sampleRate:44100 channels:1 interleaved:NO];
+    AVAudioPCMBuffer *PCMBuffer = [[AVAudioPCMBuffer alloc] initWithPCMFormat:audioFormat frameCapacity:(UInt32)frame.buffer.length / audioFormat.streamDescription->mBytesPerFrame];
+    PCMBuffer.frameLength = PCMBuffer.frameCapacity;
+    [frame.buffer getBytes:*PCMBuffer.int16ChannelData length:frame.buffer.length];
+//    debugLog(@"转换buffer后= %@",PCMBuffer);
+    if (PCMBuffer) {
+        [self.recognitionRequest appendAudioPCMBuffer:PCMBuffer];
+    }
+    
+    
+//    let audioFormat = AVAudioFormat(commonFormat: AVAudioCommonFormat.PCMFormatFloat32, sampleRate: 8000, channels: 1, interleaved: false)  // given NSData audio format
+//        var PCMBuffer = AVAudioPCMBuffer(PCMFormat: audioFormat, frameCapacity: UInt32(data.length) / audioFormat.streamDescription.memory.mBytesPerFrame)
+//        PCMBuffer.frameLength = PCMBuffer.frameCapacity
+//        let channels = UnsafeBufferPointer(start: PCMBuffer.floatChannelData, count: Int(PCMBuffer.format.channelCount))
+//        data.getBytes(UnsafeMutablePointer<Void>(channels[0]) , length: data.length)
+//        return PCMBuffer
+//    [self.recognitionRequest appendAudioPCMBuffer:nil];
+    return YES;
+}
+
+- (BOOL)onMixedAudioFrame:(AgoraAudioFrame * _Nonnull)frame {
+    return YES;
+}
+
+
+- (BOOL)onPlaybackAudioFrame:(AgoraAudioFrame * _Nonnull)frame {
+    return YES;
+}
+
+
+- (BOOL)onPlaybackAudioFrameBeforeMixing:(AgoraAudioFrame * _Nonnull)frame uid:(NSUInteger)uid {
+    return YES;
+}
+
+- (BOOL)isSpeakerphoneEnabled{
+    return YES;
+}
 
 #pragma mark - ************************SpeechDelegate************************
 
@@ -211,6 +268,7 @@
     transStr = [transStr stringByReplacingOccurrencesOfString:@"。" withString:@""];
     transStr = [transStr stringByReplacingOccurrencesOfString:@" " withString:@""];
     transStr = [transStr stringByReplacingOccurrencesOfString:@"，" withString:@""];
+    transStr = [transStr stringByReplacingOccurrencesOfString:@"？" withString:@""];
     debugLog(@"去除多余字符后:%@",transStr);
     NSMutableArray <NSString *>*letters = [[NSMutableArray alloc] init];
     for (int i = 0; i < transStr.length; i ++) {
@@ -234,9 +292,8 @@
             debugLog(@"转化字母%@",letter);
         }
     }
-    if (self.transBLock) {
-        self.transBLock(letters);
-    }
+    self.bestTransStrs = letters;
+    
 //    for (SFTranscription *trans in recognitionResult.transcriptions) {
 //        for (SFTranscriptionSegment *segment in trans.segments) {
 //            debugLog(@"speech翻译：%@",segment.substring);
