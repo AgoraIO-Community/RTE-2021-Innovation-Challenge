@@ -446,7 +446,8 @@
               "nullable": false,
               "list": false
             }
-          ]
+          ],
+          "defaultValue": {}
         }
       ]
     },
@@ -638,7 +639,8 @@
               "nullable": true,
               "list": false
             }
-          ]
+          ],
+          "defaultValue": {}
         },
         {
           "name": "where",
@@ -668,7 +670,8 @@
               "nullable": true,
               "list": false
             }
-          ]
+          ],
+          "defaultValue": {}
         }
       ]
     },
@@ -749,7 +752,73 @@
               "nullable": true,
               "list": false
             }
-          ]
+          ],
+          "defaultValue": {}
+        }
+      ]
+    },
+    {
+      "name": "createUserButton",
+      "is": "query",
+      "attributes": [
+        {
+          "name": "clientOnly",
+          "arguments": []
+        }
+      ],
+      "selections": [
+        {
+          "name": "staticComponent",
+          "attributes": [],
+          "selections": [
+            {
+              "name": "button",
+              "attributes": [],
+              "selections": [],
+              "arguments": [
+                {
+                  "name": "props",
+                  "type": "Variable",
+                  "value": "props"
+                }
+              ],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            }
+          ],
+          "arguments": [],
+          "nullable": false,
+          "list": false,
+          "baseType": "Object",
+          "customType": "StaticComponent"
+        }
+      ],
+      "variables": [
+        {
+          "name": "props",
+          "type": "ButtonProps",
+          "nullable": true,
+          "attributes": [],
+          "fields": [
+            {
+              "name": "children",
+              "baseType": "String",
+              "nullable": true,
+              "list": false
+            },
+            {
+              "name": "variant",
+              "baseType": "Enum",
+              "customType": "ButtonVariant",
+              "nullable": true,
+              "list": false
+            }
+          ],
+          "defaultValue": {
+            "children": "static button",
+            "variant": "outlined"
+          }
         }
       ]
     }

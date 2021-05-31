@@ -44,7 +44,14 @@ module.exports = {
                 nullable: isNullableNode(variableNode),
                 attributes: [],
                 fields: [],
+                defaultValue: {},
               };
+
+              if (variableNode.defaultValue) {
+                for (const field of variableNode.defaultValue.fields) {
+                  variable.defaultValue[field.name.value] = field.value.value;
+                }
+              }
 
               for (const directiveNode of variableNode.directives) {
                 variable.attributes.push(
@@ -65,8 +72,9 @@ module.exports = {
                 pickList = pickArgument.values.map((item) => item.value);
               }
 
+              const variableDefName = getTypename(variableNode);
               variable.fields = variableDefNameToFields(
-                getTypename(variableNode),
+                variableDefName,
                 astNode,
                 typeMap,
                 new Set()

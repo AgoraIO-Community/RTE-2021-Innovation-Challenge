@@ -200,6 +200,19 @@ function variableDefNameToFields(
   return fields;
 }
 
+function variableDefNameToDefaultValue(variableDefName, astNode) {
+  const defaultValue = {};
+  const variableDef = astNode.definitions.find(
+    (def) =>
+      def.kind === "InputObjectTypeDefinition" &&
+      def.name.value === variableDefName
+  );
+  if (!variableDef) {
+    throw new Error(`Variable "${variableDefName}" not defined.`);
+  }
+  return defaultValue;
+}
+
 function getTypename(node) {
   let nameNode = node;
   while ("type" in nameNode) {
@@ -239,4 +252,5 @@ module.exports = {
   isBaseType,
   mapBaseType,
   variableDefNameToFields,
+  variableDefNameToDefaultValue,
 };

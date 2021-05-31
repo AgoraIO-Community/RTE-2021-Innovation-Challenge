@@ -21,6 +21,7 @@ import {
   List,
   ListItem,
   Flex,
+  Divider,
   VStack,
   HStack,
   Box,
@@ -40,6 +41,7 @@ import {
   useCreateOneUserFormMutation,
   useUpdateOneUserFormMutation,
   useDeleteOneUserFormMutation,
+  ButtonVariant,
 } from "./data-components";
 
 export const Error: React.FC<{ error: CombinedError }> = ({ error }) => {
@@ -179,13 +181,14 @@ export const UserList: React.FC = () => {
   }
 
   return (
-    <List>
+    <List borderWidth="1px" rounded="md">
       {(data.users || []).map((entity) => {
         return (
           <ListItem
             key={entity.id}
             display="flex"
             justifyContent="space-between"
+            p="6"
           >
             <Flex flex="1">{entity.id}</Flex>
             <Flex flex="1">{entity.name}</Flex>
@@ -306,10 +309,14 @@ export const CreateOneUserForm: React.FC = () => {
     handleSubmit,
     register,
     formState: { errors, isSubmitting },
+    reset,
   } = useForm<CreateOneUserFormValues>();
 
   async function onSubmit(values: CreateOneUserFormValues) {
-    await trigger(values);
+    try {
+      await trigger(values);
+      reset();
+    } catch (error) {}
   }
 
   return (
@@ -384,10 +391,14 @@ export const UpdateOneUserForm: React.FC = () => {
     handleSubmit,
     register,
     formState: { errors, isSubmitting },
+    reset,
   } = useForm<UpdateOneUserFormValues>();
 
   async function onSubmit(values: UpdateOneUserFormValues) {
-    await trigger(values);
+    try {
+      await trigger(values);
+      reset();
+    } catch (error) {}
   }
 
   return (
@@ -457,10 +468,14 @@ export const DeleteOneUserForm: React.FC = () => {
     handleSubmit,
     register,
     formState: { errors, isSubmitting },
+    reset,
   } = useForm<DeleteOneUserFormValues>();
 
   async function onSubmit(values: DeleteOneUserFormValues) {
-    await trigger(values);
+    try {
+      await trigger(values);
+      reset();
+    } catch (error) {}
   }
 
   return (
@@ -482,4 +497,17 @@ export const DeleteOneUserForm: React.FC = () => {
       </Button>
     </form>
   );
+};
+
+// button
+export type CreateUserButtonProps = {
+  children?: Scalars["String"];
+  variant?: ButtonVariant;
+};
+export const CreateUserButton: React.FC<CreateUserButtonProps> = (_props) => {
+  const props = Object.assign(
+    { children: "static button", variant: ButtonVariant.Outlined },
+    _props
+  );
+  return <Button {...props} />;
 };

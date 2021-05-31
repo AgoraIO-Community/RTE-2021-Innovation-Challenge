@@ -5,9 +5,10 @@ const { capitalize, capitalizeFirst } = require("../common");
 
 const viewImportMap = {
   table: ["Table", "Thead", "Tbody", "Tr", "Td", "Th"],
-  list: ["List", "ListItem", "Flex"],
+  list: ["List", "ListItem", "Flex", "Divider"],
   kanban: ["Flex", "VStack", "HStack", "Box", "Heading", "Text"],
   form: ["FormErrorMessage", "FormLabel", "FormControl", "Button"],
+  button: ["Button"],
 };
 const SCALARS = new Set(["Int", "Float", "String", "Boolean", "DateTime"]);
 
@@ -17,6 +18,7 @@ module.exports = async function (dataMeta, documentMeta) {
     list: [],
     kanban: [],
     form: [],
+    button: [],
   };
   const componentImportSet = new Set([
     "Spinner",
@@ -81,14 +83,21 @@ module.exports = async function (dataMeta, documentMeta) {
         `Found ${type.selections.length} top-level selection in ${type.name}.`
       );
     }
+    const isClientOnly = type.attributes.some(
+      (attr) => attr.name === "clientOnly"
+    );
     const selection = type.selections[0];
     const viewAttr = selection.attributes.find((attr) => attr.name === "view");
-    if (!viewAttr) {
+    let viewType;
+    if (viewAttr) {
+      viewType = viewAttr.arguments.find((arg) => arg.name === "type").value;
+    }
+    if (selection.name === "staticComponent") {
+      viewType = selection.selections[0].name;
+    }
+    if (!viewType) {
       throw new Error(`Please set view.`);
     }
-    const viewType = viewAttr.arguments.find(
-      (arg) => arg.name === "type"
-    ).value;
     if (!viewImportMap[viewType]) {
       throw new Error(`Unknown view type "${viewType}".`);
     }
@@ -101,7 +110,9 @@ module.exports = async function (dataMeta, documentMeta) {
       type.is === "query"
         ? `use${componentName}Query`
         : `use${componentName}Mutation`;
-    dataImportSet.add(dataHook);
+    if (!isClientOnly) {
+      dataImportSet.add(dataHook);
+    }
 
     const groupBySelection = selection.selections.find((sel) =>
       sel.attributes.some((attr) => attr.name === "groupBy")
@@ -172,14 +183,15 @@ module.exports = async function (dataMeta, documentMeta) {
       };
     });
 
+    const selectionWithIdAttr = selection.selections.find((sel) =>
+      sel.attributes.some((attr) => attr.name === "id")
+    );
     views[viewType].push({
       componentName,
       selectionName: selection.name,
       dataHook,
       selections: selection.selections,
-      idName: selection.selections.find((sel) =>
-        sel.attributes.some((attr) => attr.name === "id")
-      ).name,
+      idName: selectionWithIdAttr ? selectionWithIdAttr.name : undefined,
       groupByName: groupBySelection ? groupBySelection.name : undefined,
       groupByType: groupBySelection ? groupBySelection.customType : undefined,
       groupByEnum,
@@ -208,6 +220,33 @@ module.exports = async function (dataMeta, documentMeta) {
           }, {}),
         common: {
           capitalizeFirst,
+          formatRawProps(variables) {
+            const propsVariable = variables.find((v) => v.name === "props");
+            if (!propsVariable) {
+              return "{}";
+            }
+            const output = ["{"];
+            for (const field of propsVariable.fields) {
+              if (
+                propsVariable.defaultValue &&
+                propsVariable.defaultValue[field.name]
+              ) {
+                output.push(`${field.name}:`);
+                const defaultValue = propsVariable.defaultValue[field.name];
+                let formattedValue = defaultValue;
+                if (field.baseType === "String") {
+                  formattedValue = `"${defaultValue}"`;
+                } else if (field.baseType === "Enum") {
+                  formattedValue = `${field.customType}.${capitalizeFirst(
+                    defaultValue
+                  )}`;
+                }
+                output.push(`${formattedValue},`);
+              }
+            }
+            output.push("}");
+            return output.join(" ");
+          },
         },
       }
     ),

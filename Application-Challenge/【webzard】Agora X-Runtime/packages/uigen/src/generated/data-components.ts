@@ -20,6 +20,19 @@ export type AffectedRowsOutput = {
   count: Scalars['Int'];
 };
 
+export type ButtonProps = {
+  children?: Maybe<Scalars['String']>;
+  variant?: Maybe<ButtonVariant>;
+};
+
+export enum ButtonVariant {
+  Link = 'link',
+  Outlined = 'outlined',
+  Solid = 'solid',
+  Ghost = 'ghost',
+  Unstyled = 'unstyled'
+}
+
 export type Class = {
   __typename?: 'Class';
   createdAt: Scalars['DateTime'];
@@ -631,6 +644,7 @@ export type Query = {
   classes: Array<Class>;
   lesson?: Maybe<Lesson>;
   lessons: Array<Lesson>;
+  staticComponent: StaticComponent;
   user?: Maybe<User>;
   users: Array<User>;
 };
@@ -695,6 +709,16 @@ export enum SortOrder {
   Asc = 'asc',
   Desc = 'desc'
 }
+
+export type StaticComponent = {
+  __typename?: 'StaticComponent';
+  button: Scalars['String'];
+};
+
+
+export type StaticComponentButtonArgs = {
+  props?: Maybe<ButtonProps>;
+};
 
 export type StringFieldUpdateOperationsInput = {
   set?: Maybe<Scalars['String']>;

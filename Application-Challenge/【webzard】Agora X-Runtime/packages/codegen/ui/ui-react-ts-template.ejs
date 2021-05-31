@@ -100,10 +100,10 @@ export const <%- list.componentName %>: React.FC = () => {
   }
 
   return (
-    <List>
+    <List borderWidth="1px" rounded="md">
       {(data.<%- list.selectionName %> || []).map((entity) => {
         return (
-          <ListItem key={entity.<%- list.idName %>} display="flex" justifyContent="space-between">
+          <ListItem key={entity.<%- list.idName %>} display="flex" justifyContent="space-between" p="6">
             <% for (const selection of list.selections) { -%>
             <Flex flex="1">{entity.<%- selection.name %>}</Flex>
             <% } -%>
@@ -181,10 +181,16 @@ export const <%- form.componentName %>: React.FC = () => {
     handleSubmit,
     register,
     formState: { errors, isSubmitting },
+    reset,
   } = useForm<<%- form.componentName %>Values>();
 
   async function onSubmit(values: <%- form.componentName %>Values) {
-    await trigger(values);
+    try {
+      await trigger(values);
+      reset();
+    } catch (error) {
+
+    }
   }
 
   return (
@@ -219,4 +225,16 @@ export const <%- form.componentName %>: React.FC = () => {
   );
 };
 
+<% } -%>
+
+// button
+<% for (button of views.button) { -%>
+export type <%- button.componentName %>Props = <%- button.variables.find(variable => variable.name === 'props').rawType %>;
+export const <%- button.componentName %>: React.FC<<%- button.componentName %>Props> = (_props) => {
+  const props = Object.assign(
+    <%- common.formatRawProps(button.variables) %>,
+    _props
+  );
+  return <Button {...props} />;
+}
 <% } -%>

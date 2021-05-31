@@ -50,6 +50,9 @@ module.exports = async function (documentMeta) {
   const types = [];
 
   for (const type of documentMeta.types) {
+    if (type.attributes.some((attr) => attr.name === "clientOnly")) {
+      continue;
+    }
     types.push({
       name: type.name,
       is: type.is,

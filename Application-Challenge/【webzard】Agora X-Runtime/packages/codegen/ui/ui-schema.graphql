@@ -1,0 +1,20 @@
+enum ButtonVariant {
+  link
+  outlined
+  solid
+  ghost
+  unstyled
+}
+
+input ButtonProps {
+  children: String
+  variant: ButtonVariant
+}
+
+type StaticComponent {
+  button(props: ButtonProps): String!
+}
+
+type Query {
+  staticComponent: StaticComponent!
+}

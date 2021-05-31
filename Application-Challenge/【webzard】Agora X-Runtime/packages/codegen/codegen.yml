@@ -4,12 +4,16 @@ generates:
     plugins:
       - ./meta/meta-schema-plugin.js
   ../meta/json/document.json:
-    schema: ../data/schema.graphql
+    schema:
+      - ../data/schema.graphql
+      - ./ui/ui-schema.graphql
     documents: ../meta/dsl/document/*.graphql
     plugins:
       - ./meta/meta-document-plugin.js
   ../uigen/src/generated/data-components.ts:
-    schema: ../data/schema.graphql
+    schema:
+      - ../data/schema.graphql
+      - ./ui/ui-schema.graphql
     documents: ../uigen/src/generated/*.graphql
     plugins:
       - typescript

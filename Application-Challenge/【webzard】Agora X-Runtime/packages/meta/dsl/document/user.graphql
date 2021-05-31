@@ -57,3 +57,11 @@ mutation deleteOneUserForm($where: UserWhereUniqueInput! @value(pick: ["id"])) {
     id @id
   }
 }
+
+query createUserButton(
+  $props: ButtonProps = { children: "static button", variant: outlined }
+) @clientOnly {
+  staticComponent {
+    button(props: $props)
+  }
+}
