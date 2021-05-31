@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>瑜你一起</title>
+  <link rel="stylesheet" href="../assets/bootstrap.min.css">
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+
+<div class="container-fluid banner">
+  <p class="banner-text">欢迎来到瑜伽课堂</p>
+
+</div>
+
+<div id="success-alert" class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>成功进入课堂!</strong><span></span><a href="" target="_blank">here</a>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div id="success-alert-with-token" class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>成功进入课堂!</strong><span></span>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+<div id="success-alert-with-token" class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>成功进入课堂!</strong><span> Joined room successfully. </span>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="container">
+
+
+  <form id="join-form" >
+    <div class="row join-info-group">
+      <div class="col-sm">
+        <p class="join-info-text"></p>
+        <input id="appid" type="text" style="display:none" value="e7b290f0fcee43b4977b38be04abd73b" placeholder="Enter the appid" required>
+      </div>
+      <div class="col-sm">
+        <p class="join-info-text"></p>
+        <input id="token" type="text" style="display:none" value="00694d3472478d14af98455c25fcaf010b0IABDMG4739X1RuPZSzY6hEDGU8P/mI4c5PIIOrk9PN0WRdJjSIgAAAAAEADEZWnpqyqyYAEAAQCrKrJg" placeholder="">
+        <p class="tips"></p>
+      </div>
+      <div class="col-sm">
+        <p class="join-info-text"></p>
+        <input id="channel" type="text" style="display:none" value="123" placeholder="" required>
+        <p class="tips"></p>
+      </div>
+      <div class="col-sm">
+        <p class="join-info-text"></p>
+        <input id="uid" type="text" style="display:none" value="Zoey" placeholder="">
+      </div>
+    </div>
+
+
+    <div class="button-group">
+      <button id="join" type="submit" style="background: url('../assets/yoga1.png') no-repeat; border-style: none; " class="btn btn-primary btn-sm">
+        ‘  ‘
+      </button>
+      <a href="../Timetable/index.html">
+      <button id="leave" type="button" style="background: #8e81f1; border-style: none" class="btn btn-primary btn-sm" disabled>离开教室</button>
+      </a>
+    </div>
+  </form>
+
+  <div class="row video-group">
+    <div class="col">
+      <p id="local-player-name" class="player-name"></p>
+      <div id="local-player" class="player"></div>
+    </div>
+    <div class="w-auto"></div>
+    <div class="col">
+      <div id="remote-playerlist"></div>
+    </div>
+  </div>
+</div>
+
+
+<script src="../assets/jquery-3.4.1.min.js"></script>
+<script src="../assets/bootstrap.bundle.min.js"></script>
+<script src="https://download.agora.io/sdk/release/AgoraRTC_N.js"></script>
+<script src="./index.js"></script>
+</body>
+</html>
