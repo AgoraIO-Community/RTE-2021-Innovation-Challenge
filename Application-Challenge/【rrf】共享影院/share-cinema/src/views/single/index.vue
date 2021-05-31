@@ -90,7 +90,7 @@
               @click="stopOrOpenVideo"
             ></el-button>
           </div>
-          <div ref="videoWindow"></div>
+          <div ref="videoWindow" class="video-window"></div>
           <ChatView
             :uid="this.localUid"
             :room="this.$route.query.channelName"
@@ -472,7 +472,7 @@ export default {
   }
 }
 
-.videochat-window {
+.video-window {
   display: flex;
   flex-direction: row;
 
