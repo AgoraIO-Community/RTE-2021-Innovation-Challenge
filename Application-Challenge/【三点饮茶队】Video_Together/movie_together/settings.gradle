@@ -1,0 +1,3 @@
+include ':facelibrary'
+include ':app'
+rootProject.name = "movie_together"

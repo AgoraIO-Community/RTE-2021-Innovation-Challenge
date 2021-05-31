@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Edit</title>
+    <meta charset="utf-8">
+    <meta http-equiv="description" content="">
+    <meta name="keywords" content="">
+    <meta name="referrer" content="no-referrer">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:100,300,400,500,700,900">
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="/static/js/tools.js?t={{ handler.time_now }}"></script>
+    <script type="text/javascript" src="/static/js/video.min.js"></script>
+    <script type="text/javascript" src="/static/js/videojs-contrib-hlsjs.min.js"></script>
+    <link rel="stylesheet" href="/static/css/video-js.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/page.css?t={{handler.time_now}}">
+    <style type="text/css">
+        
+        .card{
+            position: absolute;
+            width: fit-content;
+        }
+        .page_edit_tools{
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 200px;
+            height: 300px;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.1);
+            border-radius: 4px;
+            box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+            z-index: 99999999999999;
+        }
+        .current_now{
+            box-shadow: 0px 0px 0px 2px #03a9f4;
+        }
+        .dom>div>p{
+            min-height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="base_area">
+        <div class="main_area">
+            {% for dom in handler.doms %}
+
+            <div    id="{{ dom[0] }}" class="card dom dom_{{ dom[1] }}" 
+                    data-tree="{{ dom[0] }}" 
+                    style="
+                    left: {{dom[2]['x']}}px;
+                    top: {{dom[2]['y']}}px;
+                    width: {{dom[2].get('w','0')}}px;
+                    height: {{dom[2].get('h','0')}}px;
+                    z-index: {{dom[2].get('z','0')}};
+                    ">
+                    <style>{% raw dom[4]%}</style>
+                <div class="sections" contenteditable="true">
+                {% if dom[3]== "" or dom[3]==None %}
+                
+                    {% if dom[1] in ["text"] %}
+                        <div class="section">text</div>
+                    {% elif dom[1] in ["button"] %}
+                        <div class="section"><button>button</button></div>
+                    {% elif dom[1] in ["img"] %}
+                        <div class="section"><img src="/static/img/oflogo.png"></div>
+                    {% elif dom[1] in ["video"] %}
+                        <div class="section" contenteditable="false">
+                            <div>video_src:<input class="video_src"></div>
+                            <div>video_type:<input class="video_type"></div>
+                            <div>video_poster:<input class="video_poster"></div>
+                            <div><button class="video_save">save</button></div>
+                        </div>
+                    {% elif dom[1] in ["iframe"] %}
+                        <div class="section" contenteditable="false">
+                            <div>
+                                <textarea class="iframe_html"></textarea>
+                            </div>
+                            <div><button class="iframe_save">save</button></div>
+                        </div>
+                    {% else %}
+                        <div class="section"><br></div>
+                    {% end if %}
+                {% else %}
+                    {% if dom[1] in ["video"] %}
+                        <div class="section" contenteditable="false">
+                            {% if isinstance(dom[3],dict) %}
+                            <video  id="player_{{dom[0]}}" 
+                                    width="{{dom[2].get('w','0')}}" height="{{dom[2].get('h','0')}}"
+                                    class="video-js vjs-default-skin" poster="{{ dom[3].get('poster','http://ofcourse-cdn0.xialiwei.com/8485dd011df647469f30735307c99273_d2b9f24bcf89aacd3da496a252bdeac1?imageView2')}}" controls>
+                                <source src="{{dom[3].get('src','')}}" type="{{dom[3].get('type','')}}">
+                                <!-- .m3u8 application/x-mpegURL -->
+                            </video>
+                            <script type="text/javascript">
+                                videojs('#player_{{dom[0]}}');
+                            </script>
+                            <div>video_src:<input class="video_src" value="{{dom[3].get('src','')}}"></div>
+                            <div>video_type:<input class="video_type" value="{{dom[3].get('type','')}}"></div>
+                            <div>video_poster:<input class="video_poster" value="{{ dom[3].get('poster','http://ofcourse-cdn0.xialiwei.com/8485dd011df647469f30735307c99273_d2b9f24bcf89aacd3da496a252bdeac1?imageView2')}}"></div>
+                            <div><button class="video_save">save</button></div>
+                            {% else %}
+                            <div>video_src:<input class="video_src"></div>
+                            <div>video_type:<input class="video_type"></div>
+                            <div>video_poster:<input class="video_poster"></div>
+                            <div><button class="video_save">save</button></div>
+                            {% end if %}
+                        </div>
+                    {% elif dom[1] in ["iframe"] %}
+                            <div class="section" contenteditable="false">
+                                {% if isinstance(dom[3],dict) %}
+                                <iframe></iframe>
+                                <div>
+                                    <textarea class="iframe_html">{{ dom[3].get('html','') }}</textarea>
+                                </div>
+                                <div><button class="iframe_save">save</button></div>
+                                {% else %}
+                                <div>
+                                    <textarea class="iframe_html"></textarea>
+                                </div>
+                                <div><button class="iframe_save">save</button></div>
+                                {% end if %}
+                                <script type="text/javascript">
+                                    $("#{{dom[0]}}>.sections>.section>iframe").css({
+                                        "width":"{{dom[2].get('w','0')}}px",
+                                        "height":"{{dom[2].get('h','0')}}px",
+                                    })
+                                    var a = $("#{{dom[0]}}>.sections>.section>iframe")[0];
+                                    a.contentDocument.body.innerHTML = $("#{{dom[0]}}>.sections>.section>div>.iframe_html").val()
+                                </script>
+                            </div>
+                    {% else %}
+                        {% raw dom[3] %}
+                    {% end if %}
+                {% end if %}
+                </div>
+                <div class="card_move"></div>
+                <div class="card_del"></div>
+                <div class="resize_btn"></div>
+                <div class="card_z_index z_index_max"></div>
+                <div class="card_z_index z_index_up"></div>
+                <div class="card_z_index z_index_down"></div>
+                <div class="card_z_index z_index_num">{{dom[2].get('z','0')}}</div>
+            </div>
+            {% end for %}
+        </div>
+    </div>
+    <div class="page_edit_tools card">
+        <div class="card_move"></div>
+        <button class="add" data-type="text">text</button>
+        <button class="add" data-type="img">img</button>
+        <button class="add" data-type="video">video</button>
+        <button class="add" data-type="iframe">iframe</button>
+        <!-- <button class="add" data-type="button">button</button>
+        <button class="add" data-type="canvas">canvas</button>
+        <button class="add" data-type="input">input</button>
+        <button class="add" data-type="textarea">textarea</button> -->
+        <div class="block_save_area">
+            <div>dom_owner:<input class="dom_owner"></div>
+            <div>dom_current:<input class="dom_current"><button class="save hide">save</button></div>
+        </div>
+        <div class="dom_position">
+            dom x:<input class="dom_position_x" type="text">,y:<input class="dom_position_y" type="text"></div>
+        <div class="dom_style">
+            dom w:<input class="dom_position_w" type="text">,h:<input class="dom_position_h" type="text"></div>
+        <div class="dom_zindex">
+            dom z:<input class="dom_position_z" type="text"></div>
+        <div class="dom_css">dom css:<textarea class="dom_css"></textarea></div>
+        <div class="dom_content">dom content:<textarea class="dom_content"></textarea></div>
+        <div class="block_width">main_area width:<input class="block_width" type="text" class=""></div>
+        <div class="block_height">main_area height:<input class="block_height" type="text" class=""></div>
+        {% if handler.user_id in handler.editors %}
+        <div class="block_permission_area">
+            permission:
+            <select class="block_permission">
+                {% for permission in ["private","publish","public"] %}
+                <option value="{{ permission }}"
+                {% if permission == handler.permission %}
+                selected 
+                {% end if %}
+                >{{ permission }}</option>
+                {% end for %}
+            </select>
+        </div>
+        {% end if %}
+        <div class="block_editors_area">
+            {% if handler.user_id in handler.editors %}
+            <div class="block_editors_tool">
+                editor:<span class="block_editor_id">None</span>
+                <br><input class="block_editors_search"><button class="add">add</button><button class="del">del</button>
+            </div>
+            {% end if %}
+            editors
+            <div class="block_editors_list"></div>
+        </div>
+        <div class="block_readers_area">
+            {% if handler.user_id in handler.editors %}
+            <div class="block_readers_tool">
+                reader:<span class="block_reader_id">None</span>
+                <br><input class="block_readers_search"><button class="add">add</button><button class="del">del</button>
+            </div>
+            {% end if %}
+            readers
+            <div class="block_readers_list"></div>
+        </div>
+        <div class="block_blackers_area">
+            {% if handler.user_id in handler.editors %}
+            <div class="block_blackers_tool">
+                blacker:<span class="block_blacker_id">None</span>
+                <br><input class="block_blackers_search"><button class="add">add</button><button class="del">del</button>
+            </div>
+            {% end if %}
+            blackers
+            <div class="block_blackers_list"></div>
+        </div>
+        <div class="block_members_area">
+            members
+            <div class="block_members_list"></div>
+        </div>
+        <div class="hide">
+            <input id="img_add_upload" type="file" accept="image/*" multiple="multiple">
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    var WEBSOCKET_URL = "{{ handler.websocket_url }}";
+    var BLOCK_ID = "{{ handler.block_id }}";
+    var USER_ID = "{{ handler.user_id }}";
+</script>
+<script type="text/javascript" src="/static/js/page.js?t={{handler.time_now}}"></script>
+<script type="text/javascript" src="/static/js/page_edit.js?t={{handler.time_now}}"></script>
+<script type="text/javascript" src="/static/js/card_move_btn.js?t={{ handler.time_now }}"></script>
+<script type="text/javascript" src="/static/js/page_edit_image.js?t={{ handler.time_now }}"></script>
+
+
+</html>

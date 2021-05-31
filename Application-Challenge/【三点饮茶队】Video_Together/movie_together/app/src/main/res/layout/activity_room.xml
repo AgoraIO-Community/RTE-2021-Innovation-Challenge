@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.RoomActivity">
+
+    <LinearLayout
+        android:layout_alignParentTop="true"
+        android:background="@color/dark_black"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:gravity="center_vertical"
+        android:onClick="onClickVideo"
+        android:id="@+id/root_ll">
+
+        <SurfaceView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/controll_surfaceView"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/grid_video_view_container"
+        android:layout_below="@id/root_ll"
+        android:layout_above="@+id/ll_control"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:overScrollMode="never"
+            android:id="@+id/recycler_videos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:overScrollMode="never"
+            android:id="@+id/msg_list"
+            android:layout_width="200dp"
+            android:layout_height="144dp"
+            android:layout_alignParentBottom="true" />
+
+
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:layout_below="@id/recycler_videos"
+            android:id="@+id/stack_bar_emotion"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+    </RelativeLayout>
+
+    <org.lql.movie_together.ui.layout.CustomLinearLayout
+        android:id="@+id/ll_control"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingLeft="8dp"
+        android:paddingEnd="8dp"
+        android:paddingRight="8dp">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:onClick="onSwitchCameraClicked"
+            android:scaleType="center"
+            android:src="@drawable/btn_camera" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:onClick="onMixingAudioClicked"
+            android:scaleType="center"
+            android:src="@drawable/btn_audio_mixing_off" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+
+        <ImageView
+            android:id="@id/switch_speaker_id"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:onClick="onSwitchSpeakerClicked"
+            android:scaleType="center"
+            android:src="@drawable/btn_tingtong" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:onClick="onHangupClicked"
+            android:scaleType="center"
+            android:src="@drawable/btn_hangup" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:onClick="onFilterClicked"
+            android:scaleType="center"
+            android:src="@drawable/btn_filter" />
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:onClick="onVideoMuteClicked"
+            android:scaleType="center"
+            android:src="@drawable/btn_camera" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="20" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:onClick="onVoiceMuteClicked"
+            android:scaleType="center"
+            android:src="@drawable/btn_microphone" />
+
+    </org.lql.movie_together.ui.layout.CustomLinearLayout>
+
+</RelativeLayout>

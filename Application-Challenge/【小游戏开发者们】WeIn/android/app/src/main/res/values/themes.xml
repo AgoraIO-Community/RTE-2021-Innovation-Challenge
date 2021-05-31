@@ -1,0 +1,32 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.VLive" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/color_main</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/translucent</item>
+        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>
+        <item name="android:windowSoftInputMode">stateAlwaysHidden|adjustPan</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+        <item name="android:screenOrientation">portrait</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="SplashTheme" parent="Theme.VLive">
+        <item name="android:windowBackground">@color/color_main</item>
+    </style>
+
+    <style name="text_in_layout_hint_Style">
+        <item name="android:textColor">@color/color_normal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="colorControlNormal">@color/color_normal</item>
+        <item name="colorControlActivated">@color/color_normal</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+</resources>
