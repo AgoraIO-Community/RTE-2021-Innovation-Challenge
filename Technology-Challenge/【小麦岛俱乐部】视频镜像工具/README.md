@@ -32,7 +32,7 @@
 
 ​      android:text="Mirror"/>
 
-![图片1](/Users/linzihao/Desktop/RTE-2021-Innovation-Challenge/Technology-Challenge/【小麦岛俱乐部】视频镜像工具/图片1.png)
+![图片1](./图片1.png)
 
 将OnlineChatMirrorTool工具包放入io/agora/api/example/utils文件夹中
 
