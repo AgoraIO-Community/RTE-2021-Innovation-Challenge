@@ -1,11 +1,15 @@
 use std::collections::{HashMap, HashSet};
 use std::sync::{Arc, Mutex};
+use std::time::Duration;
+
+use chrono::Local;
+use std::thread;
 
 use crate::basic::{create_indexes, get_position, rsp_err, rsp_ok};
 
 use super::basic::VLiveResult;
 use super::bean::*;
-use chrono::Local;
+use std::thread::sleep;
 
 lazy_static! {
     static ref MODEL: Mutex<Model> = {
@@ -40,6 +44,9 @@ lazy_static! {
             last_zero_time: Local::now(),
         };
         channels.insert(name, channel);
+
+        thread::spawn(remove_empty_channel_indefinitely);
+
         Mutex::new(Model {
             users: users,
             channels: channels,
@@ -136,6 +143,11 @@ pub fn leave_channel(data: Vec<u8>) -> VLiveResult {
         || rsp_err("Channel not exist"),
         |c| {
             c.remove_user(&req.uid);
+
+            if c.users.is_empty() {
+                c.last_zero_time = Local::now();
+            }
+
             rsp_ok(String::new())
         },
     )
@@ -156,4 +168,33 @@ pub fn list_channel(_: Vec<u8>) -> VLiveResult {
     });
 
     rsp_ok(rsp)
+}
+
+fn remove_empty_channel_indefinitely() {
+    println!("Start remove empty channel task");
+
+    loop {
+        sleep(Duration::from_millis(10000));
+
+        let mut model = MODEL.lock().unwrap();
+        let mut ids = Vec::new();
+
+        model.channels.iter().for_each(|t| {
+            if !t.1.users.is_empty() {
+                return;
+            }
+            let now = Local::now() - t.1.last_zero_time;
+            if now < chrono::Duration::seconds(60) {
+                return;
+            }
+            ids.push(t.0.clone());
+        });
+
+        ids.iter().for_each(|id| {
+            model.channels.remove(id);
+            println!("Remove channel: {}", id);
+        });
+    }
+
+    // println!("Remove channel task exit unexpectedly");
 }

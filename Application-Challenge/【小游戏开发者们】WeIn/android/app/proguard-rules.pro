@@ -21,3 +21,5 @@
 #-renamesourcefileattribute SourceFile
 
 -keep class io.agora.**{*;}
+-keep class com.google.android.filament.**{*;}
+-keep class com.hustunique.vlive.agora.AgoraAudioFrameObserver{*;}

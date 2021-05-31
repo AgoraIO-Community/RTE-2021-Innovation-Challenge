@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="app/src/main/res/drawable/icon.webp" width="480" height="480"/>
+  <img src="android/app/src/main/res/drawable/icon.webp" width="480" height="480"/>
 </p>
 
 # WeIn
@@ -29,9 +29,9 @@
 
 ### 空间交互
 
-本项目通过使用设备的地磁场传感器和加速度计在 Android 手机环境实现六自由度的空间交互，
+本项目通过使用设备的地磁场传感器和加速度计在 Android 手机环境捕获设备朝向，
 
-使用户在场景中运动时，可以通过改变手机方向操纵虚拟形象进行六自由度的方向旋转，
+使用户在场景中运动时，可以通过改变手机方向操纵虚拟形象进行三自由度的旋转，
 
 有效提升用户的操作灵活度
 
@@ -45,11 +45,13 @@
 
 ### 低带宽要求
 
-本项目仅需较少的数据传输量，
+本项目虚拟形象的动作同步通过实时消息 SDK 完成，仅需较少量的数据传输，
 
-在场景中每增加一个用户，只需增加1.5kb每秒的数据量，
+在场景中每增加一个虚拟形象，只增加1.5kb每秒的数据量，
 
-同时，用户在弱网环境下仍可稳定运行
+通过虚拟形象使得用户即时在在弱网环境下，
+
+也能有一定的视觉体验
 
 # 产品功能
 
@@ -75,7 +77,7 @@
 
 ### 空间交互
 
-用户在场景中运动时，可以通过改变手机方向操纵虚拟形象进行六自由度的方向旋转，
+用户在场景中运动时，可以通过改变手机方向操纵虚拟形象进行三自由度的方向旋转，
 
 点按屏幕上半部分可使虚拟形象在该方向前进，
 
@@ -124,7 +126,7 @@ Unity 版本在 VR 环境下运行，且通过手势进行交互，提供更好�
 
 # Roadmap
 
-[项目心路历程](ROADMAP.md)
+[项目心路历程](https://github.com/UniqueStudioAndroid/VLive/blob/roadmap/ROADMAP.md)
 
 # Compile
 
@@ -211,6 +213,10 @@ Scope: com.htc.upm
 - [XR-SDK](https://docs.unity3d.com/ru/2017.2/Manual/XR-SDK_overviews.html)
 
 - [UniGLTF](https://github.com/ousttrue/UniGLTF.git)
+
+# Demo Download
+
+[Android apk](android/WeIn-release.apk)
 
 # LICENSE
 
