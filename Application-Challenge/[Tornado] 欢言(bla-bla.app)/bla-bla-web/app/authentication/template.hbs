@@ -1,0 +1,96 @@
+<Layout as |layout|>
+  <layout.nav @showReleaseModal={{set this "isShowReleaseModal" true}} />
+  <layout.head @talk={{t "home.welcome"}} />
+  <layout.body>
+    {{outlet}}
+  </layout.body>
+</Layout>
+{{#if this.showBottomNav}}
+  <nav class="bottom-nav nes-container pv-3">
+    <div
+      class="bottom-nav-content display-flex justify-space-between align-items-center flex-wrap"
+    >
+      <div>
+        {{#if this.call.isHost}}
+          {{#if this.call.muted}}
+            <button
+              type="button"
+              class="nes-btn is-warning"
+              {{on "click" this.unmute}}
+            >
+              {{t "application.unmute"}}
+            </button>
+          {{else}}
+            <button
+              type="button"
+              class="nes-btn is-warning"
+              {{on "click" this.mute}}
+            >
+              {{t "application.mute"}}
+            </button>
+          {{/if}}
+        {{/if}}
+        <LinkTo @route="authentication.room" @model={{this.call.roomId}}>
+          <button type="button" class="nes-btn is-primary">
+            {{t "application.rejoin_room"}}
+          </button>
+        </LinkTo>
+      </div>
+      <button type="button" class="nes-btn" {{on "click" this.endCall}}>
+        {{t "application.leave"}}
+      </button>
+    </div>
+  </nav>
+{{/if}}
+{{#if this.isShowReleaseModal}}
+  <ModalDialog @translucentOverlay={{true}}>
+    <div class="p-4">
+      <p class="nes-text">
+        {{t "home.modal.title_1"}}
+      </p>
+      <p>
+        {{t "home.modal.title_2"}}
+      </p>
+      <p>
+        {{t "home.modal.title_3"}}
+        :
+      </p>
+      <div class="lists">
+        <ul class="nes-list is-circle">
+          <li class="mb-2">
+            {{t "home.modal.feature_1"}}
+          </li>
+          <li class="mb-2">
+            {{t "home.modal.feature_2"}}
+          </li>
+          <li>
+            {{t "home.modal.feature_3"}}
+          </li>
+        </ul>
+      </div>
+      <div class="mb-4">
+        <p class="nes-text is-error">
+          {{t "home.modal.credits"}}
+          <i class="nes-icon heart"></i>
+        </p>
+        <i class="nes-mario"></i>
+        <i class="nes-ash"></i>
+        <i class="nes-pokeball"></i>
+        <i class="nes-kirby"></i>
+      </div>
+      <button
+        type="button"
+        class="nes-btn is-success"
+        {{on "click" this.closeFeatureModal}}
+      >
+        {{t "home.modal.try"}}
+      </button>
+    </div>
+    <span class="mb-app-version">
+      {{t "home.modal.version"}}
+      :
+      {{app-version versionOnly=true}}
+      {{t "home.modal.beta"}}
+    </span>
+  </ModalDialog>
+{{/if}}

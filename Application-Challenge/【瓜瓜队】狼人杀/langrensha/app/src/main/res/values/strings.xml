@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">狼人杀</string>
+
+    <string name="user_name">张三</string>
+    <string name="user_id">32896600</string>
+
+    <string name="room_hall">房间大厅</string>
+    <string name="notice">公告</string>
+    <string name="fast_ready">快速开始</string>
+    <string name="game">游戏</string>
+    <string name="friend">好友</string>
+
+
+    <string name="agora_access_token"></string>
+
+    <string name="token">12153</string>
+    <string name="channel_name">666</string>
+
+</resources>
