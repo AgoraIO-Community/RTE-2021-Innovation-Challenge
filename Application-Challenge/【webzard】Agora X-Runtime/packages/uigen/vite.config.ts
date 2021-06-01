@@ -12,6 +12,12 @@ export default defineConfig({
           Host: "x-runtime-data.x-runtime.example.com",
         },
       },
+      "/token": {
+        target: "http://192.168.31.227:31874",
+        headers: {
+          Host: "agora-rtm-token.x-runtime.example.com",
+        },
+      },
     },
   },
 });

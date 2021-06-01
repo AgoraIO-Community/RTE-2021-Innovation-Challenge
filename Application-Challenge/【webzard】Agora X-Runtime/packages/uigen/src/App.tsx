@@ -5,8 +5,6 @@ import {
   UserTable,
   UserList,
   UserKanban,
-  CreateOneUserForm,
-  UpdateOneUserForm,
   DeleteOneUserForm,
   CreateOneUserModal,
 } from "./generated/ui-components";
@@ -49,13 +47,13 @@ function App() {
         layout={layout}
         onLayoutChange={(value) => setLayout(value)}
         cols={12}
-        rowHeight={30}
+        rowHeight={56}
         style={{ backgroundColor: "lightgray" }}
       >
         <Box
           key="CreateOneUserModal"
           rounded="md"
-          p="6"
+          p="2"
           backgroundColor="white"
           overflow="auto"
         >
@@ -64,7 +62,7 @@ function App() {
         <Box
           key="UserTable"
           rounded="md"
-          p="6"
+          p="2"
           backgroundColor="white"
           overflow="auto"
         >
@@ -74,7 +72,7 @@ function App() {
         <Box
           key="UserList"
           rounded="md"
-          p="6"
+          p="2"
           backgroundColor="white"
           overflow="auto"
         >
@@ -84,7 +82,7 @@ function App() {
         <Box
           key="UserKanban"
           rounded="md"
-          p="6"
+          p="2"
           backgroundColor="white"
           overflow="auto"
         >
@@ -94,7 +92,7 @@ function App() {
         <Box
           key="DeleteOneUserForm"
           rounded="md"
-          p="6"
+          p="2"
           backgroundColor="white"
           overflow="auto"
         >

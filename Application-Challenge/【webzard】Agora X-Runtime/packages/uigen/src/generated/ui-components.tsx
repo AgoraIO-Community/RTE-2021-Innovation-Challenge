@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { CombinedError } from "urql";
 import { useForm, DeepPartial } from "react-hook-form";
 import { renderer } from "../renderer";
+import { AgoraClassroom } from "../custom-components/Agora";
 import {
   Spinner,
   Center,
@@ -100,8 +101,9 @@ export const Empty: React.FC<{ message?: string }> = ({
 export const ClassTable: React.FC = () => {
   const [{ data, fetching, error }] = useClassTableQuery();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [selected, setSelected] =
-    useState<ClassTableQuery["classes"][0] | null>(null);
+  const [selected, setSelected] = useState<
+    ClassTableQuery["classes"][0] | null
+  >(null);
   useEffect(() => {
     if (selected) {
       onOpen();
@@ -153,8 +155,9 @@ export const ClassTable: React.FC = () => {
 export const UserTable: React.FC = () => {
   const [{ data, fetching, error }] = useUserTableQuery();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [selected, setSelected] =
-    useState<UserTableQuery["users"][0] | null>(null);
+  const [selected, setSelected] = useState<UserTableQuery["users"][0] | null>(
+    null
+  );
   useEffect(() => {
     if (selected) {
       onOpen();
@@ -203,13 +206,13 @@ export const UserTable: React.FC = () => {
           })}
         </Tbody>
       </Table>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={onClose} size="full">
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>编辑用户</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <UpdateOneUserForm
+            {/* <UpdateOneUserForm
               afterSubmit={() => setSelected(null)}
               defaultValues={{
                 where: { id: selected?.id },
@@ -219,6 +222,10 @@ export const UserTable: React.FC = () => {
                   role: { set: selected?.role },
                 },
               }}
+            /> */}
+            <AgoraClassroom
+              id={selected?.id.toString() || ""}
+              name={selected?.name || ""}
             />
           </ModalBody>
         </ModalContent>
