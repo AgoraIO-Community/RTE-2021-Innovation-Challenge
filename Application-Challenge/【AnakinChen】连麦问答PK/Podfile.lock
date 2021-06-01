@@ -1,0 +1,29 @@
+PODS:
+  - AgoraRtcEngine_iOS (3.4.2)
+  - HyphenateChat (3.8.1)
+  - Masonry (1.1.0)
+  - MBProgressHUD (1.2.0)
+
+DEPENDENCIES:
+  - AgoraRtcEngine_iOS (~> 3.4.2)
+  - HyphenateChat
+  - HyphenateChat (~> 3.8.1)
+  - Masonry (~> 1.1.0)
+  - MBProgressHUD (~> 1.2.0)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AgoraRtcEngine_iOS
+    - HyphenateChat
+    - Masonry
+    - MBProgressHUD
+
+SPEC CHECKSUMS:
+  AgoraRtcEngine_iOS: 3a4d64f2866ffc122e090a693153bb673021f6fe
+  HyphenateChat: 1d9c9e08b6ad9a0c695efc45b6f24a7fd134c600
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+
+PODFILE CHECKSUM: 3b11cde2a138142798c775b7289d01641b8b7d50
+
+COCOAPODS: 1.10.1
