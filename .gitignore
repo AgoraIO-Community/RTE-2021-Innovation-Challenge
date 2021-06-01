@@ -1,2 +1,9 @@
 .DS_Store
 */.DS_Store
+*.xcworkspacedata
+*.xcsettings
+*.xcbkptlist
+*.xcfilelist
+*.modulemap
+*.hmap
+Pods
