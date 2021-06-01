@@ -1,0 +1,10 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: agora-rtm-token
+  namespace: x-runtime
+spec:
+  template:
+    spec:
+      containers:
+        - image: docker.io/yanzhen/agora-rtm-token:0.1
