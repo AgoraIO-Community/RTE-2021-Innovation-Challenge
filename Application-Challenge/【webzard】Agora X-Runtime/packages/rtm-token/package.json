@@ -1,0 +1,16 @@
+{
+  "name": "rtm-token",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node -r dotenv/config rtm-token.js",
+    "build:image": "bash ./scripts/build-image.sh"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "agora-access-token": "^2.0.4",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  }
+}
