@@ -5,10 +5,17 @@ query userTable {
       trigger: "tableRow"
       contentId: "updateOneUserForm"
       title: "编辑用户"
+      defaultValues: [
+        "where.id -> $.id"
+        "data.email.set -> $.email"
+        "data.name.set -> $.name"
+        "data.role.set -> $.role"
+      ]
     ) {
     id @id
     name
     role
+    email
     createdAt
   }
 }

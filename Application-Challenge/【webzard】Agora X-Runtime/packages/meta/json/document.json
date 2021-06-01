@@ -122,6 +122,28 @@
                   "name": "title",
                   "type": "String",
                   "value": "编辑用户"
+                },
+                {
+                  "name": "defaultValues",
+                  "type": "List",
+                  "values": [
+                    {
+                      "type": "String",
+                      "value": "where.id -> $.id"
+                    },
+                    {
+                      "type": "String",
+                      "value": "data.email.set -> $.email"
+                    },
+                    {
+                      "type": "String",
+                      "value": "data.name.set -> $.name"
+                    },
+                    {
+                      "type": "String",
+                      "value": "data.role.set -> $.role"
+                    }
+                  ]
                 }
               ]
             }
@@ -159,6 +181,15 @@
               "list": false,
               "baseType": "Enum",
               "customType": "Role"
+            },
+            {
+              "name": "email",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
             },
             {
               "name": "createdAt",

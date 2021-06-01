@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { CombinedError } from "urql";
-import { useForm } from "react-hook-form";
+import { useForm, DeepPartial } from "react-hook-form";
 import { renderer } from "../renderer";
 import { <%- componentImports.join(', ') %> } from '@chakra-ui/react';
 import { <%- dataImports.join(', ') %> } from "./data-components";
@@ -42,6 +42,17 @@ export const Empty: React.FC<{ message?: string }> = ({ message = "no data" }) =
 export const <%- table.componentName %>: React.FC = () => {
   const [{ data, fetching, error }] = <%- table.dataHook %>();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [selected, setSelected] = useState<<%- table.dataHookType %>["<%- table.selectionName %>"][0] | null>(
+    null
+  );
+  useEffect(() => {
+    if (selected) {
+      onOpen();
+    } else {
+      onClose();
+    }
+  }, [selected]);
+
   if (error) {
     return <Error error={error} />;
   }
@@ -57,8 +68,8 @@ export const <%- table.componentName %>: React.FC = () => {
   }
 
   <% const modalAttr = table.attributes.find(attr => attr.name === 'modal'); -%>
-  <% const { trigger, contentId, title } = modalAttr ? modalAttr.arguments.reduce((prev, cur) => {
-    prev[cur.name] = cur.value;
+  <% const { trigger, contentId, title, defaultValues } = modalAttr ? modalAttr.arguments.reduce((prev, cur) => {
+    prev[cur.name] = cur.values? cur.values.map(v => v.value) : cur.value;
     return prev;
   }, {}) : {} -%>
 
@@ -75,7 +86,7 @@ export const <%- table.componentName %>: React.FC = () => {
         <Tbody>
           {(data.<%- table.selectionName %> || []).map((entity) => {
             return (
-              <Tr key={entity.<%- table.idName %>} <%- trigger === 'tableRow' ? 'onClick={onOpen}' : '' %>>
+              <Tr key={entity.<%- table.idName %>} <%- trigger === 'tableRow' ? 'onClick={() => setSelected(entity)}' : '' %>>
                 <% for (const selection of table.selections) { -%>
                 <Td>{entity.<%- selection.name %>}</Td>
                 <% } -%>
@@ -91,7 +102,10 @@ export const <%- table.componentName %>: React.FC = () => {
           <%- title ? `<ModalHeader>${title}</ModalHeader>` : '' %>
           <ModalCloseButton />
           <ModalBody>
-            <<%- common.capitalize(contentId) %> afterSubmit={onClose} />
+            <<%- common.capitalize(contentId) %>
+              afterSubmit={() => setSelected(null)}
+              defaultValues={<%- common.formatMappings(defaultValues || []) %>}
+            />
           </ModalBody>
         </ModalContent>
       </Modal>
@@ -194,20 +208,27 @@ export const <%- kanban.componentName %>: React.FC = () => {
 export type <%- form.componentName %>Props = {
   afterSubmit?: () => unknown;
   variant?: "plain" | "modal";
+  defaultValues?: DeepPartial<<%- form.componentName %>Values>;
 };
 export type <%- form.componentName %>Values = {
   <% for (variable of form.variables) { -%>
   <%- variable.name %>: <%- variable.rawType %>;
   <% } -%>
 };
-export const <%- form.componentName %>: React.FC<<%- form.componentName %>Props> = ({ afterSubmit, variant = "plain" }) => {
+export const <%- form.componentName %>: React.FC<<%- form.componentName %>Props> = ({
+  afterSubmit,
+  variant = "plain",
+  defaultValues,
+}) => {
   const [, trigger] = <%- form.dataHook %>();
   const {
     handleSubmit,
     register,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<<%- form.componentName %>Values>();
+  } = useForm<<%- form.componentName %>Values>({
+    defaultValues,
+  });
   const toast = useToast();
 
   async function onSubmit(values: <%- form.componentName %>Values) {

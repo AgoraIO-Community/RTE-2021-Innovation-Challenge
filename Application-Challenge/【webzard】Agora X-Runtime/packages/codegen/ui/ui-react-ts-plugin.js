@@ -1,6 +1,7 @@
 const path = require("path");
 const ejs = require("ejs");
 const prettier = require("prettier");
+const _ = require("lodash");
 const { capitalize, capitalizeFirst } = require("../common");
 
 const viewImportMap = {
@@ -27,6 +28,33 @@ const viewImportMap = {
   ],
 };
 const SCALARS = new Set(["Int", "Float", "String", "Boolean", "DateTime"]);
+
+function formatMappings(mappings) {
+  const mappingObject = {};
+  const output = [];
+
+  for (const mapping of mappings) {
+    const [src, dest] = mapping.split("->").map((frag) => frag.trim());
+    _.set(mappingObject, src, dest);
+  }
+
+  const walk = (obj) => {
+    output.push("{");
+    for (const key in obj) {
+      output.push(`${key}:`);
+      if (typeof obj[key] === "object") {
+        output.push(walk(obj[key]));
+      } else {
+        output.push(obj[key].replace("$", "selected?"));
+      }
+      output.push(",");
+    }
+    output.push("}");
+  };
+  walk(mappingObject);
+
+  return output.join(" ");
+}
 
 module.exports = async function (dataMeta, documentMeta) {
   const views = {
@@ -132,12 +160,14 @@ module.exports = async function (dataMeta, documentMeta) {
     }
 
     const componentName = capitalize(type.name);
-    const dataHook =
+    const dataHookType =
       type.is === "query"
-        ? `use${componentName}Query`
-        : `use${componentName}Mutation`;
+        ? `${componentName}Query`
+        : `${componentName}Mutation`;
+    const dataHook = `use${dataHookType}`;
     if (!isClientOnly) {
       dataImportSet.add(dataHook);
+      dataImportSet.add(dataHookType);
     }
 
     const groupBySelection = selection.selections.find((sel) =>
@@ -216,6 +246,7 @@ module.exports = async function (dataMeta, documentMeta) {
       componentName,
       selectionName: selection.name,
       dataHook,
+      dataHookType,
       selections: selection.selections,
       attributes: selection.attributes,
       idName: selectionWithIdAttr ? selectionWithIdAttr.name : undefined,
@@ -248,6 +279,7 @@ module.exports = async function (dataMeta, documentMeta) {
         common: {
           capitalizeFirst,
           capitalize,
+          formatMappings,
           formatRawProps(variables) {
             const propsVariable = variables.find((v) => v.name === "props");
             if (!propsVariable) {

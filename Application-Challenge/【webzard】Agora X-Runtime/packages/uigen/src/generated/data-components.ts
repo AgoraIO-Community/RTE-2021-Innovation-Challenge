@@ -979,7 +979,7 @@ export type UserTableQuery = (
   { __typename?: 'Query' }
   & { users: Array<(
     { __typename?: 'User' }
-    & Pick<User, 'id' | 'name' | 'role' | 'createdAt'>
+    & Pick<User, 'id' | 'name' | 'role' | 'email' | 'createdAt'>
   )> }
 );
 
@@ -1068,6 +1068,7 @@ export const UserTableDocument = gql`
     id
     name
     role
+    email
     createdAt
   }
 }

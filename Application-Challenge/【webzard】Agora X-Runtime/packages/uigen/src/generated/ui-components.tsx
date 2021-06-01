@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CombinedError } from "urql";
-import { useForm } from "react-hook-form";
+import { useForm, DeepPartial } from "react-hook-form";
 import { renderer } from "../renderer";
 import {
   Spinner,
@@ -44,12 +44,19 @@ import {
   Scalars,
   Role,
   useClassTableQuery,
+  ClassTableQuery,
   useUserTableQuery,
+  UserTableQuery,
   useUserListQuery,
+  UserListQuery,
   useUserKanbanQuery,
+  UserKanbanQuery,
   useCreateOneUserFormMutation,
+  CreateOneUserFormMutation,
   useUpdateOneUserFormMutation,
+  UpdateOneUserFormMutation,
   useDeleteOneUserFormMutation,
+  DeleteOneUserFormMutation,
   ButtonVariant,
 } from "./data-components";
 
@@ -93,6 +100,16 @@ export const Empty: React.FC<{ message?: string }> = ({
 export const ClassTable: React.FC = () => {
   const [{ data, fetching, error }] = useClassTableQuery();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [selected, setSelected] =
+    useState<ClassTableQuery["classes"][0] | null>(null);
+  useEffect(() => {
+    if (selected) {
+      onOpen();
+    } else {
+      onClose();
+    }
+  }, [selected]);
+
   if (error) {
     return <Error error={error} />;
   }
@@ -136,6 +153,16 @@ export const ClassTable: React.FC = () => {
 export const UserTable: React.FC = () => {
   const [{ data, fetching, error }] = useUserTableQuery();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [selected, setSelected] =
+    useState<UserTableQuery["users"][0] | null>(null);
+  useEffect(() => {
+    if (selected) {
+      onOpen();
+    } else {
+      onClose();
+    }
+  }, [selected]);
+
   if (error) {
     return <Error error={error} />;
   }
@@ -158,16 +185,18 @@ export const UserTable: React.FC = () => {
             <Th>id</Th>
             <Th>name</Th>
             <Th>role</Th>
+            <Th>email</Th>
             <Th>createdAt</Th>
           </Tr>
         </Thead>
         <Tbody>
           {(data.users || []).map((entity) => {
             return (
-              <Tr key={entity.id} onClick={onOpen}>
+              <Tr key={entity.id} onClick={() => setSelected(entity)}>
                 <Td>{entity.id}</Td>
                 <Td>{entity.name}</Td>
                 <Td>{entity.role}</Td>
+                <Td>{entity.email}</Td>
                 <Td>{entity.createdAt}</Td>
               </Tr>
             );
@@ -180,7 +209,17 @@ export const UserTable: React.FC = () => {
           <ModalHeader>编辑用户</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <UpdateOneUserForm afterSubmit={onClose} />
+            <UpdateOneUserForm
+              afterSubmit={() => setSelected(null)}
+              defaultValues={{
+                where: { id: selected?.id },
+                data: {
+                  email: { set: selected?.email },
+                  name: { set: selected?.name },
+                  role: { set: selected?.role },
+                },
+              }}
+            />
           </ModalBody>
         </ModalContent>
       </Modal>
@@ -324,6 +363,7 @@ export const UserKanban: React.FC = () => {
 export type CreateOneUserFormProps = {
   afterSubmit?: () => unknown;
   variant?: "plain" | "modal";
+  defaultValues?: DeepPartial<CreateOneUserFormValues>;
 };
 export type CreateOneUserFormValues = {
   data: {
@@ -335,6 +375,7 @@ export type CreateOneUserFormValues = {
 export const CreateOneUserForm: React.FC<CreateOneUserFormProps> = ({
   afterSubmit,
   variant = "plain",
+  defaultValues,
 }) => {
   const [, trigger] = useCreateOneUserFormMutation();
   const {
@@ -342,7 +383,9 @@ export const CreateOneUserForm: React.FC<CreateOneUserFormProps> = ({
     register,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<CreateOneUserFormValues>();
+  } = useForm<CreateOneUserFormValues>({
+    defaultValues,
+  });
   const toast = useToast();
 
   async function onSubmit(values: CreateOneUserFormValues) {
@@ -427,6 +470,7 @@ export const CreateOneUserForm: React.FC<CreateOneUserFormProps> = ({
 export type UpdateOneUserFormProps = {
   afterSubmit?: () => unknown;
   variant?: "plain" | "modal";
+  defaultValues?: DeepPartial<UpdateOneUserFormValues>;
 };
 export type UpdateOneUserFormValues = {
   data: {
@@ -447,6 +491,7 @@ export type UpdateOneUserFormValues = {
 export const UpdateOneUserForm: React.FC<UpdateOneUserFormProps> = ({
   afterSubmit,
   variant = "plain",
+  defaultValues,
 }) => {
   const [, trigger] = useUpdateOneUserFormMutation();
   const {
@@ -454,7 +499,9 @@ export const UpdateOneUserForm: React.FC<UpdateOneUserFormProps> = ({
     register,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<UpdateOneUserFormValues>();
+  } = useForm<UpdateOneUserFormValues>({
+    defaultValues,
+  });
   const toast = useToast();
 
   async function onSubmit(values: UpdateOneUserFormValues) {
@@ -545,6 +592,7 @@ export const UpdateOneUserForm: React.FC<UpdateOneUserFormProps> = ({
 export type DeleteOneUserFormProps = {
   afterSubmit?: () => unknown;
   variant?: "plain" | "modal";
+  defaultValues?: DeepPartial<DeleteOneUserFormValues>;
 };
 export type DeleteOneUserFormValues = {
   where: {
@@ -554,6 +602,7 @@ export type DeleteOneUserFormValues = {
 export const DeleteOneUserForm: React.FC<DeleteOneUserFormProps> = ({
   afterSubmit,
   variant = "plain",
+  defaultValues,
 }) => {
   const [, trigger] = useDeleteOneUserFormMutation();
   const {
@@ -561,7 +610,9 @@ export const DeleteOneUserForm: React.FC<DeleteOneUserFormProps> = ({
     register,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<DeleteOneUserFormValues>();
+  } = useForm<DeleteOneUserFormValues>({
+    defaultValues,
+  });
   const toast = useToast();
 
   async function onSubmit(values: DeleteOneUserFormValues) {

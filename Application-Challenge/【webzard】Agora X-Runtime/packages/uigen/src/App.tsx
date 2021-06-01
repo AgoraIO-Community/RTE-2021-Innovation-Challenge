@@ -8,7 +8,6 @@ import {
   CreateOneUserForm,
   UpdateOneUserForm,
   DeleteOneUserForm,
-  CreateUserButton,
   CreateOneUserModal,
 } from "./generated/ui-components";
 
@@ -16,7 +15,6 @@ import Calendar from "@toast-ui/react-calendar";
 import "tui-calendar/dist/tui-calendar.css";
 
 import "./App.css";
-import { ButtonVariant } from "./generated/data-components";
 
 const today = new Date();
 const getDate = (type: string, start: any, value: number, operator: string) => {
@@ -36,24 +34,33 @@ const GridLayout = WidthProvider(RGL);
 
 function App() {
   const [layout, setLayout] = useState<Layout[]>([
-    { i: "UserTable", x: 0, y: 0, w: 6, h: 3 },
-    { i: "UserList", x: 7, y: 0, w: 6, h: 3 },
-    { i: "UserKanban", x: 0, y: 3, w: 6, h: 3 },
-    { i: "CreateOneUserForm", x: 7, y: 3, w: 6, h: 3 },
-    { i: "UpdateOneUserForm", x: 0, y: 6, w: 6, h: 3 },
-    { i: "DeleteOneUserForm", x: 7, y: 6, w: 6, h: 3 },
+    { i: "UserTable", x: 0, y: 0, w: 6, h: 12 },
+    { i: "UserList", x: 7, y: 0, w: 6, h: 12 },
+    { i: "UserKanban", x: 0, y: 3, w: 6, h: 12 },
+    { i: "CreateOneUserModal", x: 7, y: 3, w: 6, h: 12 },
+    { i: "UpdateOneUserForm", x: 0, y: 6, w: 6, h: 12 },
+    { i: "DeleteOneUserForm", x: 7, y: 6, w: 6, h: 12 },
   ]);
 
   return (
     <Box width="full" p="12">
-      <CreateOneUserModal />
       <GridLayout
         className="layout"
         layout={layout}
         onLayoutChange={(value) => setLayout(value)}
         cols={12}
+        rowHeight={30}
         style={{ backgroundColor: "lightgray" }}
       >
+        <Box
+          key="CreateOneUserModal"
+          rounded="md"
+          p="6"
+          backgroundColor="white"
+          overflow="auto"
+        >
+          <CreateOneUserModal />
+        </Box>
         <Box
           key="UserTable"
           rounded="md"
@@ -83,26 +90,6 @@ function App() {
         >
           <Heading>kanban</Heading>
           <UserKanban />
-        </Box>
-        <Box
-          key="CreateOneUserForm"
-          rounded="md"
-          p="6"
-          backgroundColor="white"
-          overflow="auto"
-        >
-          <Heading>CreateOneUserForm</Heading>
-          <CreateOneUserForm />
-        </Box>
-        <Box
-          key="UpdateOneUserForm"
-          rounded="md"
-          p="6"
-          backgroundColor="white"
-          overflow="auto"
-        >
-          <Heading>UpdateOneUserForm</Heading>
-          <UpdateOneUserForm />
         </Box>
         <Box
           key="DeleteOneUserForm"
