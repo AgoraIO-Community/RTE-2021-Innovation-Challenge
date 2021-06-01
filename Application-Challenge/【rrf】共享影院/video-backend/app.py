@@ -7,7 +7,8 @@ from flask_socketio import SocketIO, emit, join_room, leave_room, \
 from flask_cors import *
 import json
 import time
-from config import appid, appsecert
+import requests
+from config import appid, appsecert, clientid, clientsecert, orgname, appname, url
 from TokenBuilder.RtcTokenBuilder import RtcTokenBuilder, Role_Attendee
 
 expireTimeInSeconds = 3600
@@ -48,6 +49,8 @@ def index():
 '''
 获取视频列表
 '''
+
+
 @app.route('/video_list', methods=['GET'])
 def videoList():
     with open('static/info.json', 'r', encoding='utf-8') as fp:
@@ -55,16 +58,18 @@ def videoList():
         response = make_response(json.dumps(json_data), 200)
         return response
 
+
 '''
 获取用户推荐列表
 '''
+
+
 @app.route('/recommend', methods=['GET'])
 def userRecommend():
     with open('static/user/recommend.json', 'r', encoding='utf-8') as fp:
         json_data = json.load(fp)
         response = make_response(json.dumps(json_data['10234532']), 200)
         return response
-
 
 
 @app.route('/getToken', methods=['POST'])
@@ -77,14 +82,77 @@ def getToken():
     return token
 
 
-@socketio.event
+@app.route('/createChatRoom', methods=['POST'])
+def createChatRoom():
+    print(request.json)
+    channelName = request.json['channelName']
+    token_url = url+orgname+'/'+appname+'/token'
+
+    s = json.dumps({'grant_type': 'client_credentials',
+                   'client_id': clientid, 'client_secret': clientsecert})
+    r = requests.post(token_url, data=s).json()
+    token = r['access_token']
+    print(token)
+
+    chat_url = url+orgname+'/'+appname+'/chatrooms'
+    s = json.dumps({
+        "name": channelName,
+        "description": channelName,
+        "maxusers": 400,
+        "owner": "superadmin"
+    })
+
+    headers = {
+        "Content-Type": "application/json; charset=UTF-8",
+        "Accept": "application/json",
+        "Authorization": "Bearer "+token,
+    }
+    r = requests.post(chat_url, data=s, headers=headers)
+    print(r.json())
+    res = {'err': 0}
+    if r.status_code == 200:
+        res = {'err': 1, 'roomId': r.json()['data']['id']}
+    return make_response(json.dumps(res), 200)
+
+
+@app.route('/addChatRoomUser', methods=['POST'])
+def addChatRoomUser():
+    print(request.json)
+    channelName = request.json['channelName']
+    user = request.json['user']
+    token_url = url+orgname+'/'+appname+'/token'
+
+    s = json.dumps({'grant_type': 'client_credentials',
+                   'client_id': clientid, 'client_secret': clientsecert})
+    r = requests.post(token_url, data=s).json()
+    token = r['access_token']
+    print(token)
+
+    chat_url = url+orgname+'/'+appname+'/chatrooms/'+channelName+'/users/'+user
+    s = json.dumps({
+    })
+
+    headers = {
+        "Content-Type": "application/json; charset=UTF-8",
+        "Accept": "application/json",
+        "Authorization": "Bearer "+token,
+    }
+    r = requests.post(chat_url, data=s, headers=headers)
+    print(r.json())
+    res = {'err': 0}
+    if r.status_code == 200 and r.json()['data']['result']:
+        res = {'err': 1}
+    return make_response(json.dumps(res), 200)
+
+
+@ socketio.event
 def my_event(message):
     session['receive_count'] = session.get('receive_count', 0) + 1
     emit('my_response',
          {'data': message['data'], 'count': session['receive_count']})
 
 
-@socketio.event
+@ socketio.event
 def my_broadcast_event(message):
     session['receive_count'] = session.get('receive_count', 0) + 1
     emit('my_response',
@@ -93,7 +161,7 @@ def my_broadcast_event(message):
 
 
 # 加入房间
-@socketio.event
+@ socketio.event
 def join(message):
     join_room(message['room'])
     print(message)
@@ -111,7 +179,7 @@ def join(message):
 
 
 # 离开房间
-@socketio.event
+@ socketio.event
 def leave(message):
     leave_room(message['room'])
     session['receive_count'] = session.get('receive_count', 0) + 1
@@ -121,7 +189,7 @@ def leave(message):
 
 
 # 关闭房间
-@socketio.on('close_room')
+@ socketio.on('close_room')
 def on_close_room(message):
     session['receive_count'] = session.get('receive_count', 0) + 1
     emit('my_response', {'data': 'Room ' + message['room'] + ' is closing.',
@@ -131,7 +199,7 @@ def on_close_room(message):
 
 
 # 给房间发送信息
-@socketio.event
+@ socketio.event
 def my_room_event(message):
     session['receive_count'] = session.get('receive_count', 0) + 1
     emit('my_response',
@@ -139,27 +207,27 @@ def my_room_event(message):
          to=message['room'])
 
 
-@socketio.event
+@ socketio.event
 def video_seeking(message):
     emit('seeking_response',
          {'time': message['time'], 'uid': message['uid']}, to=message['room'])
 
 
-@socketio.event
+@ socketio.event
 def video_play(message):
     emit('play_response',
          {'uid': message['uid']}, to=message['room'])
 
 
-@socketio.event
+@ socketio.event
 def video_pause(message):
     emit('pause_response',
          {'uid': message['uid']}, to=message['room'])
 
 
-@socketio.event
+@ socketio.event
 def disconnect_request():
-    @copy_current_request_context
+    @ copy_current_request_context
     def can_disconnect():
         disconnect()
 
@@ -172,12 +240,12 @@ def disconnect_request():
          callback=can_disconnect)
 
 
-@socketio.event
+@ socketio.event
 def my_ping():
     emit('my_pong')
 
 
-@socketio.event
+@ socketio.event
 def connect():
     # global thread
     # with thread_lock:
@@ -186,7 +254,7 @@ def connect():
     emit('my_response', {'data': 'Connected', 'count': 0})
 
 
-@socketio.on('disconnect')
+@ socketio.on('disconnect')
 def test_disconnect():
     print('Client disconnected', request.sid)
 

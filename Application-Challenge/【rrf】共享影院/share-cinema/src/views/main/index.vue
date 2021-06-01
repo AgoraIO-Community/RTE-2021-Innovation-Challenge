@@ -21,29 +21,33 @@
       <el-aside width="auto">
         <div class="recommend-aside">
           <div><p>猜你想聊</p></div>
-                    <div v-for="item in recommend" :key="item.id">
+          <div v-for="item in recommend" :key="item.id">
             <div class="user">
-            <div class="avatar">
-              <el-avatar
-                :size="mini"
-                src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
-              ></el-avatar>
-            </div>
-            <div class="aside">
-              <div class="label">{{item.username}} <span>在线</span></div>
-              <div class="info">
-                <div>你们看过{{item.numbers}}部相同的作品</div>
-                <div>
-                  你们共同的标签 
-                    <el-tag v-for="i in item.tags" :key="i" type="info">{{i}}</el-tag>
+              <div class="avatar">
+                <el-avatar
+                  :size="mini"
+                  src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+                ></el-avatar>
+              </div>
+              <div class="aside">
+                <div class="label">{{ item.username }} <span>在线</span></div>
+                <div class="info">
+                  <div>你们看过{{ item.numbers }}部相同的作品</div>
+                  <div>
+                    你们共同的标签
+                    <el-tag v-for="i in item.tags" :key="i" type="info">{{
+                      i
+                    }}</el-tag>
+                  </div>
+                  <div>
+                    ta正在看<b>《{{ item.viewing }}》</b>
+                  </div>
+                  <div class="join-button"><el-button>加入房间</el-button></div>
                 </div>
-                <div>ta正在看<b>《{{item.viewing}}》</b></div>
-                <div class="join-button"><el-button>加入房间</el-button></div>
               </div>
             </div>
           </div>
-          </div>
-          
+
           <div class="control">
             <el-button type="primary" icon="el-icon-refresh-right"
               >换一批</el-button
@@ -152,11 +156,9 @@ export default {
       })
       .catch((err) => console.log(err));
 
-    axios
-      .get("/server/recommend")
-      .then((res) => {
-        this.recommend = res.data
-      })
+    axios.get("/server/recommend").then((res) => {
+      this.recommend = res.data;
+    });
   },
   methods: {
     createVideoPage(id) {
@@ -166,12 +168,19 @@ export default {
       this.$socketio.on("my_response", function (msg, cb) {
         console.log("socket_response", msg);
       });
-      this.$socketio.emit("join", { room: channelName, id: id });
-      const { path = "single" } = this.$route.query;
-      this.$router.push({
-        path: `/${path}`,
-        query: { channelName, id },
-      });
+      axios
+        .post("/server/createChatRoom", { channelName: channelName })
+        .then((res) => {
+          console.log("roomId", res.data.roomId);
+          channelName = res.data.roomId;
+          this.$socketio.emit("join", { room: channelName, id: id });
+          const { path = "single" } = this.$route.query;
+          this.$router.push({
+            path: `/${path}`,
+            query: { channelName, id },
+          });
+        })
+        .catch((err) => console.log(err));
     },
     joinVideoRoom(channelName) {
       console.log(channelName);
