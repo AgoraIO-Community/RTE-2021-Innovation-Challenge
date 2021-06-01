@@ -1,0 +1,79 @@
+{
+  "Header": {
+    "About": "关于",
+    "Mission": "使命",
+    "Product": "立意",
+    "Quick-Start": "快速开始",
+    "Menu": "菜单"
+  },
+  "IntroBlock": {
+    "Title": "ITalking & 陌生人社交平台",
+    "Content": "在 ITalking，你可以通过文字、语音、图片来展示自己，基于 Room 发现朋友，建立真实、健康的社交关系。",
+    "ExploreButton": "快速开始",
+    "LearnButton": "了解更多"
+  },
+  "IntroMiddleBlock": {
+    "Title": "用声音认识我",
+    "Content": "进入 ITalking 的世界，去结识那些陌生而有趣的人",
+    "Button": "了解更多"
+  },
+  "AboutBlock": {
+    "Title": "关于 ITalking",
+    "Content": "ITalking 致力于 摆脱信息茧房，减少信息噪音。与同一平台的朋友 碰撞思想，扩展人脉。",
+    "FirstSelection": {
+      "Title": "探索发现",
+      "Content": "无聊的生活需要被打破，精彩的瞬间需要被点亮。快来探索和发现 ITalking 上璀璨的精彩瞬间。"
+    },
+    "SecondSelection": {
+      "Title": "语音交流",
+      "Content": "全力寻找与你有同好的灵魂。语音一下，和 ta 畅聊兴趣与热爱，朋友就在你身边。"
+    }
+  },
+  "MissionBlock": {
+    "Title": "提高社交的质量，而不是数量",
+    "Content": "纽约大学的社会学家 Eric Klinenberg 认为，是社会互动的质量 而不是数量，决定了你是否孤独。有的人虽然独居、很少见人，但他们仍然在少量的社交中获得了满足；有的人虽然整体聚会，但却依然感到孤独。ITalking 的社交机制将帮助你遇到更高质量的朋友。"
+  },
+  "ProductBlock": {
+    "Title": "跟随灵魂找到你",
+    "Content": "灵魂成长需要慢一点，不过在眼下急速变化的时代，慢，有些奢侈。"
+  },
+  "Footer": {
+    "Contact": "联系",
+    "Tell us everything": "告诉我们一切",
+    "Question": "你对 ITalking 有什么问题吗？欢迎联系！",
+    "Let's Chat": "联系我们",
+    "Cooperation": "合作",
+    "Business Cooperation": "商务合作",
+    "Help": "帮助",
+    "Safe Feedback": "安全反馈",
+    "Address": {
+      "Label": "地址",
+      "Country": "中国",
+      "Province": "大陆",
+      "City": "北京"
+    },
+    "Navigation": "导航",
+    "Language": "语言"
+  },
+  "SignIn": {
+    "Title": "开启 ITalking 之旅",
+    "Name": "您的昵称",
+    "Password": "您的密码",
+    "Confirm": "再次确定密码",
+    "Button": "注册账号",
+    "Hi": "Hi 朋友！",
+    "Description": "使用已有 ITalking 账号？",
+    "Back": "回到首页",
+    "Toggle": "快速登录"
+  },
+  "Login": {
+    "Title": "进入 ITalking 世界",
+    "Name": "您的昵称",
+    "Password": "您的密码",
+    "Button": "快速登录",
+    "Hi": "欢迎回来！",
+    "Description": "首次使用 ITalking ？",
+    "Back": "回到首页",
+    "Toggle": "注册账号"
+  }
+}
