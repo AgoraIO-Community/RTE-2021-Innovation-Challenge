@@ -1,0 +1,73 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+// 获取配置信息
+def configs = rootProject.ext.configs
+
+android {
+    compileSdkVersion configs.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion configs.minSdkVersion
+        targetSdkVersion configs.targetSdkVersion
+        versionCode configs.versionCode
+        versionName configs.versionName
+
+    }
+
+    buildTypes {
+        release {
+            // 混淆文件
+            consumerProguardFiles 'proguard-rules.pro'
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // 使用 Java 8 编译
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // 开启数据绑定
+//    dataBinding {
+//        enabled true
+//    }
+    buildFeatures {
+        dataBinding {
+            enabled true
+        }
+    }
+
+    // 编译忽略错误配置
+    lintOptions {
+        abortOnError false
+    }
+    // kotlin 配置
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    kapt {
+        arguments {
+            // 阿里巴巴 ARouter Kotlin 下的配置
+            arg("AROUTER_MODULE_NAME", project.getName())
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    kapt 'com.alibaba:arouter-compiler:1.2.2'
+
+    // 环信聊天 IM 库 Easemob http://www.easemob.com
+    api 'io.hyphenate:hyphenate-chat:3.8.1'
+    // 声网音视频通话 https://docs.agora.io/cn/Voice/start_call_audio_android?platform=Android
+    api 'com.github.agorabuilder:native-voice-sdk:3.4.2'
+
+    // 引入统一管理库
+    implementation project(':vmcommon')
+}

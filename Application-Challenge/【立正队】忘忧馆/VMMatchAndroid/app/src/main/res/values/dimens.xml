@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--重新定义 BottomNavigationView 高度-->
+    <!--    <dimen name="design_bottom_navigation_height" tools:ignore="PrivateResource">@dimen/vm_dimen_48</dimen>-->
+    <!--重新定义 BottomNavigationView 文字大小-->
+    <!--    <dimen name="design_bottom_navigation_active_text_size">@dimen/vm_size_10</dimen>-->
+    <!--    <dimen name="design_bottom_navigation_text_size">@dimen/vm_size_10</dimen>-->
+
+    <dimen name="common_0">@dimen/vm_dimen_0</dimen>
+
+    <!--顶部 Tab 高度-->
+    <dimen name="top_tab_height">@dimen/vm_dimen_36</dimen>
+    <dimen name="bottom_nav_height">@dimen/vm_dimen_48</dimen>
+
+    <!--分割线-->
+    <dimen name="decoration_line">@dimen/vm_dimen_0_5</dimen>
+</resources>

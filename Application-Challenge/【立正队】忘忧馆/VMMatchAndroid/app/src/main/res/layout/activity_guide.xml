@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/app_bg"
+    tools:context=".ui.guide.GuideActivity">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/guideViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never" />
+
+    <!--指示器-->
+    <com.vmloft.develop.library.tools.widget.indicator.VMIndicatorView
+        android:id="@+id/guideIndicatorView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/vm_dimen_56"
+        android:background="@color/app_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:vm_indicator_mode="inside"
+        app:vm_indicator_normal="@color/app_indicator_normal"
+        app:vm_indicator_radius="@dimen/vm_dimen_4"
+        app:vm_indicator_selected="@color/app_indicator_select" />
+
+    <Button
+        android:id="@+id/guidePrevBtn"
+        style="@style/VMBtn.Flat.Fillet"
+        android:text="@string/guide_prev"
+        android:textColor="@color/app_tips"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/guideIndicatorView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideIndicatorView" />
+
+    <Button
+        android:id="@+id/guideNextBtn"
+        style="@style/VMBtn.Flat.Fillet"
+        android:text="@string/guide_next"
+        android:textColor="@color/app_tips"
+        app:layout_constraintBottom_toBottomOf="@+id/guideIndicatorView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideIndicatorView" />
+
+    <Button
+        android:id="@+id/guideFinishBtn"
+        style="@style/VMBtn.Flat.Fillet"
+        android:text="@string/guide_finish"
+        android:textColor="@color/app_tips"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/guideIndicatorView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideIndicatorView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
