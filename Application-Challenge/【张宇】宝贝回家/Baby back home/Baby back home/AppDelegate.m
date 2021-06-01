@@ -37,10 +37,10 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginStateChange:) name:ACCOUNT_LOGIN_CHANGED object:nil];
     
-    EMOptions *options = [EMOptions optionsWithAppkey:@"1118210413091291#weatherducation"];
-    // apnsCertName是证书名称，可以先传nil，等后期配置apns推送时在传入证书名称
-    options.apnsCertName = nil;
-    [[EMClient sharedClient] initializeSDKWithOptions:options];
+//    EMOptions *options = [EMOptions optionsWithAppkey:@"1118210413091291#weatherducation"];
+//    // apnsCertName是证书名称，可以先传nil，等后期配置apns推送时在传入证书名称
+//    options.apnsCertName = nil;
+//    [[EMClient sharedClient] initializeSDKWithOptions:options];
     
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"loginState"]){
         [[NSNotificationCenter defaultCenter] postNotificationName:ACCOUNT_LOGIN_CHANGED object:@(YES)];
@@ -50,19 +50,19 @@
     
     
     
-    [EaseIMKitManager initWithEMOptions:options];
-    [EaseIMHelper shareHelper];
-    [EMNotificationHelper shared];
-    [SingleCallController sharedManager];
-    [ConferenceController sharedManager];
-    [[UserInfoStore sharedInstance] loadInfosFromLocal];
-    
-    
-    EaseCallConfig* config = [[EaseCallConfig alloc] init];
-    config.agoraAppId = @"f42b8f75b7104e03a8c767d37574045c";
-    config.enableRTCTokenValidate = NO;
-    [EaseCallManager.sharedManager.getEaseCallConfig setUsers:[NSMutableDictionary dictionary]];
-    [[EaseCallManager sharedManager] initWithConfig:config delegate:self];
+//    [EaseIMKitManager initWithEMOptions:options];
+//    [EaseIMHelper shareHelper];
+//    [EMNotificationHelper shared];
+//    [SingleCallController sharedManager];
+//    [ConferenceController sharedManager];
+//    [[UserInfoStore sharedInstance] loadInfosFromLocal];
+//
+//
+//    EaseCallConfig* config = [[EaseCallConfig alloc] init];
+//    config.agoraAppId = @"f42b8f75b7104e03a8c767d37574045c";
+//    config.enableRTCTokenValidate = NO;
+//    [EaseCallManager.sharedManager.getEaseCallConfig setUsers:[NSMutableDictionary dictionary]];
+//    [[EaseCallManager sharedManager] initWithConfig:config delegate:self];
     
     return YES;
 }
@@ -79,14 +79,25 @@
             navigationController = [[UINavigationController alloc] initWithRootViewController:homeController];
         }
         
-//        [[EMClient sharedClient].pushManager getPushNotificationOptionsFromServerWithCompletion:^(EMPushOptions * _Nonnull aOptions, EMError * _Nonnull aError) {
-//        }];
-//        [[EMClient sharedClient].groupManager getJoinedGroupsFromServerWithPage:0 pageSize:-1 completion:^(NSArray *aList, EMError *aError) {
-//            if (!aError) {
-//                [[NSNotificationCenter defaultCenter] postNotificationName:GROUP_LIST_FETCHFINISHED object:nil];
-//            }
-//        }];
 
+        EMOptions *options = [EMOptions optionsWithAppkey:@"1118210413091291#weatherducation"];
+        // apnsCertName是证书名称，可以先传nil，等后期配置apns推送时在传入证书名称
+        options.apnsCertName = nil;
+        [[EMClient sharedClient] initializeSDKWithOptions:options];
+        
+        [EaseIMKitManager initWithEMOptions:options];
+        [EaseIMHelper shareHelper];
+        [EMNotificationHelper shared];
+        [SingleCallController sharedManager];
+        [ConferenceController sharedManager];
+        [[UserInfoStore sharedInstance] loadInfosFromLocal];
+        
+        
+        EaseCallConfig* config = [[EaseCallConfig alloc] init];
+        config.agoraAppId = @"f42b8f75b7104e03a8c767d37574045c";
+        config.enableRTCTokenValidate = NO;
+        [EaseCallManager.sharedManager.getEaseCallConfig setUsers:[NSMutableDictionary dictionary]];
+        [[EaseCallManager sharedManager] initWithConfig:config delegate:self];
         
         
         
@@ -200,9 +211,9 @@
 }
 
 
-- (void)callDidReceive:(EaseCallType)aType inviter:(NSString * _Nonnull)user ext:(NSDictionary * _Nullable)aExt {
-    
-}
+//- (void)callDidReceive:(EaseCallType)aType inviter:(NSString * _Nonnull)user ext:(NSDictionary * _Nullable)aExt {
+//
+//}
 
 
 
@@ -280,7 +291,17 @@
 }
 
 
+// 振铃时增加回调
+- (void)callDidReceive:(EaseCallType)aType inviter:(NSString*_Nonnull)username ext:(NSDictionary*)aExt
+{
+    EMUserInfo* info = [[UserInfoStore sharedInstance] getUserInfoById:username];
+        NSLog(@"%@--%@,--%@",info,info.avatarUrl,info.nickName);
 
+    if(info && (info.avatarUrl.length > 0 || info.nickName > 0)) {
+        EaseCallUser* user = [EaseCallUser userWithNickName:info.nickName image:[NSURL URLWithString:info.avatarUrl]];
+        [[[EaseCallManager sharedManager] getEaseCallConfig] setUser:username info:user];
+    }
+}
 
 - (void)showHint:(NSString *)hint
 {
