@@ -10,20 +10,21 @@
 适合互联网/ACG领域举办在线作画活动/社会实验
 
 ## 技术使用:
-前端:Vue+HTML+CSS+JS
-后端:Node.js+express
+前端:Vue+HTML+CSS+JS  
+后端:Node.js+express  
 声网SDK:云信令
 
 ## 如何运行项目
 ### 我只想运行看看效果
-`npm install`
-`npm run build`
-`npm run start`
+`npm install`  
+`npm run build`  
+`npm run start`  
 浏览器输入`127.0.0.1:8081`
 #### 整个界面
 ![image](https://github.com/damagegithub/RTE-2021-Innovation-Challenge/blob/master/Application-Challenge/%E3%80%90%E6%88%91%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E4%B8%8D%E9%98%9F%E3%80%91PixelBattle/imgs/main.png)
 #### 画布
 ![image](https://github.com/damagegithub/RTE-2021-Innovation-Challenge/blob/master/Application-Challenge/%E3%80%90%E6%88%91%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E4%B8%8D%E9%98%9F%E3%80%91PixelBattle/imgs/canves.png)  
+ 画布为400×400像素  
 点击画布可以选择坐标,滚轮缩放画布,拖拽移动画布  
 画布每隔一段时间自动从服务器获取最新结果并渲染  
 右侧可以选择一种颜色,点击按钮画一个像素,需要等一会儿才能继续画  
