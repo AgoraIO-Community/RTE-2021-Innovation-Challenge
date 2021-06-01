@@ -1,0 +1,19 @@
+The following 3rd parties are integrated into Graph and Chart:
+
+In the folder Chart And Graph/Themes/Common/Fonts :
+
+Each font has it's own folder with full license detials
+
+Exo2 - SIL OPEN FONT LICENSE - https://www.fontsquirrel.com/license/exo-2
+ABeeZee - SIL OPEN FONT LICENSE - https://www.fontsquirrel.com/license/abeezee
+Comprehension - SIL OPEN FONT LICENSE - https://www.fontsquirrel.com/license/comprehension
+Enriqueta - SIL OPEN FONT LICENSE - https://www.fontsquirrel.com/license/enriqueta
+Fengardo-neue - SIL OPEN FONT LICENSE - https://www.fontsquirrel.com/license/fengardo-neue
+Overpass - SIL OPEN FONT LICENSE - https://www.fontsquirrel.com/license/overpass
+Rambla - SIL OPEN FONT LICENSE - https://www.fontsquirrel.com/license/rambla
+Scada - SIL OPEN FONT LICENSE - https://www.fontsquirrel.com/license/scada
+
+SimpleJson in the folder Chart And Graph/SimpleJSON-master:
+Licensed under MIT license :https://github.com/Bunny83/SimpleJSON/blob/master/LICENSE
+
+

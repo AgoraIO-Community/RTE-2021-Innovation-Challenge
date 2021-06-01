@@ -1,0 +1,232 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &195278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 22487226}
+  - component: {fileID: 22232474}
+  - component: {fileID: 11408442}
+  - component: {fileID: 11447638}
+  - component: {fileID: 11495026}
+  - component: {fileID: 11418654}
+  m_Layer: 5
+  m_Name: 2DRadar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &22487226
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195278}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 400, y: 400}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &22232474
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195278}
+  m_CullTransparentMesh: 0
+--- !u!114 &11408442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c464cf59e9a4ba541a0d4e7075fca70a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mPreviewObject: {fileID: 0}
+  OnRedraw:
+    m_PersistentCalls:
+      m_Calls: []
+  keepOrthoSize: 0
+  paperEffectText: 0
+  vRSpaceText: 0
+  vRSpaceScale: 0.1
+  maintainLabelSize: 0
+  radius: 133.77
+  angle: 18.13
+  axisPointMaterial: {fileID: 0}
+  axisLineMaterial: {fileID: 2100000, guid: e4e16f82fb266f240aa11a8fc29bde78, type: 2}
+  axisThickness: 1.22
+  axisPointSize: 1
+  axisAdd: 0
+  totalAxisDevisions: 5
+  PointClicked:
+    m_PersistentCalls:
+      m_Calls: []
+  PointHovered:
+    m_PersistentCalls:
+      m_Calls: []
+  NonHovered:
+    m_PersistentCalls:
+      m_Calls: []
+  Data:
+    mCategories:
+    - Name: Player 1
+      Seperation: 0
+      Curve: 0
+      FillMaterial: {fileID: 2100000, guid: b8ab27c4271a3e64d8491c967d324fd0, type: 2}
+      FillSmoothing: 5
+      LinePrefab: {fileID: 0}
+      LineHover: {fileID: 11494010, guid: 87cd6d8b7ca9527449e32ecefc4015c5, type: 3}
+      LineThickness: 2.23
+      LineMaterial: {fileID: 2100000, guid: e4e16f82fb266f240aa11a8fc29bde78, type: 2}
+      PointPrefab: {fileID: 0}
+      PointHover: {fileID: 11475216, guid: 57ee497f5c86d764fa20628075109b20, type: 3}
+      PointSize: 9.42
+      PointMaterial: {fileID: 2100000, guid: b44e6f88dc1476049bfcb25ce2908c91, type: 2}
+      MaxValue: -1
+    - Name: Player 2
+      Seperation: 0
+      Curve: 0
+      FillMaterial: {fileID: 2100000, guid: a6b1676c2a0dde749b07f353eead85ee, type: 2}
+      FillSmoothing: 5
+      LinePrefab: {fileID: 0}
+      LineHover: {fileID: 11494010, guid: 87cd6d8b7ca9527449e32ecefc4015c5, type: 3}
+      LineThickness: 3.26
+      LineMaterial: {fileID: 2100000, guid: e4e16f82fb266f240aa11a8fc29bde78, type: 2}
+      PointPrefab: {fileID: 178322, guid: bc48e63022c82e841adfd41036230ed4, type: 3}
+      PointHover: {fileID: 11475216, guid: 57ee497f5c86d764fa20628075109b20, type: 3}
+      PointSize: 11.5
+      PointMaterial: {fileID: 2100000, guid: be1ca05f8d1cf90449194e1af4839df0, type: 2}
+      MaxValue: -1
+    mGroups:
+    - A
+    - B
+    - C
+    - d
+    - e
+    mData:
+    - GroupName: A
+      ColumnName: Player 1
+      Amount: 5
+    - GroupName: A
+      ColumnName: Player 2
+      Amount: 1
+    - GroupName: B
+      ColumnName: Player 1
+      Amount: 6
+    - GroupName: B
+      ColumnName: Player 2
+      Amount: 2
+    - GroupName: C
+      ColumnName: Player 1
+      Amount: 7
+    - GroupName: C
+      ColumnName: Player 2
+      Amount: 3
+    - GroupName: d
+      ColumnName: Player 1
+      Amount: 8
+    - GroupName: d
+      ColumnName: Player 2
+      Amount: 4
+    - GroupName: e
+      ColumnName: Player 1
+      Amount: 3
+    - GroupName: e
+      ColumnName: Player 2
+      Amount: 6
+    automaticMaxValue: 0
+    maxValue: 10
+--- !u!114 &11447638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5935733d0eb5b48ba1db228c83f0f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPrefab: {fileID: 0}
+  textFormat:
+    prefix: 
+    suffix: 
+    customFormat: 
+  fontSize: 19
+  fontSharpness: 3
+  seperation: 16.05
+  location:
+    Breadth: 0
+    Depth: 0
+  alignment: 0
+--- !u!114 &11495026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb3e26fd06b41d4baa022120f5cd617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPrefab: {fileID: 0}
+  textFormat:
+    prefix: 
+    suffix: 
+    customFormat: 
+  fontSize: 20
+  fontSharpness: 3
+  seperation: 3.37
+  location:
+    Breadth: 166.1
+    Depth: 0
+  alignment: 0
+  fractionDigits: 0
+--- !u!114 &11418654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 683c1c28d013cce4c9128c952dbdca81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPrefab: {fileID: 114000011523374616, guid: 7c86db16ee4151f4d9ed59479b2fdfbf,
+    type: 3}
+  textFormat:
+    prefix: 
+    suffix: 
+    customFormat: 
+  fontSize: 14
+  fontSharpness: 1
+  seperation: 20
+  location:
+    Breadth: 0
+    Depth: 0
+  alignment: 0
+  visibleLabels: 0

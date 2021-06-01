@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.agorabuilder:rtm-sdk:1.4.4@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8762277d0d330317695ab6824cabfc87/rtm-sdk-1.4.4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8762277d0d330317695ab6824cabfc87/rtm-sdk-1.4.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8762277d0d330317695ab6824cabfc87/rtm-sdk-1.4.4/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8762277d0d330317695ab6824cabfc87/rtm-sdk-1.4.4/jars/libs/agora-rtm-sdk.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.agorabuilder/rtm-sdk/1.4.4/e3faa3c823d550d133eea2c826a6a856a5c1d756/rtm-sdk-1.4.4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.agorabuilder/rtm-sdk/1.4.4/e3faa3c823d550d133eea2c826a6a856a5c1d756/rtm-sdk-1.4.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

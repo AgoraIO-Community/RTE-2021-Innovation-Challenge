@@ -1,0 +1,327 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &178674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 414114}
+  - component: {fileID: 11457016}
+  - component: {fileID: 11427482}
+  - component: {fileID: 11427248}
+  - component: {fileID: 11498434}
+  - component: {fileID: 11495174}
+  - component: {fileID: 11496538}
+  m_Layer: 8
+  m_Name: DefualtBarCategoryStyle3D
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &414114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178674}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.12, y: 6.9, z: -40.06}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &11457016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d167234d2aa7746a9618de50700879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mPreviewObject: {fileID: 0}
+  OnRedraw:
+    m_PersistentCalls:
+      m_Calls: []
+  keepOrthoSize: 0
+  paperEffectText: 0
+  vRSpaceText: 0
+  vRSpaceScale: 0.1
+  maintainLabelSize: 0
+  viewType: 0
+  negativeBars: 0
+  stacked: 0
+  BarClicked:
+    m_PersistentCalls:
+      m_Calls: []
+  BarHovered:
+    m_PersistentCalls:
+      m_Calls: []
+  NonHovered:
+    m_PersistentCalls:
+      m_Calls: []
+  Data:
+    mCategories:
+    - Name: Category 1
+      Materials:
+        Normal: {fileID: 2100000, guid: be2839104e0423d4693027ffaf460aa6, type: 2}
+        Hover: {r: 1, g: 1, b: 1, a: 1}
+        Selected: {r: 0, g: 0, b: 0, a: 0}
+    - Name: Category 2
+      Materials:
+        Normal: {fileID: 2100000, guid: d82c47734d275e242b3a443213ce7f81, type: 2}
+        Hover: {r: 1, g: 1, b: 1, a: 1}
+        Selected: {r: 0, g: 0, b: 0, a: 0}
+    - Name: Category 3
+      Materials:
+        Normal: {fileID: 2100000, guid: be2759b1af329f440b4635f4d2a4da1e, type: 2}
+        Hover: {r: 1, g: 1, b: 1, a: 1}
+        Selected: {r: 0, g: 0, b: 0, a: 0}
+    mGroups:
+    - Group 1
+    - Group 2
+    - Group 3
+    mData:
+    - GroupName: Group 1
+      ColumnName: Category 1
+      Amount: 4
+    - GroupName: Group 1
+      ColumnName: Category 2
+      Amount: 2
+    - GroupName: Group 1
+      ColumnName: Category 3
+      Amount: 1
+    - GroupName: Group 2
+      ColumnName: Category 1
+      Amount: 6
+    - GroupName: Group 2
+      ColumnName: Category 2
+      Amount: 4
+    - GroupName: Group 2
+      ColumnName: Category 3
+      Amount: 2
+    - GroupName: Group 3
+      ColumnName: Category 1
+      Amount: 8
+    - GroupName: Group 3
+      ColumnName: Category 2
+      Amount: 6
+    - GroupName: Group 3
+      ColumnName: Category 3
+      Amount: 4
+    automaticMaxValue: 1
+    maxValue: 10
+    automaticMinValue: 0
+    minValue: 0
+  transitionTimeBetaFeature: -1
+  heightRatio: 5
+  totalWidth: 5.96
+  totalDepth: 11.58
+  textCamera: {fileID: 0}
+  textIdleDistance: 20
+  barPrefab: {fileID: 1000010663314880, guid: a749b1c1915989e468f39d3d111311c2, type: 3}
+  AxisSeperation:
+    Breadth: 2.58
+    Depth: 0.67
+  barSeperation:
+    Breadth: 0
+    Depth: 2.44
+  groupSeperation:
+    Breadth: 0
+    Depth: 1.06
+  barSize:
+    Breadth: 0.8
+    Depth: 0.8
+--- !u!114 &11427482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb3e26fd06b41d4baa022120f5cd617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPrefab: {fileID: 114000012995897278, guid: 06f80cc0cc8c2fe409d74c038c3e5cb2,
+    type: 3}
+  textFormat:
+    prefix: 
+    suffix: 
+    customFormat: 
+  fontSize: 4
+  fontSharpness: 3
+  seperation: 0.43
+  location:
+    Breadth: 0
+    Depth: 0
+  alignment: 0
+  fractionDigits: 0
+--- !u!114 &11427248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5935733d0eb5b48ba1db228c83f0f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPrefab: {fileID: 0}
+  textFormat:
+    prefix: 
+    suffix: 
+    customFormat: 
+  fontSize: 4
+  fontSharpness: 3
+  seperation: 0
+  location:
+    Breadth: 0.93
+    Depth: 0
+  alignment: 5
+--- !u!114 &11498434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178674}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7598682dc3bb9174d9546fe226cab95a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SimpleView: 1
+  format: 0
+  depth:
+    Automatic: 0
+    Value: 0
+  mainDivisions:
+    messure: 0
+    unitsPerDivision: 0
+    total: 3
+    material: {fileID: 2100000, guid: e65ebfd404010624fb315bf790f7eebe, type: 2}
+    materialTiling:
+      EnableTiling: 0
+      TileFactor: 100
+    markBackLength:
+      Automatic: 0
+      Value: 6.8
+    markLength:
+      Automatic: 0
+      Value: -0.41
+    markDepth:
+      Automatic: 0
+      Value: 6.9
+    markThickness: 0.17
+    textPrefab: {fileID: 0}
+    textPrefix: 
+    textSuffix: 
+    fractionDigits: 2
+    fontSize: 4
+    fontSharpness: 3
+    textDepth: -0.18
+    textSeperation: -0.71
+    alignment: 1
+  subDivisions:
+    messure: 0
+    unitsPerDivision: 0
+    total: 3
+    material: {fileID: 2100000, guid: a47d052d9a1992e4495892ee553abd96, type: 2}
+    materialTiling:
+      EnableTiling: 0
+      TileFactor: 100
+    markBackLength:
+      Automatic: 0
+      Value: 6.8
+    markLength:
+      Automatic: 0
+      Value: -0.41
+    markDepth:
+      Automatic: 0
+      Value: 6.9
+    markThickness: 0.17
+    textPrefab: {fileID: 0}
+    textPrefix: 
+    textSuffix: 
+    fractionDigits: 2
+    fontSize: 4
+    fontSharpness: 3
+    textDepth: -0.18
+    textSeperation: -0.71
+    alignment: 1
+--- !u!114 &11495174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178674}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 683c1c28d013cce4c9128c952dbdca81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textPrefab: {fileID: 0}
+  textFormat:
+    prefix: 
+    suffix: 
+    customFormat: 
+  fontSize: 4
+  fontSharpness: 3
+  seperation: 0
+  location:
+    Breadth: 2.02
+    Depth: 1.09
+  alignment: 1
+  visibleLabels: 1
+--- !u!114 &11496538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa3c1507f66ca24fa9c929b5fae69a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  AnimateOnStart: 1
+  AnimationTime: 3

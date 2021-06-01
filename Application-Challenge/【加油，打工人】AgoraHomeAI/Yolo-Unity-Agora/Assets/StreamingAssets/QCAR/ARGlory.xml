@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="indust" size="1024.000000 720.635620" />
+    <ImageTarget name="QQRace" size="500.000000 148.291931" />
+    <ImageTarget name="QQJoy" size="500.000000 133.991531" />
+    <ImageTarget name="QGCcollage" size="500.000000 138.321167" />
+  </Tracking>
+</QCARConfig>
