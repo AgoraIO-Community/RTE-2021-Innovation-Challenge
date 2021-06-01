@@ -1,0 +1,79 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:2:1-26:12
+INJECTED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:2:1-26:12
+	package
+		ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:3:5-30
+		INJECTED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml
+		INJECTED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml
+		ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:2:1-26:12
+		INJECTED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml
+		ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:2:1-26:12
+		INJECTED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:5:5-67
+	android:name
+		ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:5:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:6:5-79
+	android:name
+		ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:6:22-76
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:7:5-81
+	android:name
+		ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:7:22-78
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:8:5-77
+	android:name
+		ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:8:22-74
+application
+ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:10:5-24:19
+activity#io.agora.rtc.ss.impl.ScreenCapture$ScreenCaptureAssistantActivity
+ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:11:9-15:64
+	android:screenOrientation
+		ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:14:13-49
+	android:process
+		ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:13:13-48
+	android:theme
+		ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:15:13-61
+	android:name
+		ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:12:13-78
+service#io.agora.rtc.ss.impl.ScreenSharingService
+ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:16:9-23:19
+	android:process
+		ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:19:13-48
+	android:foregroundServiceType
+		ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:18:13-60
+	android:name
+		ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:17:13-54
+intent-filter#action:name:android.intent.action.screenshare
+ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:20:13-22:29
+action#android.intent.action.screenshare
+ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:21:17-76
+	android:name
+		ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml:21:25-73
+uses-sdk
+INJECTED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml
+INJECTED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml
+INJECTED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml
+INJECTED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml
+		ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml
+		INJECTED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml
+		ADDED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml
+		INJECTED from /Users/linzihao/Desktop/API-Examples/Android/APIExample/lib-screensharing/src/main/AndroidManifest.xml

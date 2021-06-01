@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="20dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginBottom="@dimen/dp_10"
+    app:cardCornerRadius="10dp"
+    app:cardBackgroundColor="#000000">
+
+    <RelativeLayout
+        android:id="@+id/friend_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/friend_card"
+        >
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/friend_avatar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/room_hall_icon"
+            app:riv_oval="true"
+            app:riv_corner_radius="100dp"
+            app:riv_border_color="#000000"
+            app:riv_border_width="1dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp"
+            />
+
+        <RelativeLayout
+            android:layout_toEndOf="@id/friend_avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            >
+            <TextView
+                android:id="@+id/friend_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/user_name"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/uidtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UID:"
+                android:textSize="15sp"
+                android:layout_below="@id/friend_name"
+                />
+            <TextView
+                android:id="@+id/friend_uid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/user_id"
+                android:textSize="15sp"
+                android:layout_toEndOf="@id/uidtext"
+                android:layout_below="@id/friend_name"
+                />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/friend_more"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/more"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="30dp"
+            />
+
+    </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>
