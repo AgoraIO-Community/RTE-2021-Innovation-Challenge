@@ -1,0 +1,86 @@
+{
+  "name": "ITalking-Fronted",
+  "description": "Create / Share / Explore / Connect",
+  "version": "0.1.0",
+  "author": "SimonMa <simon@tomotoes.com>",
+  "homepage": "https://italking.tomotoes.com",
+  "repository": "https://github.com/Tomotoes/ITalking",
+  "bugs": "https://github.com/Tomotoes/ITalking/issues",
+  "private": true,
+  "dependencies": {
+    "@multiavatar/multiavatar": "^1.0.6",
+    "@rematch/core": "^2.0.1",
+    "@rematch/immer": "^2.0.1",
+    "@sentry/react": "^6.3.5",
+    "@sentry/tracing": "^6.3.6",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "agora-rtc-sdk-ng": "^4.4.0",
+    "agora-rtm-sdk": "^1.4.2",
+    "antd": "^4.15.0",
+    "axios": "^0.21.1",
+    "date-fns": "^2.21.3",
+    "emoji-mart": "^3.0.1",
+    "i18next": "^19.8.4",
+    "i18next-browser-languagedetector": "^6.0.1",
+    "moment": "^2.29.1",
+    "nprogress": "^0.2.0",
+    "react": "^17.0.2",
+    "react-awesome-reveal": "^3.7.1",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
+    "react-i18next": "^11.8.15",
+    "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "react-transition-group": "^4.4.1",
+    "source-map-explorer": "^2.5.2",
+    "styled-components": "^5.2.1",
+    "typescript": "^4.1.2",
+    "uuid": "^8.3.2",
+    "web-vitals": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/emoji-mart": "^3.0.4",
+    "@types/nprogress": "^0.2.0",
+    "@types/react-helmet": "^6.1.1",
+    "@types/react-router-dom": "^5.1.7",
+    "@types/react-transition-group": "^4.4.1",
+    "@types/styled-components": "^5.1.7",
+    "@types/uuid": "^8.3.0",
+    "eslint-config-standard-with-typescript": "^20.0.0",
+    "eslint-plugin-node": "11",
+    "eslint-plugin-promise": "4"
+  },
+  "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "dev": "react-scripts start",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

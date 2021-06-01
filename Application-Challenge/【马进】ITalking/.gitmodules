@@ -1,0 +1,10 @@
+[submodule "fronted"]
+	path = fronted
+	url = https://github.com/Tomotoes/ITalking-Fronted
+[submodule "service"]
+    path = service
+    url = https://github.com/Tomotoes/ITalking-Service
+[submodule "client"]
+	path = client
+	url = https://github.com/Tomotoes/ITalking-Client
+; 目前暂不需要分子模块

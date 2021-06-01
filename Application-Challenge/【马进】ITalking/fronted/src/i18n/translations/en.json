@@ -1,0 +1,79 @@
+{
+  "Header": {
+    "About": "About",
+    "Mission": "Mission",
+    "Product": "Conception",
+    "Quick-Start": "Quick Start",
+    "Menu": "Menu"
+  },
+  "IntroBlock": {
+    "Title": "ITalking & Social platform",
+    "Content": "In ITalking, you can show yourself through text, voice, and pictures, discover friends based on communication, and establish true, effective, and healthy social relationships.",
+    "ExploreButton": "Quick Start",
+    "LearnButton": "Learn More"
+  },
+  "IntroMiddleBlock": {
+    "Title": "Know me by voice",
+    "Content": "Enter the world of ITalking and meet those interesting people.",
+    "Button": "Learn More"
+  },
+  "AboutBlock": {
+    "Title": "About ITalking",
+    "Content": "Communicate interesting stories with friends on the same platform and expand your network. Clash your thoughts and improve yourself.",
+    "FirstSelection": {
+      "Title": "Explore interesting moments",
+      "Content": "The boring life needs to be broken, and the wonderful moments need to be illuminated. Come explore and discover the bright and wonderful moments on ITalking."
+    },
+    "SecondSelection": {
+      "Title": "Voice communication",
+      "Content": "Try to find a soul that is as good as you. Talk to him about his interests and passions with your voice, and friends will be by your side."
+    }
+  },
+  "MissionBlock": {
+    "Title": "Improve the quality of social",
+    "Content": "Eric Klinenberg, a sociologist at New York University, believes that the quality of social interaction, not the quantity, determines whether you are alone. Although some people live alone and rarely see people, they still find satisfaction in a small amount of social interaction; ITalking's social mechanism will help you meet higher quality friends."
+  },
+  "ProductBlock": {
+    "Title": "Follow the soul to find you",
+    "Content": "Soul growth needs to be slower, but in the current era of rapid change, it is slow and somewhat extravagant."
+  },
+  "Footer": {
+    "Contact": "Contact",
+    "Tell us everything": "Tell us everything",
+    "Question": "Do you have any question regarding ITalking? Feel free to reach out.",
+    "Let's Chat": "Let's Chat",
+    "Cooperation": "Business",
+    "Business Cooperation": "Business Cooperation",
+    "Help": "Help",
+    "Safe Feedback": "Safe Feedback",
+    "Address": {
+      "Label": "Address",
+      "Country": "China",
+      "Province": "Mainland",
+      "City": "Beijing"
+    },
+    "Navigation": "Navigation",
+    "Language": "Language"
+  },
+  "SignIn": {
+    "Title": "Start the journey of ITalking",
+    "Name": "Your nickname",
+    "Password": "Your password",
+    "Confirm": "Confirm password again",
+    "Button": "SIGN UP",
+    "Hi": "Hi friend!",
+    "Description": "Use an existing ITalking account?",
+    "Back": "Back to page",
+    "Toggle": "Sign In"
+  },
+  "Login": {
+    "Title": "Enter the world of ITalking",
+    "Name": "Your nickname",
+    "Password": "Your password",
+    "Button": "SIGN IN",
+    "Hi": "Welcome back!",
+    "Description": "Using ITalking for the first time?",
+    "Back": "Back to page",
+    "Toggle": "Sign Up"
+  }
+}
