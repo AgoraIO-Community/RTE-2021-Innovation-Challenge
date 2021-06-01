@@ -21,6 +21,10 @@ public class TestController {
     public String index() {
         return "live";
     }
+    @RequestMapping(value = {"/video"})
+    public String video() {
+        return "video";
+    }
 //    @RequestMapping(value = {"/"})
 //    public String index() {
 //        return "index";

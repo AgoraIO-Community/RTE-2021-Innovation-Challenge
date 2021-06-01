@@ -93,6 +93,9 @@ async function f1() {
     console.log("join")
     await joins()
 }
+ function demo() {
+     window.location.href="/video";
+}
 
 async function join() {
     //  添加事件侦听器以在远程用户发布时播放远程轨道。
@@ -146,8 +149,6 @@ var playerLists = []
 
 async function subscribe(user, mediaType) {
     //测试效果是多画两个正常就一个
-    await f(user, mediaType)
-    await f(user, mediaType)
     await f(user, mediaType)
     await f(user, mediaType)
     await f(user, mediaType)
