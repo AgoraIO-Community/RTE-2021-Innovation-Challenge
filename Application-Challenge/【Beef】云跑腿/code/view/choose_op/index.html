@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>业务选择</title>
+<link rel="stylesheet" type="text/css" href="statics/css/style.css" />
+</head>
+
+<body>
+<div style="height: 40px;"></div>
+<div class="lc">
+  <h2 class="title">业务选择</h2>
+  <div class="items">
+    <div class="left">
+      <h3> <a href="#">信用卡全家福</a> </h3>
+      <p class="p1">爱网游、爱动漫、爱旅行？无论潮男还是仙女，一大波卡片正列队相迎</p>
+      <p class="p2"> <span class="amount">2000</span> <span></span> </p>
+      <p class="p3">每月信用卡额度起点</p>
+      <p class="p4">新户达标享限量款正版圆饼包</p>
+      <a class="btn" href="../service/index.html"> 立即申请 </a> </div>
+    <div class="right">
+      <div class="Scroll-left">
+        <div class="hd"> <a class="next"><</a> <a class="prev">></a> </div>
+        <div class="bd">
+          <ul class="picList">
+            <li>
+              <h3> <a href="#">无限信用卡</a> </h3>
+              <p class="p1">即刻开启您的无限人生</p>
+              <p class="p2"> <span class="amount">10000/5000</span> <span></span> </p>
+              <p class="p3">主/附属卡年费</p>
+              <p class="p4">尊享产品专属礼遇</p>
+              <a class="btn" href="../service/index.html"> 立即申请 </a> </li>
+            <li>
+              <h3> <a href="#">“一卡通”金卡</a> </h3>
+              <p class="p1">境内外通用，还可以理财</p>
+              <p class="p2"> <span class="amount">月均资产3万+</span> <span></span> </p>
+              <p class="p3">免除当月的账户管理费</p>
+              <p class="p4">大额消费短信通知 全球通行消费取现 </p>
+              <a class="btn" href="../service/index.html"> 立即申请 </a> </li>
+            <li>
+              <h3> <a href="#">教育储蓄</a> </h3>
+              <p class="p1">子女上学提供保障</p>
+              <p class="p2"> <span class="amount">50元</span> <span></span> </p>
+              <p class="p3">每月约定最低起存金额</p>
+              <p class="p4">免收利息税 存期选择多</p>
+              <a class="btn" href="../service/index.html"> 立即申请 </a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script> 
+<script src="statics/js/jquery.SuperSlide.2.1.1.js" type="text/javascript" charset="utf-8"></script> 
+<script type="text/javascript">
+jQuery(".Scroll-left").slide({
+	titCell: ".hd ul",
+	mainCell: ".bd ul",
+	autoPage: true,
+	effect: "left",
+	autoPlay: true,
+	vis: 3
+});
+</script>
+</body>
+</html>
