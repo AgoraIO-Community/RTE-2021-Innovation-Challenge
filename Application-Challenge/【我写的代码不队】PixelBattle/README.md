@@ -21,16 +21,22 @@
 `npm run start`
 浏览器输入`127.0.0.1:8081`
 #### 整个界面
+![image](https://github.com/damagegithub/RTE-2021-Innovation-Challenge/blob/master/Application-Challenge/%E3%80%90%E6%88%91%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E4%B8%8D%E9%98%9F%E3%80%91PixelBattle/imgs/main.png)
 #### 画布
+![image](https://github.com/damagegithub/RTE-2021-Innovation-Challenge/blob/master/Application-Challenge/%E3%80%90%E6%88%91%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E4%B8%8D%E9%98%9F%E3%80%91PixelBattle/imgs/canves.png)
 点击画布可以选择坐标,滚轮缩放画布,拖拽移动画布
 画布每隔一段时间自动从服务器获取最新结果并渲染
 右侧可以选择一种颜色,点击按钮画一个像素,需要等一会儿才能继续画
 #### 聊天
+![image](https://github.com/damagegithub/RTE-2021-Innovation-Challenge/blob/master/Application-Challenge/%E3%80%90%E6%88%91%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E4%B8%8D%E9%98%9F%E3%80%91PixelBattle/imgs/chat.png)
 有一个公共频道,用于宣传自己创建的频道
 点击加号可以添加频道
+![image](https://github.com/damagegithub/RTE-2021-Innovation-Challenge/blob/master/Application-Challenge/%E3%80%90%E6%88%91%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E4%B8%8D%E9%98%9F%E3%80%91PixelBattle/imgs/addChannel.png)
 点击频道名右侧加号可以为频道添加一些信息,信息会显示在聊天框的上方
+![image](https://github.com/damagegithub/RTE-2021-Innovation-Challenge/blob/master/Application-Challenge/%E3%80%90%E6%88%91%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E4%B8%8D%E9%98%9F%E3%80%91PixelBattle/imgs/goal.png)
 点击×号退出频道
 为防止敏感信息,频道仅支持发送文字,不支持图片.
+
 ---
 ### 我想用用看,修改一些东西
 打开`./public/javascripts/main.js`, 将`appID`改为自己的appID
@@ -38,3 +44,11 @@
 默认端口和ip为`127.0.0.1:8081`,如需修改,则需要将其他文件中的ip,端口同时修改
 `./routes/pixelArt.js` 中的`delay`为每`delay`秒创建一个当前画布的图片,保存在`./public/history`文件夹中
 `./public/javascripts/canves.js`中`delayGetSvg`为向服务器请求图片的延迟(秒),`delayDraw`为放置像素后的延迟(秒)
+`./public/history`中的为保存的图片,如有需要可以删除,`0.svg`除外.
+## 未来改进方向
+1.找个UI设计师把这丑到爆的页面修改修改
+2.优化svg图片存储方式,节约传输带宽,服务器压力,浏览器计算压力
+3.优化画布设计
+
+## 联系方式
+E-mail:`jphandll@gmail.com`
