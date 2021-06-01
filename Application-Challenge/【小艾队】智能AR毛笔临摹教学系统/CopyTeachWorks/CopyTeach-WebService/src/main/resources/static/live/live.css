@@ -1,0 +1,92 @@
+.banner {
+    padding: 0;
+    background-color: #52575c;
+    color: white;
+}
+
+.banner-text {
+    padding: 8px 20px;
+    margin: 0;
+}
+
+
+#join-form {
+    margin-top: 10px;
+}
+
+.tips {
+    font-size: 12px;
+    margin-bottom: 2px;
+    color: gray;
+}
+
+.join-info-text {
+    margin-bottom: 2px;
+}
+
+input {
+    width: 100%;
+    margin-bottom: 2px;
+}
+
+.player {
+    width: 162px;
+    height: 335.5px;
+}
+
+.player-name {
+    margin: 8px 0;
+}
+
+#success-alert, .success-alert-with-token {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .player {
+        width: 324px;
+        height: 673px;
+    }
+}
+
+
+@keyframes bubble_big {
+    0% {
+        /*position: relative;*/
+        /*top: auto;*/
+        /*left: auto;*/
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(2);
+        /*position: fixed;*/
+        /*top: 50%;*/
+        /*left: 50%;*/
+    }
+}
+
+@keyframes bubble_small {
+    0% {
+        transform: scale(2);
+        /*position: fixed;*/
+        /*top: 50%;*/
+        /*left: 50%;*/
+    }
+    100% {
+        /*position: relative;*/
+        /*top: auto;*/
+        /*left: auto;*/
+        transform: scale(1);
+    }
+}
+
+canvas {
+    background-color: white;
+}
+
+p {
+    margin-top: 50px;
+}
+.niu{
+    margin-top: 50px;
+}
