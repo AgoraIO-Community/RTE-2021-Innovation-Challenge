@@ -7,8 +7,24 @@ const viewImportMap = {
   table: ["Table", "Thead", "Tbody", "Tr", "Td", "Th"],
   list: ["List", "ListItem", "Flex", "Divider"],
   kanban: ["Flex", "VStack", "HStack", "Box", "Heading", "Text"],
-  form: ["FormErrorMessage", "FormLabel", "FormControl", "Button"],
+  form: [
+    "FormErrorMessage",
+    "FormLabel",
+    "FormControl",
+    "Button",
+    "ModalFooter",
+    "useToast",
+  ],
   button: ["Button"],
+  modal: [
+    "Modal",
+    "ModalOverlay",
+    "ModalContent",
+    "ModalHeader",
+    "ModalBody",
+    "ModalCloseButton",
+    "useDisclosure",
+  ],
 };
 const SCALARS = new Set(["Int", "Float", "String", "Boolean", "DateTime"]);
 
@@ -19,6 +35,7 @@ module.exports = async function (dataMeta, documentMeta) {
     kanban: [],
     form: [],
     button: [],
+    modal: [],
   };
   const componentImportSet = new Set([
     "Spinner",
@@ -104,6 +121,15 @@ module.exports = async function (dataMeta, documentMeta) {
     viewImportMap[viewType].forEach((component) =>
       componentImportSet.add(component)
     );
+
+    const modalAttr = selection.attributes.find(
+      (attr) => attr.name === "modal"
+    );
+    if (modalAttr) {
+      viewImportMap.modal.forEach((component) =>
+        componentImportSet.add(component)
+      );
+    }
 
     const componentName = capitalize(type.name);
     const dataHook =
@@ -191,6 +217,7 @@ module.exports = async function (dataMeta, documentMeta) {
       selectionName: selection.name,
       dataHook,
       selections: selection.selections,
+      attributes: selection.attributes,
       idName: selectionWithIdAttr ? selectionWithIdAttr.name : undefined,
       groupByName: groupBySelection ? groupBySelection.name : undefined,
       groupByType: groupBySelection ? groupBySelection.customType : undefined,
@@ -220,6 +247,7 @@ module.exports = async function (dataMeta, documentMeta) {
           }, {}),
         common: {
           capitalizeFirst,
+          capitalize,
           formatRawProps(variables) {
             const propsVariable = variables.find((v) => v.name === "props");
             if (!propsVariable) {

@@ -18,6 +18,13 @@ import {
   Tr,
   Td,
   Th,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
   List,
   ListItem,
   Flex,
@@ -30,6 +37,8 @@ import {
   FormLabel,
   FormControl,
   Button,
+  ModalFooter,
+  useToast,
 } from "@chakra-ui/react";
 import {
   Scalars,
@@ -83,6 +92,7 @@ export const Empty: React.FC<{ message?: string }> = ({
 // table
 export const ClassTable: React.FC = () => {
   const [{ data, fetching, error }] = useClassTableQuery();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   if (error) {
     return <Error error={error} />;
   }
@@ -98,31 +108,34 @@ export const ClassTable: React.FC = () => {
   }
 
   return (
-    <Table variant="striped">
-      <Thead>
-        <Tr>
-          <Th>id</Th>
-          <Th>name</Th>
-          <Th>teacher</Th>
-        </Tr>
-      </Thead>
-      <Tbody>
-        {(data.classes || []).map((entity) => {
-          return (
-            <Tr key={entity.id}>
-              <Td>{entity.id}</Td>
-              <Td>{entity.name}</Td>
-              <Td>{entity.teacher}</Td>
-            </Tr>
-          );
-        })}
-      </Tbody>
-    </Table>
+    <>
+      <Table variant="striped">
+        <Thead>
+          <Tr>
+            <Th>id</Th>
+            <Th>name</Th>
+            <Th>teacher</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          {(data.classes || []).map((entity) => {
+            return (
+              <Tr key={entity.id}>
+                <Td>{entity.id}</Td>
+                <Td>{entity.name}</Td>
+                <Td>{entity.teacher}</Td>
+              </Tr>
+            );
+          })}
+        </Tbody>
+      </Table>
+    </>
   );
 };
 
 export const UserTable: React.FC = () => {
   const [{ data, fetching, error }] = useUserTableQuery();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   if (error) {
     return <Error error={error} />;
   }
@@ -138,28 +151,40 @@ export const UserTable: React.FC = () => {
   }
 
   return (
-    <Table variant="striped">
-      <Thead>
-        <Tr>
-          <Th>id</Th>
-          <Th>name</Th>
-          <Th>role</Th>
-          <Th>createdAt</Th>
-        </Tr>
-      </Thead>
-      <Tbody>
-        {(data.users || []).map((entity) => {
-          return (
-            <Tr key={entity.id}>
-              <Td>{entity.id}</Td>
-              <Td>{entity.name}</Td>
-              <Td>{entity.role}</Td>
-              <Td>{entity.createdAt}</Td>
-            </Tr>
-          );
-        })}
-      </Tbody>
-    </Table>
+    <>
+      <Table variant="striped">
+        <Thead>
+          <Tr>
+            <Th>id</Th>
+            <Th>name</Th>
+            <Th>role</Th>
+            <Th>createdAt</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          {(data.users || []).map((entity) => {
+            return (
+              <Tr key={entity.id} onClick={onOpen}>
+                <Td>{entity.id}</Td>
+                <Td>{entity.name}</Td>
+                <Td>{entity.role}</Td>
+                <Td>{entity.createdAt}</Td>
+              </Tr>
+            );
+          })}
+        </Tbody>
+      </Table>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>编辑用户</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <UpdateOneUserForm afterSubmit={onClose} />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
   );
 };
 
@@ -296,6 +321,10 @@ export const UserKanban: React.FC = () => {
 };
 
 // form
+export type CreateOneUserFormProps = {
+  afterSubmit?: () => unknown;
+  variant?: "plain" | "modal";
+};
 export type CreateOneUserFormValues = {
   data: {
     email: Scalars["String"];
@@ -303,7 +332,10 @@ export type CreateOneUserFormValues = {
     role: Role;
   };
 };
-export const CreateOneUserForm: React.FC = () => {
+export const CreateOneUserForm: React.FC<CreateOneUserFormProps> = ({
+  afterSubmit,
+  variant = "plain",
+}) => {
   const [, trigger] = useCreateOneUserFormMutation();
   const {
     handleSubmit,
@@ -311,12 +343,26 @@ export const CreateOneUserForm: React.FC = () => {
     formState: { errors, isSubmitting },
     reset,
   } = useForm<CreateOneUserFormValues>();
+  const toast = useToast();
 
   async function onSubmit(values: CreateOneUserFormValues) {
     try {
-      await trigger(values);
+      const result = await trigger(values);
+      if (result.error) {
+        throw result.error;
+      }
       reset();
-    } catch (error) {}
+    } catch (error) {
+      toast({
+        title: "Submit failed.",
+        description: error.message || String(error),
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    } finally {
+      afterSubmit?.();
+    }
   }
 
   return (
@@ -362,13 +408,26 @@ export const CreateOneUserForm: React.FC = () => {
           {errors.data?.role && errors.data.role.message}
         </FormErrorMessage>
       </FormControl>
-      <Button mt={4} isLoading={isSubmitting} type="submit">
-        Submit
-      </Button>
+      {variant === "plain" ? (
+        <Button mt={4} isLoading={isSubmitting} type="submit">
+          Submit
+        </Button>
+      ) : null}
+      {variant === "modal" ? (
+        <ModalFooter>
+          <Button mt={4} isLoading={isSubmitting} type="submit">
+            Submit
+          </Button>
+        </ModalFooter>
+      ) : null}
     </form>
   );
 };
 
+export type UpdateOneUserFormProps = {
+  afterSubmit?: () => unknown;
+  variant?: "plain" | "modal";
+};
 export type UpdateOneUserFormValues = {
   data: {
     email?: {
@@ -385,7 +444,10 @@ export type UpdateOneUserFormValues = {
     id?: Scalars["Int"];
   };
 };
-export const UpdateOneUserForm: React.FC = () => {
+export const UpdateOneUserForm: React.FC<UpdateOneUserFormProps> = ({
+  afterSubmit,
+  variant = "plain",
+}) => {
   const [, trigger] = useUpdateOneUserFormMutation();
   const {
     handleSubmit,
@@ -393,12 +455,26 @@ export const UpdateOneUserForm: React.FC = () => {
     formState: { errors, isSubmitting },
     reset,
   } = useForm<UpdateOneUserFormValues>();
+  const toast = useToast();
 
   async function onSubmit(values: UpdateOneUserFormValues) {
     try {
-      await trigger(values);
+      const result = await trigger(values);
+      if (result.error) {
+        throw result.error;
+      }
       reset();
-    } catch (error) {}
+    } catch (error) {
+      toast({
+        title: "Submit failed.",
+        description: error.message || String(error),
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    } finally {
+      afterSubmit?.();
+    }
   }
 
   return (
@@ -450,19 +526,35 @@ export const UpdateOneUserForm: React.FC = () => {
           {errors.where?.id && errors.where.id.message}
         </FormErrorMessage>
       </FormControl>
-      <Button mt={4} isLoading={isSubmitting} type="submit">
-        Submit
-      </Button>
+      {variant === "plain" ? (
+        <Button mt={4} isLoading={isSubmitting} type="submit">
+          Submit
+        </Button>
+      ) : null}
+      {variant === "modal" ? (
+        <ModalFooter>
+          <Button mt={4} isLoading={isSubmitting} type="submit">
+            Submit
+          </Button>
+        </ModalFooter>
+      ) : null}
     </form>
   );
 };
 
+export type DeleteOneUserFormProps = {
+  afterSubmit?: () => unknown;
+  variant?: "plain" | "modal";
+};
 export type DeleteOneUserFormValues = {
   where: {
     id?: Scalars["Int"];
   };
 };
-export const DeleteOneUserForm: React.FC = () => {
+export const DeleteOneUserForm: React.FC<DeleteOneUserFormProps> = ({
+  afterSubmit,
+  variant = "plain",
+}) => {
   const [, trigger] = useDeleteOneUserFormMutation();
   const {
     handleSubmit,
@@ -470,12 +562,26 @@ export const DeleteOneUserForm: React.FC = () => {
     formState: { errors, isSubmitting },
     reset,
   } = useForm<DeleteOneUserFormValues>();
+  const toast = useToast();
 
   async function onSubmit(values: DeleteOneUserFormValues) {
     try {
-      await trigger(values);
+      const result = await trigger(values);
+      if (result.error) {
+        throw result.error;
+      }
       reset();
-    } catch (error) {}
+    } catch (error) {
+      toast({
+        title: "Submit failed.",
+        description: error.message || String(error),
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    } finally {
+      afterSubmit?.();
+    }
   }
 
   return (
@@ -492,9 +598,18 @@ export const DeleteOneUserForm: React.FC = () => {
           {errors.where?.id && errors.where.id.message}
         </FormErrorMessage>
       </FormControl>
-      <Button mt={4} isLoading={isSubmitting} type="submit">
-        Submit
-      </Button>
+      {variant === "plain" ? (
+        <Button mt={4} isLoading={isSubmitting} type="submit">
+          Submit
+        </Button>
+      ) : null}
+      {variant === "modal" ? (
+        <ModalFooter>
+          <Button mt={4} isLoading={isSubmitting} type="submit">
+            Submit
+          </Button>
+        </ModalFooter>
+      ) : null}
     </form>
   );
 };
@@ -503,11 +618,34 @@ export const DeleteOneUserForm: React.FC = () => {
 export type CreateUserButtonProps = {
   children?: Scalars["String"];
   variant?: ButtonVariant;
+} & {
+  onClick?: () => unknown;
 };
 export const CreateUserButton: React.FC<CreateUserButtonProps> = (_props) => {
   const props = Object.assign(
-    { children: "static button", variant: ButtonVariant.Outlined },
+    { children: "创建用户", variant: ButtonVariant.Outlined },
     _props
   );
   return <Button {...props} />;
+};
+
+// modal
+export const CreateOneUserModal: React.FC = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  return (
+    <>
+      <CreateUserButton onClick={onOpen} />
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>创建用户</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <CreateOneUserForm afterSubmit={onClose} />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
+  );
 };

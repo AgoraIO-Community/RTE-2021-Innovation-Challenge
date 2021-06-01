@@ -11,8 +11,15 @@ input ButtonProps {
   variant: ButtonVariant
 }
 
+input ModalProps {
+  triggerId: String!
+  contentId: String!
+  title: String
+}
+
 type StaticComponent {
   button(props: ButtonProps): String!
+  modal(props: ModalProps): String!
 }
 
 type Query {

@@ -471,6 +471,12 @@ export type LessonWhereUniqueInput = {
   id?: Maybe<Scalars['Int']>;
 };
 
+export type ModalProps = {
+  triggerId: Scalars['String'];
+  contentId: Scalars['String'];
+  title?: Maybe<Scalars['String']>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   createOneClass: Class;
@@ -713,11 +719,17 @@ export enum SortOrder {
 export type StaticComponent = {
   __typename?: 'StaticComponent';
   button: Scalars['String'];
+  modal: Scalars['String'];
 };
 
 
 export type StaticComponentButtonArgs = {
   props?: Maybe<ButtonProps>;
+};
+
+
+export type StaticComponentModalArgs = {
+  props?: Maybe<ModalProps>;
 };
 
 export type StringFieldUpdateOperationsInput = {

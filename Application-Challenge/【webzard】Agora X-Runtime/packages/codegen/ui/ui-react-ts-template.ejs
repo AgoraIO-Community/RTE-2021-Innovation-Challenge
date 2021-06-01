@@ -41,6 +41,7 @@ export const Empty: React.FC<{ message?: string }> = ({ message = "no data" }) =
 <% for (table of views.table) { -%>
 export const <%- table.componentName %>: React.FC = () => {
   const [{ data, fetching, error }] = <%- table.dataHook %>();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   if (error) {
     return <Error error={error} />;
   }
@@ -55,27 +56,47 @@ export const <%- table.componentName %>: React.FC = () => {
     return <Empty />;
   }
 
+  <% const modalAttr = table.attributes.find(attr => attr.name === 'modal'); -%>
+  <% const { trigger, contentId, title } = modalAttr ? modalAttr.arguments.reduce((prev, cur) => {
+    prev[cur.name] = cur.value;
+    return prev;
+  }, {}) : {} -%>
+
   return (
-    <Table variant="striped">
-      <Thead>
-        <Tr>
-          <% for (const selection of table.selections) { -%>
-          <Th><%- selection.name %></Th>
-          <% } -%>
-        </Tr>
-      </Thead>
-      <Tbody>
-        {(data.<%- table.selectionName %> || []).map((entity) => {
-          return (
-            <Tr key={entity.<%- table.idName %>}>
-              <% for (const selection of table.selections) { -%>
-              <Td>{entity.<%- selection.name %>}</Td>
-              <% } -%>
-            </Tr>
-          );
-        })}
-      </Tbody>
-    </Table>
+    <>
+      <Table variant="striped">
+        <Thead>
+          <Tr>
+            <% for (const selection of table.selections) { -%>
+            <Th><%- selection.name %></Th>
+            <% } -%>
+          </Tr>
+        </Thead>
+        <Tbody>
+          {(data.<%- table.selectionName %> || []).map((entity) => {
+            return (
+              <Tr key={entity.<%- table.idName %>} <%- trigger === 'tableRow' ? 'onClick={onOpen}' : '' %>>
+                <% for (const selection of table.selections) { -%>
+                <Td>{entity.<%- selection.name %>}</Td>
+                <% } -%>
+              </Tr>
+            );
+          })}
+        </Tbody>
+      </Table>
+      <% if (contentId) { -%>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <%- title ? `<ModalHeader>${title}</ModalHeader>` : '' %>
+          <ModalCloseButton />
+          <ModalBody>
+            <<%- common.capitalize(contentId) %> afterSubmit={onClose} />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+      <% } -%>
+    </>
   );
 };
 
@@ -170,12 +191,16 @@ export const <%- kanban.componentName %>: React.FC = () => {
 
 // form
 <% for (form of views.form) { -%>
+export type <%- form.componentName %>Props = {
+  afterSubmit?: () => unknown;
+  variant?: "plain" | "modal";
+};
 export type <%- form.componentName %>Values = {
   <% for (variable of form.variables) { -%>
   <%- variable.name %>: <%- variable.rawType %>;
   <% } -%>
 };
-export const <%- form.componentName %>: React.FC = () => {
+export const <%- form.componentName %>: React.FC<<%- form.componentName %>Props> = ({ afterSubmit, variant = "plain" }) => {
   const [, trigger] = <%- form.dataHook %>();
   const {
     handleSubmit,
@@ -183,13 +208,25 @@ export const <%- form.componentName %>: React.FC = () => {
     formState: { errors, isSubmitting },
     reset,
   } = useForm<<%- form.componentName %>Values>();
+  const toast = useToast();
 
   async function onSubmit(values: <%- form.componentName %>Values) {
     try {
-      await trigger(values);
+      const result = await trigger(values);
+      if (result.error) {
+        throw result.error;
+      }
       reset();
     } catch (error) {
-
+      toast({
+        title: "Submit failed.",
+        description: error.message || String(error),
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      })
+    } finally {
+      afterSubmit?.();
     }
   }
 
@@ -214,13 +251,22 @@ export const <%- form.componentName %>: React.FC = () => {
           </FormControl>
         <% } -%>
       <% } -%>
-      <Button
+      {variant === "plain" ? <Button
         mt={4}
         isLoading={isSubmitting}
         type="submit"
       >
         Submit
-      </Button>
+      </Button>: null}
+      {variant === "modal" ? <ModalFooter>
+        <Button
+          mt={4}
+          isLoading={isSubmitting}
+          type="submit"
+        >
+          Submit
+        </Button>
+      </ModalFooter>: null}
     </form>
   );
 };
@@ -229,12 +275,37 @@ export const <%- form.componentName %>: React.FC = () => {
 
 // button
 <% for (button of views.button) { -%>
-export type <%- button.componentName %>Props = <%- button.variables.find(variable => variable.name === 'props').rawType %>;
+export type <%- button.componentName %>Props = <%- button.variables.find(variable => variable.name === 'props').rawType %> & {
+  onClick?: () => unknown;
+};
 export const <%- button.componentName %>: React.FC<<%- button.componentName %>Props> = (_props) => {
   const props = Object.assign(
     <%- common.formatRawProps(button.variables) %>,
     _props
   );
   return <Button {...props} />;
+}
+<% } -%>
+
+// modal
+<% for (modal of views.modal) { -%>
+export const <%- modal.componentName %>: React.FC = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  <% const { title, triggerId, contentId } = modal.variables.find((v) => v.name === "props").defaultValue; %>
+  return (
+    <>
+      <CreateUserButton onClick={onOpen} />
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <%- title ? `<ModalHeader>${title}</ModalHeader>` : '' %>
+          <ModalCloseButton />
+          <ModalBody>
+            <<%- common.capitalize(contentId) %> afterSubmit={onClose} />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
+  )
 }
 <% } -%>

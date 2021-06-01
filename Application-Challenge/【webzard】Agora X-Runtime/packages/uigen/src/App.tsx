@@ -9,6 +9,7 @@ import {
   UpdateOneUserForm,
   DeleteOneUserForm,
   CreateUserButton,
+  CreateOneUserModal,
 } from "./generated/ui-components";
 
 import Calendar from "@toast-ui/react-calendar";
@@ -45,7 +46,7 @@ function App() {
 
   return (
     <Box width="full" p="12">
-      <CreateUserButton variant={ButtonVariant.Link} />
+      <CreateOneUserModal />
       <GridLayout
         className="layout"
         layout={layout}

@@ -104,6 +104,26 @@
                   "value": "table"
                 }
               ]
+            },
+            {
+              "name": "modal",
+              "arguments": [
+                {
+                  "name": "trigger",
+                  "type": "String",
+                  "value": "tableRow"
+                },
+                {
+                  "name": "contentId",
+                  "type": "String",
+                  "value": "updateOneUserForm"
+                },
+                {
+                  "name": "title",
+                  "type": "String",
+                  "value": "编辑用户"
+                }
+              ]
             }
           ],
           "selections": [
@@ -816,8 +836,79 @@
             }
           ],
           "defaultValue": {
-            "children": "static button",
+            "children": "创建用户",
             "variant": "outlined"
+          }
+        }
+      ]
+    },
+    {
+      "name": "createOneUserModal",
+      "is": "query",
+      "attributes": [
+        {
+          "name": "clientOnly",
+          "arguments": []
+        }
+      ],
+      "selections": [
+        {
+          "name": "staticComponent",
+          "attributes": [],
+          "selections": [
+            {
+              "name": "modal",
+              "attributes": [],
+              "selections": [],
+              "arguments": [
+                {
+                  "name": "props",
+                  "type": "Variable",
+                  "value": "props"
+                }
+              ],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            }
+          ],
+          "arguments": [],
+          "nullable": false,
+          "list": false,
+          "baseType": "Object",
+          "customType": "StaticComponent"
+        }
+      ],
+      "variables": [
+        {
+          "name": "props",
+          "type": "ModalProps",
+          "nullable": true,
+          "attributes": [],
+          "fields": [
+            {
+              "name": "triggerId",
+              "baseType": "String",
+              "nullable": false,
+              "list": false
+            },
+            {
+              "name": "contentId",
+              "baseType": "String",
+              "nullable": false,
+              "list": false
+            },
+            {
+              "name": "title",
+              "baseType": "String",
+              "nullable": true,
+              "list": false
+            }
+          ],
+          "defaultValue": {
+            "triggerId": "createUserButton",
+            "contentId": "createOneUserForm",
+            "title": "创建用户"
           }
         }
       ]
