@@ -1,0 +1,4 @@
+include ':app'
+include ':data'
+include ':baselibrary'
+rootProject.name = "Agora-Livecast-Android"

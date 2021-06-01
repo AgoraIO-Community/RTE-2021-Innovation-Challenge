@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/main_title"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/main_title_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivHead"
+            android:layout_width="@dimen/main_header"
+            android:layout_height="@dimen/main_header"
+            android:layout_marginEnd="20dp"
+            android:src="@mipmap/default_head"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvTitle" />
+
+        <TextView
+            android:id="@+id/tvEmpty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:text="@string/list_empty_create"
+            android:textColor="@android:color/darker_gray"
+            app:drawableTopCompat="@mipmap/pic_empty"
+            app:layout_constraintEnd_toEndOf="@+id/swipeRefreshLayout"
+            app:layout_constraintStart_toStartOf="@+id/swipeRefreshLayout"
+            app:layout_constraintTop_toTopOf="@+id/swipeRefreshLayout" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                tools:listitem="@layout/item_rooms" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <TextView
+            android:id="@+id/btCrateRoom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="50dp"
+            android:background="@mipmap/icon_create_room"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/llMin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/shape_room_list_min_background"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <io.agora.interactivepodcast.widget.RoomListMinMembersView
+                android:id="@+id/members"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tvNumbers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:drawablePadding="2dp"
+                android:gravity="center"
+                android:text="6k/14"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/main_list_item_user_name_size"
+                app:drawableEndCompat="@mipmap/icon_list_anchor2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvName" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/ivExit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_room_lightly_exit_background"
+                android:padding="2dp"
+                android:src="@mipmap/icon_exit" />
+
+            <io.agora.interactivepodcast.widget.CountImageView
+                android:id="@+id/ivNews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/selector_room_lightly_exit_background"
+                app:iv_count="0"
+                app:iv_src="@mipmap/icon_handup_news" />
+
+            <ImageView
+                android:id="@+id/ivAudio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/selector_room_lightly_exit_background"
+                android:padding="2dp"
+                android:src="@mipmap/icon_microphoneon" />
+
+            <ImageView
+                android:id="@+id/ivHandUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/selector_room_lightly_exit_background"
+                android:padding="2dp"
+                android:src="@mipmap/icon_un_handup" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
