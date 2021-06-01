@@ -1,0 +1,14 @@
+use_frameworks!
+target "Baby back home" do
+platform :ios, '11.0'
+
+pod 'HyphenateChat', '3.8.1'
+pod 'AgoraRtcEngine_iOS'
+pod 'MBProgressHUD'
+pod 'Masonry'
+pod 'MJRefresh'
+pod 'SDWebImage'
+pod 'EaseIMKit'
+pod 'FMDB'
+pod 'EaseCallKit'
+end
