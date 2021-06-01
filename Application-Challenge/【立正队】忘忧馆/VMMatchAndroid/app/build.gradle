@@ -1,0 +1,143 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+// 获取配置信息
+def configs = rootProject.ext.configs
+def signings = rootProject.ext.signings
+
+ext {
+    isDebug = true
+}
+android {
+    compileSdkVersion configs.compileSdkVersion
+
+    defaultConfig {
+        applicationId configs.applicationId
+        minSdkVersion configs.minSdkVersion
+        targetSdkVersion configs.targetSdkVersion
+        versionCode configs.versionCode
+        versionName configs.versionName
+
+        // 简单粗暴解决多个库出现 UnsatisfiedLinkError 文件错误问题
+        ndk {
+            // "x86", "armeabi-v7a", "arm64-v8a"
+            abiFilters "armeabi-v7a"
+        }
+    }
+
+    // 签名信息
+    signingConfigs {
+        // 签名信息，因为签名文件是保密信息，放在一个配置文件中进行读取，这个文件不会再版本库里存在
+        release {
+            keyAlias = signings.keyAlias
+            keyPassword = signings.keyPassword
+            storeFile = file(signings.storeFile)
+            storePassword = signings.storePassword
+        }
+    }
+
+    // 编译配置
+    buildTypes {
+        debug {
+            // 添加参数表示 debug 环境，这里使用测试环境
+            isDebug = true
+            // 是否开启压缩
+            zipAlignEnabled false
+            // 是否开启混淆
+            minifyEnabled false
+            // Debug 打包签名信息，这里和 release 配置相同方便三方登录与分享调试
+            signingConfig signingConfigs.release
+        }
+        release {
+            // 添加参数表示 debug 环境，这里使用测试环境
+            isDebug = false
+            // 是否开启压缩
+            zipAlignEnabled false
+            // 是否开启混淆
+            minifyEnabled false
+            // 打包时删除无用资源 依赖于混淆，必须和 minifyEnabled 一起使用
+            shrinkResources false
+            // 设置正式打包的签名
+            signingConfig signingConfigs.release
+            // 混淆文件
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            // 修改生成的 apk 名字，格式为:项目-版本-时间-渠道名.apk
+            android.applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "${rootProject.name}V${defaultConfig.versionName}.${getTime()}." + variant.productFlavors[0].name + '.apk'
+                }
+            }
+        }
+    }
+
+    // 多渠道打包配置
+    flavorDimensions "default"
+    productFlavors {
+        Develop {
+            dimension = "default"
+            manifestPlaceholders = [
+                    APP_CHANNEL : "Develop",
+                    APP_DEBUG   : isDebug,
+                    APP_VERSION : configs.versionName,
+                    ADMOB_APP_ID: configs.admobAppId,
+                    BUGLY_APP_ID: configs.buglyAppId,
+                    UMENG_APP_ID: configs.umengAppId,
+
+                    EM_APP_KEY  : configs.emAppkey
+
+            ]
+        }
+    }
+
+    // 使用 Java 8 编译
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    // 开启数据绑定
+//    dataBinding {
+//        enabled true
+//    }
+    buildFeatures {
+        dataBinding {
+            enabled true
+        }
+    }
+    // 编译忽略错误配置
+    lintOptions {
+        abortOnError false
+    }
+    // kotlin 配置
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+    // 阿里巴巴 ARouter Kotlin 下的配置
+    kapt {
+        arguments {
+            // 阿里巴巴 ARouter Kotlin 下的配置
+            arg("AROUTER_MODULE_NAME", project.getName())
+            // Room 配置
+            arg("room.schemaLocation", "$projectDir/schemas".toString())
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    kapt "androidx.room:room-compiler:2.3.0"
+
+    kapt 'com.alibaba:arouter-compiler:1.2.2'
+
+    // 引入统一管理库
+    api project(':vmcommon')
+    api project(':vmim')
+}
+
+// 获取当前系统时间
+def getTime() {
+    return new Date().format("yyyyMMddHHmm", TimeZone.getTimeZone("UTC"))
+}

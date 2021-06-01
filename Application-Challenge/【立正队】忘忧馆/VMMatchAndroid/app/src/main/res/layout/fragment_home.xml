@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.vmloft.develop.app.match.ui.main.home.MatchViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.home.HomeFragment">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_match_bg" />
+
+        <include layout="@layout/widget_common_top_bar" />
+
+        <!--顶部弹幕展示-->
+        <com.vmloft.develop.library.tools.widget.barrage.VMBarrageView
+            android:id="@+id/homeBarrageView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/vm_dimen_0"
+            app:layout_constraintBottom_toTopOf="@+id/homeBottomLL"
+            app:layout_constraintTop_toBottomOf="@+id/commonTopLL" />
+
+        <!--底部匹配按钮-->
+        <HorizontalScrollView
+            android:id="@+id/homeBottomLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/vm_dimen_8">
+                <!--随缘-->
+                <LinearLayout
+                    android:id="@+id/homeRandomLL"
+                    android:layout_width="@dimen/vm_dimen_72"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/vm_dimen_8"
+                    android:background="@drawable/shape_card_home_random"
+                    android:orientation="vertical"
+                    android:padding="@dimen/vm_dimen_8">
+
+                    <ImageView
+                        android:layout_width="@dimen/vm_dimen_36"
+                        android:layout_height="@dimen/vm_dimen_36"
+                        android:src="@drawable/ic_fishnet"
+                        app:tint="@color/app_icon_light" />
+
+                    <TextView
+                        style="@style/AppText.HomeCardName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/match_random" />
+
+                    <TextView
+                        style="@style/AppText.HomeCardDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/match_random_desc" />
+                </LinearLayout>
+                <!--心情-->
+                <LinearLayout
+                    android:id="@+id/homeEmotionLL"
+                    android:layout_width="@dimen/vm_dimen_72"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/vm_dimen_8"
+                    android:background="@drawable/shape_card_home_emotion"
+                    android:orientation="vertical"
+                    android:padding="@dimen/vm_dimen_8">
+
+                    <ImageView
+                        android:layout_width="@dimen/vm_dimen_36"
+                        android:layout_height="@dimen/vm_dimen_36"
+                        android:src="@drawable/ic_emotion_happy"
+                        app:tint="@color/app_icon_light" />
+
+                    <TextView
+                        style="@style/AppText.HomeCardName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/match_emotion" />
+
+                    <TextView
+                        style="@style/AppText.HomeCardDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/match_emotion_desc" />
+                </LinearLayout>
+                <!--解忧-->
+                <LinearLayout
+                    android:id="@+id/homeChatRoomLL"
+                    android:layout_width="@dimen/vm_dimen_72"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/vm_dimen_8"
+                    android:background="@drawable/shape_card_home_chat"
+                    android:orientation="vertical"
+                    android:padding="@dimen/vm_dimen_8">
+
+                    <ImageView
+                        android:layout_width="@dimen/vm_dimen_36"
+                        android:layout_height="@dimen/vm_dimen_36"
+                        android:src="@drawable/ic_coffee"
+                        app:tint="@color/app_icon_light" />
+
+                    <TextView
+                        style="@style/AppText.HomeCardName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/match_room" />
+
+                    <TextView
+                        style="@style/AppText.HomeCardDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/match_room_desc" />
+                </LinearLayout>
+
+                <!--实时聊-->
+                <LinearLayout
+                    android:id="@+id/homeFastLL"
+                    android:layout_width="@dimen/vm_dimen_72"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/vm_dimen_8"
+                    android:background="@drawable/shape_card_home_fast"
+                    android:orientation="vertical"
+                    android:padding="@dimen/vm_dimen_8">
+
+                    <ImageView
+                        android:layout_width="@dimen/vm_dimen_36"
+                        android:layout_height="@dimen/vm_dimen_36"
+                        android:src="@drawable/ic_fast"
+                        app:tint="@color/app_icon_light" />
+
+                    <TextView
+                        style="@style/AppText.HomeCardName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/match_fast" />
+
+                    <TextView
+                        style="@style/AppText.HomeCardDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/match_fast_desc" />
+                </LinearLayout>
+                <!--秘密-->
+                <LinearLayout
+                    android:id="@+id/homeSecretLL"
+                    android:layout_width="@dimen/vm_dimen_72"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/vm_dimen_8"
+                    android:background="@drawable/shape_card_home_secret"
+                    android:orientation="vertical"
+                    android:padding="@dimen/vm_dimen_8"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="@dimen/vm_dimen_36"
+                        android:layout_height="@dimen/vm_dimen_36"
+                        android:src="@drawable/ic_mask"
+                        app:tint="@color/app_icon_light" />
+
+                    <TextView
+                        style="@style/AppText.HomeCardName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/match_secret" />
+
+                    <TextView
+                        style="@style/AppText.HomeCardDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/match_secret_desc" />
+                </LinearLayout>
+                <!--愿望-->
+                <LinearLayout
+                    android:id="@+id/homeWishLL"
+                    android:layout_width="@dimen/vm_dimen_72"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/vm_dimen_8"
+                    android:layout_marginEnd="@dimen/vm_dimen_8"
+                    android:background="@drawable/shape_card_home_wish"
+                    android:orientation="vertical"
+                    android:padding="@dimen/vm_dimen_8"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="@dimen/vm_dimen_36"
+                        android:layout_height="@dimen/vm_dimen_36"
+                        android:src="@drawable/ic_wish"
+                        app:tint="@color/app_icon_light" />
+
+                    <TextView
+                        style="@style/AppText.HomeCardName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/match_wish" />
+
+                    <TextView
+                        style="@style/AppText.HomeCardDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/match_wish_desc" />
+                </LinearLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

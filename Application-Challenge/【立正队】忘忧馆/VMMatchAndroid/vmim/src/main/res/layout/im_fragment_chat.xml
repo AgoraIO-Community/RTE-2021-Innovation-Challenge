@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".chat.IMChatFragment">
+
+    <!--    <com.vmloft.develop.library.common.widget.VMKeyboardLayout-->
+    <!--        android:id="@+id/imChatKeyboardLayout"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent" />-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/imChatInputCL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:padding="@dimen/vm_dimen_8"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!--语音-->
+        <ImageView
+            android:id="@+id/imChatRecordBtn"
+            android:layout_width="@dimen/vm_dimen_40"
+            android:layout_height="@dimen/vm_dimen_40"
+            android:layout_marginEnd="@dimen/vm_dimen_8"
+            android:background="@drawable/im_shape_circle_icon_bg"
+            android:padding="@dimen/vm_dimen_8"
+            android:src="@drawable/ic_fire"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imChatPictureBtn"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!--图片-->
+        <ImageView
+            android:id="@+id/imChatPictureBtn"
+            android:layout_width="@dimen/vm_dimen_40"
+            android:layout_height="@dimen/vm_dimen_40"
+            android:layout_marginEnd="@dimen/vm_dimen_8"
+            android:background="@drawable/im_shape_circle_icon_bg"
+            android:padding="@dimen/vm_dimen_10"
+            android:src="@drawable/ic_picture_album"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imChatCallBtn"
+            app:layout_constraintStart_toEndOf="@+id/imChatRecordBtn" />
+
+        <!--通话-->
+        <ImageView
+            android:id="@+id/imChatCallBtn"
+            android:layout_width="@dimen/vm_dimen_40"
+            android:layout_height="@dimen/vm_dimen_40"
+            android:layout_marginEnd="@dimen/vm_dimen_8"
+            android:background="@drawable/im_shape_circle_icon_bg"
+            android:padding="@dimen/vm_dimen_10"
+            android:src="@drawable/ic_call"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imChatMessageET"
+            app:layout_constraintStart_toEndOf="@+id/imChatPictureBtn"
+            app:tint="@color/app_icon" />
+
+        <!--输入框-->
+        <EditText
+            android:id="@+id/imChatMessageET"
+            style="@style/IMEdit.Message"
+            android:layout_width="@dimen/vm_dimen_0"
+            android:layout_height="wrap_content"
+            android:hint="@string/im_chat_input_hint"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imChatSendBtn"
+            app:layout_constraintStart_toEndOf="@+id/imChatCallBtn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--发送按钮-->
+        <ImageView
+            android:id="@+id/imChatSendBtn"
+            android:layout_width="@dimen/vm_dimen_40"
+            android:layout_height="@dimen/vm_dimen_40"
+            android:layout_marginStart="@dimen/vm_dimen_8"
+            android:background="@drawable/im_shape_circle_icon_bg"
+            android:padding="@dimen/vm_dimen_10"
+            android:src="@drawable/ic_send"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imChatMessageET"
+            tools:visibility="visible" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/imChatRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/vm_dimen_0"
+        app:layout_constraintBottom_toTopOf="@+id/imChatInputCL"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srlEnableLoadMore="false">
+
+        <!--展示消息列表-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/imChatRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:overScrollMode="never" />
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
