@@ -1,0 +1,14 @@
+package {{packageName}}.viewmodel
+
+import com.kangraoo.basektlib.ui.mvvm.BViewModel
+/**
+ * 自动生成：by WaTaNaBe on {{now}}
+ * #{{remarks}}#
+ */
+class {{viewModelClass}}: BViewModel() {
+
+    override fun onCreate() {
+        super.onCreate()
+    }
+
+}

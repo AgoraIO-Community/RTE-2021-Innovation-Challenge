@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<record> 
+    <insert ui="Splash"/>  
+    <insert ui="Main"/>  
+    <insert ui="Chat"/>  
+    <insert ui="Rili"/>  
+    <insert ui="Me"/>  
+    <insert ui="Login"/>  
+    <insert ui="Group"/>  
+    <insert ui="ChatRoom"/>  
+    <insert ui="Module"/>  
+    <insert ui="MyClass"/>  
+    <insert ui="QianDao"/>  
+    <insert ui="TongJi"/>  
+    <insert ui="KaoQing"/>  
+    <insert ui="KaoQingList"/>  
+    <insert ui="DianPing"/>  
+    <insert ui="DianPingDetail"/>  
+    <insert ui="EditDianPing"/>  
+    <insert ui="ClassList"/>  
+    <insert ui="PiGaiHomeWorkDetail"/>  
+    <insert ui="PiGaiHomeWork"/>  
+    <insert ui="BuZhiHomeWorkDetail"/>  
+    <insert ui="BuZhiHomeWork"/>  
+    <insert ui="XieHomeWork"/>  
+    <insert ui="XieHomeWorkDeatil"/>
+</record>

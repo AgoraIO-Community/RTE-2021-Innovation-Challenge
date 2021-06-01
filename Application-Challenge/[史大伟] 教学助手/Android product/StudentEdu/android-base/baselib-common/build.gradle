@@ -1,0 +1,79 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply from: "../basektlib/common_build.gradle"
+
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        testInstrumentationRunner rootProject.ext.dependencies.androidJUnitRunner
+        versionCode 1
+        versionName "1.0"
+
+        consumerProguardFiles "consumer-rules.pro"
+
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    resourcePrefix "public_common_" //给 Module 内的资源名增加前缀, 避免资源名冲突
+
+}
+task commonapi {
+
+    doLast{
+        println "Auto API start"
+        def cmdBase = 'java -jar ' + rootDir + File.separator +'android-base'+ File.separator+'basektlib'+ File.separator+ 'autoapi' + File.separator + 'autoapi.jar ' + rootDir + ' '  + File.separator+'android-base'+ File.separator+'baselib-common' + File.separator+'src'+ File.separator+'main'+ File.separator+'java' + ' '     + 'com.qdedu.baselibcommon' + ' '+  projectDir +  File.separator + 'api.properties '+ rootDir + File.separator + 'recipe.xml.ftl'
+//        println cmdBase
+        def m = '' + rootDir
+        executeLibCmd(cmdBase, m)
+        println "Auto API end"
+    }
+
+}
+
+def executeLibCmd(cmd, m) {
+    def cmdResult = cmd.execute(null, new File(m)).text.trim()
+    println cmdResult
+}
+
+kotlin {
+    experimental {
+        coroutines 'enable'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    api project(path: ':basektlib')
+    kapt rootProject.ext.dependencies.butterknife.butterknife_compiler
+    kapt rootProject.ext.dependencies.tools.moshi_kotlin_codegen
+    api rootProject.ext.dependencies.widgets.BannerViewPager
+    // kotlin扩展（可选）
+    api rootProject.ext.dependencies.widgets.recycler_view_divider
+    // umsdk.
+    api rootProject.ext.dependencies.umeng.common
+    api rootProject.ext.dependencies.umeng.asms
+    api rootProject.ext.dependencies.widgets.flowlayout_lib
+    api project(path: ':base-lib-web')
+
+//    api rootProject.ext.dependencies.umeng.apm
+}

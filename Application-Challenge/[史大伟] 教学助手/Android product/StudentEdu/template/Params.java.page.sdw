@@ -1,0 +1,12 @@
+package {{packagename}}.data.model.params
+
+import com.kangraoo.basektlib.data.model.BParam
+
+/**
+ * 自动生成：by WaTaNaBe on {{now}}.
+ * {{title}}
+ * #{{remarks}}#
+*/
+
+class {{params}} ():BParam(){
+}

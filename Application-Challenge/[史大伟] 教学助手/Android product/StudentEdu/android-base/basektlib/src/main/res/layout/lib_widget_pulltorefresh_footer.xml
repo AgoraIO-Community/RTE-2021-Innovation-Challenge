@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/load_more_footer_height_classic">
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"
+        android:layout_toLeftOf="@+id/tvLoadMore"
+        android:indeterminateDrawable="@drawable/lib_theme_color_progress_bar" />
+
+    <!--<ImageView-->
+        <!--android:id="@+id/ivSuccess"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_marginRight="8dp"-->
+        <!--android:layout_toLeftOf="@+id/tvLoadMore"-->
+        <!--android:background="@mipmap/lib_refresh_success" />-->
+
+    <TextView
+        android:id="@+id/ivSuccess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"
+        android:layout_toLeftOf="@+id/tvLoadMore"
+        android:textSize="@dimen/textSize16"
+        android:textColor="@color/color_2196F3"
+        />
+
+
+    <TextView
+        android:id="@+id/tvLoadMore"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="@string/libLodingMore"
+        android:textColor="@color/color_FF5722" />
+</RelativeLayout>

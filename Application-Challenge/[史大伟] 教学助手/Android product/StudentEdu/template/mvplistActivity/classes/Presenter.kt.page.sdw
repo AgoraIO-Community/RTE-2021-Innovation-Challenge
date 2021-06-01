@@ -1,0 +1,38 @@
+package {{packageName}}.presenter
+
+import {{packageName}}.view.{{viewClass}}
+import com.kangraoo.basektlib.ui.mvp.BasePresenter
+import com.kangraoo.basektlib.ui.action.BASE_PAGE_NAME
+import com.kangraoo.basektlib.ui.action.BasePageAction
+import com.kangraoo.basektlib.data.DataResult
+import kotlinx.coroutines.launch
+
+/**
+ * 自动生成：by WaTaNaBe on {{now}}
+ * #{{remarks}}#
+ */
+class {{presenterClass}} : BasePresenter<{{viewClass}}>(){
+	var basePageAction:BasePageAction<#Entity#> = BasePageAction()
+    init {
+        addAction(BASE_PAGE_NAME,basePageAction)
+        basePageAction.dataListener = object : BasePageAction.DataListener<#Entity#>{
+            override fun request(
+                basePageAction: BasePageAction<#Entity#>,
+                currentPage: Int,
+                pageSize : Int
+            ) {
+                launch {
+                    val entity = #Entity#()
+                    entity.currentPage = currentPage
+                    entity.pageSize = pageSize
+                    val dataResult = #EntityRepository#
+                    if(dataResult is DataResult.Success){
+                        basePageAction.dataSucces(dataResult.list,dataResult.totalCount)
+                    }else if(dataResult is DataResult.Error){
+                        basePageAction.dataError(dataResult)
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+package {{packageName}}.view
+
+import {{packageName}}.view.{{viewClass}}
+import com.kangraoo.basektlib.ui.mvp.BasePresenter
+import com.kangraoo.basektlib.ui.IBaseView
+
+/**
+ * 自动生成：by WaTaNaBe on {{now}}
+ * #{{remarks}}#
+ */
+interface {{viewClass}} : IBaseView{
+   
+}

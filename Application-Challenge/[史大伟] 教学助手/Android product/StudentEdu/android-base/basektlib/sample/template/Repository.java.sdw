@@ -1,0 +1,7 @@
+    /**
+     * 自动生成：by WaTaNaBe on {{now}}.
+     * #{{title}}#
+     * #{{remarks}}#
+     */
+    override suspend fun {{name}}( param: {{params}}) = remoteDataSource.{{name}}(param)
+
