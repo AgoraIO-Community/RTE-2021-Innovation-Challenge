@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end_state"
+        motion:constraintSetStart="@id/start"
+        motion:duration="@integer/animation_interval">
+        <KeyFrameSet>
+            <KeyAttribute
+                android:alpha="0"
+                motion:framePosition="90"
+                motion:motionTarget="@+id/input_layout" />
+        </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+
+
+        <Constraint
+            android:id="@+id/slogan_1_1"
+            android:layout_width="227dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="46dp"
+            android:alpha="0"
+            motion:layout_constraintBottom_toTopOf="@+id/slogan_2_1"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/slogan_2_1"
+            android:layout_width="274dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="6dp"
+            android:alpha="0"
+            motion:layout_constraintStart_toStartOf="@+id/slogan_1_1"
+            motion:layout_constraintTop_toBottomOf="@+id/slogan_1_1" />
+        <Constraint
+            android:id="@+id/input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
+            android:alpha="0"
+            motion:layout_constraintBottom_toTopOf="@+id/login_button"
+            motion:layout_constraintStart_toStartOf="@id/slogan_2_1" />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end_state">
+
+        <Constraint
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:visibility="invisible"
+            motion:layout_constraintBottom_toTopOf="@+id/login_button"
+            motion:layout_constraintStart_toStartOf="@+id/slogan_2"
+            motion:layout_constraintTop_toBottomOf="@+id/slogan_2" />
+        <Constraint
+            android:id="@+id/slogan_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="46dp"
+            android:alpha="0"
+            motion:layout_constraintBottom_toTopOf="@+id/slogan_2"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/slogan_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:alpha="0"
+            motion:layout_constraintBottom_toTopOf="@+id/textView"
+            motion:layout_constraintStart_toStartOf="@+id/slogan_1"
+            motion:layout_constraintTop_toBottomOf="@+id/slogan_1" />
+        <Constraint
+            android:id="@+id/input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="48dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="65dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="175dp"
+            android:alpha="1"
+            motion:layout_constraintBottom_toTopOf="@+id/login_button"
+            motion:layout_constraintStart_toStartOf="@id/slogan_2_1"
+            motion:layout_constraintTop_toBottomOf="@id/slogan_2_1" />
+
+    </ConstraintSet>
+</MotionScene>

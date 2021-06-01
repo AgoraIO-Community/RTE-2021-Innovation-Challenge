@@ -1,0 +1,25 @@
+package {{packagename}}.data.source
+
+import com.kangraoo.basektlib.data.source.BaseRepository
+import {{packagename}}.data.source.local.{{localDataSource}}
+import {{packagename}}.data.source.remote.{{remoteDataSource}}
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import {{packagename}}.data.model.params.*
+import {{packagename}}.data.model.responses.*
+
+/**
+ * 自动生成：by WaTaNaBe on {{now}}.
+ * {{repository}}
+ */
+class {{repository}} : BaseRepository<{{localDataSource}},{{remoteDataSource}}>({{localDataSource}}(),{{remoteDataSource}}()),{{dataSource}} {
+
+    companion object{
+        val instance: {{repository}} by lazy {
+            {{repository}}()
+        }
+    }
+    val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
+
+    //#06#
+}

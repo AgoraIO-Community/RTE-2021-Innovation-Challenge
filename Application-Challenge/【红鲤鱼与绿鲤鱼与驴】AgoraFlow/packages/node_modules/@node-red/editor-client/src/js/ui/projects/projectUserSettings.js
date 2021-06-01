@@ -1,0 +1,445 @@
+/**
+ * Copyright JS Foundation and other contributors, http://js.foundation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+
+RED.projects.userSettings = (function() {
+
+    var gitUsernameInput;
+    var gitEmailInput;
+
+    function createGitUserSection(pane) {
+
+        var currentGitSettings = RED.settings.get('git') || {};
+        currentGitSettings.user = currentGitSettings.user || {};
+
+        var title = $('<h3></h3>').text(RED._("editor:sidebar.project.userSettings.committerDetail")).appendTo(pane);
+
+        var gitconfigContainer = $('<div class="red-ui-settings-section"></div>').appendTo(pane);
+        $('<div class="red-ui-settings-section-description"></div>').appendTo(gitconfigContainer).text(RED._("editor:sidebar.project.userSettings.committerTip"));
+
+        var row = $('<div class="red-ui-settings-row"></div>').appendTo(gitconfigContainer);
+        $('<label for="user-settings-gitconfig-username"></label>').text(RED._("editor:sidebar.project.userSettings.userName")).appendTo(row);
+        gitUsernameInput = $('<input type="text" id="user-settings-gitconfig-username">').appendTo(row);
+        gitUsernameInput.val(currentGitSettings.user.name||"");
+
+        row = $('<div class="red-ui-settings-row"></div>').appendTo(gitconfigContainer);
+        $('<label for="user-settings-gitconfig-email"></label>').text(RED._("editor:sidebar.project.userSettings.email")).appendTo(row);
+        gitEmailInput = $('<input type="text" id="user-settings-gitconfig-email">').appendTo(row);
+        gitEmailInput.val(currentGitSettings.user.email||"");
+
+    }
+
+    function createWorkflowSection(pane) {
+
+        var defaultWorkflowMode = RED.settings.theme("projects.workflow.mode","manual");
+
+        var currentGitSettings = RED.settings.get('git') || {};
+        currentGitSettings.workflow = currentGitSettings.workflow || {};
+        currentGitSettings.workflow.mode = currentGitSettings.workflow.mode || defaultWorkflowMode;
+
+        var title = $('<h3></h3>').text(RED._("editor:sidebar.project.userSettings.workflow")).appendTo(pane);
+
+        var workflowContainer = $('<div class="red-ui-settings-section"></div>').appendTo(pane);
+        $('<div class="red-ui-settings-section-description"></div>').appendTo(workflowContainer).text(RED._("editor:sidebar.project.userSettings.workfowTip"));
+
+        var row = $('<div class="red-ui-settings-row"></div>').appendTo(workflowContainer);
+        $('<label><input type="radio" name="user-setting-gitworkflow" value="manual"> <div style="margin-left: 3px; display: inline-block"><div data-i18n="editor:sidebar.project.userSettings.workflowManual"></div><div style="color:#aaa;" data-i18n="editor:sidebar.project.userSettings.workflowManualTip"></div></div></label>').appendTo(row);
+        row = $('<div class="red-ui-settings-row"></div>').appendTo(workflowContainer);
+        $('<label><input type="radio" name="user-setting-gitworkflow" value="auto"> <div style="margin-left: 3px; display: inline-block"><div data-i18n="editor:sidebar.project.userSettings.workflowAuto"></div><div style="color:#aaa;" data-i18n="editor:sidebar.project.userSettings.workflowAutoTip"></div></div></label>').appendTo(row);
+
+        workflowContainer.find('[name="user-setting-gitworkflow"][type="radio"][value="'+currentGitSettings.workflow.mode+'"]').prop('checked',true)
+
+    }
+
+
+    function createSSHKeySection(pane) {
+        var title = $('<h3></h3>').text(RED._("editor:sidebar.project.userSettings.sshKeys")).appendTo(pane);
+        var container = $('<div class="red-ui-settings-section"></div>').appendTo(pane);
+        var popover;
+        var subtitle = $('<div class="red-ui-settings-section-description"></div>').appendTo(container).text(RED._("editor:sidebar.project.userSettings.sshKeysTip"));
+
+        var addKeyButton = $('<button id="user-settings-gitconfig-add-key" class="red-ui-button red-ui-button-small" style="float: right; margin-right: 10px;">'+RED._("editor:sidebar.project.userSettings.add")+'</button>')
+            .appendTo(subtitle)
+            .on("click", function(evt) {
+                addKeyButton.attr('disabled',true);
+                saveButton.attr('disabled',true);
+                // bg.children().removeClass("selected");
+                // addLocalButton.trigger("click");
+                addKeyDialog.slideDown(200);
+                keyNameInput.trigger("focus");
+            });
+
+        var validateForm = function() {
+            var valid = /^[a-zA-Z0-9\-_]+$/.test(keyNameInput.val());
+            keyNameInput.toggleClass('input-error',keyNameInputChanged&&!valid);
+
+            // var selectedButton = bg.find(".selected");
+            // if (selectedButton[0] === addLocalButton[0]) {
+            //     valid = valid && localPublicKeyPathInput.val().length > 0 && localPrivateKeyPathInput.val().length > 0;
+            // } else if (selectedButton[0] === uploadButton[0]) {
+            //     valid = valid && publicKeyInput.val().length > 0 && privateKeyInput.val().length > 0;
+            // } else if (selectedButton[0] === generateButton[0]) {
+                var passphrase = passphraseInput.val();
+                var validPassphrase = passphrase.length === 0 || passphrase.length >= 8;
+                passphraseInput.toggleClass('input-error',!validPassphrase);
+                if (!validPassphrase) {
+                    passphraseInputSubLabel.text(RED._("editor:sidebar.project.userSettings.passphraseShort"));
+                } else if (passphrase.length === 0) {
+                    passphraseInputSubLabel.text(RED._("editor:sidebar.project.userSettings.optional"));
+                } else {
+                    passphraseInputSubLabel.text("");
+                }
+                valid = valid && validPassphrase;
+            // }
+
+            saveButton.attr('disabled',!valid);
+
+            if (popover) {
+                popover.close();
+                popover = null;
+            }
+        };
+
+        var row = $('<div class="red-ui-settings-row"></div>').appendTo(container);
+        var addKeyDialog = $('<div class="red-ui-projects-dialog-list-dialog"></div>').hide().appendTo(row);
+        $('<div class="red-ui-projects-dialog-list-dialog-header">').text(RED._("editor:sidebar.project.userSettings.addSshKey")).appendTo(addKeyDialog);
+        var addKeyDialogBody = $('<div>').appendTo(addKeyDialog);
+
+        row = $('<div class="red-ui-settings-row"></div>').appendTo(addKeyDialogBody);
+        $('<div class="red-ui-settings-section-description"></div>').appendTo(row).text(RED._("editor:sidebar.project.userSettings.addSshKeyTip"));
+        // var bg = $('<div></div>',{class:"button-group", style:"text-align: center"}).appendTo(row);
+        // var addLocalButton = $('<button class="red-ui-button toggle selected">use local key</button>').appendTo(bg);
+        // var uploadButton = $('<button class="red-ui-button toggle">upload key</button>').appendTo(bg);
+        // var generateButton = $('<button class="red-ui-button toggle">generate key</button>').appendTo(bg);
+        // bg.children().on("click", function(e) {
+        //     e.preventDefault();
+        //     if ($(this).hasClass("selected")) {
+        //         return;
+        //     }
+        //     bg.children().removeClass("selected");
+        //     $(this).addClass("selected");
+        //     if (this === addLocalButton[0]) {
+        //         addLocalKeyPane.show();
+        //         generateKeyPane.hide();
+        //         uploadKeyPane.hide();
+        //     } else if (this === uploadButton[0]) {
+        //         addLocalKeyPane.hide();
+        //         generateKeyPane.hide();
+        //         uploadKeyPane.show();
+        //     } else if (this === generateButton[0]){
+        //         addLocalKeyPane.hide();
+        //         generateKeyPane.show();
+        //         uploadKeyPane.hide();
+        //     }
+        //     validateForm();
+        // })
+
+
+        row = $('<div class="red-ui-settings-row"></div>').appendTo(addKeyDialogBody);
+        $('<label for=""></label>').text(RED._("editor:sidebar.project.userSettings.name")).appendTo(row);
+        var keyNameInputChanged = false;
+        var keyNameInput = $('<input type="text">').appendTo(row).on("change keyup paste",function() {
+            keyNameInputChanged = true;
+            validateForm();
+        });
+        $('<label class="red-ui-projects-edit-form-sublabel"><small>'+RED._("editor:sidebar.project.userSettings.nameRule")+'</small></label>').appendTo(row).find("small");
+
+        var generateKeyPane = $('<div>').appendTo(addKeyDialogBody);
+        row = $('<div class="red-ui-settings-row"></div>').appendTo(generateKeyPane);
+        $('<label for=""></label>').text(RED._("editor:sidebar.project.userSettings.passphrase")).appendTo(row);
+        var passphraseInput = $('<input type="password">').appendTo(row).on("change keyup paste",validateForm);
+        var passphraseInputSubLabel = $('<label class="red-ui-projects-edit-form-sublabel"><small>'+RED._("editor:sidebar.project.userSettings.optional")+'</small></label>').appendTo(row).find("small");
+
+        // var addLocalKeyPane = $('<div>').hide().appendTo(addKeyDialogBody);
+        // row = $('<div class="red-ui-settings-row"></div>').appendTo(addLocalKeyPane);
+        // $('<label for=""></label>').text('Public key').appendTo(row);
+        // var localPublicKeyPathInput = $('<input type="text">').appendTo(row).on("change keyup paste",validateForm);
+        // $('<label class="red-ui-projects-edit-form-sublabel"><small>Public key file path, for example: ~/.ssh/id_rsa.pub</small></label>').appendTo(row).find("small");
+        // row = $('<div class="red-ui-settings-row"></div>').appendTo(addLocalKeyPane);
+        // $('<label for=""></label>').text('Private key').appendTo(row);
+        // var localPrivateKeyPathInput = $('<input type="text">').appendTo(row).on("change keyup paste",validateForm);
+        // $('<label class="red-ui-projects-edit-form-sublabel"><small>Private key file path, for example: ~/.ssh/id_rsa</small></label>').appendTo(row).find("small");
+        //
+        // var uploadKeyPane = $('<div>').hide().appendTo(addKeyDialogBody);
+        // row = $('<div class="red-ui-settings-row"></div>').appendTo(uploadKeyPane);
+        // $('<label for=""></label>').text('Public key').appendTo(row);
+        // var publicKeyInput = $('<textarea>').appendTo(row).on("change keyup paste",validateForm);
+        // $('<label class="red-ui-projects-edit-form-sublabel"><small>Paste in public key contents, for example: ~/.ssh/id_rsa.pub</small></label>').appendTo(row).find("small");
+        // row = $('<div class="red-ui-settings-row"></div>').appendTo(uploadKeyPane);
+        // $('<label for=""></label>').text('Private key').appendTo(row);
+        // var privateKeyInput = $('<textarea>').appendTo(row).on("change keyup paste",validateForm);
+        // $('<label class="red-ui-projects-edit-form-sublabel"><small>Paste in private key contents, for example: ~/.ssh/id_rsa</small></label>').appendTo(row).find("small");
+
+
+
+
+        var hideEditForm = function() {
+            addKeyButton.attr('disabled',false);
+            addKeyDialog.hide();
+
+            keyNameInput.val("");
+            keyNameInputChanged = false;
+            passphraseInput.val("");
+            // localPublicKeyPathInput.val("");
+            // localPrivateKeyPathInput.val("");
+            // publicKeyInput.val("");
+            // privateKeyInput.val("");
+            if (popover) {
+                popover.close();
+                popover = null;
+            }
+        }
+        var formButtons = $('<span class="button-row" style="position: relative; float: right; margin: 10px;"></span>').appendTo(addKeyDialog);
+        $('<button class="red-ui-button">'+RED._("editor:sidebar.project.userSettings.cancel")+'</button>')
+            .appendTo(formButtons)
+            .on("click", function(evt) {
+                evt.preventDefault();
+                hideEditForm();
+            });
+        var saveButton = $('<button class="red-ui-button">'+RED._("editor:sidebar.project.userSettings.generate")+'</button>')
+            .appendTo(formButtons)
+            .on("click", function(evt) {
+                evt.preventDefault();
+                var spinner = utils.addSpinnerOverlay(addKeyDialog).addClass('red-ui-component-spinner-contain');
+                var payload = {
+                    name: keyNameInput.val()
+                };
+
+                // var selectedButton = bg.find(".selected");
+                // if (selectedButton[0] === addLocalButton[0]) {
+                //     payload.type = "local";
+                //     payload.publicKeyPath = localPublicKeyPathInput.val();
+                //     payload.privateKeyPath = localPrivateKeyPathInput.val();
+                // } else if (selectedButton[0] === uploadButton[0]) {
+                //     payload.type = "upload";
+                //     payload.publicKey = publicKeyInput.val();
+                //     payload.privateKey = privateKeyInput.val();
+                // } else if (selectedButton[0] === generateButton[0]) {
+                    payload.type = "generate";
+                    payload.comment = gitEmailInput.val();
+                    payload.password = passphraseInput.val();
+                    payload.size = 4096;
+                // }
+                var done = function(err) {
+                    spinner.remove();
+                    if (err) {
+                        return;
+                    }
+                    hideEditForm();
+                }
+                // console.log(JSON.stringify(payload,null,4));
+                RED.deploy.setDeployInflight(true);
+                utils.sendRequest({
+                    url: "settings/user/keys",
+                    type: "POST",
+                    responses: {
+                        0: function(error) {
+                            done(error);
+                        },
+                        200: function(data) {
+                            refreshSSHKeyList(payload.name);
+                            done();
+                        },
+                        400: {
+                            'unexpected_error': function(error) {
+                                console.log(error);
+                                done(error);
+                            }
+                        },
+                    }
+                },payload);
+            });
+
+        row = $('<div class="red-ui-settings-row red-ui-projects-dialog-list"></div>').appendTo(container);
+        var emptyItem = { empty: true };
+        var expandKey = function(container,entry) {
+            var row = $('<div class="red-ui-projects-dialog-ssh-public-key">',{style:"position:relative"}).appendTo(container);
+            var keyBox = $('<pre>',{style:"min-height: 80px"}).appendTo(row);
+            var spinner = utils.addSpinnerOverlay(keyBox).addClass('red-ui-component-spinner-contain');
+            var options = {
+                url: 'settings/user/keys/'+entry.name,
+                type: "GET",
+                responses: {
+                    200: function(data) {
+                        keyBox.text(data.publickey);
+                        spinner.remove();
+                    },
+                    400: {
+                        'unexpected_error': function(error) {
+                            console.log(error);
+                            spinner.remove();
+                        }
+                    },
+                }
+            }
+            utils.sendRequest(options);
+
+            var formButtons = $('<span class="button-row" style="position: relative; float: right; margin: 10px;"></span>').appendTo(row);
+            $('<button class="red-ui-button red-ui-button-small">'+RED._("editor:sidebar.project.userSettings.copyPublicKey")+'</button>')
+                .appendTo(formButtons)
+                .on("click", function(evt) {
+                    try {
+                        evt.stopPropagation();
+                        evt.preventDefault();
+                        document.getSelection().selectAllChildren(keyBox[0]);
+                        var ret = document.execCommand('copy');
+                        document.getSelection().empty();
+                    } catch(err) {
+
+                    }
+
+                });
+
+            return row;
+        }
+        var keyList = $('<ol class="red-ui-projects-dialog-ssh-key-list">').appendTo(row).editableList({
+            height: 'auto',
+            addButton: false,
+            scrollOnAdd: false,
+            addItem: function(row,index,entry) {
+                var container = $('<div class="red-ui-projects-dialog-list-entry">').appendTo(row);
+                if (entry.empty) {
+                    container.addClass('red-ui-search-empty');
+                    container.text(RED._("editor:sidebar.project.userSettings.noSshKeys"));
+                    return;
+                }
+                var topRow = $('<div class="red-ui-projects-dialog-ssh-key-header">').appendTo(container);
+                $('<span class="entry-icon"><i class="fa fa-key"></i></span>').appendTo(topRow);
+                $('<span class="entry-name">').text(entry.name).appendTo(topRow);
+                var tools = $('<span class="button-row entry-tools">').appendTo(topRow);
+                var expandedRow;
+                topRow.on("click", function(e) {
+                    if (expandedRow) {
+                        expandedRow.slideUp(200,function() {
+                            expandedRow.remove();
+                            expandedRow = null;
+                        })
+                    } else {
+                        expandedRow = expandKey(container,entry);
+                    }
+                    })
+                if (!entry.system) {
+                    $('<button class="red-ui-button red-ui-button-small"><i class="fa fa-trash"></i></button>')
+                        .appendTo(tools)
+                        .on("click", function(e) {
+                            e.stopPropagation();
+                            var spinner = utils.addSpinnerOverlay(row).addClass('red-ui-component-spinner-contain');
+                            var notification = RED.notify(RED._("editor:sidebar.project.userSettings.deleteConfirm", {name:entry.name}), {
+                                type: 'warning',
+                                modal: true,
+                                fixed: true,
+                                buttons: [
+                                    {
+                                        text: RED._("common.label.cancel"),
+                                        click: function() {
+                                            spinner.remove();
+                                            notification.close();
+                                        }
+                                    },
+                                    {
+                                        text: RED._("editor:sidebar.project.userSettings.delete"),
+                                        click: function() {
+                                            notification.close();
+                                            var url = "settings/user/keys/"+entry.name;
+                                            var options = {
+                                                url: url,
+                                                type: "DELETE",
+                                                responses: {
+                                                    200: function(data) {
+                                                        row.fadeOut(200,function() {
+                                                            keyList.editableList('removeItem',entry);
+                                                            setTimeout(spinner.remove, 100);
+                                                            if (keyList.editableList('length') === 0) {
+                                                                keyList.editableList('addItem',emptyItem);
+                                                            }
+                                                        });
+                                                    },
+                                                    400: {
+                                                        'unexpected_error': function(error) {
+                                                            console.log(error);
+                                                            spinner.remove();
+                                                        }
+                                                    },
+                                                }
+                                            }
+                                            utils.sendRequest(options);
+                                        }
+                                    }
+                                ]
+                            });
+                        });
+                }
+                if (entry.expand) {
+                    expandedRow = expandKey(container,entry);
+                }
+            }
+        });
+
+        var refreshSSHKeyList = function(justAdded) {
+            $.getJSON("settings/user/keys",function(result) {
+                if (result.keys) {
+                    result.keys.sort(function(A,B) {
+                        return A.name.localeCompare(B.name);
+                    });
+                    keyList.editableList('empty');
+                    result.keys.forEach(function(key) {
+                        if (key.name === justAdded) {
+                            key.expand = true;
+                        }
+                        keyList.editableList('addItem',key);
+                    });
+                    if (keyList.editableList('length') === 0) {
+                        keyList.editableList('addItem',emptyItem);
+                    }
+
+                }
+            })
+        }
+        refreshSSHKeyList();
+
+    }
+
+    function createSettingsPane(activeProject) {
+        var pane = $('<div id="red-ui-settings-tab-gitconfig" class="project-settings-tab-pane red-ui-help"></div>');
+        createGitUserSection(pane);
+        createWorkflowSection(pane);
+        createSSHKeySection(pane);
+        return pane;
+    }
+
+    var utils;
+    function init(_utils) {
+        utils = _utils;
+        RED.userSettings.add({
+            id:'gitconfig',
+            title: RED._("editor:sidebar.project.userSettings.gitConfig"),
+            get: createSettingsPane,
+            close: function() {
+                var currentGitSettings = RED.settings.get('git') || {};
+                currentGitSettings.user = currentGitSettings.user || {};
+                currentGitSettings.user.name = gitUsernameInput.val();
+                currentGitSettings.user.email = gitEmailInput.val();
+                currentGitSettings.workflow = currentGitSettings.workflow || {};
+                currentGitSettings.workflow.mode = $('[name="user-setting-gitworkflow"][type="radio"]:checked').val()
+
+                RED.settings.set('git', currentGitSettings);
+            }
+        });
+    }
+
+    return {
+        init: init,
+    };
+})();

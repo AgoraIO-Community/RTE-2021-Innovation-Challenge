@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="LibShape">
+        <attr name="lib_shape" format="enum">
+            <enum name="rectangle" value="0" />
+            <enum name="oval" value="1" />
+            <enum name="line" value="2" />
+            <enum name="ring" value="3" />
+        </attr>
+
+        <attr name="lib_solid_color" format="color" />
+
+        <attr name="lib_corners_radius" format="dimension" />
+        <attr name="lib_corners_bottom_left_radius" format="dimension" />
+        <attr name="lib_corners_bottom_right_radius" format="dimension" />
+        <attr name="lib_corners_top_left_radius" format="dimension" />
+        <attr name="lib_corners_top_right_radius" format="dimension" />
+
+        <attr name="lib_gradient_angle" format="integer" />
+        <attr name="lib_gradient_center_x" format="float" />
+        <attr name="lib_gradient_center_y" format="float" />
+        <attr name="lib_gradient_center_color" format="color" />
+        <attr name="lib_gradient_end_color" format="color" />
+        <attr name="lib_gradient_start_color" format="color" />
+        <attr name="lib_gradient_gradient_radius" format="dimension" />
+        <attr name="lib_gradient_type" format="enum">
+            <enum name="linear" value="0" />
+            <enum name="radial" value="1" />
+            <enum name="sweep" value="2" />
+        </attr>
+        <attr name="lib_gradient_useLevel" format="boolean" />
+
+        <attr name="lib_padding_left" format="dimension" />
+        <attr name="lib_padding_top" format="dimension" />
+        <attr name="lib_padding_right" format="dimension" />
+        <attr name="lib_padding_bottom" format="dimension" />
+
+        <attr name="lib_size_width" format="dimension">
+            <enum name="wrap_content" value="-2" />
+            <enum name="match_parent" value="-1" />
+        </attr>
+        <attr name="lib_size_height" format="dimension">
+            <enum name="wrap_content" value="-2" />
+            <enum name="match_parent" value="-1" />
+        </attr>
+
+        <attr name="lib_stroke_width" format="dimension" />
+        <attr name="lib_stroke_color" format="color" />
+        <attr name="lib_stroke_dash_width" format="dimension" />
+        <attr name="lib_stroke_dash_gap" format="dimension" />
+
+    </declare-styleable>
+
+    <declare-styleable name="LibRipple">
+        <attr name="lib_ripple_enable" format="boolean" />
+        <attr name="lib_ripple_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="LibTextViewDrawable">
+        <attr name="lib_position" format="enum">
+            <enum name="left" value="1" />
+            <enum name="top" value="2" />
+            <enum name="right" value="4" />
+            <enum name="bottom" value="8" />
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="LibStokePosition">
+        <attr name="lib_stroke_position" format="flags">
+            <flag name="left" value="2" />
+            <flag name="top" value="4" />
+            <flag name="right" value="8" />
+            <flag name="bottom" value="16" />
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="LibDrawableSelector">
+
+        <attr name="lib_checkable_drawable" format="reference|color" />
+        <attr name="lib_checked_drawable" format="reference|color" />
+        <attr name="lib_enabled_drawable" format="reference|color" />
+        <attr name="lib_selected_drawable" format="reference|color" />
+        <attr name="lib_pressed_drawable" format="reference|color" />
+        <attr name="lib_focused_drawable" format="reference|color" />
+        <attr name="lib_focused_hovered" format="reference|color" />
+        <attr name="lib_focused_activated" format="reference|color" />
+
+        <attr name="lib_uncheckable_drawable" format="reference|color" />
+        <attr name="lib_unchecked_drawable" format="reference|color" />
+        <attr name="lib_unenabled_drawable" format="reference|color" />
+        <attr name="lib_unselected_drawable" format="reference|color" />
+        <attr name="lib_unpressed_drawable" format="reference|color" />
+        <attr name="lib_unfocused_drawable" format="reference|color" />
+        <attr name="lib_unfocused_hovered" format="reference|color" />
+        <attr name="lib_unfocused_activated" format="reference|color" />
+
+    </declare-styleable>
+
+    <declare-styleable name="LibColorSelector">
+        <attr name="lib_checkable_text_color" format="color" />
+        <attr name="lib_checked_text_color" format="color" />
+        <attr name="lib_enabled_text_color" format="color" />
+        <attr name="lib_selected_text_color" format="color" />
+        <attr name="lib_pressed_text_color" format="color" />
+        <attr name="lib_focused_text_color" format="color" />
+
+        <attr name="lib_uncheckable_text_color" format="color" />
+        <attr name="lib_unchecked_text_color" format="color" />
+        <attr name="lib_unenabled_text_color" format="color" />
+        <attr name="lib_unselected_text_color" format="color" />
+        <attr name="lib_unpressed_text_color" format="color" />
+        <attr name="lib_unfocused_text_color" format="color" />
+    </declare-styleable>
+    <declare-styleable name="LibStrokeColorSelector">
+
+        <attr name="lib_checkable_stroke_color" format="color" />
+        <attr name="lib_checked_stroke_color" format="color" />
+        <attr name="lib_enabled_stroke_color" format="color" />
+        <attr name="lib_selected_stroke_color" format="color" />
+        <attr name="lib_pressed_stroke_color" format="color" />
+        <attr name="lib_focused_stroke_color" format="color" />
+
+        <attr name="lib_uncheckable_stroke_color" format="color" />
+        <attr name="lib_unchecked_stroke_color" format="color" />
+        <attr name="lib_unenabled_stroke_color" format="color" />
+        <attr name="lib_unselected_stroke_color" format="color" />
+        <attr name="lib_unpressed_stroke_color" format="color" />
+        <attr name="lib_unfocused_stroke_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="LibSolidColorSelector">
+
+        <attr name="lib_checkable_solid_color" format="color" />
+        <attr name="lib_checked_solid_color" format="color" />
+        <attr name="lib_enabled_solid_color" format="color" />
+        <attr name="lib_selected_solid_color" format="color" />
+        <attr name="lib_pressed_solid_color" format="color" />
+        <attr name="lib_focused_solid_color" format="color" />
+
+        <attr name="lib_uncheckable_solid_color" format="color" />
+        <attr name="lib_unchecked_solid_color" format="color" />
+        <attr name="lib_unenabled_solid_color" format="color" />
+        <attr name="lib_unselected_solid_color" format="color" />
+        <attr name="lib_unpressed_solid_color" format="color" />
+        <attr name="lib_unfocused_solid_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="LibButtonDrawable">
+        <attr name="lib_checked_button_drawable" format="color|reference" />
+        <attr name="lib_unchecked_button_drawable" format="color|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="DropDownMenu">
+
+        <attr name="lib_ddunderlineColor" format="color"/>
+        <attr name="lib_dddividerColor" format="color"/>
+        <attr name="lib_ddtextSelectedColor" format="color"/>
+        <attr name="lib_ddtextUnselectedColor" format="color"/>
+        <attr name="lib_ddmenuBackgroundColor" format="color"/>
+        <attr name="lib_ddmaskColor" format="color"/>
+        <attr name="lib_ddmenuTextSize" format="dimension"/>
+        <attr name="lib_ddmenuSelectedIcon" format="reference"/>
+        <attr name="lib_ddmenuUnselectedIcon" format="reference"/>
+        <attr name="lib_dddividerHeight" format="dimension"/>
+        <attr name="lib_ddmenuIconOrientation">
+            <flag name="left" value="0" />
+            <flag name="top" value="1" />
+            <flag name="right" value="2" />
+            <flag name="bottom" value="3" />
+        </attr>
+    </declare-styleable>
+
+</resources>

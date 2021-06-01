@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./vendor/agora-rtc-vue/lib/agora-rtc-vue.css" />
+    <meta charset="utf8">
+</head>
+<body>
+<div id="app">
+    <h1>{{deviceName}}</h1>
+    <div v-if="streamOptions.video || streamOptions.audio">
+       <h3>上行</h3>
+        视频：{{streamOptions.video}}。音频：{{streamOptions.audio}}。
+        宽：{{streamOptions.encoder.width}}。高：{{streamOptions.encoder.height}}。帧率：{{streamOptions.encoder.frameRate}}
+        <div v-if="videoPlayer">
+            本地播放：宽 {{videoPlayer.width}}
+            高 {{videoPlayer.height}}
+            播放模式 {{videoPlayer.fit}}
+            <div>
+                <video id="localVideo" v-if="videoTrack" muted autoplay
+                       :width="videoPlayer.width" :height="videoPlayer.height" :style="`background: black;object-fit:${videoPlayer.fit}`"></video>
+            </div>
+        </div>
+        <div v-for="upstream in upstreams">
+            <agora :appid="upstream.appId" :channel="upstream.channel" :uid="upstream.uid">
+                <agora-audio-sender v-if="upstream.audio"></agora-audio-sender>
+                <agora-video-sender
+                        v-if="upstream.video"
+                        type="custom"
+                        :config="{mediaStreamTrack: videoTrack}"
+                        style="display: none"
+                ></agora-video-sender>
+            </agora>
+        </div>
+    </div>
+
+    <div v-if="downstreamOptions.appId">
+        <h3>下行</h3>
+        <div v-for="(filter, index) in downstreamFilter" v-if="filter.player">
+            <agora :appid="downstreamOptions.appId" :channel="downstreamOptions.channelName" :uid="downstreamOptions.uid * 100 + index">
+                <agora-video-receiver
+                        @video-ready="data=>videoList=data"
+                        :accept="filter.uidList ? filter.uidList.split(',').map((str)=>{console.error(`str`, str);return parseInt(str) * 100}): []"
+                >
+                    <div :style="`width: ${parseInt(filter.player.width) ? parseInt(filter.player.width) + 'px' : '100%'};height:${parseInt(filter.player.height) ? parseInt(filter.player.height) + 'px' : '100%'};background: blue;`"></div>
+                </agora-video-receiver>
+            </agora>
+        </div>
+    </div>
+
+</div>
+</body>
+<script src="./vendor/vue-2.6.11/vue.min.js"></script>
+<script src="./vendor/agora/AgoraRTC_N-4.4.0.js"></script>
+<script src="./vendor/agora-rtc-vue/lib/agora-rtc-vue.umd.min.js"></script>
+<script src="./vendor/mqtt/mqtt.min.js"></script>
+<script src="./vendor/axios/axios.min.js"></script>
+<script src="./vendor/jquery/jquery-3.6.0.min.js"></script>
+<script>
+    const data = {
+        streamOptions: {
+            video: false,
+            audio: false,
+            encoder: {
+                width: 1024,
+                height: 1024,
+                frameRate: 5,
+            }
+        },
+        downstreamOptions:{
+            appId: "",
+            uid: 0,
+            cname: ""
+        },
+        downstreamFilter:[],
+        videoPlayer: {
+            width: "auto",
+            height: "auto",
+            fit: "contain"
+        },
+        mediaStream: null,
+        audioTrack: null,
+        videoTrack: null,
+        upstreams: [],
+    }
+    const downstreamAcceptFilter = function(){
+        console.error("downstreamAcceptFilter", this);
+    }
+    const downstreamRefuseFilter = function(){
+        console.error("downstreamRefuseFilter", this);
+        const refuses = [];
+        this.upstreams.forEach((upstream)=>{
+            refuses.push(upstream.uid)
+        })
+        return refuses;
+    }
+    async function main(){
+        const urlParams = new URLSearchParams(window.location.search);
+        const deviceName = urlParams.get('deviceName');
+        if (!deviceName){
+            return;
+        }
+        data.deviceName = deviceName;
+        const topics = [
+            `/agora/upstream/${deviceName}`,
+            `/agora/downstream/${deviceName}`,
+        ];
+        const res = await axios({
+            method: 'POST',
+            url: `https://a1.easemob.com/1128210519085787/fangfa2/token`,
+            data: JSON.stringify({
+                grant_type: "password",
+                username: deviceName,
+                password: deviceName,
+            }, null, 2),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        var client  = mqtt.connect('wss://0ljii0.cn1.mqtt.chat:443', {
+            protocolVersion: 5,
+            clientId: deviceName + "@0ljii0",
+            username: deviceName,
+            password: res.data.access_token
+        })
+        client.on('connect', function () {
+            console.error("mqtt Connected");
+        })
+        client.on('error', function(err){
+            console.error(err)
+        })
+        console.error("Subscribe to topics", topics.join());
+        topics.forEach((t)=>{
+            client.subscribe(t);
+        })
+        let msgCnt = 0;
+        let msgCntMax = 1;
+        let reqs = [];
+        async function handleMessageUpstream(topic, obj){
+            data.streamOptions = obj.streamOptions;
+            data.videoPlayer = obj.videoPlayer;
+
+            for (var i = 0; i < data.upstreams.length; i++){
+                data.upstreams.pop();
+            }
+            for (var j = 0; j< obj.upstreamOptions.length; j++){
+                data.upstreams.push({
+                    appId: obj.upstreamOptions[j].appId,
+                    channel: obj.upstreamOptions[j].channelName,
+                    uid: obj.upstreamOptions[j].uid * 100,
+                    video: obj.streamOptions.video,
+                    audio: obj.streamOptions.audio,
+                    encoder: obj.streamOptions.encoder,
+                    facingMode: obj.streamOptions.facingMode,
+                })
+            }
+
+            if (data.streamOptions){
+                const constraint = {
+                    audio: data.streamOptions.audio,
+                }
+                if(data.streamOptions.video){
+                    constraint.video = data.streamOptions.encoder;
+                }
+                if (constraint.audio || constraint.video){
+                    data.mediaStream = await navigator.mediaDevices.getUserMedia(constraint);
+                    data.audioTrack = data.mediaStream.getAudioTracks()[0];
+                    data.videoTrack = data.mediaStream.getVideoTracks()[0];
+                    if (data.videoTrack && data.videoPlayer){
+                        const timer2 = setInterval(()=>{
+                            if (data.upstreams && $("#localVideo")[0].srcObject !== data.mediaStream){
+                                // clearInterval(timer2);
+                                console.error("set src object");
+                                $("#localVideo")[0].srcObject = data.mediaStream;
+                            }
+                        }, 200);
+                    }
+                }
+                startVue();
+            }
+        }
+
+        let timerVue = null;
+        function startVue(){
+            clearTimeout(timerVue);
+            timerVue = setTimeout(()=>{
+                if (!window.vueApp){
+                    console.error("启动vue", JSON.stringify(data, null, 2))
+                    window.vueApp = new Vue({
+                        el: '#app',
+                        data: data,
+                        computed:{
+                            downstreamAcceptFilter,
+                            downstreamRefuseFilter
+                        }
+                    })
+                }else{
+                    // console.error("Here");
+                    window.location.reload();
+                }
+            }, 500)
+        }
+
+        async function handleMessageDownstream(topic, obj){
+            console.error("handleMessageDownstream", obj);
+            data.downstreamOptions = obj.downstreamOptions;
+            data.downstreamFilter = obj.downstreamFilter;
+            startVue();
+        }
+
+        client.on("message", function(topic, message){
+            if (!message.toString()){
+                return;
+            }
+            let obj
+            try{
+                obj = JSON.parse(message.toString());
+            }catch(e){
+                console.error("message:", message.toString())
+            }
+            console.error("message", obj)
+            if (reqs.indexOf(obj.requestId) > -1){
+                console.log("收到重复的message", obj);
+                return;
+            }else{
+                reqs.push(obj.requestId)
+                if (obj.type === "upstream"){
+                    msgCnt++;
+                    handleMessageUpstream(topic, obj);
+                }else if (obj.type === "downstream"){
+                    handleMessageDownstream(topic, obj);
+                }
+            }
+
+        });
+        client.on("close", function(){
+            console.error("client close");
+        })
+    }
+    main()
+</script>
+</html>

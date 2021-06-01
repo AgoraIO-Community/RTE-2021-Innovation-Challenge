@@ -1,0 +1,7 @@
+    /**
+     * 自动生成：by WaTaNaBe on {{now}}.
+     * #{{title}}#
+     * #{{remarks}}#
+     */
+    @{{type}}(ApiMethods.{{name}})
+    fun {{name}}Async({{putnet}}): Deferred<Response<BasicApiResult<{{response}}>>>

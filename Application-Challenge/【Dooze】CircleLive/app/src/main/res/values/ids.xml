@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="lp_room_video_render_flex_layout" type="id" />
+    <item name="iv_live_render_switch_camera" type="id" />
+    <item name="sb_filter_intensity" type="id" />
+    <item name="layout_user_render_root" type="id" />
+    <item name="tag_living_mask_anim" type="id" />
+</resources>

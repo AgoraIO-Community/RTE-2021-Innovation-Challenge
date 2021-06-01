@@ -1,0 +1,3 @@
+rootProject.name = "AgoraWithWaterMaskAndroid"
+include ':app'
+include ':agora-watermask'

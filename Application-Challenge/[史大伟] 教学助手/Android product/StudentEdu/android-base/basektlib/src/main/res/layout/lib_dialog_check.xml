@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@drawable/lib_dialog_white_solid"
+    >
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="22dp"
+        android:textSize="@dimen/textSize20"
+        android:textColor="@color/color_111111"
+        android:lines="1"
+        android:ellipsize="end"
+        tools:text="title" />
+
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="content"
+        android:textSize="@dimen/textSize16"
+        android:textColor="@color/color_333333"
+        />
+
+    <EditText
+        android:id="@+id/input"
+        android:visibility="gone"
+        android:textSize="@dimen/textSize16"
+        android:singleLine="true"
+        android:textColor="@color/color_333333"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+
+
+
+
+
+        <TextView
+            android:id="@+id/cancle"
+
+            android:textSize="@dimen/textSize16"
+            android:text="@string/libCancle"
+            android:background="?android:attr/selectableItemBackground"
+            android:layout_marginRight="20dp"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            tools:text="cancle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+
+        <TextView
+            tools:text="sure"
+            android:textSize="@dimen/textSize16"
+            android:id="@+id/sure"
+            android:text="@string/libSure"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

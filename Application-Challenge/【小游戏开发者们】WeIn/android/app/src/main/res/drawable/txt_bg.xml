@@ -1,0 +1,5 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:top="40dp">
+        <color android:color="@color/translucent" />
+    </item>
+</layer-list>

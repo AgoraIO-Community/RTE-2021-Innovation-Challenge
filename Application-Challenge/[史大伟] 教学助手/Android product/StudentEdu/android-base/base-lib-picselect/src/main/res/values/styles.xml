@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--相册数字风格样式，注意每一项都不能少-->
+    <style name="picture.custom.style" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#ffffff</item>
+        <!--状态栏背景色-->
+        <item name="colorPrimaryDark">#ffffff</item>
+        <!--是否改变图片列表界面状态栏字体颜色为黑色-->
+        <item name="picture.statusFontColor">true</item>
+        <!--返回键图标-->
+        <item name="picture.leftBack.icon">@mipmap/picture_selector_back</item>
+        <!--标题下拉箭头-->
+        <item name="picture.arrow_down.icon">@mipmap/picture_selector_arrow_down</item>
+        <!--标题上拉箭头-->
+        <item name="picture.arrow_up.icon">@mipmap/picture_selector_arrow_up</item>
+        <!--标题文字颜色-->
+        <item name="picture.title.textColor">#333333</item>
+        <!--标题栏右边文字-->
+        <item name="picture.right.textColor">#333333</item>
+        <!--图片列表勾选样式-->
+        <item name="picture.checked.style">@drawable/picture_selector_num_selector</item>
+        <!--开启图片列表勾选数字模式-->
+        <item name="picture.style.checkNumMode">true</item>
+        <!--选择图片样式0/9-->
+        <item name="picture.style.numComplete">false</item>
+        <!--图片列表底部背景色-->
+        <item name="picture.bottom.bg">#FAFAFA</item>
+        <!--图片列表预览文字颜色-->
+        <item name="picture.preview.textColor">#333333</item>
+        <!--图片列表已完成文字颜色-->
+        <item name="picture.complete.textColor">#333333</item>
+        <!--图片已选数量圆点背景色-->
+        <item name="picture.num.style">@drawable/picture_selector_check</item>
+        <!--预览界面标题文字颜色-->
+        <item name="picture.ac_preview.title.textColor">#333333</item>
+        <!--预览界面已完成文字颜色-->
+        <item name="picture.ac_preview.complete.textColor">#333333</item>
+        <!--预览界面标题栏背景色-->
+        <item name="picture.ac_preview.title.bg">#ffffff</item>
+        <!--预览界面底部背景色-->
+        <item name="picture.ac_preview.bottom.bg">#ffffff</item>
+        <!--预览界面返回箭头-->
+        <item name="picture.preview.leftBack.icon">@mipmap/picture_selector_back</item>
+        <!--裁剪页面标题背景色-->
+        <item name="picture.crop.toolbar.bg">#F2FFFFFF</item>
+        <!--裁剪页面状态栏颜色-->
+        <item name="picture.crop.status.color">#ffffff</item>
+        <!--裁剪页面标题文字颜色-->
+        <item name="picture.crop.title.color">#333333</item>
+        <!--相册文件夹列表选中图标-->
+        <item name="picture.folder_checked_dot">@drawable/picture_selector_dot_check</item>
+    </style>
+
+</resources>

@@ -1,0 +1,15 @@
+package {{packagename}}.data.source
+
+import com.kangraoo.basektlib.data.DataResult
+import {{packagename}}.data.model.params.*
+import {{packagename}}.data.model.responses.*
+import com.qdedu.baselibcommon.data.model.responses.BasicApiResult
+
+/**
+ * 自动生成：by WaTaNaBe on {{now}}.
+ * {{dataSource}}
+ */
+interface {{dataSource}} {
+
+//#06#
+}

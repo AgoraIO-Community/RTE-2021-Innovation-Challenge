@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="libBottomPopwindowAnimStyle">
+        <item name="android:windowEnterAnimation">@anim/lib_push_bottom_in</item>
+        <!-- 指定显示的动画xml -->
+        <item name="android:windowExitAnimation">@anim/lib_push_bottom_out</item>
+        <!-- 指定消失的动画xml -->
+    </style>
+
+    <style name="libBaseDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item><!-- 边框 -->
+        <item name="android:windowNoTitle">true</item><!-- 无标题 -->
+        <item name="android:windowTitleStyle">@null</item><!-- 标题样式 -->
+        <item name="android:windowBackground">@android:color/transparent</item><!-- 背景透明 -->
+        <item name="android:windowContentOverlay">@null</item><!-- 对话框是否有遮盖 -->
+        <item name="android:windowIsTranslucent">true</item><!-- 是否支持透window明度 -->
+        <item name="android:backgroundDimEnabled">true</item><!--半透明-->
+        <item name="android:colorBackgroundCacheHint">@null</item><!-- 背景缓存颜色 -->
+    </style>
+
+
+    <style name="libBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/libBottomSheetStyle</item>
+    </style>
+
+    <style name="libBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+
+    <style name="AppNoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    </style>
+    <style name="LoadingBarStyle" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/lib_layer_list_loading_bar</item>
+    </style>
+
+
+    <!-- Base application theme. -->
+    <style name="Lib.AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/lib_color_blueviolet</item>
+        <item name="colorPrimaryDark">@color/lib_color_cadetblue</item>
+        <item name="colorAccent">@color/lib_color_chocolate</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+</resources>

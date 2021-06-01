@@ -1,0 +1,11 @@
+matplotlib
+motmetrics
+nibabel
+numpy
+scikit-learn
+scipy
+tokenizers
+tensorboard
+tensorboardX
+tqdm
+opencv-python
