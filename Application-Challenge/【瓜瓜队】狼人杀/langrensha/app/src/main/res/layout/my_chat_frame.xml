@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="260dp"
+    android:layout_height="150dp"
+    android:background="@drawable/chat_frame_bg">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/message_container"
+        android:layout_width="240dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/chat_iner_frame_bg" />
+
+   <LinearLayout
+       android:id="@+id/edit_text_and_send_button"
+       android:layout_width="match_parent"
+       android:layout_height="30dp"
+       android:orientation="horizontal"
+       android:layout_below="@id/message_container"
+       android:layout_marginTop="3dp"
+       android:layout_marginLeft="10dp"
+       android:layout_marginRight="10dp"
+       android:layout_centerHorizontal="true">
+
+
+
+
+
+
+   </LinearLayout>
+
+
+
+
+
+
+
+</RelativeLayout>

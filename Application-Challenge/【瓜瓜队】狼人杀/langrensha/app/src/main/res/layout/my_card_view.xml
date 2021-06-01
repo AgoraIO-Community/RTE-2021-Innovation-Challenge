@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.qgmodel.qggame.custom.MyRelativeLayout
+        android:id="@+id/card_num_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image_card_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/card_count"/>
+
+        <TextView
+            android:id="@+id/card_num_text"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="10"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:layout_alignRight="@id/image_card_num"
+            android:layout_marginRight="11dp"/>
+
+
+
+    </com.qgmodel.qggame.custom.MyRelativeLayout>
+
+    <com.qgmodel.qggame.custom.MyRelativeLayout
+        android:id="@+id/card_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image_car"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/card"
+            android:layout_marginLeft="-10dp"
+            android:layout_marginTop="2dp"/>
+
+        <TextView
+            android:id="@+id/text_word"
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:textSize="12sp"
+            android:textColor="#000000"
+            android:text="说女朋友"/>
+
+        <View
+            android:id="@+id/gray_layer"
+            android:layout_width="46dp"
+            android:layout_height="62dp"
+            android:background="@drawable/layer_roud_corner"
+            android:layout_alignLeft="@id/text_word"
+            android:layout_marginTop="11dp"
+            android:layout_marginLeft="-9dp"
+            android:visibility="visible"/>
+
+
+
+    </com.qgmodel.qggame.custom.MyRelativeLayout>
+
+<!--    <com.qgmodel.qggame.custom.MyRelativeLayout-->
+<!--        android:id="@+id/card_container"-->
+<!--        android:layout_below="@id/card_num_container"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/image_car"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@mipmap/card" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/text_word"-->
+<!--            android:layout_width="30dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:textColor="#000000"-->
+<!--            android:text="说女朋友"/>-->
+
+<!--        <View-->
+<!--            android:id="@+id/gray_layer"-->
+<!--            android:layout_width="55dp"-->
+<!--            android:layout_height="74dp"-->
+<!--            android:background="@drawable/layer_roud_corner"-->
+<!--            android:layout_marginLeft="21dp"-->
+<!--            android:layout_marginTop="11dp"-->
+<!--            android:visibility="visible" />-->
+
+
+
+<!--    </com.qgmodel.qggame.custom.MyRelativeLayout>-->
+
+</RelativeLayout>
