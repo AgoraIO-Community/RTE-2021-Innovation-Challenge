@@ -191,9 +191,9 @@ export default {
           const playerContainer = document.createElement("div");
           // 给这个 DIV 节点指定一个 ID，这里指定的是远端用户的 UID。
           playerContainer.id = user.uid.toString();
-          playerContainer.style.width = videoWindow.clientWidth / 2 + "px";
+          playerContainer.style.width = videoWindow.clientWidth + "px";
           playerContainer.style.height =
-            (videoWindow.clientWidth / 2 / 16) * 9 + "px";
+            (videoWindow.clientWidth / 16) * 9 + "px";
           playerContainer.class = "main-window";
           videoWindow.append(playerContainer);
 
@@ -401,9 +401,9 @@ export default {
             const playerContainer = document.createElement("div");
             // 给这个 DIV 节点指定一个 ID，这里指定的是远端用户的 UID。
             playerContainer.id = this.localUid;
-            playerContainer.style.width = videoWindow.clientWidth / 2 + "px";
+            playerContainer.style.width = videoWindow.clientWidth + "px";
             playerContainer.style.height =
-              (videoWindow.clientWidth / 2 / 16) * 9 + "px";
+              (videoWindow.clientWidth / 16) * 9 + "px";
             playerContainer.class = "main-window";
             videoWindow.append(playerContainer);
             videoTrack.play(playerContainer);
