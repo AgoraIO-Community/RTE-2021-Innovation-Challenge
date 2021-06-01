@@ -1,0 +1,15 @@
+flarum-sticky:
+  admin:
+    permissions:
+      sticky_discussions_label: 顶置帖子
+  forum:
+    badge:
+      sticky_tooltip: => flarum-sticky.ref.sticky
+    discussion_controls:
+      sticky_button: => flarum-sticky.ref.sticky
+      unsticky_button: 取消顶置
+    post_stream:
+      discussion_stickied_text: '{username} 顶置了此贴。'
+      discussion_unstickied_text: '{username} 取消顶置此贴。'
+  ref:
+    sticky: 顶置

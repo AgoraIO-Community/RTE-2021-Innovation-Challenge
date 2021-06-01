@@ -1,0 +1,6 @@
+[submodule "packages/lang-simplified-chinese"]
+	path = packages/lang-simplified-chinese
+	url = git@github.com:flarumdev/lang-simplified-chinese.git
+[submodule "packages/points"]
+	path = packages/points
+	url = git@github.com:flarumdev/flarum-points.git

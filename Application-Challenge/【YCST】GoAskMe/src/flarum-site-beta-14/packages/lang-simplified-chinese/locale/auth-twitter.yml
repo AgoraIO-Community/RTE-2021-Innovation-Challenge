@@ -1,0 +1,9 @@
+flarum-auth-twitter:
+  forum:
+    log_in:
+      with_twitter_button: 使用 Twitter 登录
+  admin:
+    twitter_settings:
+      title: Twitter 设置
+      api_secret_label: API Secret
+      api_key_label: API Key

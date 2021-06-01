@@ -1,0 +1,53 @@
+<?php
+
+/*
+ * This file is part of Flarum.
+ *
+ * For detailed copyright and license information, please view the
+ * LICENSE file that was distributed with this source code.
+ */
+
+namespace GoAskMe\Points\Api\Controller;
+
+use Flarum\Api\Controller\AbstractShowController;
+use Flarum\Api\Serializer\UserSerializer;
+use Flarum\User\Command\UploadAvatar;
+use Illuminate\Contracts\Bus\Dispatcher;
+use Illuminate\Support\Arr;
+use Psr\Http\Message\ServerRequestInterface;
+use Tobscure\JsonApi\Document;
+use GoAskMe\Points\Command\ResponseUser;
+
+
+class ConvertTestController extends AbstractShowController
+{
+    /**
+     * {@inheritdoc}
+     */
+    public $serializer = UserSerializer::class;
+
+    /**
+     * @var Dispatcher
+     */
+    protected $bus;
+
+    /**
+     * @param Dispatcher $bus
+     */
+    public function __construct(Dispatcher $bus)
+    {
+        $this->bus = $bus;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function data(ServerRequestInterface $request, Document $document)
+    {
+
+        $actor = $request->getAttribute('actor');
+        return $this->bus->dispatch(
+            new ResponseUser($actor)
+        );
+    }
+}

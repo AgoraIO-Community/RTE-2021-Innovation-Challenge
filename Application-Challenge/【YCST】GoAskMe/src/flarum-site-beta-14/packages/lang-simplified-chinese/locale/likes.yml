@@ -1,0 +1,19 @@
+flarum-likes:
+  admin:
+    permissions:
+      like_posts_label: 点赞
+  forum:
+    notifications:
+      post_liked_text: "{username} 赞了你的主题"
+      others_text: => core.ref.some_others
+    post:
+      like_link: 点赞
+      liked_by_self_text: '{users} 赞了。'
+      liked_by_text: '{users} 赞了|{users} 赞了。'
+      others_link: => core.ref.some_others
+      unlike_link: 取消点赞
+      you_text: => core.ref.you
+    post_likes:
+      title: 点赞的用户
+    settings:
+      notify_post_liked_label: 有人赞了我的主题

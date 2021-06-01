@@ -1,0 +1,23 @@
+{
+  "name": "goaskme/flarum-points",
+  "description": "Point system for flarum.",
+  "type": "flarum-extension",
+  "require": {
+    "flarum/core": ">=0.1.0-beta.14 <0.1.0-beta.15"
+  },
+  "autoload": {
+    "psr-4": {
+      "GoAskMe\\Points\\": "src/"
+    }
+  },
+  "extra": {
+    "flarum-extension": {
+      "title": "Points",
+      "icon": {
+        "name": "fas fa-smile",
+        "backgroundColor": "#238c59",
+        "color": "#fff"
+      }
+    }
+  }
+}
