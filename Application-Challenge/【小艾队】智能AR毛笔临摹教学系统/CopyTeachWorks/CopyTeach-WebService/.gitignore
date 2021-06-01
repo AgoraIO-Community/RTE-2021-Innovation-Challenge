@@ -1,0 +1,13 @@
+.gradle
+build/
+!**/src/main/**
+!**/src/test/**
+.idea
+out/
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+.vscode/
+arthas-output
