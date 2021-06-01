@@ -8,6 +8,7 @@
 
 * share-cinema: 共享影院前端源码
 * video-backend: 共享影院后端源码
+* 演示视频.mp4: 共享影院功能演示视频
 
 ### 相关技术
 
@@ -80,13 +81,25 @@ npm run serve
 ### 后端
 
 * 《共享影院》项目后端由python3+ Flask框架搭建，运行前请按以下步骤操作
+* 请在requirements.txt所在目录下执行
+```
+pip install -r requirements.txt
+```
 * 添加声网RTC所需的相关配置
     * 在app.py同一路径下创建config.py文件
     * 文件中添加agora_token相关信息
 
-        ```
+        ```python
+        # 声网SDK配置
         appid = ""
-        appsecert = ""
+        appsecret = ""
+
+        # 环信IM配置
+        url = "http://a1.easemob.com/"
+        orgname = ""
+        appname = ""
+        clientid = ""
+        clientsecret = ""
         ```
 
 * 启动后端

@@ -8,7 +8,7 @@ from flask_cors import *
 import json
 import time
 import requests
-from config import appid, appsecert, clientid, clientsecert, orgname, appname, url
+from config import appid, appsecret, clientid, clientsecret, orgname, appname, url
 from TokenBuilder.RtcTokenBuilder import RtcTokenBuilder, Role_Attendee
 
 expireTimeInSeconds = 3600
@@ -78,7 +78,7 @@ def getToken():
     channelName = request.json['channelName']
     uid = request.json['uid']
     token = RtcTokenBuilder.buildTokenWithAccount(
-        appid, appsecert, channelName, uid, Role_Attendee, privilegeExpiredTs)
+        appid, appsecret, channelName, uid, Role_Attendee, privilegeExpiredTs)
     return token
 
 
@@ -89,7 +89,7 @@ def createChatRoom():
     token_url = url+orgname+'/'+appname+'/token'
 
     s = json.dumps({'grant_type': 'client_credentials',
-                   'client_id': clientid, 'client_secret': clientsecert})
+                   'client_id': clientid, 'client_secret': clientsecret})
     r = requests.post(token_url, data=s).json()
     token = r['access_token']
     print(token)
@@ -123,7 +123,7 @@ def addChatRoomUser():
     token_url = url+orgname+'/'+appname+'/token'
 
     s = json.dumps({'grant_type': 'client_credentials',
-                   'client_id': clientid, 'client_secret': clientsecert})
+                   'client_id': clientid, 'client_secret': clientsecret})
     r = requests.post(token_url, data=s).json()
     token = r['access_token']
     print(token)

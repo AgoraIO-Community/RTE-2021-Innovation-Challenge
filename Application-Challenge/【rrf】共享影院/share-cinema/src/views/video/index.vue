@@ -106,7 +106,7 @@ export default {
   watch: {
     src: {
       handler: function (newval, oldval) {
-        this.playerOptions.sources[0].src = newval;
+        this.playerOptions.sources[0].src = '/server/' + newval;
       },
       immediate: true,
     },
