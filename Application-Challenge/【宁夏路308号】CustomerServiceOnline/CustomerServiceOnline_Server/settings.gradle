@@ -1,2 +1,0 @@
-include ':app', ':MultiWaveHeader', ':ScreenSharing'
-rootProject.name='VisualCall_Server'
