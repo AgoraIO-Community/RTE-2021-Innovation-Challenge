@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="menu_textiew">
+        <attr name="menu_title" format="string|reference" />
+        <attr name="menu_value" format="string|reference" />
+        <attr name="menu_title_color" format="color|reference" />
+        <attr name="menu_value_color" format="color|reference" />
+        <attr name="menu_show_next" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="count_iamageview">
+        <attr name="iv_count" format="integer" />
+        <attr name="iv_src" format="reference" />
+    </declare-styleable>
+</resources>

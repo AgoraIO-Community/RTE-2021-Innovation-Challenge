@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "603091861714",
+    "project_id": "xiangqin-192c5",
+    "storage_bucket": "xiangqin-192c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:603091861714:android:64c56316f0d1efff32ed0b",
+        "android_client_info": {
+          "package_name": "io.agora.interactivepodcast"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "603091861714-oiijbpb7vt2bdk46um9hkjs65oddqolh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0U8eF34VzinouCRt3CyIBEzPXsMHtuGk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "603091861714-oiijbpb7vt2bdk46um9hkjs65oddqolh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
