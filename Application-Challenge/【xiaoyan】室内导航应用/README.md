@@ -41,6 +41,10 @@ WebRTC的工业应用的场景应用。工业场景的应用不光涉及到人�
   
 ![Advanced-Demos 2021_6_1 20_42_25](https://user-images.githubusercontent.com/12082873/120325242-0ecfd680-c31a-11eb-939e-718eee2c14aa.png)
 
+### Demo
+https://tbxy09test.oss-cn-beijing.aliyuncs.com/share/indoorNav%202021-06-02%2023-01-16.mp4
+https://tbxy09test.oss-cn-beijing.aliyuncs.com/share/indoorNav%202021-06-02%2023-03-58.mp4
+
 
 
 
