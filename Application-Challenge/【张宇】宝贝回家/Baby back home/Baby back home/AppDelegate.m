@@ -32,7 +32,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
      
     self.window.frame=CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,  [UIScreen mainScreen].bounds.size.height);
-    
+    EMOptions *options = [EMOptions optionsWithAppkey:@"1118210413091291#weatherducation"];
+    // apnsCertName是证书名称，可以先传nil，等后期配置apns推送时在传入证书名称
+    options.apnsCertName = nil;
+    [[EMClient sharedClient] initializeSDKWithOptions:options];
     [self.window makeKeyAndVisible];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginStateChange:) name:ACCOUNT_LOGIN_CHANGED object:nil];
