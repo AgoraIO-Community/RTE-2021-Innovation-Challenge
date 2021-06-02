@@ -1,0 +1,62 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/yellow</item>
+    </style>
+    <style name="mainButton">
+        <item name="android:layout_width">90dp</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="mainButton.frame">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_marginEnd">20dp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:onClick">onClick</item>
+
+    </style>
+    <style name="mainButton.imageBg">
+        <item name="android:background">@drawable/yuan</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+    <style name="mainButton.image">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">30dp</item>
+    </style>
+    <style name="mainButton.text">
+        <item name="android:background">#ffffff</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">#666666</item>
+    </style>
+    <style name="settingItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_marginBottom">1dp</item>
+    </style>
+    <style name="WelcomeStyle" parent="android:Theme">
+        <item name="android:windowBackground">@drawable/bg1</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style
+        name="Appwelcome"
+        parent="android:Theme.Translucent.NoTitleBar.Fullscreen">
+    </style>
+
+
+
+</resources>

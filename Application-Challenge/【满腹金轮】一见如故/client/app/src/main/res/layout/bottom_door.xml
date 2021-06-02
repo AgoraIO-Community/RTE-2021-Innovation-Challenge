@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingBottom="8dp"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:paddingTop="30dp">
+
+    <TextView
+        android:id="@+id/door_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="北门"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center_vertical">
+
+        <com.example.jialichun.client.view.CircleRec
+            android:id="@+id/door_stateSymbol"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_gravity="left|center_vertical"
+            app:appBgColor="@color/green"
+            app:appRadius="7dp" />
+
+        <TextView
+            android:id="@+id/door_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="状态正常" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/grey">
+
+    </FrameLayout>
+
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp">
+
+        <LinearLayout
+            android:id="@+id/door_wrong"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:onClick="onClickBar"
+            app:layout_widthPercent="50%w">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="14dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/wrong" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="故障报修"
+                android:textColor="@color/blue"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/door_note"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:onClick="onClickBar"
+            app:layout_widthPercent="50%w">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="16dp"
+                android:layout_marginLeft="25dp"
+                android:src="@drawable/noteblue" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="出入记录"
+                android:textColor="@color/blue"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
+</com.zhy.android.percent.support.PercentLinearLayout>

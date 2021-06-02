@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#282828">
+
+
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        app:layout_heightPercent="15%w">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/back"
+            app:layout_marginLeftPercent="5%w"
+            app:layout_widthPercent="5%w" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            app:layout_widthPercent="78%w" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/more"
+            app:layout_marginLeftPercent="5%w"
+            app:layout_heightPercent="65%h" />
+
+    </com.zhy.android.percent.support.PercentLinearLayout>
+    <com.zhy.android.percent.support.PercentFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="90%h">
+
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="245dp"
+            android:layout_height="350dp"
+            android:layout_gravity="center"
+            android:background="@drawable/recw"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="一次性通行证"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="bottom"
+                    android:src="@drawable/ren" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="梅岭苑13栋5单元601室"
+                android:textColor="@color/grey"
+                android:textSize="10sp" />
+            <com.zhy.android.percent.support.PercentFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="20dp"
+                app:layout_heightPercent="70%w">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/erweim"
+                    app:layout_heightPercent="100%h"
+                    app:layout_widthPercent="100%h" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/touxiang"
+                    app:layout_heightPercent="23%w"
+                    app:layout_widthPercent="23%w"/>
+
+            </com.zhy.android.percent.support.PercentFrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="0815"
+                android:textColor="@color/yellow"
+                android:textSize="36sp" />
+
+            <com.example.jialichun.client.view.CircleRec
+                android:layout_width="40dp"
+                android:layout_height="10dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="-4dp"
+                android:text="复制"
+                android:textColor="@color/yellow"
+                android:textSize="7sp"
+                app:appBorder="true"
+                app:appBorderColor="@color/yellow"
+                app:appBorderWidth="1dp"
+                app:appRadius="5dp">
+
+            </com.example.jialichun.client.view.CircleRec>
+
+
+
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+    </com.zhy.android.percent.support.PercentFrameLayout>
+</com.zhy.android.percent.support.PercentLinearLayout>

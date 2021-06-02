@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground"
+    tools:context="com.example.jialichun.client.activities.UsersActivity">
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        app:layout_heightPercent="15%w">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:onClick="onClickBack"
+            android:src="@drawable/back"
+            app:layout_marginLeftPercent="5%w"
+            app:layout_widthPercent="3%w" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="关联用户"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            app:layout_widthPercent="80%w" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:onClick="onClickMessage"
+            android:src="@drawable/plus"
+            app:layout_marginRightPercent="5%w"
+            app:layout_widthPercent="7%w" />
+
+    </com.zhy.android.percent.support.PercentLinearLayout>
+    <ExpandableListView
+        android:id="@+id/exlist_lol"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/white"
+        android:childDivider="@color/yellow"/>
+
+</com.zhy.android.percent.support.PercentLinearLayout>

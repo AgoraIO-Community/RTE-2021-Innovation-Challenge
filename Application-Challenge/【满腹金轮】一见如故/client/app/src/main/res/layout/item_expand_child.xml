@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:id="@+id/label_expand_child"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:orientation="horizontal"
+    android:layout_marginBottom="1dp"
+    android:paddingLeft="30dp">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="right|center_vertical"
+        android:src="@drawable/touxiang2"
+        app:layout_heightPercent="15%w"
+        app:layout_widthPercent="15%w"
+        android:id="@+id/img_icon"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_widthPercent="60%w"
+        android:text="用户姓名"
+        android:padding="10dp"
+        android:gravity="center_vertical"
+        android:id="@+id/tv_name"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:src="@drawable/jiantou"
+        app:layout_widthPercent="15%w"
+        android:layout_gravity="center_vertical"/>
+
+</com.zhy.android.percent.support.PercentLinearLayout>
