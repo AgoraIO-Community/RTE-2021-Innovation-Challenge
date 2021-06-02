@@ -34,7 +34,46 @@
 * 前端使用HTML+JS+CSS
 * 后端使用PHP 5.6，目前部署生产环境为PHP 7.0
 
-## 运行说明
+## 插件集成方法
+1.教师端
+```
+1.引入css和js文件
+<link rel="stylesheet" href="插件服务端根目录/public/css/coco_main.css?t=20210601">
+
+2.引入jquery文件，版本大于2.0即可
+
+3.引入js文件
+<script src="插件服务端根目录/public/js/coco_lesson_teacher.js?t=20210601"></script>
+
+3.初始化插件
+coco_lesson_teacher.init({
+    appid: "声网APPID",
+    teacher_id: "老师ID（唯一）",
+    room_uuid: "房间号（唯一）",
+    base_api:"插件根目录地址"
+});
+```
+
+2.学生端
+```
+1.引入css和js文件
+<link rel="stylesheet" href="插件服务端根目录/public/css/coco_main.css?t=20210601">
+
+2.引入jquery文件，版本大于2.0即可
+
+3.引入js文件
+<script src="插件服务端根目录/public/js/coco_lesson_student.js?t=20210601"></script>
+
+3.初始化插件
+coco_lesson_student.init({
+    appid: "声网APPID",
+    user_id: "学员ID（唯一）",
+    room_uuid: "房间号（唯一）",
+    base_api:"插件根目录地址"
+});
+```
+
+## 参赛demo运行说明
 1.前后端可以部署在同一个域名，也可以分开部署，接口支持跨域
 
 2.前端 学生端配置，修改 ./student.html 第32行代码
