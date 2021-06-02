@@ -82,6 +82,8 @@ npm run serve
 
 * 《共享影院》项目后端由python3+ Flask框架搭建，运行前请按以下步骤操作
 * 请在requirements.txt所在目录下执行
+* **请在环信IM管理控制台手动创建一个名为superadmin的管理员用户，用于在后台创建聊天室**
+* **请在环信IM管理控制台手动将用户注册方式修改为开放注册，用于实现用户注册**
 ```
 pip install -r requirements.txt
 ```
