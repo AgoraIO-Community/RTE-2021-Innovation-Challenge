@@ -1,0 +1,17 @@
+{
+  "name": "lesson-thumbnail",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node -r dotenv/config lesson-thumbnail.js",
+    "build:image": "bash ./scripts/build-image.sh"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "graphql.js": "^0.6.7"
+  }
+}

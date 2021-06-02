@@ -26,9 +26,7 @@ const graph = graphql(ENDPOINT, {
 setInterval(async () => {
   const lessonsGraph = graph(`
   query {
-    lessons(where: { startedAt: { gte: "${new Date().toISOString()}", lt: "${new Date(
-    Date.now() + 10 * 60 * 1000
-  ).toISOString()}" } }) {
+    lessons(where: { startedAt: { gte: "${new Date().toISOString()}" } }) {
       name
       class {
         name
@@ -84,3 +82,66 @@ setInterval(async () => {
     console.error(error);
   }
 }, 30000);
+
+setInterval(async () => {
+  const lessonsGraph = graph(`
+  query {
+    lessons {
+      id
+      duration
+      thumbnails
+      startedAt
+    }
+  }
+  `);
+  try {
+    const { lessons } = await lessonsGraph();
+    for (const lesson of lessons) {
+      if (lesson.thumbnails.length) {
+        continue;
+      }
+      if (new Date(lesson.startedAt).getTime() > Date.now()) {
+        continue;
+      }
+      if (
+        events.some(
+          (e) => e.type === "ADD_THUMBNAIL" && e.data.id === lesson.id
+        )
+      ) {
+        continue;
+      }
+      const event = {
+        type: "ADD_THUMBNAIL",
+        data: lesson,
+      };
+      events.push(event);
+      try {
+        const { data } = await axios({
+          headers: {
+            Host: "lesson-thumbnail.x-runtime.example.com",
+            "Content-Type": "application/json",
+          },
+          method: "post",
+          url: `${ENDPOINT}/thumbnail/${lesson.id}`,
+        });
+        const updateLessonGraph = graph(`
+        mutation {
+          updateOneLesson(where: { id: ${
+            lesson.id
+          } }, data: { thumbnails: { set: ${JSON.stringify(data.imgs)} } }) {
+            id
+          }
+        }
+        `);
+        const result = await updateLessonGraph().catch((error) => {
+          console.log("?", error);
+        });
+        console.log(result);
+      } catch (error) {
+        console.log(error.response);
+      }
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}, 5000);

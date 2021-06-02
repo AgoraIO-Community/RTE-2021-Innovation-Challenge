@@ -11,7 +11,7 @@ export const <%- model.name %> = objectType({
   name: "<%- model.name %>",
   definition(t) {
     <% for (const field of model.fields.filter(field => !field.invisible)) { -%>
-      t.model.<%- field.name %>(<%- field.list ? 'FILTER_ORDER_PAGINATION' : '' %>);
+      t.model.<%- field.name %>(<%- field.list && field.customType ? 'FILTER_ORDER_PAGINATION' : '' %>);
     <% } -%>
   },
 });

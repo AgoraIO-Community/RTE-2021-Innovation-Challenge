@@ -190,9 +190,9 @@ export const ClassTable: React.FC = () => {
                 <Td>
                   {(entity.students || []).map((subEntity) => {
                     return (
-                      <Box key={subEntity.id}>
+                      <Box key={subEntity.id || subEntity}>
                         {renderer.query.String({
-                          value: subEntity.name,
+                          value: subEntity.name || subEntity,
                           context: {
                             type: "User",
                             path: "students.name",
@@ -253,6 +253,7 @@ export const LessonTable: React.FC = () => {
             <Th>{t("LessonTable.class.students.name")}</Th>
             <Th>{t("LessonTable.startedAt")}</Th>
             <Th>{t("LessonTable.duration")}</Th>
+            <Th>{t("LessonTable.thumbnails")}</Th>
           </Tr>
         </Thead>
         <Tbody>
@@ -306,9 +307,9 @@ export const LessonTable: React.FC = () => {
                 <Td>
                   {(entity.class.students || []).map((subEntity) => {
                     return (
-                      <Box key={subEntity.id}>
+                      <Box key={subEntity.id || subEntity}>
                         {renderer.query.String({
-                          value: subEntity.name,
+                          value: subEntity.name || subEntity,
                           context: {
                             type: "Class",
                             path: "class.students.name",
@@ -340,6 +341,23 @@ export const LessonTable: React.FC = () => {
                       component: "LessonTable",
                       unsafe_entity: entity,
                     },
+                  })}
+                </Td>
+                <Td>
+                  {(entity.thumbnails || []).map((subEntity) => {
+                    return (
+                      <Box key={subEntity.id || subEntity}>
+                        {renderer.query.String({
+                          value: subEntity.name || subEntity,
+                          context: {
+                            type: "Lesson",
+                            path: "thumbnails",
+                            component: "LessonTable",
+                            unsafe_entity: entity,
+                          },
+                        })}
+                      </Box>
+                    );
                   })}
                 </Td>
               </Tr>

@@ -396,6 +396,13 @@
           "attributes": []
         },
         {
+          "name": "thumbnails",
+          "baseType": "String",
+          "nullable": false,
+          "list": true,
+          "attributes": []
+        },
+        {
           "name": "createdAt",
           "baseType": "String",
           "customType": "DateTime",

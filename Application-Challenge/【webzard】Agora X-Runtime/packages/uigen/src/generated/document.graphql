@@ -46,6 +46,7 @@ query lessonTable {
     }
     startedAt
     duration
+    thumbnails
   }
 }
 

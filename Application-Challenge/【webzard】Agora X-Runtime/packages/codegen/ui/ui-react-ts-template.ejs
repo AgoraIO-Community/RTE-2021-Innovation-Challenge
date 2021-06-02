@@ -96,9 +96,9 @@ export const <%- table.componentName %>: React.FC = () => {
                 <% for (const selection of table.selections) { -%>
                 <% if (selection.list || selection.path.includes("students.name")) { -%>
                   <Td>{(entity.<%- selection.path.replace(".name", "") %> || []).map(subEntity => {
-                    return (<Box key={subEntity.<%- table.idName %>}>
+                    return (<Box key={subEntity.<%- table.idName %> || subEntity}>
                       {renderer.query.<%- selection.renderType %>({
-                        value: subEntity.name,
+                        value: subEntity.name || subEntity,
                         context: {
                           type: "<%- selection.rootType %>",
                           path: "<%- selection.path %>",

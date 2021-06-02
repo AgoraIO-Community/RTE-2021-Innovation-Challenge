@@ -352,6 +352,7 @@ export type Lesson = {
   id: Scalars['Int'];
   name: Scalars['String'];
   startedAt: Scalars['DateTime'];
+  thumbnails: Array<Scalars['String']>;
   updatedAt: Scalars['DateTime'];
 };
 
@@ -361,6 +362,7 @@ export type LessonCreateInput = {
   duration: Scalars['Int'];
   name: Scalars['String'];
   startedAt: Scalars['DateTime'];
+  thumbnails?: Maybe<LessonCreatethumbnailsInput>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
@@ -370,12 +372,17 @@ export type LessonCreateManyClassInput = {
   id?: Maybe<Scalars['Int']>;
   name: Scalars['String'];
   startedAt: Scalars['DateTime'];
+  thumbnails?: Maybe<LessonCreateManythumbnailsInput>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type LessonCreateManyClassInputEnvelope = {
   data?: Maybe<Array<LessonCreateManyClassInput>>;
   skipDuplicates?: Maybe<Scalars['Boolean']>;
+};
+
+export type LessonCreateManythumbnailsInput = {
+  set?: Maybe<Array<Scalars['String']>>;
 };
 
 export type LessonCreateNestedManyWithoutClassInput = {
@@ -395,7 +402,12 @@ export type LessonCreateWithoutClassInput = {
   duration: Scalars['Int'];
   name: Scalars['String'];
   startedAt: Scalars['DateTime'];
+  thumbnails?: Maybe<LessonCreatethumbnailsInput>;
   updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type LessonCreatethumbnailsInput = {
+  set?: Maybe<Array<Scalars['String']>>;
 };
 
 export type LessonListRelationFilter = {
@@ -411,6 +423,7 @@ export type LessonOrderByInput = {
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
   startedAt?: Maybe<SortOrder>;
+  thumbnails?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
 };
 
@@ -424,6 +437,7 @@ export type LessonScalarWhereInput = {
   id?: Maybe<IntFilter>;
   name?: Maybe<StringFilter>;
   startedAt?: Maybe<DateTimeFilter>;
+  thumbnails?: Maybe<StringNullableListFilter>;
   updatedAt?: Maybe<DateTimeFilter>;
 };
 
@@ -433,6 +447,7 @@ export type LessonUpdateInput = {
   duration?: Maybe<IntFieldUpdateOperationsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   startedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  thumbnails?: Maybe<LessonUpdatethumbnailsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
 };
 
@@ -441,6 +456,7 @@ export type LessonUpdateManyMutationInput = {
   duration?: Maybe<IntFieldUpdateOperationsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   startedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  thumbnails?: Maybe<LessonUpdatethumbnailsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
 };
 
@@ -473,7 +489,13 @@ export type LessonUpdateWithoutClassInput = {
   duration?: Maybe<IntFieldUpdateOperationsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
   startedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  thumbnails?: Maybe<LessonUpdatethumbnailsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type LessonUpdatethumbnailsInput = {
+  push?: Maybe<Scalars['String']>;
+  set?: Maybe<Array<Scalars['String']>>;
 };
 
 export type LessonUpsertWithWhereUniqueWithoutClassInput = {
@@ -493,6 +515,7 @@ export type LessonWhereInput = {
   id?: Maybe<IntFilter>;
   name?: Maybe<StringFilter>;
   startedAt?: Maybe<DateTimeFilter>;
+  thumbnails?: Maybe<StringNullableListFilter>;
   updatedAt?: Maybe<DateTimeFilter>;
 };
 
@@ -780,6 +803,14 @@ export type StringFilter = {
   startsWith?: Maybe<Scalars['String']>;
 };
 
+export type StringNullableListFilter = {
+  equals?: Maybe<Array<Scalars['String']>>;
+  has?: Maybe<Scalars['String']>;
+  hasEvery?: Maybe<Array<Scalars['String']>>;
+  hasSome?: Maybe<Array<Scalars['String']>>;
+  isEmpty?: Maybe<Scalars['Boolean']>;
+};
+
 export type User = {
   __typename?: 'User';
   createdAt: Scalars['DateTime'];
@@ -1028,7 +1059,7 @@ export type LessonTableQuery = (
   { __typename?: 'Query' }
   & { lessons: Array<(
     { __typename?: 'Lesson' }
-    & Pick<Lesson, 'id' | 'name' | 'startedAt' | 'duration'>
+    & Pick<Lesson, 'id' | 'name' | 'startedAt' | 'duration' | 'thumbnails'>
     & { class: (
       { __typename?: 'Class' }
       & Pick<Class, 'id' | 'name'>
@@ -1216,6 +1247,7 @@ export const LessonTableDocument = gql`
     }
     startedAt
     duration
+    thumbnails
   }
 }
     `;

@@ -650,6 +650,15 @@
               "nullable": false,
               "list": false,
               "baseType": "Int"
+            },
+            {
+              "name": "thumbnails",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": true,
+              "baseType": "String"
             }
           ],
           "arguments": [],

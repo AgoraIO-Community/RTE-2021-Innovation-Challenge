@@ -31,8 +31,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'name' | 'teacherId' | 'createdAt' | 'updatedAt'
     }
     lessons: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'class' | 'classId' | 'startedAt' | 'duration' | 'createdAt' | 'updatedAt'
-      ordering: 'id' | 'name' | 'classId' | 'startedAt' | 'duration' | 'createdAt' | 'updatedAt'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'class' | 'classId' | 'startedAt' | 'duration' | 'thumbnails' | 'createdAt' | 'updatedAt'
+      ordering: 'id' | 'name' | 'classId' | 'startedAt' | 'duration' | 'thumbnails' | 'createdAt' | 'updatedAt'
     }
   },
   User: {
@@ -51,8 +51,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'email' | 'role' | 'name' | 'createdAt' | 'updatedAt'
     }
     lessons: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'class' | 'classId' | 'startedAt' | 'duration' | 'createdAt' | 'updatedAt'
-      ordering: 'id' | 'name' | 'classId' | 'startedAt' | 'duration' | 'createdAt' | 'updatedAt'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'class' | 'classId' | 'startedAt' | 'duration' | 'thumbnails' | 'createdAt' | 'updatedAt'
+      ordering: 'id' | 'name' | 'classId' | 'startedAt' | 'duration' | 'thumbnails' | 'createdAt' | 'updatedAt'
     }
   }
   Lesson: {
@@ -117,6 +117,7 @@ interface NexusPrismaOutputs {
     classId: 'Int'
     startedAt: 'DateTime'
     duration: 'Int'
+    thumbnails: 'String'
     createdAt: 'DateTime'
     updatedAt: 'DateTime'
   }

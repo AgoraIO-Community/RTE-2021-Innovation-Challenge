@@ -41,7 +41,8 @@ export const AgoraClassRoom: React.FC<AgoraClassRoomProps> = ({
           listener: (evt) => {
             console.log("evt", evt);
           },
-          recordUrl: "https://cn.bing.com/recordUrl",
+          recordUrl:
+            "https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=%E6%97%B6%E9%97%B4&fenlei=256&rsv_pq=c0c5e4ff00231557&rsv_t=8220eotGifjO6gjkAs8SB0oOz8HWfy0PjHnip6J0e7fLLY80MdNaUQ0pP04&rqlang=cn&rsv_enter=1&rsv_dl=tb&rsv_sug3=5&rsv_sug1=1&rsv_sug7=100&rsv_sug2=0&rsv_btype=i&prefixsug=%25E6%2597%25B6%25E9%2597%25B4&rsp=5&inputT=947&rsv_sug4=947",
         }
       );
     };

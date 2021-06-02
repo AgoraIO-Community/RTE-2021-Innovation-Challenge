@@ -303,6 +303,7 @@ type Lesson {
   id: Int!
   name: String!
   startedAt: DateTime!
+  thumbnails: [String!]!
   updatedAt: DateTime!
 }
 
@@ -312,6 +313,7 @@ input LessonCreateInput {
   duration: Int!
   name: String!
   startedAt: DateTime!
+  thumbnails: LessonCreatethumbnailsInput
   updatedAt: DateTime
 }
 
@@ -321,12 +323,17 @@ input LessonCreateManyClassInput {
   id: Int
   name: String!
   startedAt: DateTime!
+  thumbnails: LessonCreateManythumbnailsInput
   updatedAt: DateTime
 }
 
 input LessonCreateManyClassInputEnvelope {
   data: [LessonCreateManyClassInput!]
   skipDuplicates: Boolean
+}
+
+input LessonCreateManythumbnailsInput {
+  set: [String!]
 }
 
 input LessonCreateNestedManyWithoutClassInput {
@@ -346,7 +353,12 @@ input LessonCreateWithoutClassInput {
   duration: Int!
   name: String!
   startedAt: DateTime!
+  thumbnails: LessonCreatethumbnailsInput
   updatedAt: DateTime
+}
+
+input LessonCreatethumbnailsInput {
+  set: [String!]
 }
 
 input LessonListRelationFilter {
@@ -362,6 +374,7 @@ input LessonOrderByInput {
   id: SortOrder
   name: SortOrder
   startedAt: SortOrder
+  thumbnails: SortOrder
   updatedAt: SortOrder
 }
 
@@ -375,6 +388,7 @@ input LessonScalarWhereInput {
   id: IntFilter
   name: StringFilter
   startedAt: DateTimeFilter
+  thumbnails: StringNullableListFilter
   updatedAt: DateTimeFilter
 }
 
@@ -384,6 +398,7 @@ input LessonUpdateInput {
   duration: IntFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   startedAt: DateTimeFieldUpdateOperationsInput
+  thumbnails: LessonUpdatethumbnailsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -392,6 +407,7 @@ input LessonUpdateManyMutationInput {
   duration: IntFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   startedAt: DateTimeFieldUpdateOperationsInput
+  thumbnails: LessonUpdatethumbnailsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -424,7 +440,13 @@ input LessonUpdateWithoutClassInput {
   duration: IntFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   startedAt: DateTimeFieldUpdateOperationsInput
+  thumbnails: LessonUpdatethumbnailsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input LessonUpdatethumbnailsInput {
+  push: String
+  set: [String!]
 }
 
 input LessonUpsertWithWhereUniqueWithoutClassInput {
@@ -444,6 +466,7 @@ input LessonWhereInput {
   id: IntFilter
   name: StringFilter
   startedAt: DateTimeFilter
+  thumbnails: StringNullableListFilter
   updatedAt: DateTimeFilter
 }
 
@@ -557,6 +580,14 @@ input StringFilter {
   not: NestedStringFilter
   notIn: [String!]
   startsWith: String
+}
+
+input StringNullableListFilter {
+  equals: [String!]
+  has: String
+  hasEvery: [String!]
+  hasSome: [String!]
+  isEmpty: Boolean
 }
 
 type User {

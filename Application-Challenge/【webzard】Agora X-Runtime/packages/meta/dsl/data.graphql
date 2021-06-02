@@ -36,6 +36,7 @@ type Lesson {
   classId: Int! @invisible
   startedAt: DateTime!
   duration: Int!
+  thumbnails: [String!]!
   createdAt: DateTime! @default(_: "now()")
   updatedAt: DateTime! @updatedAt
 }

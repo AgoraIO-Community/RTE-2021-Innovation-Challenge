@@ -97,7 +97,7 @@ const LayoutItem = forwardRef<
       ref={ref}
       rounded="md"
       shadow="md"
-      p="2"
+      p="3"
       backgroundColor="white"
       overflow="auto"
       {...rest}
@@ -128,6 +128,7 @@ i18n.use(initReactI18next).init({
           "class.students.name": "学生",
           startedAt: "开课时间",
           duration: "时长",
+          thumbnails: "截图",
         },
         ClassTable: {
           id: "ID",

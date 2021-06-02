@@ -265,6 +265,7 @@ export interface NexusGenInputs {
     duration: number; // Int!
     name: string; // String!
     startedAt: NexusGenScalars['DateTime']; // DateTime!
+    thumbnails?: NexusGenInputs['LessonCreatethumbnailsInput'] | null; // LessonCreatethumbnailsInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
   }
   LessonCreateManyClassInput: { // input type
@@ -273,11 +274,15 @@ export interface NexusGenInputs {
     id?: number | null; // Int
     name: string; // String!
     startedAt: NexusGenScalars['DateTime']; // DateTime!
+    thumbnails?: NexusGenInputs['LessonCreateManythumbnailsInput'] | null; // LessonCreateManythumbnailsInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
   }
   LessonCreateManyClassInputEnvelope: { // input type
     data?: NexusGenInputs['LessonCreateManyClassInput'][] | null; // [LessonCreateManyClassInput!]
     skipDuplicates?: boolean | null; // Boolean
+  }
+  LessonCreateManythumbnailsInput: { // input type
+    set?: string[] | null; // [String!]
   }
   LessonCreateNestedManyWithoutClassInput: { // input type
     connect?: NexusGenInputs['LessonWhereUniqueInput'][] | null; // [LessonWhereUniqueInput!]
@@ -294,7 +299,11 @@ export interface NexusGenInputs {
     duration: number; // Int!
     name: string; // String!
     startedAt: NexusGenScalars['DateTime']; // DateTime!
+    thumbnails?: NexusGenInputs['LessonCreatethumbnailsInput'] | null; // LessonCreatethumbnailsInput
     updatedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+  }
+  LessonCreatethumbnailsInput: { // input type
+    set?: string[] | null; // [String!]
   }
   LessonListRelationFilter: { // input type
     every?: NexusGenInputs['LessonWhereInput'] | null; // LessonWhereInput
@@ -308,6 +317,7 @@ export interface NexusGenInputs {
     id?: NexusGenEnums['SortOrder'] | null; // SortOrder
     name?: NexusGenEnums['SortOrder'] | null; // SortOrder
     startedAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    thumbnails?: NexusGenEnums['SortOrder'] | null; // SortOrder
     updatedAt?: NexusGenEnums['SortOrder'] | null; // SortOrder
   }
   LessonScalarWhereInput: { // input type
@@ -320,6 +330,7 @@ export interface NexusGenInputs {
     id?: NexusGenInputs['IntFilter'] | null; // IntFilter
     name?: NexusGenInputs['StringFilter'] | null; // StringFilter
     startedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+    thumbnails?: NexusGenInputs['StringNullableListFilter'] | null; // StringNullableListFilter
     updatedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
   }
   LessonUpdateInput: { // input type
@@ -328,6 +339,7 @@ export interface NexusGenInputs {
     duration?: NexusGenInputs['IntFieldUpdateOperationsInput'] | null; // IntFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     startedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    thumbnails?: NexusGenInputs['LessonUpdatethumbnailsInput'] | null; // LessonUpdatethumbnailsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
   }
   LessonUpdateManyMutationInput: { // input type
@@ -335,6 +347,7 @@ export interface NexusGenInputs {
     duration?: NexusGenInputs['IntFieldUpdateOperationsInput'] | null; // IntFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     startedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    thumbnails?: NexusGenInputs['LessonUpdatethumbnailsInput'] | null; // LessonUpdatethumbnailsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
   }
   LessonUpdateManyWithWhereWithoutClassInput: { // input type
@@ -363,7 +376,12 @@ export interface NexusGenInputs {
     duration?: NexusGenInputs['IntFieldUpdateOperationsInput'] | null; // IntFieldUpdateOperationsInput
     name?: NexusGenInputs['StringFieldUpdateOperationsInput'] | null; // StringFieldUpdateOperationsInput
     startedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+    thumbnails?: NexusGenInputs['LessonUpdatethumbnailsInput'] | null; // LessonUpdatethumbnailsInput
     updatedAt?: NexusGenInputs['DateTimeFieldUpdateOperationsInput'] | null; // DateTimeFieldUpdateOperationsInput
+  }
+  LessonUpdatethumbnailsInput: { // input type
+    push?: string | null; // String
+    set?: string[] | null; // [String!]
   }
   LessonUpsertWithWhereUniqueWithoutClassInput: { // input type
     create: NexusGenInputs['LessonCreateWithoutClassInput']; // LessonCreateWithoutClassInput!
@@ -381,6 +399,7 @@ export interface NexusGenInputs {
     id?: NexusGenInputs['IntFilter'] | null; // IntFilter
     name?: NexusGenInputs['StringFilter'] | null; // StringFilter
     startedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
+    thumbnails?: NexusGenInputs['StringNullableListFilter'] | null; // StringNullableListFilter
     updatedAt?: NexusGenInputs['DateTimeFilter'] | null; // DateTimeFilter
   }
   LessonWhereUniqueInput: { // input type
@@ -441,6 +460,13 @@ export interface NexusGenInputs {
     not?: NexusGenInputs['NestedStringFilter'] | null; // NestedStringFilter
     notIn?: string[] | null; // [String!]
     startsWith?: string | null; // String
+  }
+  StringNullableListFilter: { // input type
+    equals?: string[] | null; // [String!]
+    has?: string | null; // String
+    hasEvery?: string[] | null; // [String!]
+    hasSome?: string[] | null; // [String!]
+    isEmpty?: boolean | null; // Boolean
   }
   UserCreateInput: { // input type
     createdAt?: NexusGenScalars['DateTime'] | null; // DateTime
@@ -627,6 +653,7 @@ export interface NexusGenObjects {
     id: number; // Int!
     name: string; // String!
     startedAt: NexusGenScalars['DateTime']; // DateTime!
+    thumbnails: string[]; // [String!]!
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
   }
   Mutation: {};
@@ -671,6 +698,7 @@ export interface NexusGenFieldTypes {
     id: number; // Int!
     name: string; // String!
     startedAt: NexusGenScalars['DateTime']; // DateTime!
+    thumbnails: string[]; // [String!]!
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
   }
   Mutation: { // field return type
@@ -733,6 +761,7 @@ export interface NexusGenFieldTypeNames {
     id: 'Int'
     name: 'String'
     startedAt: 'DateTime'
+    thumbnails: 'String'
     updatedAt: 'DateTime'
   }
   Mutation: { // field return type name

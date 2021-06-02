@@ -39,12 +39,13 @@ model Class {
 }
 
 model Lesson {
-  id        Int      @id @default(autoincrement())
-  name      String
-  class     Class    @relation(fields: [classId], references: [id])
-  classId   Int
-  startedAt DateTime
-  duration  Int
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id         Int      @id @default(autoincrement())
+  name       String
+  class      Class    @relation(fields: [classId], references: [id])
+  classId    Int
+  startedAt  DateTime
+  duration   Int
+  thumbnails String[]
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }

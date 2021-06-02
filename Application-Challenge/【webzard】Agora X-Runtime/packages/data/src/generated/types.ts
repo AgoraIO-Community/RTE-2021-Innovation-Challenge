@@ -41,6 +41,7 @@ export const Lesson = objectType({
           t.model.class();
           t.model.startedAt();
           t.model.duration();
+          t.model.thumbnails();
           t.model.createdAt();
           t.model.updatedAt();
       },

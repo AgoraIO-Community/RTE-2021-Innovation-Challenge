@@ -22,6 +22,7 @@ import {
   ModalBody,
   Button,
   useDisclosure,
+  Image,
 } from "@chakra-ui/react";
 import dayjs from "dayjs";
 import { Renderer } from "./generated/renderer-types";
@@ -103,6 +104,8 @@ const String: Renderer["query"]["String"] = ({ value, context }) => {
           {value}
         </Flex>
       );
+    case context.path.endsWith("thumbnails"):
+      return <Image width={32} height={32} src={value} />;
     default:
       break;
   }
