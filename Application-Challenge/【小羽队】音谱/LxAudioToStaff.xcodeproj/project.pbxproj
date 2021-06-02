@@ -3055,6 +3055,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = ADM37CQZ5K;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "/Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/PrefixHeader.pch";
@@ -3067,8 +3068,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LxAudioToStaff/Lib/makeMusic/Tool",
 				);
-				MARKETING_VERSION = 1.2.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.HaiLun.SmartPainoGame;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.audioToStaff.xytec;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LxAudioToStaff/Lib/makeMusic/LxAudioToStaff-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -3086,6 +3087,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = ADM37CQZ5K;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "/Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/PrefixHeader.pch";
@@ -3098,8 +3100,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LxAudioToStaff/Lib/makeMusic/Tool",
 				);
-				MARKETING_VERSION = 1.2.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.HaiLun.SmartPainoGame;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.audioToStaff.xytec;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LxAudioToStaff/Lib/makeMusic/LxAudioToStaff-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

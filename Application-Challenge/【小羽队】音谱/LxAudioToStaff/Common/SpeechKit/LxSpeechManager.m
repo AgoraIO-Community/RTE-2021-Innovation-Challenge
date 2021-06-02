@@ -132,7 +132,7 @@
     [agoraKit setDefaultAudioRouteToSpeakerphone:YES];
     self.agoraKit = agoraKit;
     
-   NSInteger code = [agoraKit joinChannelByToken:@"0067df06986a1ab443b8509c25bc9eff83cIABA7MVVPbq+YyTigelZoVX/QE9J9WjIA2OE0pDstX5ldbfv3IMAAAAAEADEZWnphIS2YAEAAQCDhLZg" channelId:@"1" info:nil uid:0 options:[[AgoraRtcChannelMediaOptions alloc]init]];
+   NSInteger code = [agoraKit joinChannelByToken:@"0067df06986a1ab443b8509c25bc9eff83cIADgf32cv/TsyTFv3pcXq0lkuB40xd6mDWkHb0vTYfq8+rfv3IMAAAAAEADEZWnpoyu3YAEAAQCiK7dg" channelId:@"1" info:nil uid:0 options:[[AgoraRtcChannelMediaOptions alloc]init]];
     debugLog(@"加入房间成功%ld",(long)code);
 }
 
