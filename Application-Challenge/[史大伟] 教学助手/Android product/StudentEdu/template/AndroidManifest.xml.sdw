@@ -1,2 +1,0 @@
-<activity android:name="{{packageName}}.activity.{{activityClass}}"
-            android:screenOrientation="portrait"/>
