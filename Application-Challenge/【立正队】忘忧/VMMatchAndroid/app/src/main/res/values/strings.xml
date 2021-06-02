@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">忘忧馆</string>
+    <string name="app_name">忘忧</string>
 
     <!--引导-->
     <string name="guide_prev">上一步</string>
