@@ -1,0 +1,43 @@
+import { objectType } from "nexus";
+
+const FILTER_ORDER_PAGINATION = {
+  filtering: true,
+  pagination: true,
+  ordering: true,
+} as const;
+
+<% for (const model of models) { -%>
+export const <%- model.name %> = objectType({
+  name: "<%- model.name %>",
+  definition(t) {
+    <% for (const field of model.fields.filter(field => !field.invisible)) { -%>
+      t.model.<%- field.name %>(<%- field.list && field.customType ? 'FILTER_ORDER_PAGINATION' : '' %>);
+    <% } -%>
+  },
+});
+
+<% } -%>
+
+export const Query = objectType({
+  name: 'Query',
+  definition(t) {
+    <% for (const model of models) { %>
+      t.crud.<%- model.lowerCaseName %>();
+      t.crud.<%- model.lowerCasePlural %>(FILTER_ORDER_PAGINATION);
+    <% } %>
+  },
+});
+
+export const Mutation = objectType({
+  name: 'Mutation',
+  definition(t) {
+    <% for (const model of models) { %>
+      t.crud.createOne<%- model.name %>();
+      t.crud.updateOne<%- model.name %>();
+      t.crud.upsertOne<%- model.name %>();
+      t.crud.deleteOne<%- model.name %>();
+      t.crud.updateMany<%- model.name %>();
+      t.crud.deleteMany<%- model.name %>();
+    <% } %>
+  }
+})

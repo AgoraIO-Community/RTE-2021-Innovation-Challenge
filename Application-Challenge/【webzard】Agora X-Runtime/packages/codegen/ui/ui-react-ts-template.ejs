@@ -1,0 +1,469 @@
+import React, { useEffect, useState } from 'react';
+import { CombinedError } from "urql";
+import { useForm, DeepPartial, useFieldArray } from "react-hook-form";
+import { renderer } from "../renderer";
+import { <%- componentImports.join(', ') %> } from '@chakra-ui/react';
+import { AddIcon, CloseIcon } from '@chakra-ui/icons';
+import { <%- dataImports.join(', ') %> } from "./data-components";
+import Calendar from '../ui-kit/Calendar';
+import dayjs from 'dayjs';
+import { useTranslation, initReactI18next } from "react-i18next";
+import { AgoraClassroom } from "../custom-components/Agora";
+
+export const Error: React.FC<{ error: CombinedError }> = ({ error }) => {
+  return (
+    <Center>
+      <Popover trigger="hover">
+        <PopoverTrigger><Text>{error.message}</Text></PopoverTrigger>
+        <PopoverContent>
+          <PopoverCloseButton />
+          <PopoverHeader>Error Detail:</PopoverHeader>
+          <PopoverBody>
+            <pre style={{ overflow: "auto" }}>
+              {JSON.stringify(
+                {
+                  ...error,
+                  networkError: {
+                    message: error.networkError?.message,
+                    stack: error.networkError?.stack,
+                  },
+                },
+                null,
+                2
+              )}
+            </pre>
+          </PopoverBody>
+        </PopoverContent>
+      </Popover>
+    </Center>
+  );
+};
+export const Empty: React.FC<{ message?: string }> = ({ message = "no data" }) => {
+  return <Center>{message}</Center>;
+};
+
+// table
+<% for (table of views.table) { -%>
+export const <%- table.componentName %>: React.FC = () => {
+  const [{ data, fetching, error }] = <%- table.dataHook %>();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [selected, setSelected] = useState<<%- table.dataHookType %>["<%- table.selectionName %>"][0] | null>(
+    null
+  );
+  useEffect(() => {
+    if (selected) {
+      onOpen();
+    } else {
+      onClose();
+    }
+  }, [selected]);
+  const { t } = useTranslation();
+
+  if (error) {
+    return <Error error={error} />;
+  }
+  if (fetching) {
+    return (
+      <Center>
+        <Spinner />
+      </Center>
+    );
+  }
+  if (!data) {
+    return <Empty />;
+  }
+
+  <% const modalAttr = table.attributes.find(attr => attr.name === 'modal'); -%>
+  <% const { trigger, contentId, title, defaultValues } = modalAttr ? modalAttr.arguments.reduce((prev, cur) => {
+    prev[cur.name] = cur.values? cur.values.map(v => v.value) : cur.value;
+    return prev;
+  }, {}) : {} -%>
+
+  return (
+    <>
+      <Table variant="striped">
+        <Thead>
+          <Tr>
+            <% for (const selection of table.selections) { -%>
+            <Th>{t("<%- table.componentName %>.<%- selection.path %>")}</Th>
+            <% } -%>
+          </Tr>
+        </Thead>
+        <Tbody>
+          {(data.<%- table.selectionName %> || []).map((entity) => {
+            return (
+              <Tr key={entity.<%- table.idName %>} <%- trigger === 'tableRow' ? 'onClick={() => setSelected(entity)}' : '' %>>
+                <% for (const selection of table.selections) { -%>
+                <% if (selection.list || selection.path.includes("students.name")) { -%>
+                  <Td>{(entity.<%- selection.path.replace(".name", "") %> || []).map(subEntity => {
+                    return (<Box key={subEntity.<%- table.idName %> || subEntity}>
+                      {renderer.query.<%- selection.renderType %>({
+                        value: subEntity.name || subEntity,
+                        context: {
+                          type: "<%- selection.rootType %>",
+                          path: "<%- selection.path %>",
+                          component: "<%- table.componentName %>",
+                          unsafe_entity: entity,
+                        }
+                      })}
+                    </Box>)
+                  })}</Td>
+                <% } else { -%>
+                  <Td>{renderer.query.<%- selection.renderType %>({
+                    value: entity.<%- selection.path %>,
+                    context: {
+                      type: "<%- selection.rootType %>",
+                      path: "<%- selection.path %>",
+                      component: "<%- table.componentName %>",
+                      unsafe_entity: entity,
+                    }
+                  })}</Td>
+                <% } -%>
+                <% } -%>
+              </Tr>
+            );
+          })}
+        </Tbody>
+      </Table>
+      <% if (contentId) { -%>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <%- title ? `<ModalHeader>${title}</ModalHeader>` : '' %>
+          <ModalCloseButton />
+          <ModalBody>
+            <<%- common.capitalize(contentId) %>
+              afterSubmit={() => setSelected(null)}
+              defaultValues={<%- common.formatMappings(defaultValues || []) %>}
+            />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+      <% } -%>
+    </>
+  );
+};
+
+<% } -%>
+
+// list
+<% for (list of views.list) { -%>
+export const <%- list.componentName %>: React.FC = () => {
+  const [{ data, fetching, error }] = <%- list.dataHook %>();
+  if (error) {
+    return <Error error={error} />;
+  }
+  if (fetching) {
+    return (
+      <Center>
+        <Spinner />
+      </Center>
+    );
+  }
+  if (!data) {
+    return <Empty />;
+  }
+
+  return (
+    <List borderWidth="1px" rounded="md">
+      {(data.<%- list.selectionName %> || []).map((entity) => {
+        return (
+          <ListItem key={entity.<%- list.idName %>} display="flex" justifyContent="space-between" p="6">
+            <% for (const selection of list.selections) { -%>
+            <Flex flex="1">{renderer.query.<%- selection.renderType %>({
+              value: entity.<%- selection.path %>,
+              context: {
+                type: "<%- selection.rootType %>",
+                path: "<%- selection.path %>",
+                component: "<%- table.componentName %>",
+                unsafe_entity: entity,
+              }
+            })}</Flex>
+            <% } -%>
+          </ListItem>
+        );
+      })}
+    </List>
+  );
+};
+
+<% } -%>
+
+// kanban
+<% for (kanban of views.kanban) { -%>
+export const <%- kanban.componentName %>: React.FC = () => {
+  const [{ data, fetching, error }] = <%- kanban.dataHook %>();
+  if (error) {
+    return <Error error={error} />;
+  }
+  if (fetching) {
+    return (
+      <Center>
+        <Spinner />
+      </Center>
+    );
+  }
+  if (!data) {
+    return <Empty />;
+  }
+
+  return (
+    <HStack spacing="6" align="flex-start">
+      <% for (member of kanban.groupByEnum) { -%>
+      <Box boxShadow="xs" rounded="md" p="6" flex="1">
+        <Box><%- member %></Box>
+        <VStack>
+          {(data.<%- kanban.selectionName %> || [])
+            .filter((entity) => entity.<%- kanban.groupByName %> === <%- kanban.groupByType %>.<%- common.capitalizeFirst(member) %>)
+            .map((entity) => {
+              return (
+                <Box
+                  width="full"
+                  key={entity.<%- kanban.idName %>}
+                  p={5}
+                  shadow="md"
+                  borderWidth="1px"
+                  flex="1"
+                  borderRadius="md"
+                >
+                  <% for (const selection of kanban.selections) { -%>
+                  <Box mt={4}>{renderer.query.<%- selection.renderType %>({
+                    value: entity.<%- selection.path %>,
+                    context: {
+                      type: "<%- selection.rootType %>",
+                      path: "<%- selection.path %>",
+                      component: "<%- table.componentName %>",
+                      unsafe_entity: entity,
+                    }
+                  })}</Box>
+                  <% } -%>
+                </Box>
+              );
+            })}
+        </VStack>
+      </Box>
+      <% } -%>
+    </HStack>
+  );
+};
+
+<% } -%>
+
+// calendar
+<% for (calendar of views.calendar) { -%>
+export const <%- calendar.componentName %>: React.FC = () => {
+  const [{ data, fetching, error }] = <%- calendar.dataHook %>();
+  if (error) {
+    return <Error error={error} />;
+  }
+  if (fetching) {
+    return (
+      <Center>
+        <Spinner />
+      </Center>
+    );
+  }
+  if (!data) {
+    return <Empty />;
+  }
+
+  <%
+  const { path: titleKey } = common.getKeyAndPath(calendar.selections, 'title');
+  const { path: bodyKey } = common.getKeyAndPath(calendar.selections, 'body');
+  const startKey = calendar.selections.find((sel) =>
+    sel.attributes.some((attr) => attr.name === "start")
+  ).name;
+  const durationKey = calendar.selections.find((sel) =>
+    sel.attributes.some((attr) => attr.name === "duration")
+  ).name;
+  %>
+
+  return (
+    <Calendar
+      schedules={data.<%- calendar.selectionName %>.map((entity) => ({
+        id: entity.id,
+        title: entity.<%- titleKey %>,
+        body: entity.<%- bodyKey %>,
+        start: entity.<%- startKey %>,
+        end: dayjs(entity.<%- startKey %>)
+          .add(entity.<%- durationKey %>, "second")
+          .toISOString(),
+      }))}
+    />
+  );
+};
+
+<% } -%>
+
+// form
+<% for (form of views.form) { -%>
+export type <%- form.componentName %>Props = {
+  afterSubmit?: () => unknown;
+  variant?: "plain" | "modal";
+  defaultValues?: DeepPartial<<%- form.componentName %>Values>;
+};
+export type <%- form.componentName %>Values = {
+  <% for (variable of form.variables) { -%>
+  <%- variable.name %>: <%- variable.rawType %>;
+  <% } -%>
+};
+export const <%- form.componentName %>: React.FC<<%- form.componentName %>Props> = ({
+  afterSubmit,
+  variant = "plain",
+  defaultValues,
+}) => {
+  const [, trigger] = <%- form.dataHook %>();
+  const toast = useToast();
+  const { t } = useTranslation();
+
+  const {
+    handleSubmit,
+    register,
+    formState: { errors, isSubmitting },
+    reset,
+    control,
+  } = useForm<<%- form.componentName %>Values>({
+    defaultValues,
+  });
+  <% for (field of variable.flattenedFields.filter(field => field.list)) { -%>
+  const <%- common.dotToDash(field.path) %>_FieldArray = useFieldArray({
+    name: "<%- field.path %>",
+    control,
+    keyName: "_id",
+  });
+  <% } -%>
+
+  async function onSubmit(values: <%- form.componentName %>Values) {
+    try {
+      const result = await trigger(values);
+      if (result.error) {
+        throw result.error;
+      }
+      reset();
+    } catch (error) {
+      toast({
+        title: "Submit failed.",
+        description: error.message || String(error),
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      })
+    } finally {
+      afterSubmit?.();
+    }
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <% for (variable of form.variables) { -%>
+        <% for (field of variable.flattenedFields) { -%>
+        <% const fieldArr = `${common.dotToDash(field.path)}_FieldArray`; %>
+        <% if (field.list) { -%>
+          <FormControl isInvalid={Boolean(errors.<%- field.safePath %>)}>
+            <FormLabel>{t("<%- field.label %>")}</FormLabel>
+            {<%- fieldArr %>.fields.map((field, index) => {
+              return (
+                <Box key={field._id}>
+                  <Flex justify-content="space-between">
+                    <Box flex="1" mb={2}>
+                      <renderer.mutation.<%- common.getRenderType(field) %>
+                        <%- field.placeholder ? `placeholder="${field.placeholder}"` : '' %>
+                        {...register(`<%- field.path %>.${index}.id` as const, {
+                          <%- field.nullable ? '' : 'required: "This is required",' %>
+                          valueAsNumber: true,
+                        })}
+                        <%- field.baseType === 'Enum' ? `options={${enumOptionsRawMap[field.customType]}}` : ''  %>
+                        defaultValue={field.value}
+                      />
+                    </Box>
+                    <IconButton aria-label="remove-one" ml={4}>
+                      <CloseIcon onClick={() => <%- fieldArr %>.remove(index)} />
+                    </IconButton>
+                  </Flex>
+                  <FormErrorMessage>
+                    {errors.<%- field.safePath %> && errors.<%- field.path %>[0]?.id?.message}
+                  </FormErrorMessage>
+                </Box>
+              )
+            })}
+            <IconButton aria-label="add-one" mt={4}>
+              <AddIcon onClick={() => <%- fieldArr %>.append({})} />
+            </IconButton>
+          </FormControl>
+        <% } else { -%>
+          <FormControl isInvalid={Boolean(errors.<%- field.safePath %>)}>
+            <FormLabel htmlFor="<%- field.path %>">{t("<%- field.label %>")}</FormLabel>
+            <renderer.mutation.<%- field.baseType %>
+              id="<%- field.path %>"
+              <%- field.placeholder ? `placeholder="${field.placeholder}"` : '' %>
+              {...register("<%- field.path %>" as const, {
+                <%- field.nullable ? '' : 'required: "This is required",' %>
+                <%- ["Int", "Float"].includes(field.baseType) ? 'valueAsNumber: true,' : '' %>
+              })}
+              <%- field.baseType === 'Enum' ? `options={${enumOptionsRawMap[field.customType]}}` : ''  %>
+            />
+            <FormErrorMessage>
+              {errors.<%- field.safePath %> && errors.<%- field.path %>.message}
+            </FormErrorMessage>
+          </FormControl>
+        <% } %>
+        <% } -%>
+      <% } -%>
+      {variant === "plain" ? <Button
+        mt={4}
+        isLoading={isSubmitting}
+        type="submit"
+      >
+        Submit
+      </Button>: null}
+      {variant === "modal" ? <ModalFooter>
+        <Button
+          mt={4}
+          isLoading={isSubmitting}
+          type="submit"
+        >
+          Submit
+        </Button>
+      </ModalFooter>: null}
+    </form>
+  );
+};
+
+<% } -%>
+
+// button
+<% for (button of views.button) { -%>
+export type <%- button.componentName %>Props = <%- button.variables.find(variable => variable.name === 'props').rawType %> & {
+  onClick?: () => unknown;
+};
+export const <%- button.componentName %>: React.FC<<%- button.componentName %>Props> = (_props) => {
+  const props = Object.assign(
+    <%- common.formatRawProps(button.variables) %>,
+    _props
+  );
+  return <Button {...props} />;
+}
+<% } -%>
+
+// modal
+<% for (modal of views.modal) { -%>
+export const <%- modal.componentName %>: React.FC = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  <% const { title, triggerId, contentId } = modal.variables.find((v) => v.name === "props").defaultValue; %>
+  return (
+    <>
+      <<%- common.capitalize(triggerId) %> onClick={onOpen} />
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <%- title ? `<ModalHeader>${title}</ModalHeader>` : '' %>
+          <ModalCloseButton />
+          <ModalBody>
+            <<%- common.capitalize(contentId) %> afterSubmit={onClose} />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
+  )
+}
+<% } -%>

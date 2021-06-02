@@ -1,0 +1,120 @@
+query userTable {
+  users(where: {}, orderBy: [{ id: desc }])
+    @view(type: "table")
+    @modal(
+      trigger: "tableRow"
+      contentId: "updateOneUserForm"
+      title: "编辑用户"
+      defaultValues: [
+        "where.id -> $.id"
+        "data.email.set -> $.email"
+        "data.name.set -> $.name"
+        "data.role.set -> $.role"
+      ]
+    ) {
+    id @id
+    name
+    role
+    email
+    createdAt
+  }
+}
+
+query userList {
+  users @view(type: "list") {
+    id @id
+    name
+    role
+  }
+}
+
+query userKanban {
+  users @view(type: "kanban") {
+    id @id
+    name
+    role @groupBy
+  }
+}
+
+mutation createOneUserForm(
+  $data: UserCreateInput!
+    @value(pick: ["name", "role", "email"])
+    @label(name: "姓名", role: "角色", email: "邮箱")
+    @placeholder(email: "邮箱将用于接收通知")
+) {
+  createOneUser(data: $data) @view(type: "form") {
+    id @id
+    name
+    role
+    createdAt
+  }
+}
+
+mutation updateOneUserForm(
+  $data: UserUpdateInput!
+    @value(pick: ["name", "role", "email"])
+    @label(name: "姓名", role: "角色", email: "邮箱")
+    @placeholder(email: "邮箱将用于接收通知")
+  $where: UserWhereUniqueInput! @value(pick: ["id"])
+) {
+  updateOneUser(data: $data, where: $where) @view(type: "form") {
+    id @id
+    name
+    role
+    createdAt
+  }
+}
+
+mutation deleteOneUserForm($where: UserWhereUniqueInput! @value(pick: ["id"])) {
+  deleteOneUser(where: $where) @view(type: "form") {
+    id @id
+  }
+}
+
+query createUserButton(
+  $props: ButtonProps = {
+    children: "创建用户"
+    variant: solid
+    isFullWidth: true
+  }
+) @clientOnly {
+  staticComponent {
+    button(props: $props)
+  }
+}
+
+query createOneUserModal(
+  $props: ModalProps = {
+    triggerId: "createUserButton"
+    contentId: "createOneUserForm"
+    title: "创建用户"
+  }
+) @clientOnly {
+  staticComponent {
+    modal(props: $props)
+  }
+}
+
+query deleteUserButton(
+  $props: ButtonProps = {
+    children: "删除用户"
+    variant: outlined
+    isFullWidth: true
+  }
+) @clientOnly {
+  staticComponent {
+    button(props: $props)
+  }
+}
+
+query deleteOneUserModal(
+  $props: ModalProps = {
+    triggerId: "deleteUserButton"
+    contentId: "deleteOneUserForm"
+    title: "删除用户"
+  }
+) @clientOnly {
+  staticComponent {
+    modal(props: $props)
+  }
+}

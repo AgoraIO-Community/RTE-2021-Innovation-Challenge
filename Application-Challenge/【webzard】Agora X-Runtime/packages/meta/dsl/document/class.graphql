@@ -1,0 +1,53 @@
+query classTable {
+  classes @view(type: "table") {
+    id @id
+    name
+    teacher {
+      id @id
+      name
+    }
+    students {
+      id @id
+      name
+    }
+  }
+}
+
+mutation createOneClassForm(
+  $data: ClassCreateInput!
+    @value(pick: ["name", "teacher", "students"])
+    @label(name: "课程名称", teacher: "教师", students: "学生")
+) {
+  createOneClass(data: $data) @view(type: "form") {
+    id @id
+    name
+    teacher {
+      id @id
+      name
+    }
+  }
+}
+
+query createClassButton(
+  $props: ButtonProps = {
+    children: "创建课程"
+    variant: solid
+    isFullWidth: true
+  }
+) @clientOnly {
+  staticComponent {
+    button(props: $props)
+  }
+}
+
+query createOneClassModal(
+  $props: ModalProps = {
+    triggerId: "createClassButton"
+    contentId: "createOneClassForm"
+    title: "创建课程"
+  }
+) @clientOnly {
+  staticComponent {
+    modal(props: $props)
+  }
+}

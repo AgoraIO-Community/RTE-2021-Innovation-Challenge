@@ -1,0 +1,25 @@
+generates:
+  ../meta/json/data.json:
+    schema: ../meta/dsl/data.graphql
+    plugins:
+      - ./meta/meta-schema-plugin.js
+  ../meta/json/document.json:
+    schema:
+      - ../data/schema.graphql
+      - ./ui/ui-schema.graphql
+    documents: ../meta/dsl/document/*.graphql
+    plugins:
+      - ./meta/meta-document-plugin.js
+  ../uigen/src/generated/data-components.ts:
+    schema:
+      - ../data/schema.graphql
+      - ./ui/ui-schema.graphql
+    documents: ../uigen/src/generated/*.graphql
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-urql
+    config:
+      withHooks: true
+      scalars:
+        DateTime: string

@@ -1,0 +1,130 @@
+query classTable {
+  classes {
+    id
+    name
+    teacher {
+      id
+      name
+    }
+    students {
+      id
+      name
+    }
+  }
+}
+
+mutation createOneClassForm($data: ClassCreateInput!) {
+  createOneClass(data: $data) {
+    id
+    name
+    teacher {
+      id
+      name
+    }
+  }
+}
+
+query lessonTable {
+  lessons {
+    id
+    name
+    class {
+      id
+      name
+    }
+    class {
+      teacher {
+        id
+        name
+      }
+    }
+    class {
+      students {
+        id
+        name
+      }
+    }
+    startedAt
+    duration
+    thumbnails
+  }
+}
+
+query lessonCalendar {
+  lessons {
+    id
+    name
+    class {
+      id
+      name
+    }
+    startedAt
+    duration
+  }
+}
+
+mutation createOneLessonForm($data: LessonCreateInput!) {
+  createOneLesson(data: $data) {
+    id
+    name
+    class {
+      id
+      name
+    }
+    startedAt
+    duration
+  }
+}
+
+query userTable {
+  users(where: {}, orderBy: [{ id: desc }]) {
+    id
+    name
+    role
+    email
+    createdAt
+  }
+}
+
+query userList {
+  users {
+    id
+    name
+    role
+  }
+}
+
+query userKanban {
+  users {
+    id
+    name
+    role
+  }
+}
+
+mutation createOneUserForm($data: UserCreateInput!) {
+  createOneUser(data: $data) {
+    id
+    name
+    role
+    createdAt
+  }
+}
+
+mutation updateOneUserForm(
+  $data: UserUpdateInput!
+  $where: UserWhereUniqueInput!
+) {
+  updateOneUser(data: $data, where: $where) {
+    id
+    name
+    role
+    createdAt
+  }
+}
+
+mutation deleteOneUserForm($where: UserWhereUniqueInput!) {
+  deleteOneUser(where: $where) {
+    id
+  }
+}

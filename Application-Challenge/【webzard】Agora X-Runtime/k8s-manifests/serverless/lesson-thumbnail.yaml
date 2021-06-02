@@ -1,0 +1,10 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: lesson-thumbnail
+  namespace: x-runtime
+spec:
+  template:
+    spec:
+      containers:
+        - image: docker.io/yanzhen/lesson-thumbnail:0.1

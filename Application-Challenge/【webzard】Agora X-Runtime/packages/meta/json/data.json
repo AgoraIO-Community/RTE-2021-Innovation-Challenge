@@ -1,0 +1,441 @@
+{
+  "types": [
+    {
+      "name": "Role",
+      "is": "enum",
+      "fields": [
+        {
+          "name": "members",
+          "nullable": false,
+          "baseType": "String",
+          "enum": [
+            "TEACHER",
+            "STUDENT",
+            "ADMIN"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "is": "type",
+      "fields": [
+        {
+          "name": "id",
+          "baseType": "Int",
+          "nullable": false,
+          "list": false,
+          "attributes": [
+            {
+              "name": "id",
+              "arguments": []
+            },
+            {
+              "name": "default",
+              "arguments": [
+                {
+                  "name": "_",
+                  "type": "Function",
+                  "functionName": "autoincrement",
+                  "functionArguments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "email",
+          "baseType": "String",
+          "nullable": false,
+          "list": false,
+          "attributes": [
+            {
+              "name": "unique",
+              "arguments": []
+            }
+          ]
+        },
+        {
+          "name": "role",
+          "baseType": "Enum",
+          "customType": "Role",
+          "nullable": false,
+          "list": false,
+          "attributes": []
+        },
+        {
+          "name": "name",
+          "baseType": "String",
+          "nullable": false,
+          "list": false,
+          "attributes": []
+        },
+        {
+          "name": "teachedClasses",
+          "baseType": "Object",
+          "customType": "Class",
+          "nullable": false,
+          "list": true,
+          "attributes": [
+            {
+              "name": "relation",
+              "arguments": [
+                {
+                  "name": "_",
+                  "type": "String",
+                  "value": "ClassTeacher"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "participatedClasses",
+          "baseType": "Object",
+          "customType": "Class",
+          "nullable": false,
+          "list": true,
+          "attributes": [
+            {
+              "name": "relation",
+              "arguments": [
+                {
+                  "name": "_",
+                  "type": "String",
+                  "value": "ClassStudents"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "createdAt",
+          "baseType": "String",
+          "customType": "DateTime",
+          "nullable": false,
+          "list": false,
+          "attributes": [
+            {
+              "name": "default",
+              "arguments": [
+                {
+                  "name": "_",
+                  "type": "Function",
+                  "functionName": "now",
+                  "functionArguments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "updatedAt",
+          "baseType": "String",
+          "customType": "DateTime",
+          "nullable": false,
+          "list": false,
+          "attributes": [
+            {
+              "name": "updatedAt",
+              "arguments": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Class",
+      "is": "type",
+      "fields": [
+        {
+          "name": "id",
+          "baseType": "Int",
+          "nullable": false,
+          "list": false,
+          "attributes": [
+            {
+              "name": "id",
+              "arguments": []
+            },
+            {
+              "name": "default",
+              "arguments": [
+                {
+                  "name": "_",
+                  "type": "Function",
+                  "functionName": "autoincrement",
+                  "functionArguments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "name",
+          "baseType": "String",
+          "nullable": false,
+          "list": false,
+          "attributes": []
+        },
+        {
+          "name": "teacher",
+          "baseType": "Object",
+          "customType": "User",
+          "nullable": false,
+          "list": false,
+          "attributes": [
+            {
+              "name": "relation",
+              "arguments": [
+                {
+                  "name": "_",
+                  "type": "String",
+                  "value": "ClassTeacher"
+                },
+                {
+                  "name": "fields",
+                  "type": "List",
+                  "values": [
+                    {
+                      "type": "Enum",
+                      "value": "teacherId"
+                    }
+                  ]
+                },
+                {
+                  "name": "references",
+                  "type": "List",
+                  "values": [
+                    {
+                      "type": "Enum",
+                      "value": "id"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "teacherId",
+          "baseType": "Int",
+          "nullable": false,
+          "list": false,
+          "attributes": [
+            {
+              "name": "invisible",
+              "arguments": []
+            }
+          ]
+        },
+        {
+          "name": "students",
+          "baseType": "Object",
+          "customType": "User",
+          "nullable": false,
+          "list": true,
+          "attributes": [
+            {
+              "name": "relation",
+              "arguments": [
+                {
+                  "name": "_",
+                  "type": "String",
+                  "value": "ClassStudents"
+                },
+                {
+                  "name": "references",
+                  "type": "List",
+                  "values": [
+                    {
+                      "type": "Enum",
+                      "value": "id"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "lessons",
+          "baseType": "Object",
+          "customType": "Lesson",
+          "nullable": false,
+          "list": true,
+          "attributes": []
+        },
+        {
+          "name": "createdAt",
+          "baseType": "String",
+          "customType": "DateTime",
+          "nullable": false,
+          "list": false,
+          "attributes": [
+            {
+              "name": "default",
+              "arguments": [
+                {
+                  "name": "_",
+                  "type": "Function",
+                  "functionName": "now",
+                  "functionArguments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "updatedAt",
+          "baseType": "String",
+          "customType": "DateTime",
+          "nullable": false,
+          "list": false,
+          "attributes": [
+            {
+              "name": "updatedAt",
+              "arguments": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lesson",
+      "is": "type",
+      "fields": [
+        {
+          "name": "id",
+          "baseType": "Int",
+          "nullable": false,
+          "list": false,
+          "attributes": [
+            {
+              "name": "id",
+              "arguments": []
+            },
+            {
+              "name": "default",
+              "arguments": [
+                {
+                  "name": "_",
+                  "type": "Function",
+                  "functionName": "autoincrement",
+                  "functionArguments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "name",
+          "baseType": "String",
+          "nullable": false,
+          "list": false,
+          "attributes": []
+        },
+        {
+          "name": "class",
+          "baseType": "Object",
+          "customType": "Class",
+          "nullable": false,
+          "list": false,
+          "attributes": [
+            {
+              "name": "relation",
+              "arguments": [
+                {
+                  "name": "fields",
+                  "type": "List",
+                  "values": [
+                    {
+                      "type": "Enum",
+                      "value": "classId"
+                    }
+                  ]
+                },
+                {
+                  "name": "references",
+                  "type": "List",
+                  "values": [
+                    {
+                      "type": "Enum",
+                      "value": "id"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "classId",
+          "baseType": "Int",
+          "nullable": false,
+          "list": false,
+          "attributes": [
+            {
+              "name": "invisible",
+              "arguments": []
+            }
+          ]
+        },
+        {
+          "name": "startedAt",
+          "baseType": "String",
+          "customType": "DateTime",
+          "nullable": false,
+          "list": false,
+          "attributes": []
+        },
+        {
+          "name": "duration",
+          "baseType": "Int",
+          "nullable": false,
+          "list": false,
+          "attributes": []
+        },
+        {
+          "name": "thumbnails",
+          "baseType": "String",
+          "nullable": false,
+          "list": true,
+          "attributes": []
+        },
+        {
+          "name": "createdAt",
+          "baseType": "String",
+          "customType": "DateTime",
+          "nullable": false,
+          "list": false,
+          "attributes": [
+            {
+              "name": "default",
+              "arguments": [
+                {
+                  "name": "_",
+                  "type": "Function",
+                  "functionName": "now",
+                  "functionArguments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "updatedAt",
+          "baseType": "String",
+          "customType": "DateTime",
+          "nullable": false,
+          "list": false,
+          "attributes": [
+            {
+              "name": "updatedAt",
+              "arguments": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

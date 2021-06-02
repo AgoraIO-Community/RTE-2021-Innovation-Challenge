@@ -1,0 +1,10 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: x-runtime-data
+  namespace: x-runtime
+spec:
+  template:
+    spec:
+      containers:
+        - image: docker.io/yanzhen/x-runtime-data:0.7

@@ -1,0 +1,42 @@
+scalar DateTime
+
+enum Role {
+  TEACHER
+  STUDENT
+  ADMIN
+}
+
+type User {
+  id: Int! @id @default(_: "autoincrement()")
+  email: String! @unique
+  role: Role!
+  name: String!
+  teachedClasses: [Class!]! @relation(_: "ClassTeacher")
+  participatedClasses: [Class!]! @relation(_: "ClassStudents")
+  createdAt: DateTime! @default(_: "now()")
+  updatedAt: DateTime! @updatedAt
+}
+
+type Class {
+  id: Int! @id @default(_: "autoincrement()")
+  name: String!
+  teacher: User!
+    @relation(_: "ClassTeacher", fields: [teacherId], references: [id])
+  teacherId: Int! @invisible
+  students: [User!]! @relation(_: "ClassStudents", references: [id])
+  lessons: [Lesson!]!
+  createdAt: DateTime! @default(_: "now()")
+  updatedAt: DateTime! @updatedAt
+}
+
+type Lesson {
+  id: Int! @id @default(_: "autoincrement()")
+  name: String!
+  class: Class! @relation(fields: [classId], references: [id])
+  classId: Int! @invisible
+  startedAt: DateTime!
+  duration: Int!
+  thumbnails: [String!]!
+  createdAt: DateTime! @default(_: "now()")
+  updatedAt: DateTime! @updatedAt
+}

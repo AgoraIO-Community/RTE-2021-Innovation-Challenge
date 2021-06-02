@@ -1,0 +1,84 @@
+query lessonTable {
+  lessons @view(type: "table") {
+    id @id
+    name
+    class {
+      id @id
+      name
+    }
+    class {
+      teacher {
+        id @id
+        name
+      }
+    }
+    class {
+      students {
+        id @id
+        name
+      }
+    }
+    startedAt
+    duration
+    thumbnails
+  }
+}
+
+query lessonCalendar {
+  lessons @view(type: "calendar") {
+    id @id
+    name @body
+    class {
+      id @id
+      name @title
+    }
+    startedAt @start
+    duration @duration
+  }
+}
+
+mutation createOneLessonForm(
+  $data: LessonCreateInput!
+    @value(pick: ["name", "class", "startedAt", "duration"])
+    @label(
+      name: "课时内容"
+      teacher: "所属课程"
+      startedAt: "授课时间"
+      duration: "课时时长"
+    )
+) {
+  createOneLesson(data: $data) @view(type: "form") {
+    id @id
+    name
+    class {
+      id @id
+      name
+    }
+    startedAt
+    duration
+  }
+}
+
+query createLessonButton(
+  $props: ButtonProps = {
+    children: "新增课时内容"
+    variant: solid
+    isFullWidth: true
+  }
+) @clientOnly {
+  staticComponent {
+    button(props: $props)
+  }
+}
+
+query createOneLessonModal(
+  $props: ModalProps = {
+    triggerId: "createLessonButton"
+    contentId: "createOneLessonForm"
+    title: "新增课时内容"
+  }
+) @clientOnly {
+  staticComponent {
+    modal(props: $props)
+  }
+}

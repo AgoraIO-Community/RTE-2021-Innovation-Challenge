@@ -1,0 +1,2182 @@
+{
+  "types": [
+    {
+      "name": "classTable",
+      "is": "query",
+      "attributes": [],
+      "selections": [
+        {
+          "name": "classes",
+          "attributes": [
+            {
+              "name": "view",
+              "arguments": [
+                {
+                  "name": "type",
+                  "type": "String",
+                  "value": "table"
+                }
+              ]
+            }
+          ],
+          "selections": [
+            {
+              "name": "id",
+              "attributes": [
+                {
+                  "name": "id",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            },
+            {
+              "name": "name",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            },
+            {
+              "name": "teacher",
+              "attributes": [],
+              "selections": [
+                {
+                  "name": "id",
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "arguments": []
+                    }
+                  ],
+                  "selections": [],
+                  "arguments": [],
+                  "nullable": false,
+                  "list": false,
+                  "baseType": "Int"
+                },
+                {
+                  "name": "name",
+                  "attributes": [],
+                  "selections": [],
+                  "arguments": [],
+                  "nullable": false,
+                  "list": false,
+                  "baseType": "String"
+                }
+              ],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Object",
+              "customType": "User"
+            },
+            {
+              "name": "students",
+              "attributes": [],
+              "selections": [
+                {
+                  "name": "id",
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "arguments": []
+                    }
+                  ],
+                  "selections": [],
+                  "arguments": [],
+                  "nullable": false,
+                  "list": false,
+                  "baseType": "Int"
+                },
+                {
+                  "name": "name",
+                  "attributes": [],
+                  "selections": [],
+                  "arguments": [],
+                  "nullable": false,
+                  "list": false,
+                  "baseType": "String"
+                }
+              ],
+              "arguments": [],
+              "nullable": false,
+              "list": true,
+              "baseType": "Object",
+              "customType": "User"
+            }
+          ],
+          "arguments": [],
+          "nullable": false,
+          "list": true,
+          "baseType": "Object",
+          "customType": "Class"
+        }
+      ],
+      "variables": []
+    },
+    {
+      "name": "createOneClassForm",
+      "is": "mutation",
+      "attributes": [],
+      "selections": [
+        {
+          "name": "createOneClass",
+          "attributes": [
+            {
+              "name": "view",
+              "arguments": [
+                {
+                  "name": "type",
+                  "type": "String",
+                  "value": "form"
+                }
+              ]
+            }
+          ],
+          "selections": [
+            {
+              "name": "id",
+              "attributes": [
+                {
+                  "name": "id",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            },
+            {
+              "name": "name",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            },
+            {
+              "name": "teacher",
+              "attributes": [],
+              "selections": [
+                {
+                  "name": "id",
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "arguments": []
+                    }
+                  ],
+                  "selections": [],
+                  "arguments": [],
+                  "nullable": false,
+                  "list": false,
+                  "baseType": "Int"
+                },
+                {
+                  "name": "name",
+                  "attributes": [],
+                  "selections": [],
+                  "arguments": [],
+                  "nullable": false,
+                  "list": false,
+                  "baseType": "String"
+                }
+              ],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Object",
+              "customType": "User"
+            }
+          ],
+          "arguments": [
+            {
+              "name": "data",
+              "type": "Variable",
+              "value": "data"
+            }
+          ],
+          "nullable": false,
+          "list": false,
+          "baseType": "Object",
+          "customType": "Class"
+        }
+      ],
+      "variables": [
+        {
+          "name": "data",
+          "type": "ClassCreateInput",
+          "nullable": false,
+          "attributes": [
+            {
+              "name": "value",
+              "arguments": [
+                {
+                  "name": "pick",
+                  "type": "List",
+                  "values": [
+                    {
+                      "type": "String",
+                      "value": "name"
+                    },
+                    {
+                      "type": "String",
+                      "value": "teacher"
+                    },
+                    {
+                      "type": "String",
+                      "value": "students"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "label",
+              "arguments": [
+                {
+                  "name": "name",
+                  "type": "String",
+                  "value": "课程名称"
+                },
+                {
+                  "name": "teacher",
+                  "type": "String",
+                  "value": "教师"
+                },
+                {
+                  "name": "students",
+                  "type": "String",
+                  "value": "学生"
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "name",
+              "baseType": "String",
+              "nullable": false,
+              "list": false
+            },
+            {
+              "name": "students",
+              "baseType": "InputObject",
+              "customType": "UserCreateNestedManyWithoutParticipatedClassesInput",
+              "fields": [
+                {
+                  "name": "connect",
+                  "baseType": "InputObject",
+                  "customType": "UserWhereUniqueInput",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "baseType": "Int",
+                      "nullable": true,
+                      "list": false
+                    }
+                  ],
+                  "nullable": true,
+                  "list": true
+                }
+              ],
+              "nullable": true,
+              "list": false
+            },
+            {
+              "name": "teacher",
+              "baseType": "InputObject",
+              "customType": "UserCreateNestedOneWithoutTeachedClassesInput",
+              "fields": [
+                {
+                  "name": "connect",
+                  "baseType": "InputObject",
+                  "customType": "UserWhereUniqueInput",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "baseType": "Int",
+                      "nullable": true,
+                      "list": false
+                    }
+                  ],
+                  "nullable": true,
+                  "list": false
+                }
+              ],
+              "nullable": false,
+              "list": false
+            }
+          ],
+          "defaultValue": {}
+        }
+      ]
+    },
+    {
+      "name": "createClassButton",
+      "is": "query",
+      "attributes": [
+        {
+          "name": "clientOnly",
+          "arguments": []
+        }
+      ],
+      "selections": [
+        {
+          "name": "staticComponent",
+          "attributes": [],
+          "selections": [
+            {
+              "name": "button",
+              "attributes": [],
+              "selections": [],
+              "arguments": [
+                {
+                  "name": "props",
+                  "type": "Variable",
+                  "value": "props"
+                }
+              ],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            }
+          ],
+          "arguments": [],
+          "nullable": false,
+          "list": false,
+          "baseType": "Object",
+          "customType": "StaticComponent"
+        }
+      ],
+      "variables": [
+        {
+          "name": "props",
+          "type": "ButtonProps",
+          "nullable": true,
+          "attributes": [],
+          "fields": [
+            {
+              "name": "children",
+              "baseType": "String",
+              "nullable": true,
+              "list": false
+            },
+            {
+              "name": "variant",
+              "baseType": "Enum",
+              "customType": "ButtonVariant",
+              "nullable": true,
+              "list": false
+            },
+            {
+              "name": "isFullWidth",
+              "baseType": "Boolean",
+              "nullable": true,
+              "list": false
+            }
+          ],
+          "defaultValue": {
+            "children": "创建课程",
+            "variant": "solid",
+            "isFullWidth": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "createOneClassModal",
+      "is": "query",
+      "attributes": [
+        {
+          "name": "clientOnly",
+          "arguments": []
+        }
+      ],
+      "selections": [
+        {
+          "name": "staticComponent",
+          "attributes": [],
+          "selections": [
+            {
+              "name": "modal",
+              "attributes": [],
+              "selections": [],
+              "arguments": [
+                {
+                  "name": "props",
+                  "type": "Variable",
+                  "value": "props"
+                }
+              ],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            }
+          ],
+          "arguments": [],
+          "nullable": false,
+          "list": false,
+          "baseType": "Object",
+          "customType": "StaticComponent"
+        }
+      ],
+      "variables": [
+        {
+          "name": "props",
+          "type": "ModalProps",
+          "nullable": true,
+          "attributes": [],
+          "fields": [
+            {
+              "name": "triggerId",
+              "baseType": "String",
+              "nullable": false,
+              "list": false
+            },
+            {
+              "name": "contentId",
+              "baseType": "String",
+              "nullable": false,
+              "list": false
+            },
+            {
+              "name": "title",
+              "baseType": "String",
+              "nullable": true,
+              "list": false
+            }
+          ],
+          "defaultValue": {
+            "triggerId": "createClassButton",
+            "contentId": "createOneClassForm",
+            "title": "创建课程"
+          }
+        }
+      ]
+    },
+    {
+      "name": "lessonTable",
+      "is": "query",
+      "attributes": [],
+      "selections": [
+        {
+          "name": "lessons",
+          "attributes": [
+            {
+              "name": "view",
+              "arguments": [
+                {
+                  "name": "type",
+                  "type": "String",
+                  "value": "table"
+                }
+              ]
+            }
+          ],
+          "selections": [
+            {
+              "name": "id",
+              "attributes": [
+                {
+                  "name": "id",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            },
+            {
+              "name": "name",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            },
+            {
+              "name": "class",
+              "attributes": [],
+              "selections": [
+                {
+                  "name": "id",
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "arguments": []
+                    }
+                  ],
+                  "selections": [],
+                  "arguments": [],
+                  "nullable": false,
+                  "list": false,
+                  "baseType": "Int"
+                },
+                {
+                  "name": "name",
+                  "attributes": [],
+                  "selections": [],
+                  "arguments": [],
+                  "nullable": false,
+                  "list": false,
+                  "baseType": "String"
+                }
+              ],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Object",
+              "customType": "Class"
+            },
+            {
+              "name": "class",
+              "attributes": [],
+              "selections": [
+                {
+                  "name": "teacher",
+                  "attributes": [],
+                  "selections": [
+                    {
+                      "name": "id",
+                      "attributes": [
+                        {
+                          "name": "id",
+                          "arguments": []
+                        }
+                      ],
+                      "selections": [],
+                      "arguments": [],
+                      "nullable": false,
+                      "list": false,
+                      "baseType": "Int"
+                    },
+                    {
+                      "name": "name",
+                      "attributes": [],
+                      "selections": [],
+                      "arguments": [],
+                      "nullable": false,
+                      "list": false,
+                      "baseType": "String"
+                    }
+                  ],
+                  "arguments": [],
+                  "nullable": false,
+                  "list": false,
+                  "baseType": "Object",
+                  "customType": "User"
+                }
+              ],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Object",
+              "customType": "Class"
+            },
+            {
+              "name": "class",
+              "attributes": [],
+              "selections": [
+                {
+                  "name": "students",
+                  "attributes": [],
+                  "selections": [
+                    {
+                      "name": "id",
+                      "attributes": [
+                        {
+                          "name": "id",
+                          "arguments": []
+                        }
+                      ],
+                      "selections": [],
+                      "arguments": [],
+                      "nullable": false,
+                      "list": false,
+                      "baseType": "Int"
+                    },
+                    {
+                      "name": "name",
+                      "attributes": [],
+                      "selections": [],
+                      "arguments": [],
+                      "nullable": false,
+                      "list": false,
+                      "baseType": "String"
+                    }
+                  ],
+                  "arguments": [],
+                  "nullable": false,
+                  "list": true,
+                  "baseType": "Object",
+                  "customType": "User"
+                }
+              ],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Object",
+              "customType": "Class"
+            },
+            {
+              "name": "startedAt",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String",
+              "customType": "DateTime"
+            },
+            {
+              "name": "duration",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            },
+            {
+              "name": "thumbnails",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": true,
+              "baseType": "String"
+            }
+          ],
+          "arguments": [],
+          "nullable": false,
+          "list": true,
+          "baseType": "Object",
+          "customType": "Lesson"
+        }
+      ],
+      "variables": []
+    },
+    {
+      "name": "lessonCalendar",
+      "is": "query",
+      "attributes": [],
+      "selections": [
+        {
+          "name": "lessons",
+          "attributes": [
+            {
+              "name": "view",
+              "arguments": [
+                {
+                  "name": "type",
+                  "type": "String",
+                  "value": "calendar"
+                }
+              ]
+            }
+          ],
+          "selections": [
+            {
+              "name": "id",
+              "attributes": [
+                {
+                  "name": "id",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            },
+            {
+              "name": "name",
+              "attributes": [
+                {
+                  "name": "body",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            },
+            {
+              "name": "class",
+              "attributes": [],
+              "selections": [
+                {
+                  "name": "id",
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "arguments": []
+                    }
+                  ],
+                  "selections": [],
+                  "arguments": [],
+                  "nullable": false,
+                  "list": false,
+                  "baseType": "Int"
+                },
+                {
+                  "name": "name",
+                  "attributes": [
+                    {
+                      "name": "title",
+                      "arguments": []
+                    }
+                  ],
+                  "selections": [],
+                  "arguments": [],
+                  "nullable": false,
+                  "list": false,
+                  "baseType": "String"
+                }
+              ],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Object",
+              "customType": "Class"
+            },
+            {
+              "name": "startedAt",
+              "attributes": [
+                {
+                  "name": "start",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String",
+              "customType": "DateTime"
+            },
+            {
+              "name": "duration",
+              "attributes": [
+                {
+                  "name": "duration",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            }
+          ],
+          "arguments": [],
+          "nullable": false,
+          "list": true,
+          "baseType": "Object",
+          "customType": "Lesson"
+        }
+      ],
+      "variables": []
+    },
+    {
+      "name": "createOneLessonForm",
+      "is": "mutation",
+      "attributes": [],
+      "selections": [
+        {
+          "name": "createOneLesson",
+          "attributes": [
+            {
+              "name": "view",
+              "arguments": [
+                {
+                  "name": "type",
+                  "type": "String",
+                  "value": "form"
+                }
+              ]
+            }
+          ],
+          "selections": [
+            {
+              "name": "id",
+              "attributes": [
+                {
+                  "name": "id",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            },
+            {
+              "name": "name",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            },
+            {
+              "name": "class",
+              "attributes": [],
+              "selections": [
+                {
+                  "name": "id",
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "arguments": []
+                    }
+                  ],
+                  "selections": [],
+                  "arguments": [],
+                  "nullable": false,
+                  "list": false,
+                  "baseType": "Int"
+                },
+                {
+                  "name": "name",
+                  "attributes": [],
+                  "selections": [],
+                  "arguments": [],
+                  "nullable": false,
+                  "list": false,
+                  "baseType": "String"
+                }
+              ],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Object",
+              "customType": "Class"
+            },
+            {
+              "name": "startedAt",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String",
+              "customType": "DateTime"
+            },
+            {
+              "name": "duration",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            }
+          ],
+          "arguments": [
+            {
+              "name": "data",
+              "type": "Variable",
+              "value": "data"
+            }
+          ],
+          "nullable": false,
+          "list": false,
+          "baseType": "Object",
+          "customType": "Lesson"
+        }
+      ],
+      "variables": [
+        {
+          "name": "data",
+          "type": "LessonCreateInput",
+          "nullable": false,
+          "attributes": [
+            {
+              "name": "value",
+              "arguments": [
+                {
+                  "name": "pick",
+                  "type": "List",
+                  "values": [
+                    {
+                      "type": "String",
+                      "value": "name"
+                    },
+                    {
+                      "type": "String",
+                      "value": "class"
+                    },
+                    {
+                      "type": "String",
+                      "value": "startedAt"
+                    },
+                    {
+                      "type": "String",
+                      "value": "duration"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "label",
+              "arguments": [
+                {
+                  "name": "name",
+                  "type": "String",
+                  "value": "课时内容"
+                },
+                {
+                  "name": "teacher",
+                  "type": "String",
+                  "value": "所属课程"
+                },
+                {
+                  "name": "startedAt",
+                  "type": "String",
+                  "value": "授课时间"
+                },
+                {
+                  "name": "duration",
+                  "type": "String",
+                  "value": "课时时长"
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "class",
+              "baseType": "InputObject",
+              "customType": "ClassCreateNestedOneWithoutLessonsInput",
+              "fields": [
+                {
+                  "name": "connect",
+                  "baseType": "InputObject",
+                  "customType": "ClassWhereUniqueInput",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "baseType": "Int",
+                      "nullable": true,
+                      "list": false
+                    }
+                  ],
+                  "nullable": true,
+                  "list": false
+                }
+              ],
+              "nullable": false,
+              "list": false
+            },
+            {
+              "name": "duration",
+              "baseType": "Int",
+              "nullable": false,
+              "list": false
+            },
+            {
+              "name": "name",
+              "baseType": "String",
+              "nullable": false,
+              "list": false
+            },
+            {
+              "name": "startedAt",
+              "baseType": "String",
+              "customType": "DateTime",
+              "nullable": false,
+              "list": false
+            }
+          ],
+          "defaultValue": {}
+        }
+      ]
+    },
+    {
+      "name": "createLessonButton",
+      "is": "query",
+      "attributes": [
+        {
+          "name": "clientOnly",
+          "arguments": []
+        }
+      ],
+      "selections": [
+        {
+          "name": "staticComponent",
+          "attributes": [],
+          "selections": [
+            {
+              "name": "button",
+              "attributes": [],
+              "selections": [],
+              "arguments": [
+                {
+                  "name": "props",
+                  "type": "Variable",
+                  "value": "props"
+                }
+              ],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            }
+          ],
+          "arguments": [],
+          "nullable": false,
+          "list": false,
+          "baseType": "Object",
+          "customType": "StaticComponent"
+        }
+      ],
+      "variables": [
+        {
+          "name": "props",
+          "type": "ButtonProps",
+          "nullable": true,
+          "attributes": [],
+          "fields": [
+            {
+              "name": "children",
+              "baseType": "String",
+              "nullable": true,
+              "list": false
+            },
+            {
+              "name": "variant",
+              "baseType": "Enum",
+              "customType": "ButtonVariant",
+              "nullable": true,
+              "list": false
+            },
+            {
+              "name": "isFullWidth",
+              "baseType": "Boolean",
+              "nullable": true,
+              "list": false
+            }
+          ],
+          "defaultValue": {
+            "children": "新增课时内容",
+            "variant": "solid",
+            "isFullWidth": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "createOneLessonModal",
+      "is": "query",
+      "attributes": [
+        {
+          "name": "clientOnly",
+          "arguments": []
+        }
+      ],
+      "selections": [
+        {
+          "name": "staticComponent",
+          "attributes": [],
+          "selections": [
+            {
+              "name": "modal",
+              "attributes": [],
+              "selections": [],
+              "arguments": [
+                {
+                  "name": "props",
+                  "type": "Variable",
+                  "value": "props"
+                }
+              ],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            }
+          ],
+          "arguments": [],
+          "nullable": false,
+          "list": false,
+          "baseType": "Object",
+          "customType": "StaticComponent"
+        }
+      ],
+      "variables": [
+        {
+          "name": "props",
+          "type": "ModalProps",
+          "nullable": true,
+          "attributes": [],
+          "fields": [
+            {
+              "name": "triggerId",
+              "baseType": "String",
+              "nullable": false,
+              "list": false
+            },
+            {
+              "name": "contentId",
+              "baseType": "String",
+              "nullable": false,
+              "list": false
+            },
+            {
+              "name": "title",
+              "baseType": "String",
+              "nullable": true,
+              "list": false
+            }
+          ],
+          "defaultValue": {
+            "triggerId": "createLessonButton",
+            "contentId": "createOneLessonForm",
+            "title": "新增课时内容"
+          }
+        }
+      ]
+    },
+    {
+      "name": "userTable",
+      "is": "query",
+      "attributes": [],
+      "selections": [
+        {
+          "name": "users",
+          "attributes": [
+            {
+              "name": "view",
+              "arguments": [
+                {
+                  "name": "type",
+                  "type": "String",
+                  "value": "table"
+                }
+              ]
+            },
+            {
+              "name": "modal",
+              "arguments": [
+                {
+                  "name": "trigger",
+                  "type": "String",
+                  "value": "tableRow"
+                },
+                {
+                  "name": "contentId",
+                  "type": "String",
+                  "value": "updateOneUserForm"
+                },
+                {
+                  "name": "title",
+                  "type": "String",
+                  "value": "编辑用户"
+                },
+                {
+                  "name": "defaultValues",
+                  "type": "List",
+                  "values": [
+                    {
+                      "type": "String",
+                      "value": "where.id -> $.id"
+                    },
+                    {
+                      "type": "String",
+                      "value": "data.email.set -> $.email"
+                    },
+                    {
+                      "type": "String",
+                      "value": "data.name.set -> $.name"
+                    },
+                    {
+                      "type": "String",
+                      "value": "data.role.set -> $.role"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "selections": [
+            {
+              "name": "id",
+              "attributes": [
+                {
+                  "name": "id",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            },
+            {
+              "name": "name",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            },
+            {
+              "name": "role",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Enum",
+              "customType": "Role"
+            },
+            {
+              "name": "email",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            },
+            {
+              "name": "createdAt",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String",
+              "customType": "DateTime"
+            }
+          ],
+          "arguments": [
+            {
+              "name": "where",
+              "type": "ObjectValue",
+              "value": "{ }"
+            },
+            {
+              "name": "orderBy",
+              "type": "ListValue",
+              "value": "[ { id : desc } ]"
+            }
+          ],
+          "nullable": false,
+          "list": true,
+          "baseType": "Object",
+          "customType": "User"
+        }
+      ],
+      "variables": []
+    },
+    {
+      "name": "userList",
+      "is": "query",
+      "attributes": [],
+      "selections": [
+        {
+          "name": "users",
+          "attributes": [
+            {
+              "name": "view",
+              "arguments": [
+                {
+                  "name": "type",
+                  "type": "String",
+                  "value": "list"
+                }
+              ]
+            }
+          ],
+          "selections": [
+            {
+              "name": "id",
+              "attributes": [
+                {
+                  "name": "id",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            },
+            {
+              "name": "name",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            },
+            {
+              "name": "role",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Enum",
+              "customType": "Role"
+            }
+          ],
+          "arguments": [],
+          "nullable": false,
+          "list": true,
+          "baseType": "Object",
+          "customType": "User"
+        }
+      ],
+      "variables": []
+    },
+    {
+      "name": "userKanban",
+      "is": "query",
+      "attributes": [],
+      "selections": [
+        {
+          "name": "users",
+          "attributes": [
+            {
+              "name": "view",
+              "arguments": [
+                {
+                  "name": "type",
+                  "type": "String",
+                  "value": "kanban"
+                }
+              ]
+            }
+          ],
+          "selections": [
+            {
+              "name": "id",
+              "attributes": [
+                {
+                  "name": "id",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            },
+            {
+              "name": "name",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            },
+            {
+              "name": "role",
+              "attributes": [
+                {
+                  "name": "groupBy",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Enum",
+              "customType": "Role"
+            }
+          ],
+          "arguments": [],
+          "nullable": false,
+          "list": true,
+          "baseType": "Object",
+          "customType": "User"
+        }
+      ],
+      "variables": []
+    },
+    {
+      "name": "createOneUserForm",
+      "is": "mutation",
+      "attributes": [],
+      "selections": [
+        {
+          "name": "createOneUser",
+          "attributes": [
+            {
+              "name": "view",
+              "arguments": [
+                {
+                  "name": "type",
+                  "type": "String",
+                  "value": "form"
+                }
+              ]
+            }
+          ],
+          "selections": [
+            {
+              "name": "id",
+              "attributes": [
+                {
+                  "name": "id",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            },
+            {
+              "name": "name",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            },
+            {
+              "name": "role",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Enum",
+              "customType": "Role"
+            },
+            {
+              "name": "createdAt",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String",
+              "customType": "DateTime"
+            }
+          ],
+          "arguments": [
+            {
+              "name": "data",
+              "type": "Variable",
+              "value": "data"
+            }
+          ],
+          "nullable": false,
+          "list": false,
+          "baseType": "Object",
+          "customType": "User"
+        }
+      ],
+      "variables": [
+        {
+          "name": "data",
+          "type": "UserCreateInput",
+          "nullable": false,
+          "attributes": [
+            {
+              "name": "value",
+              "arguments": [
+                {
+                  "name": "pick",
+                  "type": "List",
+                  "values": [
+                    {
+                      "type": "String",
+                      "value": "name"
+                    },
+                    {
+                      "type": "String",
+                      "value": "role"
+                    },
+                    {
+                      "type": "String",
+                      "value": "email"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "label",
+              "arguments": [
+                {
+                  "name": "name",
+                  "type": "String",
+                  "value": "姓名"
+                },
+                {
+                  "name": "role",
+                  "type": "String",
+                  "value": "角色"
+                },
+                {
+                  "name": "email",
+                  "type": "String",
+                  "value": "邮箱"
+                }
+              ]
+            },
+            {
+              "name": "placeholder",
+              "arguments": [
+                {
+                  "name": "email",
+                  "type": "String",
+                  "value": "邮箱将用于接收通知"
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "email",
+              "baseType": "String",
+              "nullable": false,
+              "list": false
+            },
+            {
+              "name": "name",
+              "baseType": "String",
+              "nullable": false,
+              "list": false
+            },
+            {
+              "name": "role",
+              "baseType": "Enum",
+              "customType": "Role",
+              "nullable": false,
+              "list": false
+            }
+          ],
+          "defaultValue": {}
+        }
+      ]
+    },
+    {
+      "name": "updateOneUserForm",
+      "is": "mutation",
+      "attributes": [],
+      "selections": [
+        {
+          "name": "updateOneUser",
+          "attributes": [
+            {
+              "name": "view",
+              "arguments": [
+                {
+                  "name": "type",
+                  "type": "String",
+                  "value": "form"
+                }
+              ]
+            }
+          ],
+          "selections": [
+            {
+              "name": "id",
+              "attributes": [
+                {
+                  "name": "id",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            },
+            {
+              "name": "name",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            },
+            {
+              "name": "role",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Enum",
+              "customType": "Role"
+            },
+            {
+              "name": "createdAt",
+              "attributes": [],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String",
+              "customType": "DateTime"
+            }
+          ],
+          "arguments": [
+            {
+              "name": "data",
+              "type": "Variable",
+              "value": "data"
+            },
+            {
+              "name": "where",
+              "type": "Variable",
+              "value": "where"
+            }
+          ],
+          "nullable": true,
+          "list": false,
+          "baseType": "Object",
+          "customType": "User"
+        }
+      ],
+      "variables": [
+        {
+          "name": "data",
+          "type": "UserUpdateInput",
+          "nullable": false,
+          "attributes": [
+            {
+              "name": "value",
+              "arguments": [
+                {
+                  "name": "pick",
+                  "type": "List",
+                  "values": [
+                    {
+                      "type": "String",
+                      "value": "name"
+                    },
+                    {
+                      "type": "String",
+                      "value": "role"
+                    },
+                    {
+                      "type": "String",
+                      "value": "email"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "label",
+              "arguments": [
+                {
+                  "name": "name",
+                  "type": "String",
+                  "value": "姓名"
+                },
+                {
+                  "name": "role",
+                  "type": "String",
+                  "value": "角色"
+                },
+                {
+                  "name": "email",
+                  "type": "String",
+                  "value": "邮箱"
+                }
+              ]
+            },
+            {
+              "name": "placeholder",
+              "arguments": [
+                {
+                  "name": "email",
+                  "type": "String",
+                  "value": "邮箱将用于接收通知"
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "email",
+              "baseType": "InputObject",
+              "customType": "StringFieldUpdateOperationsInput",
+              "fields": [
+                {
+                  "name": "set",
+                  "baseType": "String",
+                  "nullable": true,
+                  "list": false
+                }
+              ],
+              "nullable": true,
+              "list": false
+            },
+            {
+              "name": "name",
+              "baseType": "InputObject",
+              "customType": "StringFieldUpdateOperationsInput",
+              "fields": [
+                {
+                  "name": "set",
+                  "baseType": "String",
+                  "nullable": true,
+                  "list": false
+                }
+              ],
+              "nullable": true,
+              "list": false
+            },
+            {
+              "name": "role",
+              "baseType": "InputObject",
+              "customType": "EnumRoleFieldUpdateOperationsInput",
+              "fields": [
+                {
+                  "name": "set",
+                  "baseType": "Enum",
+                  "customType": "Role",
+                  "nullable": true,
+                  "list": false
+                }
+              ],
+              "nullable": true,
+              "list": false
+            }
+          ],
+          "defaultValue": {}
+        },
+        {
+          "name": "where",
+          "type": "UserWhereUniqueInput",
+          "nullable": false,
+          "attributes": [
+            {
+              "name": "value",
+              "arguments": [
+                {
+                  "name": "pick",
+                  "type": "List",
+                  "values": [
+                    {
+                      "type": "String",
+                      "value": "id"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "id",
+              "baseType": "Int",
+              "nullable": true,
+              "list": false
+            }
+          ],
+          "defaultValue": {}
+        }
+      ]
+    },
+    {
+      "name": "deleteOneUserForm",
+      "is": "mutation",
+      "attributes": [],
+      "selections": [
+        {
+          "name": "deleteOneUser",
+          "attributes": [
+            {
+              "name": "view",
+              "arguments": [
+                {
+                  "name": "type",
+                  "type": "String",
+                  "value": "form"
+                }
+              ]
+            }
+          ],
+          "selections": [
+            {
+              "name": "id",
+              "attributes": [
+                {
+                  "name": "id",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            }
+          ],
+          "arguments": [
+            {
+              "name": "where",
+              "type": "Variable",
+              "value": "where"
+            }
+          ],
+          "nullable": true,
+          "list": false,
+          "baseType": "Object",
+          "customType": "User"
+        }
+      ],
+      "variables": [
+        {
+          "name": "where",
+          "type": "UserWhereUniqueInput",
+          "nullable": false,
+          "attributes": [
+            {
+              "name": "value",
+              "arguments": [
+                {
+                  "name": "pick",
+                  "type": "List",
+                  "values": [
+                    {
+                      "type": "String",
+                      "value": "id"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "fields": [
+            {
+              "name": "id",
+              "baseType": "Int",
+              "nullable": true,
+              "list": false
+            }
+          ],
+          "defaultValue": {}
+        }
+      ]
+    },
+    {
+      "name": "createUserButton",
+      "is": "query",
+      "attributes": [
+        {
+          "name": "clientOnly",
+          "arguments": []
+        }
+      ],
+      "selections": [
+        {
+          "name": "staticComponent",
+          "attributes": [],
+          "selections": [
+            {
+              "name": "button",
+              "attributes": [],
+              "selections": [],
+              "arguments": [
+                {
+                  "name": "props",
+                  "type": "Variable",
+                  "value": "props"
+                }
+              ],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            }
+          ],
+          "arguments": [],
+          "nullable": false,
+          "list": false,
+          "baseType": "Object",
+          "customType": "StaticComponent"
+        }
+      ],
+      "variables": [
+        {
+          "name": "props",
+          "type": "ButtonProps",
+          "nullable": true,
+          "attributes": [],
+          "fields": [
+            {
+              "name": "children",
+              "baseType": "String",
+              "nullable": true,
+              "list": false
+            },
+            {
+              "name": "variant",
+              "baseType": "Enum",
+              "customType": "ButtonVariant",
+              "nullable": true,
+              "list": false
+            },
+            {
+              "name": "isFullWidth",
+              "baseType": "Boolean",
+              "nullable": true,
+              "list": false
+            }
+          ],
+          "defaultValue": {
+            "children": "创建用户",
+            "variant": "solid",
+            "isFullWidth": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "createOneUserModal",
+      "is": "query",
+      "attributes": [
+        {
+          "name": "clientOnly",
+          "arguments": []
+        }
+      ],
+      "selections": [
+        {
+          "name": "staticComponent",
+          "attributes": [],
+          "selections": [
+            {
+              "name": "modal",
+              "attributes": [],
+              "selections": [],
+              "arguments": [
+                {
+                  "name": "props",
+                  "type": "Variable",
+                  "value": "props"
+                }
+              ],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            }
+          ],
+          "arguments": [],
+          "nullable": false,
+          "list": false,
+          "baseType": "Object",
+          "customType": "StaticComponent"
+        }
+      ],
+      "variables": [
+        {
+          "name": "props",
+          "type": "ModalProps",
+          "nullable": true,
+          "attributes": [],
+          "fields": [
+            {
+              "name": "triggerId",
+              "baseType": "String",
+              "nullable": false,
+              "list": false
+            },
+            {
+              "name": "contentId",
+              "baseType": "String",
+              "nullable": false,
+              "list": false
+            },
+            {
+              "name": "title",
+              "baseType": "String",
+              "nullable": true,
+              "list": false
+            }
+          ],
+          "defaultValue": {
+            "triggerId": "createUserButton",
+            "contentId": "createOneUserForm",
+            "title": "创建用户"
+          }
+        }
+      ]
+    },
+    {
+      "name": "deleteUserButton",
+      "is": "query",
+      "attributes": [
+        {
+          "name": "clientOnly",
+          "arguments": []
+        }
+      ],
+      "selections": [
+        {
+          "name": "staticComponent",
+          "attributes": [],
+          "selections": [
+            {
+              "name": "button",
+              "attributes": [],
+              "selections": [],
+              "arguments": [
+                {
+                  "name": "props",
+                  "type": "Variable",
+                  "value": "props"
+                }
+              ],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            }
+          ],
+          "arguments": [],
+          "nullable": false,
+          "list": false,
+          "baseType": "Object",
+          "customType": "StaticComponent"
+        }
+      ],
+      "variables": [
+        {
+          "name": "props",
+          "type": "ButtonProps",
+          "nullable": true,
+          "attributes": [],
+          "fields": [
+            {
+              "name": "children",
+              "baseType": "String",
+              "nullable": true,
+              "list": false
+            },
+            {
+              "name": "variant",
+              "baseType": "Enum",
+              "customType": "ButtonVariant",
+              "nullable": true,
+              "list": false
+            },
+            {
+              "name": "isFullWidth",
+              "baseType": "Boolean",
+              "nullable": true,
+              "list": false
+            }
+          ],
+          "defaultValue": {
+            "children": "删除用户",
+            "variant": "outlined",
+            "isFullWidth": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "deleteOneUserModal",
+      "is": "query",
+      "attributes": [
+        {
+          "name": "clientOnly",
+          "arguments": []
+        }
+      ],
+      "selections": [
+        {
+          "name": "staticComponent",
+          "attributes": [],
+          "selections": [
+            {
+              "name": "modal",
+              "attributes": [],
+              "selections": [],
+              "arguments": [
+                {
+                  "name": "props",
+                  "type": "Variable",
+                  "value": "props"
+                }
+              ],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            }
+          ],
+          "arguments": [],
+          "nullable": false,
+          "list": false,
+          "baseType": "Object",
+          "customType": "StaticComponent"
+        }
+      ],
+      "variables": [
+        {
+          "name": "props",
+          "type": "ModalProps",
+          "nullable": true,
+          "attributes": [],
+          "fields": [
+            {
+              "name": "triggerId",
+              "baseType": "String",
+              "nullable": false,
+              "list": false
+            },
+            {
+              "name": "contentId",
+              "baseType": "String",
+              "nullable": false,
+              "list": false
+            },
+            {
+              "name": "title",
+              "baseType": "String",
+              "nullable": true,
+              "list": false
+            }
+          ],
+          "defaultValue": {
+            "triggerId": "deleteUserButton",
+            "contentId": "deleteOneUserForm",
+            "title": "删除用户"
+          }
+        }
+      ]
+    }
+  ]
+}

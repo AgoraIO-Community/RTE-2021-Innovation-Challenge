@@ -1,0 +1,28 @@
+enum ButtonVariant {
+  link
+  outlined
+  solid
+  ghost
+  unstyled
+}
+
+input ButtonProps {
+  children: String
+  variant: ButtonVariant
+  isFullWidth: Boolean
+}
+
+input ModalProps {
+  triggerId: String!
+  contentId: String!
+  title: String
+}
+
+type StaticComponent {
+  button(props: ButtonProps): String!
+  modal(props: ModalProps): String!
+}
+
+type Query {
+  staticComponent: StaticComponent!
+}

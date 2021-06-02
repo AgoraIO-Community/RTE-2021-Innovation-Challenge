@@ -1,0 +1,30 @@
+apiVersion: "acid.zalan.do/v1"
+kind: postgresql
+metadata:
+  name: x-runtime-db-cluster
+  namespace: x-runtime
+spec:
+  teamId: x-runtime
+  volume:
+    size: 10Gi
+    storageClass: "local-path"
+  numberOfInstances: 2
+  dockerImage: registry.opensource.zalan.do/acid/spilo-13:2.0-p6
+  users:
+    prisma: # database owner
+      - superuser
+      - createdb
+  databases:
+    prisma: prisma # dbname: owner
+  postgresql:
+    version: "10"
+  patroni:
+    pg_hba:
+      - local   all             all                             trust
+      - hostssl all             +zalandos    127.0.0.1/32       pam
+      - host    all             all          127.0.0.1/32       md5
+      - host    all             all          ::1/128            md5
+      - hostssl all             +zalandos    ::1/128            pam
+      - hostssl replication     standby      all                md5
+      - hostssl all             +zalandos    all                pam
+      - host    all             all          all                md5
