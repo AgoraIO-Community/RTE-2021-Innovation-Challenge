@@ -8,8 +8,12 @@ var myRandomName;
 var globalChannelName = "GLOBAL CHANNEL"
 var joinedChannelCount = 1
 var bus = new Vue()
+let myURL="http://127.0.0.1:8081"
 
-var appID = "7d98dc45c22c4d43aa30b9c7ca37a4c6"
+var appID = ""
+
+
+//RTM客户端类
 class RTMClient extends EventEmitter {
   constructor() {
     super()
@@ -67,7 +71,7 @@ class RTMClient extends EventEmitter {
     const channel = this.client.createChannel(name)
     this.channels[name] = {
       channel,
-      joined: false ,
+      joined: false,
     }
     this.subscribeChannelEvents(name)
     return channel.join()
@@ -83,13 +87,15 @@ class RTMClient extends EventEmitter {
 
   async sendChannelMessage(text, channelName) {
     if (!this.channels[channelName] || !this.channels[channelName].joined) return
-    return this.channels[channelName].channel.sendMessage({text})
+    return this.channels[channelName].channel.sendMessage({
+      text
+    })
   }
 
 }
 const rtm = new RTMClient();
 rtm.on('ConnectionStateChanged', (newState, reason) => {
-  console.log('reason:', reason ,', new state:',newState)
+  console.log('reason:', reason, ', new state:', newState)
 })
 
 rtm.on('ChannelMessage', async ({
@@ -97,8 +103,8 @@ rtm.on('ChannelMessage', async ({
   args
 }) => {
   const [message, memberId] = args
-    console.log('channel ', channelName, ', messsage: ', message.text, ', memberId: ', memberId)
-    bus.$emit("addNewMessage",[channelName,message.text,memberId])
+  console.log('channel ', channelName, ', messsage: ', message.text, ', memberId: ', memberId)
+  bus.$emit("addNewMessage", [channelName, message.text, memberId])
 })
 rtm.init(appID)
 window.rtm = rtm
@@ -247,7 +253,7 @@ Vue.component("pop-ups", {
       }
     },
     getToken: async function (userName) {
-      const response = await fetch("http://127.0.0.1:8081/token?username=" + userName, {
+      const response = await fetch(myURL+"/token?username=" + userName, {
         "method": "GET"
       })
       const json = await response.json();
@@ -266,7 +272,7 @@ Vue.component('chat-tag', {
   <p>{{title}}</p>
   <div>
   <i class="fas fa-plus" @click="addAttrForChannel()"></i>
-  <i class="fas fa-times" @click="deleteChannel()"></i>
+  <i class="fas fa-times" @click.stop="deleteChannel()"></i>
   </div>
   </div>`,
   methods: {
@@ -277,10 +283,10 @@ Vue.component('chat-tag', {
       }
       rtm.leaveChannel(this.title).then(() => {
         console.log("leave channel success")
-        bus.$emit("deleteChannel", this.title);
         if (rtm.channels[this.title]) {
           rtm.channels[this.title].joined = false
           rtm.channels[this.title] = null
+          bus.$emit("deleteChannel", this.title);
         }
       }).catch((err) => {
         console.log('Leave channel failed, please open console see more details.')
@@ -331,30 +337,33 @@ var chat = new Vue({
   el: "#chat",
   data: {
     myChats: [],
-    channelMessages:{},
+    channelMessages: {},
     activeChannel: "Please select a channel",
     channelMemberCount: 0,
     channelCoord: "",
     channelGoal: ""
   },
   methods: {
-    updateMessages:function(){
-      if(!this.channelMessages[this.activeChannel]){
-        this.channelMessages[this.activeChannel]=[]
+    updateMessages: function () {
+      if (!this.channelMessages[this.activeChannel]) {
+        this.channelMessages[this.activeChannel] = []
       }
-      document.getElementById("messages-detail").innerHTML=''
-      for(let i=0;i<this.channelMessages[this.activeChannel].length;i++){
-        document.getElementById("messages-detail").innerHTML+=`
+      let msgs = document.getElementById("messages-detail")
+      msgs.innerHTML = ''
+      for (let i = 0; i < this.channelMessages[this.activeChannel].length; i++) {
+        msgs.innerHTML += `
         <div class ="msg">
-        <div class="inline f18">${this.channelMessages[this.activeChannel][i][2]}:</div>
-        <div class="msgText inline f18">${this.channelMessages[this.activeChannel][i][1]}</div>
+        <div class="f10 msgFrom">${this.channelMessages[this.activeChannel][i][2]}:</div>
+        <div class="msgText f18">${this.channelMessages[this.activeChannel][i][1]}</div>
         </div>`
+        msgs.scrollTop = msgs.scrollHeight;
       }
     },
     addChannel: function () {
       this.$children[0].isShow = true;
     },
     setActiveChannelG: function () {
+      console.log("setActiveChannelG")
       this.activeChannel = globalChannelName;
       rtm.client.getChannelMemberCount([globalChannelName]).then((number) => {
         for (let key in number) {
@@ -369,9 +378,9 @@ var chat = new Vue({
       let chats = document.getElementsByClassName("chatName");
       for (let i = 0; i < chats.length; i++) {
         if (chats[i].children[0].innerText == this.activeChannel) {
-          chats[i].style.backgroundColor = "rgb(109, 133, 241)"
+          chats[i].style.background = "linear-gradient(134deg, #9795f0, #fbc8d4)"
         } else {
-          chats[i].style.backgroundColor = "rgb(255,245,238)"
+          chats[i].style.background = "linear-gradient(135deg, #96fbc4, #f9f586)"
         }
       }
       //显示消息
@@ -387,29 +396,29 @@ var chat = new Vue({
         (rtm.channels[this.activeChannel] && !rtm.channels[this.activeChannel].joined)
       ) {
         alert('Please Join first')
+        return
       }
-
+      if(this.$refs.myMessage.value=="")return
       rtm.sendChannelMessage(this.$refs.myMessage.value, this.activeChannel).then(() => {
-        if(!this.channelMessages[this.activeChannel]){
-          this.channelMessages[this.activeChannel]=[]
+        if (!this.channelMessages[this.activeChannel]) {
+          this.channelMessages[this.activeChannel] = []
         }
-        this.channelMessages[this.activeChannel].push([this.activeChannel,this.$refs.myMessage.value,myName])
-        console.log("send message to channel success :"+this.$refs.myMessage.value)
-        this.$refs.myMessage.value="";
+        this.channelMessages[this.activeChannel].push([this.activeChannel, this.$refs.myMessage.value, myName])
+        console.log("send message to channel success :" + this.$refs.myMessage.value)
+        this.$refs.myMessage.value = "";
         this.updateMessages()
       }).catch((err) => {
         alert('Send message to channel ' + this.activeChannel + ' failed, please open console see more details.')
         console.error(err)
       })
     },
-    
+
   },
   mounted() {
     this.$children[0].isShow = false;
     bus.$on("newChannel", (channel) => {
       this.myChats.push(channel)
       joinedChannelCount += 1;
-      this.activeChannel = channel;
     })
     bus.$on("deleteChannel", (channel) => {
       for (let i = 0; i < this.myChats.length; i++) {
@@ -418,6 +427,8 @@ var chat = new Vue({
         }
       }
       joinedChannelCount -= 1;
+      this.activeChannel = globalChannelName;
+      this.setActiveChannelG();
     })
     bus.$on("showAddrInput", (title) => {
       this.$children[1].isShow = true;
@@ -431,7 +442,7 @@ var chat = new Vue({
         goal: data[2]
       }).then(() => {
         console.log('addChannelAttr success')
-
+        bus.$emit("setActiveChannel", data[0])
       }).catch((err) => {
         console.log('addChannelAttr fail')
         console.error(err)
@@ -440,6 +451,7 @@ var chat = new Vue({
 
     })
     bus.$on("setActiveChannel", (channel) => {
+      console.log("setActiveChannel")
       this.activeChannel = channel;
       rtm.client.getChannelMemberCount([channel]).then((number) => {
         for (let key in number) {
@@ -469,21 +481,20 @@ var chat = new Vue({
       let chats = document.getElementsByClassName("chatName");
       for (let i = 0; i < chats.length; i++) {
         if (chats[i].children[0].innerText == this.activeChannel) {
-          chats[i].style.backgroundColor = "rgb(109, 133, 241)"
+          chats[i].style.background = "linear-gradient(134deg, #9795f0, #fbc8d4)"
         } else {
-          chats[i].style.backgroundColor = "rgb(255,245,238)"
+          chats[i].style.background = "linear-gradient(135deg, #96fbc4, #f9f586)"
         }
       }
       //显示消息
-      if(!this.channelMessages[this.activeChannel])return
-      
+      if (!this.channelMessages[this.activeChannel]) this.channelMessages[this.activeChannel]=[]
       this.updateMessages()
 
     })
-    bus.$on("addNewMessage",(data)=>{
-      if(!this.channelMessages[data[0]]){
-        this.channelMessages[data[0]]=[]
-      }else{
+    bus.$on("addNewMessage", (data) => {
+      if (!this.channelMessages[data[0]]) {
+        this.channelMessages[data[0]] = []
+      } else {
         this.channelMessages[data[0]].push(data)
       }
       this.updateMessages()

@@ -1,3 +1,5 @@
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300,800);
 * {
   box-sizing: border-box;
 }
@@ -28,6 +30,8 @@ body {
 
 .header {
   background-color: rgb(109, 133, 241);
+
+  z-index:9999;
   width: 100%;
   color: #ffffff;
   position: fixed;
@@ -167,8 +171,8 @@ a:any-link {
   margin: 0;
 }
 .chatTitle{
-  background-color:#a2a3aa;
-  color:#fff;
+  background-image: linear-gradient(135deg, #96fbc4, #f9f586 );
+  color:rgb(0, 0, 0);
   height:50px;
 }
 .pixel{
@@ -178,46 +182,61 @@ a:any-link {
   display:flex;
   align-items:center;
   justify-content:space-between;
-  background-color:rgb(255,245,238);
+  background:linear-gradient(135deg, #96fbc4, #f9f586);
   height: 80px;
   width:100%;
   font-size:30px;
   text-align:left;
 }
-.chatName p{
-  font-family: SeaChelUnicode;
-}
 .messages-title{
-  background-color: rgb(255,245,238);
+  background:linear-gradient(134deg, #9795f0, #fbc8d4);
   height:20%;
 }
 .messages-detail{
   height:70%;
+  overflow: auto;
 }
-.messages-title-info{
-}
+
 .messages-input{
   border:0;
   height:10%;
   text-align:center;
 }
 .messages-title-name{
-  font-family: SeaChelUnicode;
   font-size:40px;
+}
+.font-gray{
+  color: gray;
 }
 .channel-count{
   float:right;
 }
+.msg{
+  margin-left: 5px;
+  margin-right: 5px;
+  width: auto;
+}
+.msgFrom{
+  margin-bottom: 5px;
+}
 .msgText{
-  background-color:#6d85f1;
-  border: 2px solid #6d85f1;
-  border-radius: 5px;
+  padding:5px;
+  background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);;
+  border: 1px solid #6d85f1;
+  border-radius: 10px;
+  text-align: left;
+  width:fit-content;
+  word-break: break-all;
+  margin-bottom: 5px;
 }
 .f25{
   font-size:25px;
 }
 .f18{
   font-size: 18px;
+}
+.f10{
+  font-size: 10px;
 }
 .f20{
   font-size: 20px;
@@ -227,6 +246,7 @@ a:any-link {
   height:90%;
   border-radius: 30px;
   padding-left:10px;
+  padding-right:80px;
   font-size:18px;
   outline:none;
 }
@@ -248,8 +268,7 @@ a:any-link {
   left: 0;
   background:rgba(42, 42, 42, 0.774);
 }
-@import "compass/css3";
- @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300,800);
+
 .pop{
   margin:auto;
   margin-top:300px;
@@ -370,4 +389,14 @@ a:any-link {
 .inp input:focus + .label + .focus-bg {
   transform: scaleX(1);
   transition: all 0.1s ease;
+}
+
+
+@media screen and (max-width: 1840px) {
+  .main {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+
 }
