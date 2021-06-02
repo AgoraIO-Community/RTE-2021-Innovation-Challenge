@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?><!--登录界面,用LinearLayout-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+    android:orientation="vertical">
+    <!--标题栏-->
+    <!--    <include layout="@layout/main_title_bar"></include>-->
+    <!--显示头像 -->
+    <ImageView
+        android:id="@+id/iv_head"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/login_head" />
+    <!--欢迎 -->
+    <TextView
+        android:id="@+id/tv_welcome"
+        android:layout_width="fill_parent"
+        android:layout_height="58dp"
+        android:gravity="left"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="65dp"
+        android:layout_marginRight="35dp"
+        android:padding="8dp"
+        android:text="@string/login_welcome_text"
+        android:textColor="@android:color/black"
+        android:textSize="36sp"
+        tools:ignore="RtlHardcoded" />
+    <TextView
+        android:id="@+id/tv_welcome_content"
+        android:layout_width="fill_parent"
+        android:layout_height="38dp"
+        android:gravity="left"
+        android:layout_marginLeft="65dp"
+        android:layout_marginRight="35dp"
+        android:padding="8dp"
+        android:text="@string/login_description_text"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        tools:ignore="RtlHardcoded" />
+    <!--输入框-->
+    <EditText
+        android:id="@+id/et_user_name"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="35dp"
+        android:background="@drawable/login_username_bg"
+        android:drawableStart="@drawable/login_username"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:hint="@string/login_username_text"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:singleLine="true"
+        android:textColor="#000000"
+        android:textColorHint="#a3a3a3"
+        android:textSize="14sp"
+        android:inputType="" />
+    <!--输入框-->
+    <EditText
+        android:id="@+id/et_psw"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:background="@drawable/login_psw_bg"
+        android:drawableStart="@drawable/login_psw"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:hint="@string/login_psw_text"
+        android:inputType="textPassword"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:singleLine="true"
+        android:textColor="#000000"
+        android:textColorHint="#a3a3a3"
+        android:textSize="14sp" />
+    <!-- 快捷登录选项 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="0dp"
+        android:paddingTop="0dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <CheckBox
+            android:id="@+id/checkBox_password"
+            android:padding="0dp"
+            android:textSize="14sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="记住密码"
+            android:textColor="#808F8F"
+            android:checked="false"/>
+        <CheckBox
+            android:id="@+id/checkBox_login"
+            android:padding="0dp"
+            android:textSize="14sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="自动登录"
+            android:textColor="#808F8F"
+            android:checked="false"
+            tools:ignore="RtlHardcoded" />
+    </LinearLayout>
+    <!--登录按钮-->
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/login_loginbtn_bg"
+        android:text="@string/login_loginbtn_text"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+    <!--显示tv register , find_psw -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="35dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_register"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:padding="8dp"
+            android:text="@string/login_registbtn_text"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+        <!--layout_weight="1" layout_width="0dp"实现均分效果-->
+        <TextView
+            android:id="@+id/tv_find_psw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:padding="8dp"
+            android:text="@string/login_forgetpsw_text"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+    </LinearLayout>
+    <!-- 第三方登录分界线 -->
+    <TextView
+        android:id="@+id/tv_other_account"
+        android:layout_width="fill_parent"
+        android:layout_height="38dp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"
+        android:padding="8dp"
+        android:text="@string/login_other_account_text"
+        android:textColor="@android:color/black"
+        android:textSize="14sp" />
+    <!-- 第三方登录选项 -->
+    <ImageView
+        android:id="@+id/iv_other_account"
+        android:layout_width="210dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/login_other_account" />
+</LinearLayout>

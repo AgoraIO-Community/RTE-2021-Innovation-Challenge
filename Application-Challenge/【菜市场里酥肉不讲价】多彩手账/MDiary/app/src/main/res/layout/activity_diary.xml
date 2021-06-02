@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="m_diary.activities.DiaryActivity">
+
+    <ImageView
+        android:id="@+id/BG"
+        android:layout_width="wrap_content"
+        android:layout_height="870sp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/write_bg" />
+
+    <m_diary.activities.MyRelativeLayout
+        android:id="@+id/Diary_Item"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/menubar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Actionbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp">
+
+            <m_diary.controls.MyTextControl
+                android:id="@+id/Sub_Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:gravity="center_vertical"
+                android:inputType="text"
+                android:textColor="#090000"
+                android:textSize="18sp"
+                android:typeface="sans"
+                android:visibility="visible"
+                tools:visibility="visible" />
+
+
+            <m_diary.controls.StickerLayout
+                android:id="@+id/stickerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="0dp" />
+
+            <RelativeLayout
+                android:id="@+id/video_in_diary"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/audioContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"></LinearLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+    </m_diary.activities.MyRelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/BG">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/actionbar" />
+
+        <Button
+            android:id="@+id/back_bt"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:background="@drawable/back_bt_selector"
+            android:onClick="back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/Title_Name"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Title here"
+            android:inputType="textPersonName"
+            android:maxLength="20"
+            android:text=""
+            android:textColor="#090000"
+            android:textColorHint="#948D8D"
+            android:textSize="30dp"
+            android:typeface="serif"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/save_edit_bt"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/save_bt_selector"
+            android:onClick="save_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/menubar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="190dp" />
+
+        <ImageView
+            android:id="@+id/menu_bg"
+            android:layout_width="0dp"
+            android:layout_height="79dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/menu_bg"
+            tools:srcCompat="@drawable/menu_bg" />
+
+        <Button
+            android:id="@+id/pic_button"
+            android:layout_width="62dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/pic"
+            android:onClick="open_picture"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/text_button"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/text_button"
+            android:layout_width="49dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/file"
+            android:onClick="open_text"
+            app:layout_constraintBottom_toBottomOf="@+id/menu_bg"
+            app:layout_constraintEnd_toStartOf="@+id/video_button"
+            app:layout_constraintTop_toTopOf="@+id/menu_bg"
+            tools:ignore="OnClick" />
+
+        <Button
+            android:id="@+id/video_button"
+            android:layout_width="53dp"
+            android:layout_height="56dp"
+            android:background="@drawable/video_button"
+            android:onClick="open_video"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/voice_button"
+            android:layout_width="47dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/voice_button"
+            android:onClick="open_sound"
+            app:layout_constraintBottom_toBottomOf="@+id/menu_bg"
+            app:layout_constraintStart_toEndOf="@+id/video_button"
+            app:layout_constraintTop_toTopOf="@+id/menu_bg" />
+
+        <Button
+            android:id="@+id/sticker_button"
+            android:layout_width="46dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/sticker_button"
+            android:onClick="open_sticker"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/voice_button"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

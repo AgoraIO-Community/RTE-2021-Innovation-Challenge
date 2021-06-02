@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
+    android:orientation="vertical">
+
+
+    <ImageButton
+        android:id="@+id/qianzifenButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/qianlvButton"
+        app:layout_constraintTop_toBottomOf="@+id/grayButton"
+        app:srcCompat="@drawable/c_fff0f5_23" />
+
+    <ImageButton
+        android:id="@+id/qianlvButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/qianlanlvButton"
+        app:layout_constraintTop_toBottomOf="@+id/grayButton"
+        app:srcCompat="@drawable/c_c4e48d_22" />
+
+    <ImageButton
+        android:id="@+id/qianlanlvButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/qianlanButton"
+        app:layout_constraintTop_toBottomOf="@+id/grayButton"
+        app:srcCompat="@drawable/c_7ac5cd_21" />
+
+    <ImageButton
+        android:id="@+id/qianlanButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/qianyellowButton"
+        app:layout_constraintTop_toBottomOf="@+id/grayButton"
+        app:srcCompat="@drawable/c_b0e2ff_20" />
+
+    <ImageButton
+        android:id="@+id/qianyellowButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/rouseButton"
+        app:layout_constraintTop_toBottomOf="@+id/grayButton"
+        app:srcCompat="@drawable/c_fff68f_19" />
+
+    <ImageButton
+        android:id="@+id/rouseButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/pinkButton"
+        app:layout_constraintTop_toBottomOf="@+id/grayButton"
+        app:srcCompat="@drawable/c_ffd39b_18" />
+
+    <ImageButton
+        android:id="@+id/pinkButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/whiteButton"
+        app:layout_constraintTop_toBottomOf="@+id/grayButton"
+        app:srcCompat="@drawable/c_ffc1c1_17" />
+
+    <ImageButton
+        android:id="@+id/midpurpleButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/caolvButton"
+        app:layout_constraintTop_toBottomOf="@+id/blackButton"
+        app:srcCompat="@drawable/c_a0509d_15" />
+
+    <ImageButton
+        android:id="@+id/lan2Button"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/midblueButton"
+        app:layout_constraintTop_toBottomOf="@+id/blackButton"
+        app:srcCompat="@drawable/c_196a81_13" />
+
+    <ImageButton
+        android:id="@+id/caolvButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/lan2Button"
+        app:layout_constraintTop_toBottomOf="@+id/blackButton"
+        app:srcCompat="@drawable/c_3c7602_14" />
+
+    <ImageButton
+        android:id="@+id/midblueButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/yellowButton"
+        app:layout_constraintTop_toBottomOf="@+id/blackButton"
+        app:srcCompat="@drawable/c_4d97d5_12" />
+
+    <ImageButton
+        android:id="@+id/yellowButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/midredButton"
+        app:layout_constraintTop_toBottomOf="@+id/blackButton"
+        app:srcCompat="@drawable/c_ffb90f_11" />
+
+    <ImageButton
+        android:id="@+id/midredButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/shenfenButton"
+        app:layout_constraintTop_toBottomOf="@+id/blackButton"
+        app:srcCompat="@drawable/c_fc4b2b_10" />
+
+    <ImageButton
+        android:id="@+id/shenfenButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/grayButton"
+        app:layout_constraintTop_toBottomOf="@+id/blackButton"
+        app:srcCompat="@drawable/c_ff6a6a_9" />
+
+    <ImageButton
+        android:id="@+id/shenziButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/shenlvButton"
+        app:layout_constraintTop_toBottomOf="@+id/et"
+        app:srcCompat="@drawable/c_2b055c_7" />
+
+    <ImageButton
+        android:id="@+id/shenlvButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/lanlvButton"
+        app:layout_constraintTop_toBottomOf="@+id/et"
+        app:srcCompat="@drawable/c_033510_6" />
+
+    <ImageButton
+        android:id="@+id/lanlvButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/shenlanButton"
+        app:layout_constraintTop_toBottomOf="@+id/et"
+        app:srcCompat="@drawable/c_033853_5" />
+
+    <ImageButton
+        android:id="@+id/shenlanButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/orangeButton"
+        app:layout_constraintTop_toBottomOf="@+id/et"
+        app:srcCompat="@drawable/c_001b5e_4" />
+
+    <ImageButton
+        android:id="@+id/orangeButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/lightredButton"
+        app:layout_constraintTop_toBottomOf="@+id/et"
+        app:srcCompat="@drawable/c_ea6d10_3" />
+
+    <ImageButton
+        android:id="@+id/lightredButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/brownButton"
+        app:layout_constraintTop_toBottomOf="@+id/et"
+        app:srcCompat="@drawable/c_810110_2" />
+
+    <ImageButton
+        android:id="@+id/brownButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toEndOf="@+id/blackButton"
+        app:layout_constraintTop_toBottomOf="@+id/et"
+        app:srcCompat="@drawable/c_550d01_1" />
+
+    <ImageButton
+        android:id="@+id/whiteButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/grayButton"
+        app:srcCompat="@drawable/c_ffffff_16" />
+
+    <EditText
+        android:id="@+id/et"
+        android:layout_width="336dp"
+        android:layout_height="181dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="32dp"
+        android:background="@android:color/transparent"
+        android:hint="@string/textHint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:inputType="text"
+        tools:ignore="Autofill">
+    </EditText>
+
+    <ImageButton
+        android:id="@+id/grayButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/blackButton"
+        app:srcCompat="@drawable/c_717073_8" />
+
+    <ImageButton
+        android:id="@+id/blackButton"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et"
+        app:srcCompat="@drawable/c_000000_0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
