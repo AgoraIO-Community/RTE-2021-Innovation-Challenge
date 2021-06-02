@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学生端演示</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="//localhost/bisai/rte_live_tool_admin/public/css/coco_main.css?t=20210601">
+</head>
+<body>
+    <div class="container" id="container">
+
+    </div>
+
+    <script src="./assets/js/jquery-3.4.1.min.js"></script>
+    <script src="//download.agora.io/edu-apaas/edu_sdk_1.1.0.js"></script>
+    <script src="//localhost/bisai/rte_live_tool_admin/public/js/coco_lesson_student.js?ts=20210601"></script>
+    <script>
+        /***
+         *  以下是您的业务系统代码
+         *  用于判断用户登录
+         *  您也可以用于做其他业务相关权限的校验
+         */
+        var coco_lesson_userid=localStorage.getItem("coco_lesson_userid");
+        if(coco_lesson_userid==null || coco_lesson_userid=="" || coco_lesson_userid=="undefined"){
+            //未登录，跳转到登陆页面
+            location.href="./login.html";
+        }
+
+        /**********
+         *
+         *  初始化coco插件
+         *  appid：声网APPID
+         *  user_id：用户ID（唯一）
+         *  room_uuid：房间号（唯一）
+         *  base_api：coco插件服务地址
+         *
+         *  理论上这些参数应对通过业务代码的接口端获取，这样会更加安全，也更加灵活
+         *********/
+        coco_lesson_student.init({
+            appid: "2306c08dc63b4e16834d1a5bb41621a6",
+            user_id: coco_lesson_userid,
+            room_uuid: "test_01",
+            base_api:"https://minipro-course.todoen.com/live_tools/" //生产环境
+            // base_api: "//localhost/bisai/rte_live_tool_admin/"   //本地开发环境
+        });
+    </script>
+</body>
+</html>
