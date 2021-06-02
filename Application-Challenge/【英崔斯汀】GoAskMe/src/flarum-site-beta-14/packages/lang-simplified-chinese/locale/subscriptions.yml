@@ -1,0 +1,30 @@
+flarum-subscriptions:
+  forum:
+    badge:
+      following_tooltip: => flarum-subscriptions.ref.following
+      ignoring_tooltip: => flarum-subscriptions.ref.ignoring
+    discussion_controls:
+      follow_button: => flarum-subscriptions.ref.follow
+      unfollow_button: 取消关注
+      unignore_button: 取消无视
+    index:
+      following_link: => flarum-subscriptions.ref.following
+    notifications:
+      new_post_text: "{username} 回复了你关注的主题"
+    settings:
+      follow_after_reply_label: 自动关注回复的主题
+      notify_new_post_label: 关注的主题有新回复
+    sub_controls:
+      follow_button: => flarum-subscriptions.ref.follow
+      following_button: => flarum-subscriptions.ref.following
+      following_text: 有新回复时通知我。
+      ignoring_button: => flarum-subscriptions.ref.ignoring
+      ignoring_text: 不接收任何通知并从主题列表中隐藏。
+      not_following_button: 不关注
+      not_following_text: 仅当被提及时通知我。
+      notify_alert_tooltip: 有新回复时发送通知
+      notify_email_tooltip: 有新回复时发送邮件
+  ref:
+    follow: 关注
+    following: 已关注
+    ignoring: 忽略

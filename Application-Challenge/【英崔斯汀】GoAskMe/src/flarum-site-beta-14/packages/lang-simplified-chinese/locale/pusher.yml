@@ -1,0 +1,15 @@
+flarum-pusher:
+  admin:
+    pusher_settings:
+      app_cluster_label: Cluster
+      app_id_label: App ID
+      app_key_label: App Key
+      app_secret_label: App Secret
+      title: Pusher 设置
+      app_ws_host_label: Websocket 地址
+      app_ws_port_label: Websocket 端口
+      app_ws_protocol_label: Websocket 协议 (ws/wss)
+      app_api_label: pusher api 地址
+  forum:
+    discussion_list:
+      show_updates_text: "有 {count} 篇新主题|有 {count} 篇新主题"

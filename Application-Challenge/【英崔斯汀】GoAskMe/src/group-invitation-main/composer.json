@@ -1,0 +1,42 @@
+{
+    "name": "niclalalla/flarum-ext-group-invitation",
+    "description": "Invite users into groups via links and give point to the inviter.",
+    "keywords": [
+        "flarum"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "flarum/core": ">=0.1.0-beta.14 <0.1.0-beta.15"
+    },
+    "authors": [
+        {
+            "name": "Clark Winkelmann",
+            "email": "clark.winkelmann@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "niclalalla",
+            "email": "niclalalla@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ClarkWinkelmann\\GroupInvitation\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Group Invitation",
+            "icon": {
+                "name": "fas fa-certificate",
+                "backgroundColor": "#684ba6",
+                "color": "#fff"
+            }
+        },
+        "flagrow": {
+            "discuss": "https://discuss.flarum.org/d/24627"
+        }
+    }
+}

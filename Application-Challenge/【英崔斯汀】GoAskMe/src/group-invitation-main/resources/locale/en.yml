@@ -1,0 +1,43 @@
+clarkwinkelmann-group-invitation:
+    forum:
+        title: You have been invited to join the {group} group!
+        generic-title: Group invitation
+        user:
+            already-connected: >
+                We will add the {group} group to {username}.
+                Not the correct user? <a>Sign into another account</a>.
+            not-connected: <a>Sign in</a> to accept the invitation.
+            not-authorized: Your current user {username} doesn't have the permission to join groups. <a>Sign into another account</a>.
+            already-member: >
+                Great news, your user {username} is already a member of the {group} group!
+                Want to join the group with another user? <a>Sign into another account</a>.
+        invitation:
+            not-found: Sorry, this group invitation was not found.
+            no-usages-left: This group invitation can no longer be used.
+        apply: Join group
+        success-alert: You have successfully joined the group!
+
+    admin:
+        permissions:
+            use: Use group invitation links
+        settings:
+            title: Group Invitation
+            head:
+                code: Code
+                group: Group
+                usage: Usage
+                inviter: inviter
+            placeholder:
+                code: Auto-generated
+                group: Select...
+                usage: Empty for unlimited
+                inviter: Empty for administor
+            empty: No invitations created so far.
+            unlimited: unlimited
+            create: Create
+            delete: Delete
+
+    api:
+        error:
+            not-found: Invitation code not found
+            no-usages-left: Invitation can no longer be used

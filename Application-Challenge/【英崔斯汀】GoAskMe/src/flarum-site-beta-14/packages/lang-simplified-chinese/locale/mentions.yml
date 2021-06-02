@@ -1,0 +1,21 @@
+flarum-mentions:
+  forum:
+    composer:
+      mention_tooltip: 提及用户或主题
+      reply_to_post_text: "回复给 #{number}"
+    notifications:
+      others_text: => core.ref.some_others
+      post_mentioned_text: "{username} 回复了你的主题"
+      user_mentioned_text: "{username} 提及了你"
+    post:
+      mentioned_by_self_text: '{users} 回复了此帖。'
+      mentioned_by_text: '{users} 回复了此帖。'
+      others_text: => core.ref.some_others
+      quote_button: 引用
+      reply_link: => core.ref.reply
+      you_text: => core.ref.you
+    settings:
+      notify_post_mentioned_label: 有人回复了你
+      notify_user_mentioned_label: 有人提及了你
+    user:
+      mentions_link: 提及

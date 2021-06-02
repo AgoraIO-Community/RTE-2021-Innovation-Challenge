@@ -1,0 +1,31 @@
+goaskme-points:
+  forum:
+    user:
+      dropdown_label: GAM Wallet
+      convert_gam: 积分兑换
+    request:
+      submit: Submit
+      cancel: Cancel
+      dismiss: dismiss
+    convert_gam:
+      title: Convert GAMT Form
+      points_show: Points：
+      points_ratio: Points:GAMT = 5：1
+      points_max_convert: Max To Convert ：
+      convert_num: GAMT兑换数量
+      address: EOS钱包地址
+      confirmation_message: 为了您的资产安全，我们需进行人工核对，兑换将在24小时内完成!
+    convert_gam_list:
+      Convering: 积分兑换
+      converDown: 积分到账
+      converReject: 拒绝转账
+      converRejectReturn: 积分返还
+      Flarum\Likes\Event\PostWasLiked: 被点赞
+      Flarum\Discussion\Event\Started: 发帖
+      Flarum\Post\Event\Posted: 回复
+      test: 测试
+admin:
+  empty_text: 当前未存在需要处理的数据。
+
+
+      

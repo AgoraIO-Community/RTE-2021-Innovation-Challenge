@@ -1,0 +1,40 @@
+{
+  "name": "hehongyuanlove/flarum-points",
+  "description": " points copy",
+  "keywords": [
+    "flarum"
+  ],
+  "publishConfig": { 
+    "registry": "https://npm.pkg.github.com/" 
+  },
+  "type": "flarum-extension",
+  "license": "MIT",
+  "require": {
+    "flarum/core": "^0.1.0-beta.8"
+  },
+  "authors": [
+    {
+      "name": "GoAskMe",
+      "email": "1016823618@qq.com",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "GoAskMe\\Points\\": "src/"
+    }
+  },
+  "extra": {
+    "flarum-extension": {
+      "title": "Points",
+      "icon": {
+        "name": "",
+        "backgroundColor": "",
+        "color": ""
+      }
+    },
+    "flagrow": {
+      "discuss": ""
+    }
+  }
+}

@@ -1,0 +1,9 @@
+flarum-auth-facebook:
+  forum:
+    log_in:
+      with_facebook_button: 使用 Facebook 登录
+  admin:
+    facebook_settings:
+      title: Facebook 设置
+      app_secret_label: App Secret
+      app_id_label: App ID

@@ -1,0 +1,9 @@
+flarum-auth-github:
+  forum:
+    log_in:
+      with_github_button: 使用 GitHub 登录
+  admin:
+    github_settings:
+      title: GitHub 设置
+      client_secret_label: Client Secret
+      client_id_label: Client ID

@@ -1,0 +1,123 @@
+{
+    "name": "flarum/flarum",
+    "description": "Delightfully simple forum software.",
+    "type": "project",
+    "keywords": [
+        "forum",
+        "discussion"
+    ],
+    "homepage": "https://flarum.org/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Franz Liedke",
+            "email": "franz@develophp.org"
+        },
+        {
+            "name": "Daniel Klabbers",
+            "email": "daniel@klabbers.email",
+            "homepage": "https://luceos.com"
+        },
+        {
+            "name": "David Sevilla Martin",
+            "email": "me+flarum@datitisev.me",
+            "homepage": "https://datitisev.me"
+        },
+        {
+            "name": "Clark Winkelmann",
+            "email": "clark.winkelmann@gmail.com",
+            "homepage": "https://clarkwinkelmann.com"
+        },
+        {
+            "name": "Matthew Kilgore",
+            "email": "matthew@kilgore.dev"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/flarum/core/issues",
+        "source": "https://github.com/flarum/flarum",
+        "docs": "https://flarum.org/docs/"
+    },
+    "require": {
+        "antoinefr/flarum-ext-money": "^0.9.0",
+        "clarkwinkelmann/flarum-ext-circle-groups": "^0.2.2",
+        "clarkwinkelmann/flarum-ext-emojionearea": "^0.3.0",
+        "clarkwinkelmann/flarum-ext-group-invitation": "^0.1.2",
+        "clarkwinkelmann/flarum-ext-group-list": "^0.1.0",
+        "clarkwinkelmann/flarum-ext-who-read": "^1.2",
+        "datitisev/flarum-ext-dashboard": "v0.1.0-beta.9.1",
+        "flarum/approval": "^0.1.0",
+        "flarum/bbcode": "^0.1.0",
+        "flarum/core": "^0.1.0",
+        "flarum/emoji": "^0.1.0",
+        "flarum/flags": "^0.1.0",
+        "flarum/lang-english": "^0.1.0",
+        "flarum/likes": "^0.1.0",
+        "flarum/lock": "^0.1.0",
+        "flarum/markdown": "^0.1.0",
+        "flarum/mentions": "^0.1.0",
+        "flarum/pusher": "^0.1.0",
+        "flarum/statistics": "^0.1.0",
+        "flarum/sticky": "^0.1.0",
+        "flarum/subscriptions": "^0.1.0",
+        "flarum/suspend": "^0.1.0",
+        "flarum/tags": "^0.1.0",
+        "fof/ban-ips": "^0.3.0",
+        "fof/best-answer": "^0.2.0",
+        "fof/byobu": "^0.5.6",
+        "fof/custom-footer": "^0.2.0",
+        "fof/default-group": "^0.2.0",
+        "fof/drafts": "^0.2.0",
+        "fof/filter": "^0.1.0@beta",
+        "fof/follow-tags": "^0.5.1",
+        "fof/formatting": "^0.2.0",
+        "fof/ignore-users": "^0.2.0",
+        "fof/links": "^0.4.1",
+        "fof/merge-discussions": "^0.4.0",
+        "fof/moderator-notes": "^0.3.0",
+        "fof/nightmode": "^0.6.0",
+        "fof/pages": "^0.5.0",
+        "fof/polls": "^0.1.3",
+        "fof/pretty-mail": "^0.2.0",
+        "fof/prevent-necrobumping": "^0.3.0",
+        "fof/profile-image-crop": "^0.2.0",
+        "fof/reactions": "^0.4.2",
+        "fof/recaptcha": "^0.2.0",
+        "fof/secure-https": "^0.2.1",
+        "fof/share-social": "^0.2.0",
+        "fof/spamblock": "^0.3.0",
+        "fof/split": "*",
+        "fof/subscribed": "*",
+        "fof/terms": "^0.5.0",
+        "fof/upload": "^0.11.0",
+        "fof/user-bio": "^0.3.1",
+        "fof/user-directory": "^0.4.0",
+        "fof/username-request": "^0.3.0",
+        "goaskme/flarum-points": "*@dev",
+        "jordanjay29/flarum-ext-summaries": "^0.3.1",
+        "kyrne/shout": "0.2.4-beta.1",
+        "lcinhk/flarum-ext-acgembed": "^0.5.2",
+        "littlegolden/flarum-lang-simplified-chinese": "^0.1.70",
+        "michaelbelgium/flarum-discussion-views": "^5.0",
+        "nearata/flarum-ext-signup-confirm-password": "^2.1",
+        "reflar/doorman": "^0.1.6",
+        "sycho/flarum-profile-cover": "^1.2",
+        "v17development/flarum-seo": "^1.4"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "beta",
+    "prefer-stable": true,
+    "repositories": {
+        "0": {
+            "type": "path",
+            "url": "packages/*"
+        },
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
+    }
+}

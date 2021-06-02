@@ -1,0 +1,40 @@
+{
+  "name": "flarumchina/lang-simplified-chinese",
+  "description": "Flarum 简体中文语言包",
+  "keywords": [
+    "flarum",
+    "locale",
+    "Chinsese",
+    "中文"
+  ],
+  "type": "flarum-extension",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "skywalker",
+      "email": "houzhenhong@outlook.com"
+    }
+  ],
+  "support": {
+    "source": "https://gitee.com/FlarumChina/lang-implified-chinese",
+    "issues": "https://flarum.atowerlight.cn/"
+  },
+  "require": {
+    "flarum/core": "^0.1.0-beta.10"
+  },
+  "extra": {
+    "flarum-extension": {
+      "title": "简体中文语言包",
+        "icon": {
+          "image": "icon.svg",
+          "backgroundColor": "#fff",
+          "backgroundSize": "cover",
+          "backgroundPosition": "center"
+        }
+    },
+    "flarum-locale": {
+      "code": "zh_Hans",
+      "title": "简体中文"
+    }
+  }
+}
