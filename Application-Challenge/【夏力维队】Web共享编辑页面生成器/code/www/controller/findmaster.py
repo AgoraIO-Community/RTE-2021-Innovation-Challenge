@@ -49,11 +49,7 @@ class UriMappingHandler(WebRequest):
     def get(self, app):
 
         link_list = self.request.uri.split("?")
-        uri_mapping = {
-            "/"             :"65e3c7d9b038406ab5c6c8e8087351e1",
-            "/register"     :"093fcb33d4f6445fa8adcb42301fd633",
-            "/login"        :"20bea2293afd4de6a4c675de25b28f53",
-        }
+        uri_mapping = settings["uri_mapping"]
         block_id = uri_mapping.get(link_list[0],None)
 
         if not self.current_user:
