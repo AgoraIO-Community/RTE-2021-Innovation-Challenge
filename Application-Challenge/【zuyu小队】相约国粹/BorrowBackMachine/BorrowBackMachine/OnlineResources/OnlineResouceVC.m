@@ -371,11 +371,8 @@
         UIImageView *hotImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 330, WIDTH, 40)];
         
         hotImage.image = [UIImage imageNamed:@"hot_recommended_title_bg"];
-        [ZuyuBanner getBannerwithType:@"103" count:@"5" imageArray:^(NSArray *array) {
-                cycleScrollView.imageURLStringsGroup = array;
-                [_tableView reloadData];
-        }];
-        
+        cycleScrollView.localizationImageNamesGroup = @[@"bannerF01.jpg"];
+
         _loadErrorView = [[LoadErrorCellView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, 380)];
         _loadErrorView.hidden = YES;
         
