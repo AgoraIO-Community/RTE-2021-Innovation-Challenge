@@ -31,8 +31,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'name' | 'teacherId' | 'createdAt' | 'updatedAt'
     }
     lessons: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'class' | 'classId' | 'createdAt' | 'updatedAt'
-      ordering: 'id' | 'name' | 'classId' | 'createdAt' | 'updatedAt'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'class' | 'classId' | 'startedAt' | 'duration' | 'createdAt' | 'updatedAt'
+      ordering: 'id' | 'name' | 'classId' | 'startedAt' | 'duration' | 'createdAt' | 'updatedAt'
     }
   },
   User: {
@@ -51,8 +51,8 @@ interface NexusPrismaInputs {
       ordering: 'id' | 'email' | 'role' | 'name' | 'createdAt' | 'updatedAt'
     }
     lessons: {
-      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'class' | 'classId' | 'createdAt' | 'updatedAt'
-      ordering: 'id' | 'name' | 'classId' | 'createdAt' | 'updatedAt'
+      filtering: 'AND' | 'OR' | 'NOT' | 'id' | 'name' | 'class' | 'classId' | 'startedAt' | 'duration' | 'createdAt' | 'updatedAt'
+      ordering: 'id' | 'name' | 'classId' | 'startedAt' | 'duration' | 'createdAt' | 'updatedAt'
     }
   }
   Lesson: {
@@ -115,6 +115,8 @@ interface NexusPrismaOutputs {
     name: 'String'
     class: 'Class'
     classId: 'Int'
+    startedAt: 'DateTime'
+    duration: 'Int'
     createdAt: 'DateTime'
     updatedAt: 'DateTime'
   }

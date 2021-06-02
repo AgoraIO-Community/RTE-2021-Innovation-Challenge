@@ -277,6 +277,14 @@ input EnumRoleFilter {
   notIn: [Role!]
 }
 
+input IntFieldUpdateOperationsInput {
+  decrement: Int
+  divide: Int
+  increment: Int
+  multiply: Int
+  set: Int
+}
+
 input IntFilter {
   equals: Int
   gt: Int
@@ -291,22 +299,28 @@ input IntFilter {
 type Lesson {
   class: Class!
   createdAt: DateTime!
+  duration: Int!
   id: Int!
   name: String!
+  startedAt: DateTime!
   updatedAt: DateTime!
 }
 
 input LessonCreateInput {
   class: ClassCreateNestedOneWithoutLessonsInput!
   createdAt: DateTime
+  duration: Int!
   name: String!
+  startedAt: DateTime!
   updatedAt: DateTime
 }
 
 input LessonCreateManyClassInput {
   createdAt: DateTime
+  duration: Int!
   id: Int
   name: String!
+  startedAt: DateTime!
   updatedAt: DateTime
 }
 
@@ -329,7 +343,9 @@ input LessonCreateOrConnectWithoutClassInput {
 
 input LessonCreateWithoutClassInput {
   createdAt: DateTime
+  duration: Int!
   name: String!
+  startedAt: DateTime!
   updatedAt: DateTime
 }
 
@@ -342,8 +358,10 @@ input LessonListRelationFilter {
 input LessonOrderByInput {
   classId: SortOrder
   createdAt: SortOrder
+  duration: SortOrder
   id: SortOrder
   name: SortOrder
+  startedAt: SortOrder
   updatedAt: SortOrder
 }
 
@@ -353,21 +371,27 @@ input LessonScalarWhereInput {
   OR: [LessonScalarWhereInput!]
   classId: IntFilter
   createdAt: DateTimeFilter
+  duration: IntFilter
   id: IntFilter
   name: StringFilter
+  startedAt: DateTimeFilter
   updatedAt: DateTimeFilter
 }
 
 input LessonUpdateInput {
   class: ClassUpdateOneRequiredWithoutLessonsInput
   createdAt: DateTimeFieldUpdateOperationsInput
+  duration: IntFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
+  startedAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input LessonUpdateManyMutationInput {
   createdAt: DateTimeFieldUpdateOperationsInput
+  duration: IntFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
+  startedAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -397,7 +421,9 @@ input LessonUpdateWithWhereUniqueWithoutClassInput {
 
 input LessonUpdateWithoutClassInput {
   createdAt: DateTimeFieldUpdateOperationsInput
+  duration: IntFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
+  startedAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -414,8 +440,10 @@ input LessonWhereInput {
   class: ClassWhereInput
   classId: IntFilter
   createdAt: DateTimeFilter
+  duration: IntFilter
   id: IntFilter
   name: StringFilter
+  startedAt: DateTimeFilter
   updatedAt: DateTimeFilter
 }
 

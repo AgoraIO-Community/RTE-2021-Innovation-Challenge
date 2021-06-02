@@ -43,6 +43,8 @@ model Lesson {
   name      String
   class     Class    @relation(fields: [classId], references: [id])
   classId   Int
+  startedAt DateTime
+  duration  Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

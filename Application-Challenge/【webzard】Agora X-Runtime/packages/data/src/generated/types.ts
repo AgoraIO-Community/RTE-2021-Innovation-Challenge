@@ -39,6 +39,8 @@ export const Lesson = objectType({
           t.model.id();
           t.model.name();
           t.model.class();
+          t.model.startedAt();
+          t.model.duration();
           t.model.createdAt();
           t.model.updatedAt();
       },
