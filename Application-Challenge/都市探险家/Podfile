@@ -1,0 +1,48 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '14.0'
+inhibit_all_warnings!
+target 'UrbanExplorer_UIKit' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  pod 'ReactorKit'
+  pod 'RxDataSources'
+  pod 'RxViewController'
+  pod 'Mapbox-iOS-SDK'
+  pod 'SnapKit'
+  pod 'Reusable'
+  pod 'Kingfisher'
+  pod 'R.swift'
+  pod 'IQKeyboardManager'
+  pod 'RxCoreLocation'
+  pod 'RxGesture'
+  pod 'Pulsator'
+  pod 'AgoraRtm_iOS'
+  pod 'AgoraAudio_iOS'
+  pod 'SVProgressHUD'
+  # Pods for UrbanExplorer_UIKit
+
+  target 'UrbanExplorer_UIKitTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'UrbanExplorer_UIKitUITests' do
+    # Pods for testing
+  end
+
+end
+
+deployment_target = '13.0'
+
+post_install do |installer|
+    installer.generated_projects.each do |project|
+        project.targets.each do |target|
+            target.build_configurations.each do |config|
+                config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = deployment_target
+            end
+        end
+        project.build_configurations.each do |config|
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = deployment_target
+        end
+    end
+end

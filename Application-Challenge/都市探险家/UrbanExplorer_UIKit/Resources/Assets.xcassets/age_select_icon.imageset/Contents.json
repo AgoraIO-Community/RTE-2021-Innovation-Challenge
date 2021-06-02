@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "age_select_icon.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

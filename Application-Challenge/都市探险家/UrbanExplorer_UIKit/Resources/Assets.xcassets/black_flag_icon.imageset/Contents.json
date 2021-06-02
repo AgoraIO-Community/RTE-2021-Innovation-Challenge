@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "black_flag_icon.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
