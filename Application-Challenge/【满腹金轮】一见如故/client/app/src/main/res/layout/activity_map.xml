@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <com.zhy.android.percent.support.PercentLinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.jialichun.client.activities.MapActivity"
+        android:background="#f3f4ee"
+        android:orientation="vertical">
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal"
+            app:layout_heightPercent="15%w">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:onClick="onClickBack"
+                android:src="@drawable/back"
+                app:layout_marginLeftPercent="5%w"
+                app:layout_widthPercent="3%w" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="门禁查看"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                app:layout_widthPercent="80%w" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:onClick="onClickMessage"
+                android:src="@drawable/mesg"
+                app:layout_marginRightPercent="5%w"
+                app:layout_widthPercent="7%w" />
+
+        </com.zhy.android.percent.support.PercentLinearLayout>
+        <com.zhy.android.percent.support.PercentFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_heightPercent="148.944%w"
+                android:layout_gravity="top"
+                android:src="@drawable/mapbg"/>
+
+            <ImageView
+                android:id="@+id/map1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:src="@drawable/map_blue"
+                app:layout_marginLeftPercent="48%w"
+                app:layout_marginTopPercent="15%h"
+                app:layout_widthPercent="6%w" />
+
+            <ImageView
+                android:id="@+id/map2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="onClick"
+                android:src="@drawable/map_black"
+                app:layout_marginLeftPercent="26%w"
+                app:layout_marginTopPercent="64%h"
+                app:layout_widthPercent="6%w" />
+        </com.zhy.android.percent.support.PercentFrameLayout>
+
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
+

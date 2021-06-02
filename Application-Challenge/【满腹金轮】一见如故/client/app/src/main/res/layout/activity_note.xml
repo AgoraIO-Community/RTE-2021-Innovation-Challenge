@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jialichun.client.activities.NoteActivity">
+
+    <com.zhy.android.percent.support.PercentFrameLayout
+        android:id="@+id/note_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.zhy.android.percent.support.PercentLinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.zhy.android.percent.support.PercentLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/colorPrimary"
+                android:orientation="horizontal"
+                app:layout_heightPercent="15%w">
+
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:onClick="onClickBack"
+                    android:src="@drawable/back"
+                    app:layout_marginLeftPercent="5%w"
+                    app:layout_widthPercent="3%w" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="出入记录"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp"
+                    app:layout_widthPercent="80%w" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:onClick="onClickMessage"
+                    android:src="@drawable/mesg"
+                    app:layout_marginRightPercent="5%w"
+                    app:layout_widthPercent="7%w" />
+
+            </com.zhy.android.percent.support.PercentLinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/white"
+                android:gravity="bottom"
+                android:paddingLeft="10dp"
+                android:text="今日记录"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_heightPercent="10%w" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/white"
+                android:paddingLeft="10dp"
+                android:text="12条"
+                android:textColor="@color/yellow"
+                app:layout_heightPercent="7%w" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBackground">
+
+                <com.zhy.android.percent.support.PercentLinearLayout
+                    android:id="@+id/note_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.zhy.android.percent.support.PercentLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:background="@color/white"
+                        android:orientation="horizontal"
+                        app:layout_heightPercent="22%w">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:src="@drawable/touxiang"
+                            app:layout_heightPercent="16%w"
+                            app:layout_marginLeftPercent="6%w"
+                            app:layout_marginTopPercent="3%w"
+                            app:layout_widthPercent="16%w">
+
+
+                        </de.hdodenhof.circleimageview.CircleImageView>
+
+                        <com.zhy.android.percent.support.PercentLinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_widthPercent="60%w">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/name"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                app:layout_marginLeftPercent="20%h"
+                                app:layout_marginTopPercent="20%h" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="东1门 进入小区"
+                                android:textColor="@color/grey"
+                                android:textSize="12sp"
+                                app:layout_marginLeftPercent="20%h"
+                                app:layout_marginTopPercent="20%h" />
+
+                        </com.zhy.android.percent.support.PercentLinearLayout>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="12:30"
+                            android:textColor="@color/grey"
+                            android:textSize="12sp"
+                            app:layout_marginLeftPercent="20%h"
+                            app:layout_marginTopPercent="20%h"
+                            app:layout_widthPercent="18%w" />
+
+                    </com.zhy.android.percent.support.PercentLinearLayout>
+
+                    <com.zhy.android.percent.support.PercentLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:background="@color/white"
+                        android:orientation="horizontal"
+                        app:layout_heightPercent="22%w">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:src="@drawable/touxiang2"
+                            app:layout_heightPercent="16%w"
+                            app:layout_marginLeftPercent="6%w"
+                            app:layout_marginTopPercent="3%w"
+                            app:layout_widthPercent="16%w">
+
+
+                        </de.hdodenhof.circleimageview.CircleImageView>
+
+                        <com.zhy.android.percent.support.PercentLinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_widthPercent="60%w">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cus_name1"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                app:layout_marginLeftPercent="20%h"
+                                app:layout_marginTopPercent="20%h" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="东1门 进入小区"
+                                android:textColor="@color/grey"
+                                android:textSize="12sp"
+                                app:layout_marginLeftPercent="20%h"
+                                app:layout_marginTopPercent="20%h" />
+
+                        </com.zhy.android.percent.support.PercentLinearLayout>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="11:30"
+                            android:textColor="@color/grey"
+                            android:textSize="12sp"
+                            app:layout_marginLeftPercent="20%h"
+                            app:layout_marginTopPercent="20%h"
+                            app:layout_widthPercent="18%w" />
+
+                    </com.zhy.android.percent.support.PercentLinearLayout>
+
+                    <com.zhy.android.percent.support.PercentLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:background="@color/white"
+                        android:orientation="horizontal"
+                        app:layout_heightPercent="22%w">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:src="@drawable/touxiang"
+                            app:layout_heightPercent="16%w"
+                            app:layout_marginLeftPercent="6%w"
+                            app:layout_marginTopPercent="3%w"
+                            app:layout_widthPercent="16%w">
+
+
+                        </de.hdodenhof.circleimageview.CircleImageView>
+
+                        <com.zhy.android.percent.support.PercentLinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_widthPercent="60%w">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/name"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                app:layout_marginLeftPercent="20%h"
+                                app:layout_marginTopPercent="20%h" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="东1门 进入小区"
+                                android:textColor="@color/grey"
+                                android:textSize="12sp"
+                                app:layout_marginLeftPercent="20%h"
+                                app:layout_marginTopPercent="20%h" />
+
+                        </com.zhy.android.percent.support.PercentLinearLayout>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="7:30"
+                            android:textColor="@color/grey"
+                            android:textSize="12sp"
+                            app:layout_marginLeftPercent="20%h"
+                            app:layout_marginTopPercent="20%h"
+                            app:layout_widthPercent="18%w" />
+
+                    </com.zhy.android.percent.support.PercentLinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:gravity="bottom"
+                        android:paddingLeft="10dp"
+                        android:text="Jun.18"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_heightPercent="10%w" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="30条"
+                        android:textColor="@color/grey"
+                        app:layout_heightPercent="7%w" />
+
+                    <com.zhy.android.percent.support.PercentLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:background="@color/white"
+                        android:orientation="horizontal"
+                        app:layout_heightPercent="22%w">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:src="@drawable/touxiang"
+                            app:layout_heightPercent="16%w"
+                            app:layout_marginLeftPercent="6%w"
+                            app:layout_marginTopPercent="3%w"
+                            app:layout_widthPercent="16%w">
+
+
+                        </de.hdodenhof.circleimageview.CircleImageView>
+
+                        <com.zhy.android.percent.support.PercentLinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_widthPercent="60%w">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/name"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                app:layout_marginLeftPercent="20%h"
+                                app:layout_marginTopPercent="20%h" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="东1门 进入小区"
+                                android:textColor="@color/grey"
+                                android:textSize="12sp"
+                                app:layout_marginLeftPercent="20%h"
+                                app:layout_marginTopPercent="20%h" />
+
+                        </com.zhy.android.percent.support.PercentLinearLayout>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="12:30"
+                            android:textColor="@color/grey"
+                            android:textSize="12sp"
+                            app:layout_marginLeftPercent="20%h"
+                            app:layout_marginTopPercent="20%h"
+                            app:layout_widthPercent="18%w" />
+
+                    </com.zhy.android.percent.support.PercentLinearLayout>
+
+                    <com.zhy.android.percent.support.PercentLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:background="@color/white"
+                        android:orientation="horizontal"
+                        app:layout_heightPercent="22%w">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:src="@drawable/touxiang2"
+                            app:layout_heightPercent="16%w"
+                            app:layout_marginLeftPercent="6%w"
+                            app:layout_marginTopPercent="3%w"
+                            app:layout_widthPercent="16%w">
+
+
+                        </de.hdodenhof.circleimageview.CircleImageView>
+
+                        <com.zhy.android.percent.support.PercentLinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_widthPercent="60%w">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cus_name1"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                app:layout_marginLeftPercent="20%h"
+                                app:layout_marginTopPercent="20%h" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="东1门 进入小区"
+                                android:textColor="@color/grey"
+                                android:textSize="12sp"
+                                app:layout_marginLeftPercent="20%h"
+                                app:layout_marginTopPercent="20%h" />
+
+                        </com.zhy.android.percent.support.PercentLinearLayout>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="11:30"
+                            android:textColor="@color/grey"
+                            android:textSize="12sp"
+                            app:layout_marginLeftPercent="20%h"
+                            app:layout_marginTopPercent="20%h"
+                            app:layout_widthPercent="18%w" />
+
+                    </com.zhy.android.percent.support.PercentLinearLayout>
+
+                    <com.zhy.android.percent.support.PercentLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:background="@color/white"
+                        android:orientation="horizontal"
+                        app:layout_heightPercent="22%w">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:src="@drawable/touxiang"
+                            app:layout_heightPercent="16%w"
+                            app:layout_marginLeftPercent="6%w"
+                            app:layout_marginTopPercent="3%w"
+                            app:layout_widthPercent="16%w">
+
+
+                        </de.hdodenhof.circleimageview.CircleImageView>
+
+                        <com.zhy.android.percent.support.PercentLinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_widthPercent="60%w">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/name"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                app:layout_marginLeftPercent="20%h"
+                                app:layout_marginTopPercent="20%h" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="东1门 进入小区"
+                                android:textColor="@color/grey"
+                                android:textSize="12sp"
+                                app:layout_marginLeftPercent="20%h"
+                                app:layout_marginTopPercent="20%h" />
+
+                        </com.zhy.android.percent.support.PercentLinearLayout>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="7:30"
+                            android:textColor="@color/grey"
+                            android:textSize="12sp"
+                            app:layout_marginLeftPercent="20%h"
+                            app:layout_marginTopPercent="20%h"
+                            app:layout_widthPercent="18%w" />
+
+                    </com.zhy.android.percent.support.PercentLinearLayout>
+
+                    <com.zhy.android.percent.support.PercentLinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_heightPercent="12.5%w" />
+
+                </com.zhy.android.percent.support.PercentLinearLayout>
+
+
+            </ScrollView>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="#FDFDFD"
+            app:layout_heightPercent="12.5%w">
+
+            <LinearLayout
+                android:id="@+id/search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClickBtmBar"
+                android:orientation="vertical"
+                app:layout_widthPercent="33.3%w">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="27dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/search" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="搜索"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/calendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClickBtmBar"
+                android:orientation="vertical"
+                app:layout_widthPercent="33.3%w">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/calendar" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="日期"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/choose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="onClickBtmBar"
+                android:orientation="vertical"
+                app:layout_widthPercent="33.3%w">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="27dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/loudou" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="筛选"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <EditText
+
+            android:id="@+id/searchBox"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/colorPrimary"
+            android:hint="请输入查询ID"
+            android:textColor="@color/grey"
+            android:textColorHint="@color/grey"
+            android:visibility="invisible"
+            app:layout_heightPercent="10%w"
+            app:layout_marginTopPercent="2.5%w"
+            app:layout_widthPercent="60%w"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"/>
+    </com.zhy.android.percent.support.PercentFrameLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>

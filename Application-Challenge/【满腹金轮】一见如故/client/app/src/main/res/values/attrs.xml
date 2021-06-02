@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 圆角矩形TextView -->
+    <declare-styleable name="ShapeCornerBgView">
+        <attr name="appBorder" format="boolean" />
+        <!-- 是否有边框 -->
+        <attr name="appBorderWidth" format="dimension" />
+        <!-- 边框线条的粗细 -->
+        <attr name="appBorderColor" format="color" />
+        <!-- 边框线条的颜色 -->
+        <attr name="appBgColor" format="color" />
+        <!-- 背景的颜色 -->
+        <attr name="appRadius" format="dimension" />
+        <!-- 圆角度数 -->
+        <attr name="appTopLeftCorner" format="boolean" />
+        <!-- 是否有圆角，默认，真 -->
+        <attr name="appBottomLeftCorner" format="boolean" />
+        <!-- 是否有圆角，默认，真 -->
+        <attr name="appTopRightCorner" format="boolean" />
+        <!-- 是否有圆角，默认，真 -->
+        <attr name="appBottomRightCorner" format="boolean" />
+        <!-- 是否有圆角，默认，真 -->
+    </declare-styleable>
+</resources>
