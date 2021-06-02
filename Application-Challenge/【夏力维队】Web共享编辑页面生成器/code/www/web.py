@@ -97,8 +97,11 @@ application = tornado.web.Application([
 
     (r"/api/page/add_comment",findmaster_comment.AddCommentAPIHandler),
     (r"/api/page/get_comment",findmaster_comment.GetCommentAPIHandler),
+    (r"/api/page/comment/submit",findmaster_comment.CommentSubmitAPIHandler),
+    (r"/api/page/comment/load",findmaster_comment.CommentLoadAPIHandler),
 
     (r"/api/page/agora/get_token",findmaster_agora.GetTokenAPIHandler),
+    (r"/api/page/agora/get_customer_token",findmaster_agora.GetCustomerTokenAPIHandler),
 
     # (r"/start",auth.StartHomeHandler),
 

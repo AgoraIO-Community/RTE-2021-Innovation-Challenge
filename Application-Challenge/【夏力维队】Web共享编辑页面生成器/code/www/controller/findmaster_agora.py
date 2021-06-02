@@ -63,6 +63,25 @@ class GetTokenAPIHandler(WebRequest):
         token = RtcTokenBuilder.buildTokenWithAccount(appID, appCertificate, channelName, userAccount, Role_Attendee, privilegeExpiredTs)
         self.finish({"info":"ok","about":"agora token success","token":token,"appid":appID})
 
+class GetCustomerTokenAPIHandler(WebRequest):
+    @tornado.gen.coroutine
+    def post(self):
+        self.set_header("Access-Control-Allow-Origin", self.request.headers.get("Origin"))
+        self.set_header("Access-Control-Allow-Credentials", "true")
+        agora_user_id = self.get_argument("device_user",None)
+        aim_id = self.get_argument("aim_id",None)
+        appID = self.get_argument("app_id",None)
+        appCertificate = self.get_argument("app_certificate",None)
+        if not (agora_user_id and aim_id and appID and appCertificate):
+            self.finish({"info":"error","about":"error info"})
+            return
+        channelName = aim_id
+        userAccount = agora_user_id
+        expireTimeInSeconds = 3600
+        currentTimestamp = int(time.time())
+        privilegeExpiredTs = currentTimestamp + expireTimeInSeconds
+        token = RtcTokenBuilder.buildTokenWithAccount(appID, appCertificate, channelName, userAccount, Role_Attendee, privilegeExpiredTs)
+        self.finish({"info":"ok","about":"agora token success","token":token,"appid":appID})
 
 
 
