@@ -70,15 +70,7 @@ return [
             'visibility' => 'public',
             'url' => env('APP_URL').'/upload/',
         ],
-//        'admin' => [
-//            'driver' => 's3',
-//            'key' => 'AKIAIP3EVLF6BQ3S4WUQ',
-//            'secret' => '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',
-//            'region' => 'ap-northeast-1',
-//            'bucket' => 'shop-goaskme',
-//            'url' => env('AWS_URL'),
-//            'endpoint' => env('AWS_ENDPOINT'),
-//        ],
+
 
     ],
 
