@@ -1,0 +1,50 @@
+{
+  "name": "vchat",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@pixiv/three-vrm": "^0.6.3",
+    "@tensorflow-models/face-landmarks-detection": "^0.0.3",
+    "@tensorflow/tfjs-backend-cpu": "^3.6.0",
+    "@tensorflow/tfjs-backend-wasm": "^3.6.0",
+    "@tensorflow/tfjs-backend-webgl": "^3.6.0",
+    "@tensorflow/tfjs-converter": "^3.6.0",
+    "@tensorflow/tfjs-core": "^3.6.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "agora-rtc-sdk-ng": "^4.4.0",
+    "agora-rtm-sdk": "^1.4.3",
+    "events": "^3.3.0",
+    "mobx": "^6.3.2",
+    "mobx-react": "^7.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "three": "^0.128.0",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
