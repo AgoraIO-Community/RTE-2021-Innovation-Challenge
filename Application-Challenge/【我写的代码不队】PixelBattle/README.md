@@ -23,7 +23,7 @@
 `npm run start`  
 浏览器输入`127.0.0.1:8081`
 #### 整个界面
-![image](/imgs/main.png)
+![image](imgs/main.png)
 右上角点击可以播放蜜汁动感BGM
 #### 画布
 ![image](imgs/canves.png)  
