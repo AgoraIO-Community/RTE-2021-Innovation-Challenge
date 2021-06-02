@@ -1,0 +1,32 @@
+def safeExtGet(prop, key, fallback) {
+    if (rootProject.ext.has(prop)) {
+        def map = rootProject.ext.get(prop)
+        if (map.containsKey(key)) {
+            return map.get(key)
+        }
+    }
+    return fallback
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion safeExtGet('android', 'compileSdkVersion', 29)
+    buildToolsVersion safeExtGet('android', 'buildToolsVersion', '29.0.3')
+
+    defaultConfig {
+        minSdkVersion safeExtGet('android', 'minSdkVersion', 19)
+        targetSdkVersion safeExtGet('android', 'minSdkVersion', 29)
+
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    api "androidx.annotation:annotation:${safeExtGet('dependencies', 'androidx.annotation:annotation', '1.1.0')}"
+}

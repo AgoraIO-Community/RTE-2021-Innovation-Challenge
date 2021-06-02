@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_unRead"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_chat_room"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView_unRead"
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_4"
+        android:background="@drawable/bg_chatroom_tabitem"
+        android:paddingStart="@dimen/dp_1"
+        android:paddingEnd="@dimen/dp_1"
+        android:paddingTop="@dimen/dp_0"
+        android:paddingBottom="@dimen/dp_0"
+        android:text="99"
+        android:textSize="@dimen/sp_10"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/textView0"
+        app:layout_constraintStart_toEndOf="@id/textView0"
+        app:layout_constraintTop_toTopOf="@id/textView0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

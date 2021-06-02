@@ -1,0 +1,39 @@
+def safeExtGet(prop, key, fallback) {
+    if (rootProject.ext.has(prop)) {
+        def map = rootProject.ext.get(prop)
+        if (map.containsKey(key)) {
+            return map.get(key)
+        }
+    }
+    return fallback
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion safeExtGet('android', 'compileSdkVersion', 29)
+    buildToolsVersion safeExtGet('android', 'buildToolsVersion', '29.0.3')
+
+    defaultConfig {
+        minSdkVersion safeExtGet('android', 'minSdkVersion', 19)
+        targetSdkVersion safeExtGet('android', 'minSdkVersion', 29)
+
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    api "androidx.annotation:annotation:${safeExtGet('dependencies', 'androidx.annotation:annotation', '1.1.0')}"
+    api "androidx.preference:preference:${safeExtGet('dependencies', 'androidx.preference:preference', '1.1.1')}"
+
+    api "com.google.code.gson:gson:${safeExtGet('dependencies', 'com.google.code.gson:gson', '2.8.6')}"
+    api "com.squareup.retrofit2:retrofit:${safeExtGet('dependencies', 'com.squareup.retrofit2:retrofit', '2.9.0')}"
+    api "com.squareup.okhttp3:logging-interceptor:${safeExtGet('dependencies', 'com.squareup.okhttp3:logging-interceptor', '4.7.2')}"
+
+    api "com.squareup.retrofit2:converter-gson:${safeExtGet('dependencies', 'com.squareup.retrofit2:converter-gson', '2.9.0')}"
+}
