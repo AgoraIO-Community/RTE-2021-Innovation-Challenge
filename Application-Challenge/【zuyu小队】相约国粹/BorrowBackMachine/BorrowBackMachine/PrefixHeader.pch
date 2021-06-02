@@ -1,0 +1,96 @@
+//
+//  PrefixHeader.pch
+//  BorrowBackMachine
+//
+//  Created by 王祖宇 on 2018/9/18.
+//  Copyright © 2018年 zuyu. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+#import "zuyu.h"
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#ifdef DEBUG
+#define NSLog(format, ...) printf("\n[%s] %s [第%d行] %s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
+#else
+#define NSLog(format, ...)
+#endif
+
+#import <EaseIMKit/EaseIMKit.h>
+#import "PushToGroupTool.h"
+#import <Masonry/Masonry.h>
+#import <EaseCallKit/EaseCallManager.h>
+#import "EMAlertController.h"
+#import "NSObject+Alert.h"
+#import "UIViewController+HUD.h"
+#import "UIViewController+Util.h"
+#import "EMDemoOptions.h"
+#import "EMDefines.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+ 
+
+#define kColor_textViewGray [UIColor colorWithRed:242/255.0 green:242/255.0 blue:242/255.0 alpha:1.0]
+
+#define kColor_LightGray [UIColor colorWithRed:245 / 255.0 green:245 / 255.0 blue:245 / 255.0 alpha:1.0]
+
+#define kColor_Gray [UIColor colorWithRed:229 / 255.0 green:229 / 255.0 blue:229 / 255.0 alpha:1.0]
+
+#define kColor_Blue [UIColor colorWithRed:45 / 255.0 green:116 / 255.0 blue:215 / 255.0 alpha:1.0]
+#define GAODEMAPKEY @"e7c9112697a9cd0492c06b998f47c0f5"
+
+#define WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define HEIGHT ([UIScreen mainScreen].bounds.size.height)
+ 
+/**
+ 正式服务器上传地址
+ */
+#define PostFileSevers @""
+
+/**
+ 测试服务器上传地址
+ */
+//#define PostFileSevers @"http://192.168.4.11:10482/ToFilePath/UploadFile"
+
+
+#define FILE @""
+
+/**
+    应急正式环境
+ */
+
+#define PORT(url) [NSString stringWithFormat:@""]
+//http://cnc242.cncgroup.net/iosappapi/
+
+#define Mp4Port(a) [NSString stringWithFormat:@"%@",a]
+#define Mp4DHPort(a) [NSString stringWithFormat:@"%@",a]
+
+
+//
+#define RGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+
+#define COLOR [UIColor colorWithRed:183.f/255.f green:0/255.f blue:8.f/255.f alpha:1]
+
+#define LIONCOLOR [UIColor colorWithRed:142.f/255.f green:140.f/255.f blue:146.f/255.f alpha:0.2]
+
+#define ISLOGIN [[NSUserDefaults standardUserDefaults] objectForKey:@"isLogin"]
+
+#define TOKEN [[NSUserDefaults standardUserDefaults] objectForKey:@"Token"]
+
+#define ZHANGHAO [[NSUserDefaults standardUserDefaults] objectForKey:@"zhanghao"]
+
+#define MIMA [[NSUserDefaults standardUserDefaults] objectForKey:@"mima"]
+
+#define HEADIMAGE [[NSUserDefaults standardUserDefaults] objectForKey:@"userHeadImage"]
+
+#define USERNAME [[NSUserDefaults standardUserDefaults] objectForKey:@"userName"]
+
+#define PhoneNum [[NSUserDefaults standardUserDefaults] objectForKey:@"phoneNum"]
+#define CardID [[NSUserDefaults standardUserDefaults] objectForKey:@"cardID"]
+
+#endif /* PrefixHeader_pch */
+
