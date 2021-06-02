@@ -39,7 +39,8 @@ APPID更改位置在 CopyTeach-WebService/src/main/resources/static/live/live.js
 
 项目访问地址 https://ct.joeallen.top/  点击进入系统即可
 
-[视频演示](https://ct.joeallen.top/video)
+[视频演示](https://ct.joeallen.top/video)![推荐使用](https://user-images.githubusercontent.com/49467845/120411692-ccdd7980-c387-11eb-96e7-56b46cb95435.png)
+
 
 
 
