@@ -1,0 +1,20 @@
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+//  Prefix header
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <EaseIMKit/EaseIMKit.h>
+    #import <HyphenateChat/HyphenateChat.h>
+    #import <Masonry/Masonry.h>
+    #import "EMHeaders.h"
+    #import "EMDefines.h"
+    #import "UIView+SSExtension.h"
+    #import <EaseCallKit/EaseCallUIKit.h>
+
+
+#endif
