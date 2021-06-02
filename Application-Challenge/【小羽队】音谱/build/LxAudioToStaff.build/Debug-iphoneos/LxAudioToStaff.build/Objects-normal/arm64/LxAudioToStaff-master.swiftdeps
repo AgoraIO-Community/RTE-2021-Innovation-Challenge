@@ -1,5 +1,0 @@
-version: "Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)"
-options: "9ff2d3bb63a72062a8c95c8849960c54"
-build_time: [1622603401, 479853000]
-inputs:
-  "/Users/davinlee/MineProject/REC-2021REc/RTE-2021-Innovation-Challenge/Application-Challenge/\u3010\u5C0F\u7FBD\u961F\u3011\u97F3\u8C31/LxAudioToStaff/Lib/makeMusic/MidiPlay.swift": [1622458154, 479927659]
