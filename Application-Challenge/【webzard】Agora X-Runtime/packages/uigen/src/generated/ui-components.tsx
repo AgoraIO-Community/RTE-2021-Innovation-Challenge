@@ -72,6 +72,7 @@ import {
 import Calendar from "../ui-kit/Calendar";
 import dayjs from "dayjs";
 import { useTranslation, initReactI18next } from "react-i18next";
+import { AgoraClassroom } from "../custom-components/Agora";
 
 export const Error: React.FC<{ error: CombinedError }> = ({ error }) => {
   return (
@@ -122,6 +123,7 @@ export const ClassTable: React.FC = () => {
       onClose();
     }
   }, [selected]);
+  const { t } = useTranslation();
 
   if (error) {
     return <Error error={error} />;
@@ -142,10 +144,10 @@ export const ClassTable: React.FC = () => {
       <Table variant="striped">
         <Thead>
           <Tr>
-            <Th>id</Th>
-            <Th>name</Th>
-            <Th>teacher</Th>
-            <Th>students</Th>
+            <Th>{t("ClassTable.id")}</Th>
+            <Th>{t("ClassTable.name")}</Th>
+            <Th>{t("ClassTable.teacher.name")}</Th>
+            <Th>{t("ClassTable.students.name")}</Th>
           </Tr>
         </Thead>
         <Tbody>
@@ -159,6 +161,7 @@ export const ClassTable: React.FC = () => {
                       type: "Class",
                       path: "id",
                       component: "ClassTable",
+                      unsafe_entity: entity,
                     },
                   })}
                 </Td>
@@ -169,6 +172,7 @@ export const ClassTable: React.FC = () => {
                       type: "Class",
                       path: "name",
                       component: "ClassTable",
+                      unsafe_entity: entity,
                     },
                   })}
                 </Td>
@@ -179,6 +183,7 @@ export const ClassTable: React.FC = () => {
                       type: "User",
                       path: "teacher.name",
                       component: "ClassTable",
+                      unsafe_entity: entity,
                     },
                   })}
                 </Td>
@@ -192,6 +197,7 @@ export const ClassTable: React.FC = () => {
                             type: "User",
                             path: "students.name",
                             component: "ClassTable",
+                            unsafe_entity: entity,
                           },
                         })}
                       </Box>
@@ -219,6 +225,7 @@ export const LessonTable: React.FC = () => {
       onClose();
     }
   }, [selected]);
+  const { t } = useTranslation();
 
   if (error) {
     return <Error error={error} />;
@@ -239,11 +246,13 @@ export const LessonTable: React.FC = () => {
       <Table variant="striped">
         <Thead>
           <Tr>
-            <Th>id</Th>
-            <Th>name</Th>
-            <Th>class</Th>
-            <Th>startedAt</Th>
-            <Th>duration</Th>
+            <Th>{t("LessonTable.id")}</Th>
+            <Th>{t("LessonTable.name")}</Th>
+            <Th>{t("LessonTable.class.name")}</Th>
+            <Th>{t("LessonTable.class.teacher.name")}</Th>
+            <Th>{t("LessonTable.class.students.name")}</Th>
+            <Th>{t("LessonTable.startedAt")}</Th>
+            <Th>{t("LessonTable.duration")}</Th>
           </Tr>
         </Thead>
         <Tbody>
@@ -257,6 +266,7 @@ export const LessonTable: React.FC = () => {
                       type: "Lesson",
                       path: "id",
                       component: "LessonTable",
+                      unsafe_entity: entity,
                     },
                   })}
                 </Td>
@@ -267,6 +277,7 @@ export const LessonTable: React.FC = () => {
                       type: "Lesson",
                       path: "name",
                       component: "LessonTable",
+                      unsafe_entity: entity,
                     },
                   })}
                 </Td>
@@ -277,7 +288,36 @@ export const LessonTable: React.FC = () => {
                       type: "Class",
                       path: "class.name",
                       component: "LessonTable",
+                      unsafe_entity: entity,
                     },
+                  })}
+                </Td>
+                <Td>
+                  {renderer.query.String({
+                    value: entity.class.teacher.name,
+                    context: {
+                      type: "Class",
+                      path: "class.teacher.name",
+                      component: "LessonTable",
+                      unsafe_entity: entity,
+                    },
+                  })}
+                </Td>
+                <Td>
+                  {(entity.class.students || []).map((subEntity) => {
+                    return (
+                      <Box key={subEntity.id}>
+                        {renderer.query.String({
+                          value: subEntity.name,
+                          context: {
+                            type: "Class",
+                            path: "class.students.name",
+                            component: "LessonTable",
+                            unsafe_entity: entity,
+                          },
+                        })}
+                      </Box>
+                    );
                   })}
                 </Td>
                 <Td>
@@ -287,6 +327,7 @@ export const LessonTable: React.FC = () => {
                       type: "Lesson",
                       path: "startedAt",
                       component: "LessonTable",
+                      unsafe_entity: entity,
                     },
                   })}
                 </Td>
@@ -297,6 +338,7 @@ export const LessonTable: React.FC = () => {
                       type: "Lesson",
                       path: "duration",
                       component: "LessonTable",
+                      unsafe_entity: entity,
                     },
                   })}
                 </Td>
@@ -321,6 +363,7 @@ export const UserTable: React.FC = () => {
       onClose();
     }
   }, [selected]);
+  const { t } = useTranslation();
 
   if (error) {
     return <Error error={error} />;
@@ -341,11 +384,11 @@ export const UserTable: React.FC = () => {
       <Table variant="striped">
         <Thead>
           <Tr>
-            <Th>id</Th>
-            <Th>name</Th>
-            <Th>role</Th>
-            <Th>email</Th>
-            <Th>createdAt</Th>
+            <Th>{t("UserTable.id")}</Th>
+            <Th>{t("UserTable.name")}</Th>
+            <Th>{t("UserTable.role")}</Th>
+            <Th>{t("UserTable.email")}</Th>
+            <Th>{t("UserTable.createdAt")}</Th>
           </Tr>
         </Thead>
         <Tbody>
@@ -359,6 +402,7 @@ export const UserTable: React.FC = () => {
                       type: "User",
                       path: "id",
                       component: "UserTable",
+                      unsafe_entity: entity,
                     },
                   })}
                 </Td>
@@ -369,6 +413,7 @@ export const UserTable: React.FC = () => {
                       type: "User",
                       path: "name",
                       component: "UserTable",
+                      unsafe_entity: entity,
                     },
                   })}
                 </Td>
@@ -379,6 +424,7 @@ export const UserTable: React.FC = () => {
                       type: "User",
                       path: "role",
                       component: "UserTable",
+                      unsafe_entity: entity,
                     },
                   })}
                 </Td>
@@ -389,6 +435,7 @@ export const UserTable: React.FC = () => {
                       type: "User",
                       path: "email",
                       component: "UserTable",
+                      unsafe_entity: entity,
                     },
                   })}
                 </Td>
@@ -399,6 +446,7 @@ export const UserTable: React.FC = () => {
                       type: "User",
                       path: "createdAt",
                       component: "UserTable",
+                      unsafe_entity: entity,
                     },
                   })}
                 </Td>
@@ -465,6 +513,7 @@ export const UserList: React.FC = () => {
                   type: "User",
                   path: "id",
                   component: "UserTable",
+                  unsafe_entity: entity,
                 },
               })}
             </Flex>
@@ -475,6 +524,7 @@ export const UserList: React.FC = () => {
                   type: "User",
                   path: "name",
                   component: "UserTable",
+                  unsafe_entity: entity,
                 },
               })}
             </Flex>
@@ -485,6 +535,7 @@ export const UserList: React.FC = () => {
                   type: "User",
                   path: "role",
                   component: "UserTable",
+                  unsafe_entity: entity,
                 },
               })}
             </Flex>
@@ -537,6 +588,7 @@ export const UserKanban: React.FC = () => {
                         type: "User",
                         path: "id",
                         component: "UserTable",
+                        unsafe_entity: entity,
                       },
                     })}
                   </Box>
@@ -547,6 +599,7 @@ export const UserKanban: React.FC = () => {
                         type: "User",
                         path: "name",
                         component: "UserTable",
+                        unsafe_entity: entity,
                       },
                     })}
                   </Box>
@@ -557,6 +610,7 @@ export const UserKanban: React.FC = () => {
                         type: "User",
                         path: "role",
                         component: "UserTable",
+                        unsafe_entity: entity,
                       },
                     })}
                   </Box>
@@ -588,6 +642,7 @@ export const UserKanban: React.FC = () => {
                         type: "User",
                         path: "id",
                         component: "UserTable",
+                        unsafe_entity: entity,
                       },
                     })}
                   </Box>
@@ -598,6 +653,7 @@ export const UserKanban: React.FC = () => {
                         type: "User",
                         path: "name",
                         component: "UserTable",
+                        unsafe_entity: entity,
                       },
                     })}
                   </Box>
@@ -608,6 +664,7 @@ export const UserKanban: React.FC = () => {
                         type: "User",
                         path: "role",
                         component: "UserTable",
+                        unsafe_entity: entity,
                       },
                     })}
                   </Box>
@@ -639,6 +696,7 @@ export const UserKanban: React.FC = () => {
                         type: "User",
                         path: "id",
                         component: "UserTable",
+                        unsafe_entity: entity,
                       },
                     })}
                   </Box>
@@ -649,6 +707,7 @@ export const UserKanban: React.FC = () => {
                         type: "User",
                         path: "name",
                         component: "UserTable",
+                        unsafe_entity: entity,
                       },
                     })}
                   </Box>
@@ -659,6 +718,7 @@ export const UserKanban: React.FC = () => {
                         type: "User",
                         path: "role",
                         component: "UserTable",
+                        unsafe_entity: entity,
                       },
                     })}
                   </Box>

@@ -6,6 +6,18 @@ query lessonTable {
       id @id
       name
     }
+    class {
+      teacher {
+        id @id
+        name
+      }
+    }
+    class {
+      students {
+        id @id
+        name
+      }
+    }
     startedAt
     duration
   }

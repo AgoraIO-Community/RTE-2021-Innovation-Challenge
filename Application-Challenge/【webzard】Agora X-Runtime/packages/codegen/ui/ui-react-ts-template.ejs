@@ -8,6 +8,7 @@ import { <%- dataImports.join(', ') %> } from "./data-components";
 import Calendar from '../ui-kit/Calendar';
 import dayjs from 'dayjs';
 import { useTranslation, initReactI18next } from "react-i18next";
+import { AgoraClassroom } from "../custom-components/Agora";
 
 export const Error: React.FC<{ error: CombinedError }> = ({ error }) => {
   return (
@@ -56,6 +57,7 @@ export const <%- table.componentName %>: React.FC = () => {
       onClose();
     }
   }, [selected]);
+  const { t } = useTranslation();
 
   if (error) {
     return <Error error={error} />;
@@ -83,7 +85,7 @@ export const <%- table.componentName %>: React.FC = () => {
         <Thead>
           <Tr>
             <% for (const selection of table.selections) { -%>
-            <Th><%- selection.name %></Th>
+            <Th>{t("<%- table.componentName %>.<%- selection.path %>")}</Th>
             <% } -%>
           </Tr>
         </Thead>
@@ -92,7 +94,7 @@ export const <%- table.componentName %>: React.FC = () => {
             return (
               <Tr key={entity.<%- table.idName %>} <%- trigger === 'tableRow' ? 'onClick={() => setSelected(entity)}' : '' %>>
                 <% for (const selection of table.selections) { -%>
-                <% if (selection.list) { -%>
+                <% if (selection.list || selection.path.includes("students.name")) { -%>
                   <Td>{(entity.<%- selection.path.replace(".name", "") %> || []).map(subEntity => {
                     return (<Box key={subEntity.<%- table.idName %>}>
                       {renderer.query.<%- selection.renderType %>({
@@ -101,6 +103,7 @@ export const <%- table.componentName %>: React.FC = () => {
                           type: "<%- selection.rootType %>",
                           path: "<%- selection.path %>",
                           component: "<%- table.componentName %>",
+                          unsafe_entity: entity,
                         }
                       })}
                     </Box>)
@@ -112,6 +115,7 @@ export const <%- table.componentName %>: React.FC = () => {
                       type: "<%- selection.rootType %>",
                       path: "<%- selection.path %>",
                       component: "<%- table.componentName %>",
+                      unsafe_entity: entity,
                     }
                   })}</Td>
                 <% } -%>
@@ -172,6 +176,7 @@ export const <%- list.componentName %>: React.FC = () => {
                 type: "<%- selection.rootType %>",
                 path: "<%- selection.path %>",
                 component: "<%- table.componentName %>",
+                unsafe_entity: entity,
               }
             })}</Flex>
             <% } -%>
@@ -228,6 +233,7 @@ export const <%- kanban.componentName %>: React.FC = () => {
                       type: "<%- selection.rootType %>",
                       path: "<%- selection.path %>",
                       component: "<%- table.componentName %>",
+                      unsafe_entity: entity,
                     }
                   })}</Box>
                   <% } -%>

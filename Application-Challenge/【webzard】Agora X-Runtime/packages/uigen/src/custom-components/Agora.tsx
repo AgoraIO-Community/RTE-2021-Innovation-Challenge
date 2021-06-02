@@ -1,10 +1,20 @@
 import React, { useEffect } from "react";
 import { Box } from "@chakra-ui/react";
 
-export const AgoraClassroom: React.FC<{
+export type AgoraClassRoomProps = {
   id: string;
   name: string;
-}> = ({ id, name }) => {
+  role: number;
+  roomUuid: string;
+  roomName: string;
+};
+export const AgoraClassRoom: React.FC<AgoraClassRoomProps> = ({
+  id,
+  name,
+  role,
+  roomUuid,
+  roomName,
+}) => {
   useEffect(() => {
     const init = async () => {
       const { token } = await fetch(`/token/${id}`).then((res) => res.json());
@@ -19,10 +29,10 @@ export const AgoraClassroom: React.FC<{
           rtmToken: token,
           userUuid: id,
           userName: name,
-          roomUuid: "122",
-          roleType: parseInt(id),
+          roomUuid,
+          roleType: role,
           roomType: 4,
-          roomName: "demo-class",
+          roomName,
           pretest: false,
           language: "en",
           startTime: new Date().getTime(),

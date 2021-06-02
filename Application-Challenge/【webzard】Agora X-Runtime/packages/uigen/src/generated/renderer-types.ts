@@ -17,6 +17,7 @@ export type QueryContext = {
   path: string;
   type: string;
   component: string;
+  unsafe_entity: any;
 }
 
 export type Renderer = {

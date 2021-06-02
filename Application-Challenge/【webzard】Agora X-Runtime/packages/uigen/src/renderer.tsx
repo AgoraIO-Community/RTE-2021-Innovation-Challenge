@@ -15,11 +15,40 @@ import {
   Avatar,
   Flex,
   Kbd,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalCloseButton,
+  ModalBody,
+  Button,
+  useDisclosure,
 } from "@chakra-ui/react";
 import dayjs from "dayjs";
 import { Renderer } from "./generated/renderer-types";
 import { UseFormRegisterReturn } from "react-hook-form";
 import { Role } from "./generated/data-components";
+import { AgoraClassRoom, AgoraClassRoomProps } from "./custom-components/Agora";
+
+const ClassRoomModal: React.FC<AgoraClassRoomProps> = (props) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  return (
+    <>
+      <Button onClick={onOpen} variant="solid">
+        {props.name}
+      </Button>
+      <Modal isOpen={isOpen} onClose={onClose} size="full">
+        <ModalOverlay />
+        <ModalContent>
+          <ModalCloseButton />
+          <ModalBody>
+            <AgoraClassRoom {...props} />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
+  );
+};
 
 const Int: Renderer["query"]["Int"] = ({ value, context }) => {
   switch (true) {
@@ -39,7 +68,35 @@ const String: Renderer["query"]["String"] = ({ value, context }) => {
   switch (true) {
     case context.type === "User" && context.path.endsWith("email"):
       return <Text as="u">{value}</Text>;
+    case context.component === "LessonTable" &&
+      context.path === "class.students.name": {
+      const { id, name } = context.unsafe_entity;
+      return (
+        <ClassRoomModal
+          id={value.replace(/\s/g, "")}
+          name={value}
+          role={2}
+          roomUuid={id.toString()}
+          roomName={name}
+        />
+      );
+    }
+    case context.component === "LessonTable" &&
+      context.path === "class.teacher.name": {
+      const { id, name } = context.unsafe_entity;
+      return (
+        <ClassRoomModal
+          id={value.replace(/\s/g, "")}
+          name={value}
+          role={1}
+          roomUuid={id.toString()}
+          roomName={name}
+        />
+      );
+    }
     case context.type === "User" && context.path.endsWith("name"):
+    case context.path.endsWith("students.name"):
+    case context.path.endsWith("teacher.name"):
       return (
         <Flex alignItems="center">
           <Avatar name={value} size="sm" mr={1} />

@@ -32,6 +32,18 @@ query lessonTable {
       id
       name
     }
+    class {
+      teacher {
+        id
+        name
+      }
+    }
+    class {
+      students {
+        id
+        name
+      }
+    }
     startedAt
     duration
   }
