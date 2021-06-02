@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="mobi.yiyin">
+    <!-- <permission -->
+    <!-- android:name="com.huawei.mlkit.asr.permission" -->
+    <!-- android:label="ASR" /> -->
+    <!-- 读取网络信息状态 -->
+    <!-- 添加如下语句到AndroidManifest.xml文件中，用户从华为应用市场安装您的应用后，将自动更新机器学习模型到设备： -->
+    <!-- 这是更新各种功能情况 android:value="object,ocr,face,label,icr,imgseg,translate,langdetect" /> -->
+    <meta-data
+        android:name="com.huawei.hms.ml.DEPENDENCY"
+        android:value="sounddect,handkeypoint" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 读取手机信息权限 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 读取联系人权限，上传联系人需要用到此权限 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" /> <!-- 外存储写权限，构建语法需要用到此权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 外存储读权限，构建语法需要用到此权限 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" /> <!-- 配置权限，用来记录应用配置信息 -->
+    <!-- 定位信息是敏感信息，可通过Setting.setLocationEnable(false)关闭定位请求 -->
+    <!-- <uses-permission android:name="android.permission.WRITE_SETTINGS" /> -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.BLUETOOTH" /> <!-- <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" /> -->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" /> <!-- 相机权限 -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 使用网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 写权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 读权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 录音权限 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- 获取网络状态权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 获取wifi状态权限 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.ConnectAppMarketActivity"></activity>
+        <activity android:name=".ui.HandTrackActivity" />
+        <activity android:name=".ui.AudioFileTranscriptionActivity" />
+        <activity android:name=".ui.RealTimeTranscriptionActivity" />
+        <activity android:name=".ui.TtsAnalyseActivity" />
+        <activity android:name=".ui.AsrAudioActivity" />
+        <activity android:name=".ui.SoundDectActivity" />
+        <activity android:name=".ui.HandKeypointActivity" />
+        <activity android:name=".ui.HandKeypointImageActivity" />
+        <activity android:name=".ui.human.VideoChatActivity" />
+        <activity
+            android:name=".ChatActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

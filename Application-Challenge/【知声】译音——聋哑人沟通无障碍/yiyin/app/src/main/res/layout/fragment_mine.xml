@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="fill_vertical"
+    android:layout_marginBottom="?attr/actionBarSize"
+    android:background="@color/main_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="@dimen/mg_10"
+        android:background="@drawable/shape_msg"
+        android:padding="@dimen/mg_10">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/ic_baseline_person_24" />
+
+    </RelativeLayout>
+
+
+    <!--畅听王卡快速上手-->
+
+
+    <!--畅听王卡服务协议-->
+    <mobi.yiyin.view.LinerView
+        android:id="@+id/lv_ksss"
+        style="@style/LinerView"
+        app:liner_icon_url="@drawable/ic_baseline_emoji_objects_24"
+        app:liner_title="快速上手" />
+
+    <mobi.yiyin.view.LinerView
+        android:id="@+id/lv_ctwkfwxy"
+        style="@style/LinerView"
+        app:liner_icon_url="@drawable/ic_baseline_assignment_24"
+        app:liner_title="畅听王卡服务协议" />
+
+    <!--助听设备-->
+    <mobi.yiyin.view.LinerView
+        android:id="@+id/lv_hard"
+        style="@style/LinerView"
+        app:liner_icon_url="@drawable/ic_baseline_hearing_24"
+        app:liner_title="助听设备" />
+
+    <!--畅听王卡帮助中心-->
+    <mobi.yiyin.view.LinerView
+        android:id="@+id/lv_bzxx"
+        style="@style/LinerView"
+        app:liner_icon_url="@drawable/ic_baseline_help_24"
+        app:liner_title="帮助中心" />
+    <!--反馈-->
+    <mobi.yiyin.view.LinerView
+        android:id="@+id/lv_faceback"
+        style="@style/LinerView"
+        app:liner_icon_url="@mipmap/issue"
+        app:liner_title="@string/issue" />
+    <!--关于-->
+    <mobi.yiyin.view.LinerView
+        android:id="@+id/lv_about_us"
+        style="@style/LinerView"
+        app:liner_icon_url="@mipmap/about"
+        app:liner_title="@string/about_us" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+
+    <!--注销-->
+    <TextView
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/mg_10"
+        android:layout_marginEnd="@dimen/mg_10"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/shape_msg"
+        android:gravity="center"
+        android:text="@string/logout"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+
+</LinearLayout>

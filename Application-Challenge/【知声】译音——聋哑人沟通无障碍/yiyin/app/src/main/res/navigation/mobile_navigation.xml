@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="mobi.yiyin.ui.home.HomeFragment"
+        android:label="@string/intelligent_translation"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="mobi.yiyin.ui.human.HumanTranslatorFragment"
+        android:label="@string/humans"
+        tools:layout="@layout/fragment_human_translator" />
+
+    <fragment
+        android:id="@+id/navigation_discovery"
+        android:name="mobi.yiyin.ui.discovery.DiscoveryFragment"
+        android:label="@string/discovery"
+        tools:layout="@layout/fragment_discovery" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="mobi.yiyin.ui.mine.MineFragment"
+        android:label="@string/mine"
+        tools:layout="@layout/fragment_mine" />
+</navigation>

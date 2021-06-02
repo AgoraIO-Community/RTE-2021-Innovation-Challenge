@@ -1,0 +1,59 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="CustomTheme_Dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+
+    <style name="LinerView"  >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:paddingStart">@dimen/mg_15</item>
+        <item name="android:paddingEnd">@dimen/mg_10</item>
+        <item name="android:layout_marginTop">@dimen/mg_10</item>
+    </style>
+
+
+    <style name="MyDialogStyle">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@style/MyDialogAnim</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="MyDialogAnim" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/anim_in</item>
+    </style>
+
+    <style name="common_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.25dp</item>
+        <item name="android:layout_marginStart">0dp</item>
+        <item name="android:layout_marginEnd">0dp</item>
+        <item name="android:background">@color/common_line_color</item>
+    </style>
+
+    <declare-styleable name="LinerView">
+        <attr name="have_line" format="boolean" /><!--是否有线-->
+        <attr name="have_back" format="boolean"/><!--是否有右边按钮-->
+        <attr name="liner_title" format="string" /><!--标题文字-->
+        <attr name="liner_icon_url" format="reference"/><!--图片按钮-->
+
+    </declare-styleable>
+</resources>

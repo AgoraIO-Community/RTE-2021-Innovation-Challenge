@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.SoundDectActivity">
+
+
+    <TextView
+        android:id="@+id/voice_type_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.2"
+        android:minHeight="160dp"
+        android:text="识别结果"
+        android:textColor="#878787"
+        android:textSize="80sp" />
+
+    <TextView
+        android:id="@+id/time_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_btn"
+        android:gravity="center"
+        android:text="00:00"
+        android:textColor="#878787"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:id="@+id/ll_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/start_btn"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="60dp"
+            android:background="@drawable/sound_dect_start_btn" />
+
+        <Button
+            android:id="@+id/stop_btn"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/sound_dect_end_btn" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

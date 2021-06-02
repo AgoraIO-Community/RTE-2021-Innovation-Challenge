@@ -1,0 +1,110 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.huawei.agconnect'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+
+        applicationId "mobi.yiyin"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            def date = new Date().format("yy-MM-dd", TimeZone.getTimeZone("GMT+08"))
+            if (variant.buildType.name.equals('debug')) {
+                outputFileName = "译音_${versionCode}_${versionName}_${date}_debug.apk"
+            }
+            if (variant.buildType.name.equals('release')) {
+                outputFileName = "译音_${versionCode}_${versionName}_${date}_release.apk"
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //  implementation 'io.agora.rtc:full-sdk:3.0.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.navigation:navigation-fragment:2.3.2'
+    implementation 'androidx.navigation:navigation-ui:2.3.2'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.13.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    //语音听写
+    implementation files('libs/Msc.jar')
+    //  AndroidX 的应用
+    implementation 'pub.devrel:easypermissions:2.0.1'
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.6.4'
+
+    // 声网视频通话
+    implementation files('libs/agora-rtc-sdk.jar')
+
+
+    //华为HMS服务
+    implementation 'com.huawei.hms:ads-installreferrer:3.4.34.301'
+    implementation 'com.huawei.hms:ads-identifier:3.4.34.301'
+    implementation 'com.huawei.hms:hianalytics:5.0.5.300'
+    implementation 'com.huawei.hms:push:5.0.2.300'
+
+    //   引入音频文件转写服务SDK Audio file transcription.
+    implementation 'com.huawei.hms:ml-computer-voice-aft:2.0.5.300'
+
+    // download.
+    implementation 'com.huawei.hms:ml-computer-model-download:2.0.4.300'
+
+    // Text to speech. 引入基础SDK
+    implementation 'com.huawei.hms:ml-computer-voice-tts:2.0.5.300'
+    // 引入离线语音合成bee语音包
+    implementation 'com.huawei.hms:ml-computer-voice-tts-model-bee:2.0.5.300'
+    // 引入离线语音合成eagle语音包
+    implementation 'com.huawei.hms:ml-computer-voice-tts-model-eagle:2.0.5.300'
+
+
+    //   // 引入实时语音转写服务SDK Automatic speech recognition Long voice.
+    implementation 'com.huawei.hms:ml-computer-voice-realtimetranscription:2.0.5.300'
+
+    // Automatic speech recognition
+    //  推荐集成实时语音识别服务插件，插件提供拾音界面，SDK只提供实时语音识别的基础服务，拾音界面需要自行开发。
+    //引入实时语音识别服务插件
+    implementation 'com.huawei.hms:ml-computer-voice-asr-plugin:2.0.5.300'
+    // 引入实时语音识别服务SDK
+    implementation 'com.huawei.hms:ml-computer-voice-asr:2.0.5.300'
+
+    // 引入声音识别集合包  Full SDK方式集成的示例代码
+    implementation 'com.huawei.hms:ml-speech-semantics-sounddect-sdk:2.0.3.300'  //
+    implementation 'com.huawei.hms:ml-speech-semantics-sounddect-model:2.0.3.300'
+
+    // 引入基础SDK
+    implementation 'com.huawei.hms:ml-computer-vision-handkeypoint:2.0.4.300'
+    // 引入手部关键点检测模型包
+    implementation 'com.huawei.hms:ml-computer-vision-handkeypoint-model:2.0.4.300'
+
+    //引入华为AR引擎，可以用于的手势识别和手势识别相关功能
+    implementation 'com.huawei.hms:arenginesdk:2.15.0.1'
+
+
+}

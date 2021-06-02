@@ -1,0 +1,35 @@
+{
+	"agcgw":{
+		"backurl":"connect-drcn.dbankcloud.cn",
+		"url":"connect-drcn.hispace.hicloud.com"
+	},
+	"client":{
+		"appType":"1",
+		"cp_id":"300086000125021396",
+		"product_id":"736430079244734643",
+		"client_id":"513738929917133888",
+		"client_secret":"E77065A75D8BB31CA289975A61697940537B1AB5634E3F9A9AF3A6E2CAA3E6EE",
+		"project_id":"736430079244734643",
+		"app_id":"103455473",
+		"api_key":"CgB6e3x9ktMzm5QC620tLQ+GhTXah/nQe0wjwftdElg1Lkhnf9/FB8VBh8+aDsg/uaXzVoilVr2/tWIcnpQGto1j",
+		"package_name":"mobi.yiyin"
+	},
+	"service":{
+		"analytics":{
+			"collector_url":"datacollector-drcn.dt.hicloud.com,datacollector-drcn.dt.dbankcloud.cn",
+			"resource_id":"p1",
+			"channel_id":""
+		},
+		"search":{
+			"url":"https://search-drcn.cloud.huawei.com"
+		},
+		"cloudstorage":{
+			"storage_url":"https://agc-storage-drcn.platform.dbankcloud.cn"
+		},
+		"ml":{
+			"mlservice_url":"ml-api-drcn.ai.dbankcloud.com,ml-api-drcn.ai.dbankcloud.cn"
+		}
+	},
+	"region":"CN",
+	"configuration_version":"1.0"
+}
