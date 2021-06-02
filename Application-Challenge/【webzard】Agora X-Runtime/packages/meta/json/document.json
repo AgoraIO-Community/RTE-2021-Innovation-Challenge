@@ -538,6 +538,132 @@
       "variables": []
     },
     {
+      "name": "lessonCalendar",
+      "is": "query",
+      "attributes": [],
+      "selections": [
+        {
+          "name": "lessons",
+          "attributes": [
+            {
+              "name": "view",
+              "arguments": [
+                {
+                  "name": "type",
+                  "type": "String",
+                  "value": "calendar"
+                }
+              ]
+            }
+          ],
+          "selections": [
+            {
+              "name": "id",
+              "attributes": [
+                {
+                  "name": "id",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            },
+            {
+              "name": "name",
+              "attributes": [
+                {
+                  "name": "body",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String"
+            },
+            {
+              "name": "class",
+              "attributes": [],
+              "selections": [
+                {
+                  "name": "id",
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "arguments": []
+                    }
+                  ],
+                  "selections": [],
+                  "arguments": [],
+                  "nullable": false,
+                  "list": false,
+                  "baseType": "Int"
+                },
+                {
+                  "name": "name",
+                  "attributes": [
+                    {
+                      "name": "title",
+                      "arguments": []
+                    }
+                  ],
+                  "selections": [],
+                  "arguments": [],
+                  "nullable": false,
+                  "list": false,
+                  "baseType": "String"
+                }
+              ],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Object",
+              "customType": "Class"
+            },
+            {
+              "name": "startedAt",
+              "attributes": [
+                {
+                  "name": "start",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "String",
+              "customType": "DateTime"
+            },
+            {
+              "name": "duration",
+              "attributes": [
+                {
+                  "name": "duration",
+                  "arguments": []
+                }
+              ],
+              "selections": [],
+              "arguments": [],
+              "nullable": false,
+              "list": false,
+              "baseType": "Int"
+            }
+          ],
+          "arguments": [],
+          "nullable": false,
+          "list": true,
+          "baseType": "Object",
+          "customType": "Lesson"
+        }
+      ],
+      "variables": []
+    },
+    {
       "name": "createOneLessonForm",
       "is": "mutation",
       "attributes": [],

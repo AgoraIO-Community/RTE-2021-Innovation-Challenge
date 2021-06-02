@@ -5,6 +5,8 @@ import { renderer } from "../renderer";
 import { <%- componentImports.join(', ') %> } from '@chakra-ui/react';
 import { AddIcon, CloseIcon } from '@chakra-ui/icons';
 import { <%- dataImports.join(', ') %> } from "./data-components";
+import Calendar from '../ui-kit/Calendar';
+import dayjs from 'dayjs';
 
 export const Error: React.FC<{ error: CombinedError }> = ({ error }) => {
   return (
@@ -199,6 +201,52 @@ export const <%- kanban.componentName %>: React.FC = () => {
       </Box>
       <% } -%>
     </HStack>
+  );
+};
+
+<% } -%>
+
+// calendar
+<% for (calendar of views.calendar) { -%>
+export const <%- calendar.componentName %>: React.FC = () => {
+  const [{ data, fetching, error }] = <%- calendar.dataHook %>();
+  if (error) {
+    return <Error error={error} />;
+  }
+  if (fetching) {
+    return (
+      <Center>
+        <Spinner />
+      </Center>
+    );
+  }
+  if (!data) {
+    return <Empty />;
+  }
+
+  <%
+  const { path: titleKey } = common.getKeyAndPath(calendar.selections, 'title');
+  const { path: bodyKey } = common.getKeyAndPath(calendar.selections, 'body');
+  const startKey = calendar.selections.find((sel) =>
+    sel.attributes.some((attr) => attr.name === "start")
+  ).name;
+  const durationKey = calendar.selections.find((sel) =>
+    sel.attributes.some((attr) => attr.name === "duration")
+  ).name;
+  %>
+
+  return (
+    <Calendar
+      schedules={data.<%- calendar.selectionName %>.map((entity) => ({
+        id: entity.id,
+        title: entity.<%- titleKey %>,
+        body: entity.<%- bodyKey %>,
+        start: entity.<%- startKey %>,
+        end: dayjs(entity.<%- startKey %>)
+          .add(entity.<%- durationKey %>, "second")
+          .toISOString(),
+      }))}
+    />
   );
 };
 

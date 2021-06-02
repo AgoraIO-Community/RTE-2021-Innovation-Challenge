@@ -28,6 +28,7 @@ const viewImportMap = {
     "ModalCloseButton",
     "useDisclosure",
   ],
+  calendar: [],
 };
 const SCALARS = new Set(["Int", "Float", "String", "Boolean", "DateTime"]);
 
@@ -66,6 +67,7 @@ module.exports = async function (dataMeta, documentMeta) {
     form: [],
     button: [],
     modal: [],
+    calendar: [],
   };
   const componentImportSet = new Set([
     "Spinner",
@@ -323,6 +325,33 @@ module.exports = async function (dataMeta, documentMeta) {
           },
           dotToDash(str) {
             return str.replace(/\./g, "_");
+          },
+          getKeyAndPath(selections, attributeName) {
+            const find = (sel, path) => {
+              const newPath = `${path}${path ? "?." : ""}${sel.name}`;
+              if (sel.attributes.some((attr) => attr.name === attributeName)) {
+                return {
+                  name: sel.name,
+                  path: newPath,
+                };
+              } else if (sel.selections.length) {
+                for (const subSel of sel.selections) {
+                  const result = find(subSel, newPath);
+                  if (result) {
+                    return result;
+                  }
+                }
+              } else {
+                return null;
+              }
+            };
+
+            for (const sel of selections) {
+              const result = find(sel, "");
+              if (result) {
+                return result;
+              }
+            }
           },
         },
       }

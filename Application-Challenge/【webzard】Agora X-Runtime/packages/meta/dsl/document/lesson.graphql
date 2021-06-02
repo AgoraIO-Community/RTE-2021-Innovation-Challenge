@@ -11,6 +11,19 @@ query lessonTable {
   }
 }
 
+query lessonCalendar {
+  lessons @view(type: "calendar") {
+    id @id
+    name @body
+    class {
+      id @id
+      name @title
+    }
+    startedAt @start
+    duration @duration
+  }
+}
+
 mutation createOneLessonForm(
   $data: LessonCreateInput!
     @value(pick: ["name", "class", "startedAt", "duration"])

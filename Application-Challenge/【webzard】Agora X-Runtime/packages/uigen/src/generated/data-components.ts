@@ -1033,6 +1033,21 @@ export type LessonTableQuery = (
   )> }
 );
 
+export type LessonCalendarQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type LessonCalendarQuery = (
+  { __typename?: 'Query' }
+  & { lessons: Array<(
+    { __typename?: 'Lesson' }
+    & Pick<Lesson, 'id' | 'name' | 'startedAt' | 'duration'>
+    & { class: (
+      { __typename?: 'Class' }
+      & Pick<Class, 'id' | 'name'>
+    ) }
+  )> }
+);
+
 export type CreateOneLessonFormMutationVariables = Exact<{
   data: LessonCreateInput;
 }>;
@@ -1173,6 +1188,24 @@ export const LessonTableDocument = gql`
 
 export function useLessonTableQuery(options: Omit<Urql.UseQueryArgs<LessonTableQueryVariables>, 'query'> = {}) {
   return Urql.useQuery<LessonTableQuery>({ query: LessonTableDocument, ...options });
+};
+export const LessonCalendarDocument = gql`
+    query lessonCalendar {
+  lessons {
+    id
+    name
+    class {
+      id
+      name
+    }
+    startedAt
+    duration
+  }
+}
+    `;
+
+export function useLessonCalendarQuery(options: Omit<Urql.UseQueryArgs<LessonCalendarQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<LessonCalendarQuery>({ query: LessonCalendarDocument, ...options });
 };
 export const CreateOneLessonFormDocument = gql`
     mutation createOneLessonForm($data: LessonCreateInput!) {

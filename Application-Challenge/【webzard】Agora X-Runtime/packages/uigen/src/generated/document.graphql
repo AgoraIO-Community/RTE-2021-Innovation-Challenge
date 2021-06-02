@@ -33,6 +33,19 @@ query lessonTable {
   }
 }
 
+query lessonCalendar {
+  lessons {
+    id
+    name
+    class {
+      id
+      name
+    }
+    startedAt
+    duration
+  }
+}
+
 mutation createOneLessonForm($data: LessonCreateInput!) {
   createOneLesson(data: $data) {
     id

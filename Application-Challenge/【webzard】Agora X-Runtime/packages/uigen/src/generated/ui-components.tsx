@@ -52,6 +52,8 @@ import {
   ButtonVariant,
   useLessonTableQuery,
   LessonTableQuery,
+  useLessonCalendarQuery,
+  LessonCalendarQuery,
   useCreateOneLessonFormMutation,
   CreateOneLessonFormMutation,
   useUserTableQuery,
@@ -67,6 +69,8 @@ import {
   useDeleteOneUserFormMutation,
   DeleteOneUserFormMutation,
 } from "./data-components";
+import Calendar from "../ui-kit/Calendar";
+import dayjs from "dayjs";
 
 export const Error: React.FC<{ error: CombinedError }> = ({ error }) => {
   return (
@@ -421,6 +425,38 @@ export const UserKanban: React.FC = () => {
         </VStack>
       </Box>
     </HStack>
+  );
+};
+
+// calendar
+export const LessonCalendar: React.FC = () => {
+  const [{ data, fetching, error }] = useLessonCalendarQuery();
+  if (error) {
+    return <Error error={error} />;
+  }
+  if (fetching) {
+    return (
+      <Center>
+        <Spinner />
+      </Center>
+    );
+  }
+  if (!data) {
+    return <Empty />;
+  }
+
+  return (
+    <Calendar
+      schedules={data.lessons.map((entity) => ({
+        id: entity.id,
+        title: entity.class?.name,
+        body: entity.name,
+        start: entity.startedAt,
+        end: dayjs(entity.startedAt)
+          .add(entity.duration, "second")
+          .toISOString(),
+      }))}
+    />
   );
 };
 
