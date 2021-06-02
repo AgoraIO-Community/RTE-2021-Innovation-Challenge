@@ -23,21 +23,21 @@
 `npm run start`  
 浏览器输入`127.0.0.1:8081`
 #### 整个界面
-![image](https://github.com/damagegithub/RTE-2021-Innovation-Challenge/blob/master/Application-Challenge/%E3%80%90%E6%88%91%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E4%B8%8D%E9%98%9F%E3%80%91PixelBattle/imgs/main.png)
+![image](/imgs/main.png)
 右上角点击可以播放蜜汁动感BGM
 #### 画布
-![image](https://github.com/damagegithub/RTE-2021-Innovation-Challenge/blob/master/Application-Challenge/%E3%80%90%E6%88%91%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E4%B8%8D%E9%98%9F%E3%80%91PixelBattle/imgs/canves.png)  
+![image](imgs/canves.png)  
 画布为400×400像素  
 点击画布可以选择坐标,滚轮缩放画布,拖拽移动画布  
 画布每隔一段时间自动从服务器获取最新结果并渲染 (默认60秒)
 右侧可以选择一种颜色,点击按钮画一个像素,需要等一会儿才能继续画 (默认2秒)  
 #### 聊天
-![image](https://github.com/damagegithub/RTE-2021-Innovation-Challenge/blob/master/Application-Challenge/%E3%80%90%E6%88%91%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E4%B8%8D%E9%98%9F%E3%80%91PixelBattle/imgs/chat.png)  
+![image](imgs/chat.png)  
 有一个公共频道,用于宣传自己创建的频道  
 点击加号可以添加频道  
-![image](https://github.com/damagegithub/RTE-2021-Innovation-Challenge/blob/master/Application-Challenge/%E3%80%90%E6%88%91%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E4%B8%8D%E9%98%9F%E3%80%91PixelBattle/imgs/addChannel.png)  
+![image](imgs/addChannel.png)  
 点击频道名右侧加号可以为频道添加一些信息:想要作画的区域,想要画的内容,信息会显示在聊天框的上方  
-![image](https://github.com/damagegithub/RTE-2021-Innovation-Challenge/blob/master/Application-Challenge/%E3%80%90%E6%88%91%E5%86%99%E7%9A%84%E4%BB%A3%E7%A0%81%E4%B8%8D%E9%98%9F%E3%80%91PixelBattle/imgs/goal.png)  
+![image](imgs/goal.png)  
 点击×号退出频道  
 为防止敏感信息,频道仅支持发送文字,不支持图片.  
 
