@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
 entry: './public/javascripts/main.js',
-mode: 'development',
+//mode: 'development',
 resolve: {
     alias: {
         vue: 'vue/dist/vue.js'

@@ -12,8 +12,11 @@ var MINIMUM_SCALE = 1,
 var initWidth = 0,
     initHeight = 0
 var selectedColor = [0,0,0];
-let delayGetSvg =20
-let delayDraw = 20
+//每 delayGetSvg 秒向服务器请求一次图片
+let delayGetSvg =60
+//每 delayDraw 秒 才能点击一次绘画按钮
+let delayDraw = 2
+let myURL="http://127.0.0.1:8081"
 
 canvas = document.getElementById('canvas'); //画布对象
 context = canvas.getContext('2d'); //画布显示二维图片
@@ -26,7 +29,7 @@ const sleep = (timeout = 2000) => new Promise(resolve => {
 });
 
 async function getSvg() {
-    const response = await fetch("http://127.0.0.1:8081/svg");
+    const response = await fetch(URL+"/svg");
     const blob = await response.blob();
     const imgUrl = URL.createObjectURL(blob);
     return imgUrl;
@@ -42,7 +45,7 @@ function loadImg() {
     img = new Image();
     img.width = "400";
     img.height = "400";
-    img.src = "http://127.0.0.1:8081/history/0.svg"
+    img.src = myURL+"/history/0.svg"
     img.onload = function () {
         initWidth = img.width;
         initHeight = img.height;
@@ -113,11 +116,9 @@ function canvasEventsInit() {
 
             pos = JSON.parse(JSON.stringify(posl));
 
-            //document.body.style.cursor = 'Handle';
             await drawImage(); //重新绘制图片
         } else {
             pos3 = windowToCanvas(evt.clientX, evt.clientY);
-            //console.log("pos=" + pos3.x + "," + pos3.y + "; ");
             if (context.isPointInPath(pos3.x, pos3.y)) {
                 console.log("进入区域");
             }
@@ -129,16 +130,15 @@ function canvasEventsInit() {
 
         dragging = false;
 
-        //document.body.style.cursor = 'default';
     };
-    canvas.onmousewheel = canvas.onwheel = function (event) { //滚轮放大缩小
+    canvas.onwheel = function (event) { //滚轮放大缩小
         var pos = windowToCanvas(event.clientX, event.clientY);
         event.wheelDelta = event.wheelDelta ? event.wheelDelta : (event.deltalY * (-40)); //获取当前鼠标的滚动情况
         var newPos = {
             x: ((pos.x - imgX) / imgScale).toFixed(2),
             y: ((pos.y - imgY) / imgScale).toFixed(2)
         };
-        //console.log("newPos==========" + newPos.x + "," + newPos.y)
+
         if (event.wheelDelta > 0) { // 放大
             imgScale += 1;
             imgX = (1 - imgScale) * newPos.x + (pos.x - newPos.x);
@@ -152,14 +152,13 @@ function canvasEventsInit() {
             imgY = (1 - imgScale) * newPos.y + (pos.y - newPos.y);
         }
         drawImage(); //重新绘制图片
-
+        event.preventDefault();
     };
 }
 
 /*坐标转换*/
 function windowToCanvas(x, y) {
     var box = canvas.getBoundingClientRect();
-    //console.log( "x=" + (x - box.left - (box.width - canvas.width) / 2) + ",y=" + (y - box.top - (box.height - canvas.height) / 2));
     //这个方法返回一个矩形对象，包含四个属性：left、top、right和bottom。分别表示元素各边与页面上边和左边的距离
     return {
         x: x - box.left - (box.width - canvas.width) / 2,
@@ -183,11 +182,10 @@ async function changePixel() {
     let y = document.getElementById("selectedY").value;
     try {
         console.log("drawing a pixel")
-        const response = await fetch("http://127.0.0.1:8081/svg/changePixel?x=" + x + "&y=" + y +
+        const response = await fetch(myURL+"/svg/changePixel?x=" + x + "&y=" + y +
             "&r=" + selectedColor[0] + "&g=" + selectedColor[1] + "&b=" + selectedColor[2], {
                 method: "GET"
             })
-            
             if(response.status ==200){
                 console.log("draw a pixel success")
                 document.getElementById("drawPixelBtn").setAttribute("data-title","稍等一会儿")
