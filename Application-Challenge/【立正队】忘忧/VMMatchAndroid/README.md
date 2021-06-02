@@ -16,17 +16,18 @@ VMMatchAndroid
 
 ### 项目截图
 这里简单截取了几个界面，更多功能自己去发现吧
-![call](./images/call.jpg)
-![chatDark](./images/chatDark.jpg)
-![chatFast](./images/chatFast.jpg)
-![chatFastEnd](./images/chatFastEnd.jpg)
-![chatLight](./images/chatLight.jpg)
-![chatRoom](./images/chatRoom.jpg)
-![chatRoomList](./images/chatRoomList.jpg)
-![chatRoomMic](./images/chatRoomMic.jpg)
-![explore](./images/explore.jpg)
-![userInfo](./images/userInfo.jpg)
-
+<div align="center">
+    <img src="./images/call.jpg" widht="295px" height="640px" alt="call"/>
+    <img src="./images/chatDark.jpg" widht="295px" height="640px" alt="chatDark"/>
+    <img src="./images/chatFast.jpg" widht="295px" height="640px" alt="chatFast"/>
+    <img src="./images/chatFastEnd.jpg" widht="295px" height="640px" alt="chatFastEnd"/>
+    <img src="./images/chatLight.jpg" widht="295px" height="640px" alt="chatLight"/>
+    <img src="./images/chatRoom.jpg" widht="295px" height="640px" alt="chatRoom"/>
+    <img src="./images/chatRoomList.jpg" widht="295px" height="640px" alt="chatRoomList"/>
+    <img src="./images/chatRoomMic.jpg" widht="295px" height="640px" alt="chatRoomMic"/>
+    <img src="./images/explore.jpg" widht="295px" height="640px" alt="explore"/>
+    <img src="./images/userInfo.jpg" widht="295px" height="640px" alt="userInfo"/>
+</div>
 
 ### 开发环境
 项目基本属于在最新的`Android`开发环境下开发，全局使用`Kotlin`语言
@@ -148,7 +149,9 @@ VMMatchAndroid
 
 ### 加群交流
 QQ群: 901211985  个人QQ: 1565176197
-![QQ 交流群](images/dev_im_group.jpg)
-![加我 QQ](https://gitee.com/lzan13/VMPictureBed/raw/master/images/social/qqQR1565176197.png)
+<div align="center">
+    <img src="./images/dev_im_group.jpg" widht="270px" height="370px" alt="QQ 交流群"/>
+    <img src="https://gitee.com/lzan13/VMPictureBed/raw/master/images/social/qqQR1565176197.png" widht="256px" height="332px" alt="个人 QQ"/>
+</div>
 
 
