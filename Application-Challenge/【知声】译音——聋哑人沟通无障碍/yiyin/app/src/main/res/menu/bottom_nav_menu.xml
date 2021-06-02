@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_hearing_black_24dp"
+        android:title="@string/intelligent_translation" />
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/ic_voice_chat_black_24dp"
+        android:title="@string/humans" />
+
+    <item
+        android:id="@+id/navigation_discovery"
+        android:icon="@drawable/ic_baseline_explore_24"
+        android:title="@string/discovery" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/ic_account_circle_black_24dp"
+        android:title="@string/mine" />
+
+</menu>

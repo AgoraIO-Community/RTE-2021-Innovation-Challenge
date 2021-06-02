@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="fill_vertical"
+    android:layout_marginBottom="?attr/actionBarSize"
+    android:background="@color/main_bg"
+    android:orientation="vertical"
+    tools:context=".ui.home.HomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="fill_vertical"
+        android:orientation="vertical">
+
+        <!--实时声音识别-->
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_asr_audio"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_keyboard_voice_24"
+            app:liner_title="实时声音识别——无障碍交流" />
+        <!--ASR长语音-->
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_asr_long"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_settings_voice_24"
+            app:liner_title="实时长语音——看视频显字幕" />
+        <!--声音识别-->
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_voice_recognition"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_surround_sound_24"
+            app:liner_title="声音识别——周围情景声音" />
+
+        <!--手写交流-->
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_write"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_color_lens_24"
+            app:liner_title="手写交流" />
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_chat_long"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_people_24"
+            app:liner_title="长谈交流" />
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_chat_short"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_mark_chat_unread_24"
+            app:liner_title="小聊几句" />
+
+
+
+        <!--语音合成-->
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_tts_analyse"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_record_voice_over_24"
+            app:liner_title="语音合成" />
+        <!--音频文件转写-->
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_audio_file"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_surround_sound_24"
+            app:liner_title="音频文件转写" />
+
+
+
+
+        <!--手指关键点识别-->
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_hand"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_pan_sign_ool_24"
+            app:liner_title="手指识别"
+            />
+
+        <!--手势识别-->
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_hand_track"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_pan_sign_ool_24"
+            app:liner_title="手势识别"
+            />
+
+        <!--智能字幕-->
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_ai_subtitle"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_subtitles_24"
+            app:liner_title="智能字幕" />
+
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

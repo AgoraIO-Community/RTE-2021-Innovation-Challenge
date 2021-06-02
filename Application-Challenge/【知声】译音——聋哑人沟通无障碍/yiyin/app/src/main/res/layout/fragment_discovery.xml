@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="fill_vertical"
+    android:layout_marginBottom="?attr/actionBarSize"
+    android:background="@color/main_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="fill_vertical"
+        android:orientation="vertical">
+
+        <!--聋友圈-->
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_community"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_camera_24"
+            app:liner_title="@string/community" />
+
+
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_news"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_fiber_new_24"
+            app:liner_title="聋人快讯" />
+
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_sign_word"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_book_24"
+            app:liner_title="手语词库" />
+
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_sign_learn"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_pan_tool_24"
+            app:liner_title="手语学习" />
+
+
+        <!--口语评测-->
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_learn_chinese"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_format_size_24"
+            app:liner_title="@string/learn_chinese" />
+
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_learn_lesson"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_menu_book_24"
+            app:liner_title="@string/learn_lesson" />
+
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_learn_english"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_format_shapes_24"
+            app:liner_title="@string/learn_english" />
+
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_oral_testing"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_speaker_24"
+            app:liner_title="@string/oral_testing" />
+
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_learn_video"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_ondemand_video_24"
+            app:liner_title="@string/learn_video" />
+        <!--智能翻译-->
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_translate"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_g_translate_24"
+            app:liner_title="@string/intelligent_english_chinese_translation" />
+
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_shop"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_shop_24"
+            app:liner_title="@string/shop" />
+
+        <mobi.yiyin.view.LinerView
+            android:id="@+id/lv_gmae"
+            style="@style/LinerView"
+            app:liner_icon_url="@drawable/ic_baseline_games_24"
+            app:liner_title="手语游戏" />
+
+
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
