@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>在线会议</title>
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+</head>
+<body>
+
+<div id="app">
+    <div class="login_warp">
+        <div class="loginbox fl">
+            <div class="login_header">
+                <span @click="cur=0" :class="{active:cur==0}">账号登录</span>
+                <span @click="cur=1" :class="{active:cur==1}">快捷登录</span>
+                <span @click="cur=2" :class="{active:cur==2}">扫码登录</span>
+            </div>
+            <div class="login_content">
+                <div v-show="cur==0" class="Cbody_item">
+                    <div class="form_item"><input type="text" name="fname" placeholder="用户名" value="admin"></div>
+                    <div class="form_item"><input type="password" name="fpassword" placeholder="密码"></div>
+                    <div class="form_item">
+                        <div class="fl"><input type="checkbox">记住密码</div>
+                        <div class="fr"><a href="javascript:;">找回密码</a></div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="form_item">
+                        <input type="submit" name="" value="登录">
+                    </div>
+                </div>
+                <div v-show="cur==1" class="Cbody_item">
+                    <div class="form_item"><input type="text" name="fname" placeholder="手机号"></div>
+                    <div class="form_item"><input type="password" name="fpassword" placeholder="验证码"></div>
+                    <div class="form_item">
+                        <!-- <div class="fl"><input type="checkbox">记住密码</div>
+                        <div class="fr"><a href="javascript:;">找回密码</a></div> -->
+                    </div>
+                    <div class="clear"></div>
+                    <a href="./video/index.html">
+                    <div class="form_item">
+                        <input type="submit" name="" value="登录">
+                    </div>
+                    </a>
+                </div>
+                <div v-show="cur==2" class="Cbody_item">
+                    <div class="qcode"><img src="img/qcode.png" width="160" height="160" alt="二维码" /></div>
+                    <div class="beizhu">打开手机客户端扫码注册</div>
+                </div>
+            </div>
+        </div>
+        <div class="loginrslider fl"><img src="img/dbg.png"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/html5shiv.min.js"></script>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript">
+    var app = new Vue({
+        el: "#app",
+        data: {
+            cur:0 //默认选中第一个tab
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>视频通话</title>
+  <link rel="stylesheet" href="../assets/bootstrap.min.css">
+  <link rel="stylesheet" href="./index.css">
+  <script script type="text/javascript">
+    function show()
+    {
+      let reader = new FileReader();
+      reader.onload = function()
+      {
+        alert(this.result)
+      }
+      let f = document.getElementById("filePicker").files[0];
+      reader.readAsText(f);
+    }
+  </script>
+</head>
+<body>
+<div class="container">
+
+  <form id="join-form" >
+    <div class="row join-info-group">
+      <div class="col-sm">
+        <p class="join-info-text"></p>
+        <input id="appid" type="text" style="display:none" value="e7b290f0fcee43b4977b38be04abd73b" placeholder="Enter the appid" required>
+      </div>
+      <div class="col-sm">
+        <p class="join-info-text"></p>
+        <input id="token" type="text" style="display:none" value="00694d3472478d14af98455c25fcaf010b0IAAhzIVoPEyuR8uQGn43oovxuFB0gwq8u+Brrj29AixWetJjSIgAAAAAEAA8g5F5J0GwYAEAAQAmQbBg" placeholder="">
+        <p class="tips"></p>
+      </div>
+      <div class="col-sm">
+        <p class="join-info-text"></p>
+        <input id="channel" type="text" style="display:none" value="123" placeholder="" required>
+        <p class="tips"></p>
+      </div>
+      <div class="col-sm">
+        <p class="join-info-text"></p>
+        <input id="uid" type="text" style="display:none" value="Zoey" placeholder="">
+      </div>
+    </div>
+
+
+    <div class="button-group">
+      <div>
+      <input type="file" name="file" id="filePicker"/>
+      <input type="button" value = "提示" style="background: #545b62; border-style: none; height: 30px; width: 60px" onclick="show()"/>
+      </div>
+      <button id="join" type="submit" style="background: #545b62 ;border-style: none; " class="btn btn-primary btn-sm">
+        邀请加入会议
+      </button>
+      <a href="#">
+        <button id="leave" type="button" style="background: #545b62; border-style: none" class="btn btn-primary btn-sm" disabled>离开会议</button>
+      </a>
+    </div>
+  </form>
+
+  <div class="row video-group">
+    <div class="col">
+      <p id="local-player-name" class="player-name"></p>
+      <div id="local-player" class="player"></div>
+    </div>
+    <div class="w-auto"></div>
+    <div class="col">
+      <div id="remote-playerlist"></div>
+    </div>
+  </div>
+</div>
+
+
+<script src="../assets/jquery-3.4.1.min.js"></script>
+<script src="../assets/bootstrap.bundle.min.js"></script>
+<script src="https://download.agora.io/sdk/release/AgoraRTC_N.js"></script>
+<script src="./index.js"></script>
+<script src="../js/jquery.min.js" type="text/javascript"></script>
+</body>
+</html>

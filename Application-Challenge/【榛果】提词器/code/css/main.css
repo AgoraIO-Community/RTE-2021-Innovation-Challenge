@@ -1,0 +1,117 @@
+body{background-color: #272727}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.clear{
+	clear: both;
+}
+a{
+	text-decoration: none;
+	color: #333;
+	transition: ease all 0.5s;
+}
+a{
+	color: #1c65ff
+}
+.login_header{
+	margin-bottom: 40px;
+}
+.login_header span{
+	margin-right: 20px;
+	cursor: pointer;
+}
+.loginbox{
+	width: 300px;
+	overflow: hidden;
+	padding: 20px;
+	padding-top: 15px;
+}
+.Cbody_item{
+	border: 0px solid #999;
+	overflow: hidden;
+}
+.form_item{
+	font-size: 13px;
+}
+.form_item input[type="text"],.form_item input[type="password"]{
+	display: block;
+	width: calc(100% - 18px);
+	height: 36px;
+	margin:0 auto; 
+	padding-left: 16px;
+	outline: none;
+	border: 1px solid #999;
+	transition: ease all 0.5s;
+	margin-bottom: 20px;
+}
+.form_item input[type="text"]:focus,.form_item input[type="password"]:focus{
+	border: 1px solid #1c65ff
+}
+.form_item input[type="submit"]{
+	display: block;
+	width: calc(100% - 0px);
+	height: 40px;
+	margin:0 auto; 
+	padding-left: 16px;
+	outline: none;
+	border: 1px solid #1c65ff;
+	transition: ease all 0.5s;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background-color: #1c65ff;
+	color: #fff;
+	cursor: pointer;
+}
+.form_item input[type="submit"]:hover{
+	background-color: #3f7dff;
+	border: 1px solid #3f7dff;
+}
+.active{
+    color: #3f7dff;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #3f7dff;
+}
+.loginrslider{
+	width: 160px;
+	height: 322px;
+	background-color: #1c65ff;
+}
+.login_warp{
+    width: 500px;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 0px 0px #ccc;
+    overflow: hidden;
+    border: 1px solid #484eeb;
+    margin-top: 10%;
+    transition: ease all 0.5s;
+    position: relative;
+    top: 0px;
+    cursor: pointer;
+    background-color: #FDFDFD;
+}
+.login_warp:hover{
+    top: -30px;
+    box-shadow: 0 15px 21px rgba(10,10,10,.5);
+    -webkit-box-shadow: 0 15px 21px rgba(10,10,10,.5);
+}
+.loginrslider{
+	color: #fff;
+
+}
+.qcode{
+	width: 160px;
+	height: 160px;
+	background-color: #ccc;
+	margin: 0 auto;
+	margin-top: 2px;
+}
+.beizhu{
+	text-align: center;
+	font-size: 13px;
+	margin-top: 10px;
+	color: #999
+}
