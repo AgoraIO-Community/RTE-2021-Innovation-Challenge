@@ -1,5 +1,0 @@
-1、Java 项目通过 Java 接口文件加载 C++ 接口文件（.cpp 文件）编译成的 .so 库。
-2、Java 接口文件通过 javac -h -jni 命令生成 .h 文件。C++ 接口文件需要导入此文件。
-3、C++ 接口文件通过导入 Agora Android SDK 的头文件调用 Agora Android SDK 中 .so 库的 C++ 方法。
-
-
