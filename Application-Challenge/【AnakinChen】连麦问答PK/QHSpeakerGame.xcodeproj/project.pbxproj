@@ -1,0 +1,926 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3F940161D5184FB3A6413D3D /* Pods_QHSpeakerGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320610EB0322359BA9D7596B /* Pods_QHSpeakerGame.framework */; };
+		7407E1732659012000BF52B9 /* QHAppContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 7407E1722659012000BF52B9 /* QHAppContext.m */; };
+		7407E1762659385500BF52B9 /* NSTimer+EOCBlocksSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 7407E1742659385400BF52B9 /* NSTimer+EOCBlocksSupport.m */; };
+		7456B816265A4B2A0076C139 /* G2_Q2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7456B815265A4B2A0076C139 /* G2_Q2.plist */; };
+		7456B81A265A53C10076C139 /* QHLinkMicAuthorizationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7456B819265A53C00076C139 /* QHLinkMicAuthorizationView.m */; };
+		7456B81E265B8ADB0076C139 /* QHAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7456B81D265B8ADB0076C139 /* QHAboutViewController.m */; };
+		7456B823265B91030076C139 /* QHHelpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7456B822265B91030076C139 /* QHHelpView.m */; };
+		7456B825265B91180076C139 /* QHHelpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7456B824265B91180076C139 /* QHHelpView.xib */; };
+		7456B828265BB8BB0076C139 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7456B827265BB8BB0076C139 /* Settings.bundle */; };
+		74AB0002264FC3C200274AE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74AB0001264FC3C200274AE4 /* Assets.xcassets */; };
+		74AB0005264FC3C200274AE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74AB0003264FC3C200274AE4 /* LaunchScreen.storyboard */; };
+		74AB0008264FC3C200274AE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AB0007264FC3C200274AE4 /* main.m */; };
+		74AB007126511E5100274AE4 /* QHChatBaseConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AB002826511E5100274AE4 /* QHChatBaseConfig.m */; };
+		74AB007226511E5100274AE4 /* QHChatBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AB002926511E5100274AE4 /* QHChatBaseView.m */; };
+		74AB007326511E5100274AE4 /* QHChatBaseBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AB002F26511E5100274AE4 /* QHChatBaseBuffer.m */; };
+		74AB007426511E5100274AE4 /* QHChatBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AB003026511E5100274AE4 /* QHChatBaseModel.m */; };
+		74AB007526511E5100274AE4 /* QHChatBaseUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AB003326511E5100274AE4 /* QHChatBaseUtil.m */; };
+		74AB007B26511E5100274AE4 /* QHTKRoomChatVIewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AB004526511E5100274AE4 /* QHTKRoomChatVIewUtil.m */; };
+		74AB007C26511E5100274AE4 /* QHTKChatRoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AB004726511E5100274AE4 /* QHTKChatRoomView.m */; };
+		74AB007D26511E5100274AE4 /* QHTKRoomChatContentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AB004B26511E5100274AE4 /* QHTKRoomChatContentViewCell.m */; };
+		74AB008C26511E5100274AE4 /* QHChatBaseNewDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AB006E26511E5100274AE4 /* QHChatBaseNewDataView.m */; };
+		74AB008D26511E5100274AE4 /* QHChatBaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AB006F26511E5100274AE4 /* QHChatBaseViewCell.m */; };
+		74AB009326511E7C00274AE4 /* QHViewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AB009126511E7C00274AE4 /* QHViewUtil.m */; };
+		74AB009426511E7C00274AE4 /* NSTimer+QHEOCBlocksSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AB009226511E7C00274AE4 /* NSTimer+QHEOCBlocksSupport.m */; };
+		74AB009F265121A200274AE4 /* AgoraMediaDataPlugin.mm in Sources */ = {isa = PBXBuildFile; fileRef = 74AB009C265121A200274AE4 /* AgoraMediaDataPlugin.mm */; };
+		74AB00A0265121A200274AE4 /* AgoraMediaRawData.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AB009D265121A200274AE4 /* AgoraMediaRawData.m */; };
+		74AB00A8265121CB00274AE4 /* QHRTCKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AB00A2265121CA00274AE4 /* QHRTCKitManager.m */; };
+		74AB00A9265121CB00274AE4 /* QHRTCBaseKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AB00A5265121CA00274AE4 /* QHRTCBaseKit.m */; };
+		74AB00AA265121CB00274AE4 /* QHAGRTCKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AB00A7265121CB00274AE4 /* QHAGRTCKit.m */; };
+		74AB00B126514EF000274AE4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 74AB00B026514EF000274AE4 /* libc++.tbd */; };
+		74AB00B326514EF500274AE4 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 74AB00B226514EF500274AE4 /* libz.tbd */; };
+		74AB00B52651592300274AE4 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74AB00B42651592300274AE4 /* CoreTelephony.framework */; };
+		74AB00B9265159D100274AE4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74AB00B8265159D100274AE4 /* SystemConfiguration.framework */; };
+		74AB00C126515DF300274AE4 /* QHAudioConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AB00C026515DF300274AE4 /* QHAudioConverter.m */; };
+		74AB00C926520E9000274AE4 /* QHSpeakerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 74AB00C826520E9000274AE4 /* QHSpeakerManager.m */; };
+		74ABFFEB264FC3C000274AE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74ABFFEA264FC3C000274AE4 /* AppDelegate.m */; };
+		74ABFFEF264FC3C000274AE4 /* QHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74ABFFEE264FC3C000274AE4 /* QHLoginViewController.m */; };
+		74ABFFF6264FC3C000274AE4 /* QHGameRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74ABFFF5264FC3C000274AE4 /* QHGameRoomViewController.m */; };
+		74ABFFF8264FC3C000274AE4 /* QHGameRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74ABFFF7264FC3C000274AE4 /* QHGameRoomViewController.xib */; };
+		74ABFFFE264FC3C000274AE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74ABFFFC264FC3C000274AE4 /* Main.storyboard */; };
+		74B054FA265DE6E0008358D1 /* README_back.md in Resources */ = {isa = PBXBuildFile; fileRef = 74B054F9265DE6E0008358D1 /* README_back.md */; };
+		74B054FE265DEA86008358D1 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B054FD265DEA86008358D1 /* iflyMSC.framework */; };
+		74B05E0826535E8E00083869 /* QHGameOneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B05E0726535E8E00083869 /* QHGameOneManager.m */; };
+		74B05E0B2653614C00083869 /* G1_Q.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74B05E0A2653614C00083869 /* G1_Q.plist */; };
+		74B05E2C26540DFF00083869 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 74B05E2B26540DFF00083869 /* README.md */; };
+		74B05E3726550F4D00083869 /* QHHyphenateChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B05E3626550F4D00083869 /* QHHyphenateChatManager.m */; };
+		74B05E3C2655230A00083869 /* QHTKRoomChatVIewUtil+Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B05E3B2655230A00083869 /* QHTKRoomChatVIewUtil+Game.m */; };
+		74B05E3F2655232100083869 /* QHTKRoomChatVIewUtil+Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B05E3E2655232100083869 /* QHTKRoomChatVIewUtil+Room.m */; };
+		74C850E726595F2E0085E2AD /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C850E526595F2E0085E2AD /* MBProgressHUD+Add.m */; };
+		74C850E92659FD1A0085E2AD /* G2_Q.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74C850E82659FD1A0085E2AD /* G2_Q.plist */; };
+		74C850EE265A06D50085E2AD /* QHGameTwoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C850ED265A06D50085E2AD /* QHGameTwoManager.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		74AB0020264FCA5600274AE4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		22241A8A5B2B9F56741DDD5C /* Pods-QHSpeakerGame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QHSpeakerGame.release.xcconfig"; path = "Target Support Files/Pods-QHSpeakerGame/Pods-QHSpeakerGame.release.xcconfig"; sourceTree = "<group>"; };
+		320610EB0322359BA9D7596B /* Pods_QHSpeakerGame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QHSpeakerGame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7407E1712659012000BF52B9 /* QHAppContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QHAppContext.h; sourceTree = "<group>"; };
+		7407E1722659012000BF52B9 /* QHAppContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QHAppContext.m; sourceTree = "<group>"; };
+		7407E1742659385400BF52B9 /* NSTimer+EOCBlocksSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+EOCBlocksSupport.m"; sourceTree = "<group>"; };
+		7407E1752659385500BF52B9 /* NSTimer+EOCBlocksSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+EOCBlocksSupport.h"; sourceTree = "<group>"; };
+		7456B815265A4B2A0076C139 /* G2_Q2.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = G2_Q2.plist; sourceTree = "<group>"; };
+		7456B818265A53C00076C139 /* QHLinkMicAuthorizationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHLinkMicAuthorizationView.h; sourceTree = "<group>"; };
+		7456B819265A53C00076C139 /* QHLinkMicAuthorizationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHLinkMicAuthorizationView.m; sourceTree = "<group>"; };
+		7456B81C265B8ADB0076C139 /* QHAboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QHAboutViewController.h; sourceTree = "<group>"; };
+		7456B81D265B8ADB0076C139 /* QHAboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QHAboutViewController.m; sourceTree = "<group>"; };
+		7456B821265B91030076C139 /* QHHelpView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QHHelpView.h; sourceTree = "<group>"; };
+		7456B822265B91030076C139 /* QHHelpView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QHHelpView.m; sourceTree = "<group>"; };
+		7456B824265B91180076C139 /* QHHelpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QHHelpView.xib; sourceTree = "<group>"; };
+		7456B827265BB8BB0076C139 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		74AB0001264FC3C200274AE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		74AB0004264FC3C200274AE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		74AB0006264FC3C200274AE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74AB0007264FC3C200274AE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		74AB002826511E5100274AE4 /* QHChatBaseConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHChatBaseConfig.m; sourceTree = "<group>"; };
+		74AB002926511E5100274AE4 /* QHChatBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHChatBaseView.m; sourceTree = "<group>"; };
+		74AB002A26511E5100274AE4 /* QHChatBaseBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHChatBaseBuffer.h; sourceTree = "<group>"; };
+		74AB002B26511E5100274AE4 /* QHChatBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHChatBaseModel.h; sourceTree = "<group>"; };
+		74AB002C26511E5100274AE4 /* QHChatBaseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHChatBaseProtocol.h; sourceTree = "<group>"; };
+		74AB002D26511E5100274AE4 /* QHChatBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHChatBaseView.h; sourceTree = "<group>"; };
+		74AB002E26511E5100274AE4 /* QHChatBaseConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHChatBaseConfig.h; sourceTree = "<group>"; };
+		74AB002F26511E5100274AE4 /* QHChatBaseBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHChatBaseBuffer.m; sourceTree = "<group>"; };
+		74AB003026511E5100274AE4 /* QHChatBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHChatBaseModel.m; sourceTree = "<group>"; };
+		74AB003226511E5100274AE4 /* QHChatBaseUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHChatBaseUtil.h; sourceTree = "<group>"; };
+		74AB003326511E5100274AE4 /* QHChatBaseUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHChatBaseUtil.m; sourceTree = "<group>"; };
+		74AB004526511E5100274AE4 /* QHTKRoomChatVIewUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHTKRoomChatVIewUtil.m; sourceTree = "<group>"; };
+		74AB004626511E5100274AE4 /* QHTKRoomChatVIewUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHTKRoomChatVIewUtil.h; sourceTree = "<group>"; };
+		74AB004726511E5100274AE4 /* QHTKChatRoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHTKChatRoomView.m; sourceTree = "<group>"; };
+		74AB004826511E5100274AE4 /* QHTKChatRoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHTKChatRoomView.h; sourceTree = "<group>"; };
+		74AB004A26511E5100274AE4 /* QHTKRoomChatContentViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHTKRoomChatContentViewCell.h; sourceTree = "<group>"; };
+		74AB004B26511E5100274AE4 /* QHTKRoomChatContentViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHTKRoomChatContentViewCell.m; sourceTree = "<group>"; };
+		74AB006D26511E5100274AE4 /* QHChatBaseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHChatBaseViewCell.h; sourceTree = "<group>"; };
+		74AB006E26511E5100274AE4 /* QHChatBaseNewDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHChatBaseNewDataView.m; sourceTree = "<group>"; };
+		74AB006F26511E5100274AE4 /* QHChatBaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHChatBaseViewCell.m; sourceTree = "<group>"; };
+		74AB007026511E5100274AE4 /* QHChatBaseNewDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHChatBaseNewDataView.h; sourceTree = "<group>"; };
+		74AB008F26511E7C00274AE4 /* QHViewUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHViewUtil.h; sourceTree = "<group>"; };
+		74AB009026511E7C00274AE4 /* NSTimer+QHEOCBlocksSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+QHEOCBlocksSupport.h"; sourceTree = "<group>"; };
+		74AB009126511E7C00274AE4 /* QHViewUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHViewUtil.m; sourceTree = "<group>"; };
+		74AB009226511E7C00274AE4 /* NSTimer+QHEOCBlocksSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+QHEOCBlocksSupport.m"; sourceTree = "<group>"; };
+		74AB009B265121A200274AE4 /* AgoraMediaRawData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgoraMediaRawData.h; sourceTree = "<group>"; };
+		74AB009C265121A200274AE4 /* AgoraMediaDataPlugin.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AgoraMediaDataPlugin.mm; sourceTree = "<group>"; };
+		74AB009D265121A200274AE4 /* AgoraMediaRawData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgoraMediaRawData.m; sourceTree = "<group>"; };
+		74AB009E265121A200274AE4 /* AgoraMediaDataPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgoraMediaDataPlugin.h; sourceTree = "<group>"; };
+		74AB00A1265121CA00274AE4 /* QHRTCKitProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHRTCKitProtocol.h; sourceTree = "<group>"; };
+		74AB00A2265121CA00274AE4 /* QHRTCKitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHRTCKitManager.m; sourceTree = "<group>"; };
+		74AB00A3265121CA00274AE4 /* QHRTCKitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHRTCKitManager.h; sourceTree = "<group>"; };
+		74AB00A4265121CA00274AE4 /* QHRTCBaseKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHRTCBaseKit.h; sourceTree = "<group>"; };
+		74AB00A5265121CA00274AE4 /* QHRTCBaseKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHRTCBaseKit.m; sourceTree = "<group>"; };
+		74AB00A6265121CB00274AE4 /* QHAGRTCKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHAGRTCKit.h; sourceTree = "<group>"; };
+		74AB00A7265121CB00274AE4 /* QHAGRTCKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHAGRTCKit.m; sourceTree = "<group>"; };
+		74AB00B026514EF000274AE4 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		74AB00B226514EF500274AE4 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		74AB00B42651592300274AE4 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		74AB00B6265159B400274AE4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		74AB00B8265159D100274AE4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		74AB00BF26515DF300274AE4 /* QHAudioConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHAudioConverter.h; sourceTree = "<group>"; };
+		74AB00C026515DF300274AE4 /* QHAudioConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHAudioConverter.m; sourceTree = "<group>"; };
+		74AB00C726520E9000274AE4 /* QHSpeakerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QHSpeakerManager.h; sourceTree = "<group>"; };
+		74AB00C826520E9000274AE4 /* QHSpeakerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QHSpeakerManager.m; sourceTree = "<group>"; };
+		74ABFFE6264FC3C000274AE4 /* QHSpeakerGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QHSpeakerGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		74ABFFE9264FC3C000274AE4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		74ABFFEA264FC3C000274AE4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		74ABFFED264FC3C000274AE4 /* QHLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QHLoginViewController.h; sourceTree = "<group>"; };
+		74ABFFEE264FC3C000274AE4 /* QHLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QHLoginViewController.m; sourceTree = "<group>"; };
+		74ABFFF4264FC3C000274AE4 /* QHGameRoomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QHGameRoomViewController.h; sourceTree = "<group>"; };
+		74ABFFF5264FC3C000274AE4 /* QHGameRoomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QHGameRoomViewController.m; sourceTree = "<group>"; };
+		74ABFFF7264FC3C000274AE4 /* QHGameRoomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QHGameRoomViewController.xib; sourceTree = "<group>"; };
+		74ABFFFD264FC3C000274AE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		74B054F9265DE6E0008358D1 /* README_back.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README_back.md; sourceTree = "<group>"; };
+		74B054FD265DEA86008358D1 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
+		74B05E0626535E8E00083869 /* QHGameOneManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QHGameOneManager.h; sourceTree = "<group>"; };
+		74B05E0726535E8E00083869 /* QHGameOneManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QHGameOneManager.m; sourceTree = "<group>"; };
+		74B05E0A2653614C00083869 /* G1_Q.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = G1_Q.plist; sourceTree = "<group>"; };
+		74B05E2B26540DFF00083869 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		74B05E3526550F4D00083869 /* QHHyphenateChatManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QHHyphenateChatManager.h; sourceTree = "<group>"; };
+		74B05E3626550F4D00083869 /* QHHyphenateChatManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QHHyphenateChatManager.m; sourceTree = "<group>"; };
+		74B05E3A2655230A00083869 /* QHTKRoomChatVIewUtil+Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QHTKRoomChatVIewUtil+Game.h"; sourceTree = "<group>"; };
+		74B05E3B2655230A00083869 /* QHTKRoomChatVIewUtil+Game.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "QHTKRoomChatVIewUtil+Game.m"; sourceTree = "<group>"; };
+		74B05E3D2655232100083869 /* QHTKRoomChatVIewUtil+Room.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QHTKRoomChatVIewUtil+Room.h"; sourceTree = "<group>"; };
+		74B05E3E2655232100083869 /* QHTKRoomChatVIewUtil+Room.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "QHTKRoomChatVIewUtil+Room.m"; sourceTree = "<group>"; };
+		74B05E40265663CF00083869 /* QHHyphenateChatManagerDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QHHyphenateChatManagerDefine.h; sourceTree = "<group>"; };
+		74C850E526595F2E0085E2AD /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
+		74C850E626595F2E0085E2AD /* MBProgressHUD+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Add.h"; sourceTree = "<group>"; };
+		74C850E82659FD1A0085E2AD /* G2_Q.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = G2_Q.plist; sourceTree = "<group>"; };
+		74C850EB265A04D70085E2AD /* QHGameManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QHGameManagerProtocol.h; sourceTree = "<group>"; };
+		74C850EC265A06D50085E2AD /* QHGameTwoManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QHGameTwoManager.h; sourceTree = "<group>"; };
+		74C850ED265A06D50085E2AD /* QHGameTwoManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QHGameTwoManager.m; sourceTree = "<group>"; };
+		DBC7E50BB3EA77750A35578F /* Pods-QHSpeakerGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QHSpeakerGame.debug.xcconfig"; path = "Target Support Files/Pods-QHSpeakerGame/Pods-QHSpeakerGame.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		74ABFFE3264FC3C000274AE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74B054FE265DEA86008358D1 /* iflyMSC.framework in Frameworks */,
+				74AB00B9265159D100274AE4 /* SystemConfiguration.framework in Frameworks */,
+				74AB00B52651592300274AE4 /* CoreTelephony.framework in Frameworks */,
+				74AB00B326514EF500274AE4 /* libz.tbd in Frameworks */,
+				74AB00B126514EF000274AE4 /* libc++.tbd in Frameworks */,
+				3F940161D5184FB3A6413D3D /* Pods_QHSpeakerGame.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		335695F5512CE1505C20F74F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DBC7E50BB3EA77750A35578F /* Pods-QHSpeakerGame.debug.xcconfig */,
+				22241A8A5B2B9F56741DDD5C /* Pods-QHSpeakerGame.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6105199F217A20130066A316 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				74AB00B8265159D100274AE4 /* SystemConfiguration.framework */,
+				74AB00B6265159B400274AE4 /* CoreLocation.framework */,
+				74AB00B42651592300274AE4 /* CoreTelephony.framework */,
+				74AB00B226514EF500274AE4 /* libz.tbd */,
+				74AB00B026514EF000274AE4 /* libc++.tbd */,
+				320610EB0322359BA9D7596B /* Pods_QHSpeakerGame.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7407E170265900E500BF52B9 /* QHBase */ = {
+			isa = PBXGroup;
+			children = (
+				7407E1712659012000BF52B9 /* QHAppContext.h */,
+				7407E1722659012000BF52B9 /* QHAppContext.m */,
+			);
+			path = QHBase;
+			sourceTree = "<group>";
+		};
+		7456B817265A53AE0076C139 /* QHLinkMicAuthorizationView */ = {
+			isa = PBXGroup;
+			children = (
+				7456B818265A53C00076C139 /* QHLinkMicAuthorizationView.h */,
+				7456B819265A53C00076C139 /* QHLinkMicAuthorizationView.m */,
+			);
+			path = QHLinkMicAuthorizationView;
+			sourceTree = "<group>";
+		};
+		7456B81B265B8ABC0076C139 /* QHAboutController */ = {
+			isa = PBXGroup;
+			children = (
+				7456B81C265B8ADB0076C139 /* QHAboutViewController.h */,
+				7456B81D265B8ADB0076C139 /* QHAboutViewController.m */,
+			);
+			path = QHAboutController;
+			sourceTree = "<group>";
+		};
+		7456B81F265B90A90076C139 /* QHHelp */ = {
+			isa = PBXGroup;
+			children = (
+				7456B821265B91030076C139 /* QHHelpView.h */,
+				7456B822265B91030076C139 /* QHHelpView.m */,
+				7456B824265B91180076C139 /* QHHelpView.xib */,
+			);
+			path = QHHelp;
+			sourceTree = "<group>";
+		};
+		7456B820265B90C90076C139 /* QHViewController */ = {
+			isa = PBXGroup;
+			children = (
+				74ABFFEC264FC3C000274AE4 /* QHLoginController */,
+				74ABFFF3264FC3C000274AE4 /* QHGameRoomController */,
+				7456B81B265B8ABC0076C139 /* QHAboutController */,
+			);
+			path = QHViewController;
+			sourceTree = "<group>";
+		};
+		74AB002526511E4500274AE4 /* QHLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				74C850E426595F2E0085E2AD /* MBProgressHUD */,
+				74B05E3426550F3400083869 /* QHHyphenateChat */,
+				74AB00AC26514A8100274AE4 /* QHiflyMSC */,
+				74AB00992651218E00274AE4 /* QHAGSDK */,
+			);
+			path = QHLibrary;
+			sourceTree = "<group>";
+		};
+		74AB002626511E5100274AE4 /* QHChatMan */ = {
+			isa = PBXGroup;
+			children = (
+				74AB002726511E5100274AE4 /* Core */,
+				74AB003126511E5100274AE4 /* Util */,
+				74AB006C26511E5100274AE4 /* Views */,
+			);
+			path = QHChatMan;
+			sourceTree = "<group>";
+		};
+		74AB002726511E5100274AE4 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				74AB002826511E5100274AE4 /* QHChatBaseConfig.m */,
+				74AB002926511E5100274AE4 /* QHChatBaseView.m */,
+				74AB002A26511E5100274AE4 /* QHChatBaseBuffer.h */,
+				74AB002B26511E5100274AE4 /* QHChatBaseModel.h */,
+				74AB002C26511E5100274AE4 /* QHChatBaseProtocol.h */,
+				74AB002D26511E5100274AE4 /* QHChatBaseView.h */,
+				74AB002E26511E5100274AE4 /* QHChatBaseConfig.h */,
+				74AB002F26511E5100274AE4 /* QHChatBaseBuffer.m */,
+				74AB003026511E5100274AE4 /* QHChatBaseModel.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		74AB003126511E5100274AE4 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				74AB003226511E5100274AE4 /* QHChatBaseUtil.h */,
+				74AB003326511E5100274AE4 /* QHChatBaseUtil.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		74AB004426511E5100274AE4 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				74AB004626511E5100274AE4 /* QHTKRoomChatVIewUtil.h */,
+				74AB004526511E5100274AE4 /* QHTKRoomChatVIewUtil.m */,
+				74B05E3A2655230A00083869 /* QHTKRoomChatVIewUtil+Game.h */,
+				74B05E3B2655230A00083869 /* QHTKRoomChatVIewUtil+Game.m */,
+				74B05E3D2655232100083869 /* QHTKRoomChatVIewUtil+Room.h */,
+				74B05E3E2655232100083869 /* QHTKRoomChatVIewUtil+Room.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		74AB004926511E5100274AE4 /* Viewa */ = {
+			isa = PBXGroup;
+			children = (
+				74AB004A26511E5100274AE4 /* QHTKRoomChatContentViewCell.h */,
+				74AB004B26511E5100274AE4 /* QHTKRoomChatContentViewCell.m */,
+			);
+			path = Viewa;
+			sourceTree = "<group>";
+		};
+		74AB006C26511E5100274AE4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				74AB006D26511E5100274AE4 /* QHChatBaseViewCell.h */,
+				74AB006E26511E5100274AE4 /* QHChatBaseNewDataView.m */,
+				74AB006F26511E5100274AE4 /* QHChatBaseViewCell.m */,
+				74AB007026511E5100274AE4 /* QHChatBaseNewDataView.h */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		74AB008E26511E7C00274AE4 /* QHUtilMan */ = {
+			isa = PBXGroup;
+			children = (
+				74AB008F26511E7C00274AE4 /* QHViewUtil.h */,
+				74AB009126511E7C00274AE4 /* QHViewUtil.m */,
+				74AB009026511E7C00274AE4 /* NSTimer+QHEOCBlocksSupport.h */,
+				74AB009226511E7C00274AE4 /* NSTimer+QHEOCBlocksSupport.m */,
+			);
+			path = QHUtilMan;
+			sourceTree = "<group>";
+		};
+		74AB00992651218E00274AE4 /* QHAGSDK */ = {
+			isa = PBXGroup;
+			children = (
+				74AB009A265121A200274AE4 /* raw-data-api-oc */,
+				74AB00A6265121CB00274AE4 /* QHAGRTCKit.h */,
+				74AB00A7265121CB00274AE4 /* QHAGRTCKit.m */,
+				74AB00A4265121CA00274AE4 /* QHRTCBaseKit.h */,
+				74AB00A5265121CA00274AE4 /* QHRTCBaseKit.m */,
+				74AB00A3265121CA00274AE4 /* QHRTCKitManager.h */,
+				74AB00A2265121CA00274AE4 /* QHRTCKitManager.m */,
+				74AB00A1265121CA00274AE4 /* QHRTCKitProtocol.h */,
+			);
+			path = QHAGSDK;
+			sourceTree = "<group>";
+		};
+		74AB009A265121A200274AE4 /* raw-data-api-oc */ = {
+			isa = PBXGroup;
+			children = (
+				74AB009B265121A200274AE4 /* AgoraMediaRawData.h */,
+				74AB009C265121A200274AE4 /* AgoraMediaDataPlugin.mm */,
+				74AB009D265121A200274AE4 /* AgoraMediaRawData.m */,
+				74AB009E265121A200274AE4 /* AgoraMediaDataPlugin.h */,
+			);
+			path = "raw-data-api-oc";
+			sourceTree = "<group>";
+		};
+		74AB00AC26514A8100274AE4 /* QHiflyMSC */ = {
+			isa = PBXGroup;
+			children = (
+				74AB00AD26514E9500274AE4 /* lib */,
+				74AB00BF26515DF300274AE4 /* QHAudioConverter.h */,
+				74AB00C026515DF300274AE4 /* QHAudioConverter.m */,
+			);
+			path = QHiflyMSC;
+			sourceTree = "<group>";
+		};
+		74AB00AD26514E9500274AE4 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				74B054FD265DEA86008358D1 /* iflyMSC.framework */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		74AB00C626520E6400274AE4 /* QHGame */ = {
+			isa = PBXGroup;
+			children = (
+				74C850EA265A04B10085E2AD /* GameTwo */,
+				74AB00CA26520F2900274AE4 /* GameOne */,
+				74AB00C726520E9000274AE4 /* QHSpeakerManager.h */,
+				74AB00C826520E9000274AE4 /* QHSpeakerManager.m */,
+				74C850EB265A04D70085E2AD /* QHGameManagerProtocol.h */,
+			);
+			path = QHGame;
+			sourceTree = "<group>";
+		};
+		74AB00CA26520F2900274AE4 /* GameOne */ = {
+			isa = PBXGroup;
+			children = (
+				74B05E0A2653614C00083869 /* G1_Q.plist */,
+				74B05E0626535E8E00083869 /* QHGameOneManager.h */,
+				74B05E0726535E8E00083869 /* QHGameOneManager.m */,
+			);
+			path = GameOne;
+			sourceTree = "<group>";
+		};
+		74ABFFDD264FC3C000274AE4 = {
+			isa = PBXGroup;
+			children = (
+				74B05E2B26540DFF00083869 /* README.md */,
+				74B054F9265DE6E0008358D1 /* README_back.md */,
+				74ABFFE8264FC3C000274AE4 /* QHSpeakerGame */,
+				74ABFFE7264FC3C000274AE4 /* Products */,
+				335695F5512CE1505C20F74F /* Pods */,
+				6105199F217A20130066A316 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		74ABFFE7264FC3C000274AE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				74ABFFE6264FC3C000274AE4 /* QHSpeakerGame.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		74ABFFE8264FC3C000274AE4 /* QHSpeakerGame */ = {
+			isa = PBXGroup;
+			children = (
+				74AB002526511E4500274AE4 /* QHLibrary */,
+				74B054FC265DEA19008358D1 /* QHModule */,
+				74B054FB265DE992008358D1 /* QHResource */,
+				74C850E326595EDB0085E2AD /* QHCategory */,
+				7407E170265900E500BF52B9 /* QHBase */,
+				74B05E382655227E00083869 /* QHView */,
+				7456B820265B90C90076C139 /* QHViewController */,
+				74ABFFE9264FC3C000274AE4 /* AppDelegate.h */,
+				74ABFFEA264FC3C000274AE4 /* AppDelegate.m */,
+				74AB0007264FC3C200274AE4 /* main.m */,
+				74AB0006264FC3C200274AE4 /* Info.plist */,
+			);
+			path = QHSpeakerGame;
+			sourceTree = "<group>";
+		};
+		74ABFFEC264FC3C000274AE4 /* QHLoginController */ = {
+			isa = PBXGroup;
+			children = (
+				74ABFFED264FC3C000274AE4 /* QHLoginViewController.h */,
+				74ABFFEE264FC3C000274AE4 /* QHLoginViewController.m */,
+			);
+			path = QHLoginController;
+			sourceTree = "<group>";
+		};
+		74ABFFF3264FC3C000274AE4 /* QHGameRoomController */ = {
+			isa = PBXGroup;
+			children = (
+				74ABFFF4264FC3C000274AE4 /* QHGameRoomViewController.h */,
+				74ABFFF5264FC3C000274AE4 /* QHGameRoomViewController.m */,
+				74ABFFF7264FC3C000274AE4 /* QHGameRoomViewController.xib */,
+			);
+			path = QHGameRoomController;
+			sourceTree = "<group>";
+		};
+		74B054FB265DE992008358D1 /* QHResource */ = {
+			isa = PBXGroup;
+			children = (
+				7456B827265BB8BB0076C139 /* Settings.bundle */,
+				74ABFFFC264FC3C000274AE4 /* Main.storyboard */,
+				74AB0001264FC3C200274AE4 /* Assets.xcassets */,
+				74AB0003264FC3C200274AE4 /* LaunchScreen.storyboard */,
+			);
+			path = QHResource;
+			sourceTree = "<group>";
+		};
+		74B054FC265DEA19008358D1 /* QHModule */ = {
+			isa = PBXGroup;
+			children = (
+				74AB00C626520E6400274AE4 /* QHGame */,
+				74AB008E26511E7C00274AE4 /* QHUtilMan */,
+				74AB002626511E5100274AE4 /* QHChatMan */,
+			);
+			path = QHModule;
+			sourceTree = "<group>";
+		};
+		74B05E3426550F3400083869 /* QHHyphenateChat */ = {
+			isa = PBXGroup;
+			children = (
+				74B05E3526550F4D00083869 /* QHHyphenateChatManager.h */,
+				74B05E3626550F4D00083869 /* QHHyphenateChatManager.m */,
+				74B05E40265663CF00083869 /* QHHyphenateChatManagerDefine.h */,
+			);
+			path = QHHyphenateChat;
+			sourceTree = "<group>";
+		};
+		74B05E382655227E00083869 /* QHView */ = {
+			isa = PBXGroup;
+			children = (
+				7456B817265A53AE0076C139 /* QHLinkMicAuthorizationView */,
+				74B05E392655229900083869 /* QHChat */,
+				7456B81F265B90A90076C139 /* QHHelp */,
+			);
+			path = QHView;
+			sourceTree = "<group>";
+		};
+		74B05E392655229900083869 /* QHChat */ = {
+			isa = PBXGroup;
+			children = (
+				74AB004426511E5100274AE4 /* Util */,
+				74AB004826511E5100274AE4 /* QHTKChatRoomView.h */,
+				74AB004726511E5100274AE4 /* QHTKChatRoomView.m */,
+				74AB004926511E5100274AE4 /* Viewa */,
+			);
+			path = QHChat;
+			sourceTree = "<group>";
+		};
+		74C850E326595EDB0085E2AD /* QHCategory */ = {
+			isa = PBXGroup;
+			children = (
+				7407E1752659385500BF52B9 /* NSTimer+EOCBlocksSupport.h */,
+				7407E1742659385400BF52B9 /* NSTimer+EOCBlocksSupport.m */,
+			);
+			path = QHCategory;
+			sourceTree = "<group>";
+		};
+		74C850E426595F2E0085E2AD /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				74C850E626595F2E0085E2AD /* MBProgressHUD+Add.h */,
+				74C850E526595F2E0085E2AD /* MBProgressHUD+Add.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		74C850EA265A04B10085E2AD /* GameTwo */ = {
+			isa = PBXGroup;
+			children = (
+				74C850E82659FD1A0085E2AD /* G2_Q.plist */,
+				7456B815265A4B2A0076C139 /* G2_Q2.plist */,
+				74C850EC265A06D50085E2AD /* QHGameTwoManager.h */,
+				74C850ED265A06D50085E2AD /* QHGameTwoManager.m */,
+			);
+			path = GameTwo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		74ABFFE5264FC3C000274AE4 /* QHSpeakerGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74AB000B264FC3C200274AE4 /* Build configuration list for PBXNativeTarget "QHSpeakerGame" */;
+			buildPhases = (
+				D572D8597C449950E73C45EA /* [CP] Check Pods Manifest.lock */,
+				74ABFFE2264FC3C000274AE4 /* Sources */,
+				74ABFFE3264FC3C000274AE4 /* Frameworks */,
+				74ABFFE4264FC3C000274AE4 /* Resources */,
+				74AB0020264FCA5600274AE4 /* Embed Frameworks */,
+				4DBFAD34448CAC20E35EF2D9 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QHSpeakerGame;
+			productName = QHSpeakerGame;
+			productReference = 74ABFFE6264FC3C000274AE4 /* QHSpeakerGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		74ABFFDE264FC3C000274AE4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1220;
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					74ABFFE5264FC3C000274AE4 = {
+						CreatedOnToolsVersion = 12.2;
+					};
+				};
+			};
+			buildConfigurationList = 74ABFFE1264FC3C000274AE4 /* Build configuration list for PBXProject "QHSpeakerGame" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 74ABFFDD264FC3C000274AE4;
+			productRefGroup = 74ABFFE7264FC3C000274AE4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				74ABFFE5264FC3C000274AE4 /* QHSpeakerGame */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		74ABFFE4264FC3C000274AE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7456B816265A4B2A0076C139 /* G2_Q2.plist in Resources */,
+				74B05E2C26540DFF00083869 /* README.md in Resources */,
+				74ABFFF8264FC3C000274AE4 /* QHGameRoomViewController.xib in Resources */,
+				74AB0005264FC3C200274AE4 /* LaunchScreen.storyboard in Resources */,
+				7456B828265BB8BB0076C139 /* Settings.bundle in Resources */,
+				74C850E92659FD1A0085E2AD /* G2_Q.plist in Resources */,
+				74AB0002264FC3C200274AE4 /* Assets.xcassets in Resources */,
+				74B05E0B2653614C00083869 /* G1_Q.plist in Resources */,
+				74ABFFFE264FC3C000274AE4 /* Main.storyboard in Resources */,
+				74B054FA265DE6E0008358D1 /* README_back.md in Resources */,
+				7456B825265B91180076C139 /* QHHelpView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4DBFAD34448CAC20E35EF2D9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QHSpeakerGame/Pods-QHSpeakerGame-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QHSpeakerGame/Pods-QHSpeakerGame-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QHSpeakerGame/Pods-QHSpeakerGame-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D572D8597C449950E73C45EA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QHSpeakerGame-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		74ABFFE2264FC3C000274AE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74AB00C126515DF300274AE4 /* QHAudioConverter.m in Sources */,
+				74AB009326511E7C00274AE4 /* QHViewUtil.m in Sources */,
+				7456B81A265A53C10076C139 /* QHLinkMicAuthorizationView.m in Sources */,
+				74AB007526511E5100274AE4 /* QHChatBaseUtil.m in Sources */,
+				74AB007C26511E5100274AE4 /* QHTKChatRoomView.m in Sources */,
+				7407E1762659385500BF52B9 /* NSTimer+EOCBlocksSupport.m in Sources */,
+				7407E1732659012000BF52B9 /* QHAppContext.m in Sources */,
+				74ABFFEF264FC3C000274AE4 /* QHLoginViewController.m in Sources */,
+				74AB007226511E5100274AE4 /* QHChatBaseView.m in Sources */,
+				74ABFFEB264FC3C000274AE4 /* AppDelegate.m in Sources */,
+				74ABFFF6264FC3C000274AE4 /* QHGameRoomViewController.m in Sources */,
+				74AB007126511E5100274AE4 /* QHChatBaseConfig.m in Sources */,
+				74AB009426511E7C00274AE4 /* NSTimer+QHEOCBlocksSupport.m in Sources */,
+				74AB008C26511E5100274AE4 /* QHChatBaseNewDataView.m in Sources */,
+				7456B823265B91030076C139 /* QHHelpView.m in Sources */,
+				74AB00AA265121CB00274AE4 /* QHAGRTCKit.m in Sources */,
+				74AB0008264FC3C200274AE4 /* main.m in Sources */,
+				74AB00A0265121A200274AE4 /* AgoraMediaRawData.m in Sources */,
+				74AB007426511E5100274AE4 /* QHChatBaseModel.m in Sources */,
+				74AB00C926520E9000274AE4 /* QHSpeakerManager.m in Sources */,
+				74AB00A8265121CB00274AE4 /* QHRTCKitManager.m in Sources */,
+				74AB009F265121A200274AE4 /* AgoraMediaDataPlugin.mm in Sources */,
+				74C850EE265A06D50085E2AD /* QHGameTwoManager.m in Sources */,
+				74AB007326511E5100274AE4 /* QHChatBaseBuffer.m in Sources */,
+				74B05E0826535E8E00083869 /* QHGameOneManager.m in Sources */,
+				7456B81E265B8ADB0076C139 /* QHAboutViewController.m in Sources */,
+				74AB007D26511E5100274AE4 /* QHTKRoomChatContentViewCell.m in Sources */,
+				74AB00A9265121CB00274AE4 /* QHRTCBaseKit.m in Sources */,
+				74B05E3F2655232100083869 /* QHTKRoomChatVIewUtil+Room.m in Sources */,
+				74B05E3726550F4D00083869 /* QHHyphenateChatManager.m in Sources */,
+				74C850E726595F2E0085E2AD /* MBProgressHUD+Add.m in Sources */,
+				74B05E3C2655230A00083869 /* QHTKRoomChatVIewUtil+Game.m in Sources */,
+				74AB007B26511E5100274AE4 /* QHTKRoomChatVIewUtil.m in Sources */,
+				74AB008D26511E5100274AE4 /* QHChatBaseViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		74AB0003264FC3C200274AE4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74AB0004264FC3C200274AE4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		74ABFFFC264FC3C000274AE4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74ABFFFD264FC3C000274AE4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		74AB0009264FC3C200274AE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		74AB000A264FC3C200274AE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		74AB000C264FC3C200274AE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBC7E50BB3EA77750A35578F /* Pods-QHSpeakerGame.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 559F36FNHV;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/QHSpeakerGame/Library/HyphenateSDK",
+					"$(PROJECT_DIR)/QHSpeakerGame/Library/iflyMSC/lib",
+					"$(PROJECT_DIR)/QHSpeakerGame/Library/QHiflyMSC/lib",
+					"$(PROJECT_DIR)/QHSpeakerGame/QHLibrary/QHiflyMSC/lib",
+				);
+				INFOPLIST_FILE = QHSpeakerGame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chen.QHSpeakerGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		74AB000D264FC3C200274AE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22241A8A5B2B9F56741DDD5C /* Pods-QHSpeakerGame.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 559F36FNHV;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/QHSpeakerGame/Library/HyphenateSDK",
+					"$(PROJECT_DIR)/QHSpeakerGame/Library/iflyMSC/lib",
+					"$(PROJECT_DIR)/QHSpeakerGame/Library/QHiflyMSC/lib",
+					"$(PROJECT_DIR)/QHSpeakerGame/QHLibrary/QHiflyMSC/lib",
+				);
+				INFOPLIST_FILE = QHSpeakerGame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chen.QHSpeakerGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		74AB000B264FC3C200274AE4 /* Build configuration list for PBXNativeTarget "QHSpeakerGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74AB000C264FC3C200274AE4 /* Debug */,
+				74AB000D264FC3C200274AE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74ABFFE1264FC3C000274AE4 /* Build configuration list for PBXProject "QHSpeakerGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74AB0009264FC3C200274AE4 /* Debug */,
+				74AB000A264FC3C200274AE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 74ABFFDE264FC3C000274AE4 /* Project object */;
+}

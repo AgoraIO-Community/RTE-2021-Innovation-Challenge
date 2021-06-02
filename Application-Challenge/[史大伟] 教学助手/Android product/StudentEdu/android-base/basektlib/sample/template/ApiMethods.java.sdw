@@ -1,0 +1,6 @@
+    /**
+     * 自动生成：by WaTaNaBe on {{now}}.
+     * #{{title}}#
+     * #{{remarks}}#
+     */
+    const val {{name}} = "{{url}}";

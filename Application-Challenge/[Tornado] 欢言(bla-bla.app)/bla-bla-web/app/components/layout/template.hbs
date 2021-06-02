@@ -1,0 +1,7 @@
+<div class="layout-container">
+  {{yield (hash
+    nav=(component 'layout/nav')
+    head=(component 'layout/head')
+    body=(component 'layout/body')
+  )}}
+</div>

@@ -1,0 +1,12 @@
+package {{packagename}}.data.model.responses
+
+import com.squareup.moshi.JsonClass
+
+/**
+ * 自动生成：by WaTaNaBe on {{now}}.
+ * {{title}}
+ */
+class {{response}} {
+
+   
+}

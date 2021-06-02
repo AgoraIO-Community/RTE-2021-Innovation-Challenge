@@ -1,0 +1,36 @@
+{
+  "name": "share-cinema",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "agora-rtc-sdk-ng": "^4.5.0",
+    "axios": "^0.21.1",
+    "core-js": "^3.11.1",
+    "easemob-websdk": "^3.5.2",
+    "element-ui": "^2.15.1",
+    "jssha": "^3.1.2",
+    "less": "^3.0.4",
+    "less-loader": "^5.0.0",
+    "socket.io-client": "^4.1.2",
+    "vue": "^2.6.12",
+    "vue-router": "^3.5.1",
+    "vue-video-player": "^5.0.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.5.12",
+    "@vue/cli-plugin-router": "^4.5.12",
+    "@vue/cli-service": "^4.5.12",
+    "sass": "^1.32.12",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

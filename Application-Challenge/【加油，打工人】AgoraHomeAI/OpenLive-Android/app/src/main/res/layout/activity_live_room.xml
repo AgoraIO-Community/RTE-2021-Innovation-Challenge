@@ -1,0 +1,351 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+     android:layout_height="match_parent">
+
+    <io.agora.openlive.ui.VideoGridContainer
+        android:id="@+id/live_video_grid_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </io.agora.openlive.ui.VideoGridContainer>
+
+    <RelativeLayout
+        android:id="@+id/live_room_top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/live_top_layout_height"
+        android:layout_marginTop="@dimen/setting_btn_margin_top">
+        <RelativeLayout
+            android:id="@+id/live_name_space_layout"
+            android:layout_width="@dimen/live_name_board_width"
+            android:layout_height="@dimen/live_name_board_height"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="@dimen/live_top_layout_margin"
+            android:layout_marginStart="@dimen/live_top_layout_margin"
+            android:background="@drawable/live_name_board_bg">
+            <ImageView
+                android:id="@+id/live_name_board_icon"
+                android:layout_width="@dimen/live_name_board_icon_size"
+                android:layout_height="@dimen/live_name_board_icon_size"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="@dimen/live_name_board_icon_margin"
+                android:layout_marginStart="@dimen/live_name_board_icon_margin"
+                android:layout_centerVertical="true"
+                android:scaleType="centerCrop"/>
+            <ImageView
+                android:id="@+id/live_leave_btn"
+                android:layout_width="@dimen/live_leave_btn_size"
+                android:layout_height="@dimen/live_leave_btn_size"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="6dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/btn_leave"
+                android:scaleType="centerCrop"
+                android:background="@drawable/rounded_bg_half_transparent"
+                android:onClick="onLeaveClicked"/>
+            <ImageView
+                android:id="@+id/fav_icon"
+                android:layout_width="@dimen/live_name_board_fav_icon_size"
+                android:layout_height="@dimen/live_name_board_fav_icon_size"
+                android:layout_toStartOf="@id/live_leave_btn"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/live_name_board_fav_icon_margin"
+                android:layout_marginStart="@dimen/live_name_board_fav_icon_margin"
+                android:layout_marginRight="@dimen/live_name_board_fav_icon_margin"
+                android:layout_marginEnd="@dimen/live_name_board_fav_icon_margin"
+                android:src="@drawable/ic_fav"
+                android:background="@drawable/live_name_board_fav_bg"/>
+            <TextView
+                android:id="@+id/live_room_name"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/live_name_text_height"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@id/live_name_board_icon"
+                android:layout_toEndOf="@id/live_name_board_icon"
+                android:layout_toLeftOf="@id/fav_icon"
+                android:layout_toStartOf="@id/fav_icon"
+                android:layout_marginLeft="@dimen/live_name_text_margin_left"
+                android:layout_marginStart="@dimen/live_name_text_margin_left"
+                android:textAlignment="gravity"
+                android:gravity="bottom"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/text_size_medium"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"/>
+            <TextView
+                android:id="@+id/live_room_broadcaster_uid"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/live_name_text_height"
+                android:layout_toRightOf="@id/live_name_board_icon"
+                android:layout_toEndOf="@id/live_name_board_icon"
+                android:layout_below="@id/live_room_name"
+                android:layout_toLeftOf="@id/fav_icon"
+                android:layout_toStartOf="@id/fav_icon"
+                android:layout_marginLeft="@dimen/live_name_text_margin_left"
+                android:layout_marginStart="@dimen/live_name_text_margin_left"
+                android:textAlignment="gravity"
+                android:gravity="top"
+                android:text="@string/fake_user_name"
+                android:textColor="@color/gray_lightest"
+                android:textSize="@dimen/text_size_small"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottom_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/live_bottom_layout_margin"
+        android:layout_marginStart="@dimen/live_bottom_layout_margin"
+        android:layout_marginRight="@dimen/live_bottom_layout_margin"
+        android:layout_marginEnd="@dimen/live_bottom_layout_margin"
+        android:layout_marginBottom="@dimen/live_bottom_layout_margin">
+        <ImageView
+            android:id="@+id/live_btn_switch_camera"
+            android:layout_width="@dimen/live_bottom_btn_size"
+            android:layout_height="@dimen/live_bottom_btn_size"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/live_bottom_btn_margin"
+            android:layout_marginEnd="@dimen/live_bottom_btn_margin"
+            android:src="@drawable/btn_switch_camera"
+            android:scaleType="centerCrop"
+            android:background="@drawable/rounded_bg_full_transparent"
+            android:onClick="onSwitchCameraClicked"/>
+        <!--ImageView
+            android:id="@+id/live_btn_beautification"
+            android:layout_width="@dimen/live_bottom_btn_size"
+            android:layout_height="@dimen/live_bottom_btn_size"
+            android:layout_toRightOf="@id/live_btn_switch_camera"
+            android:layout_toEndOf="@id/live_btn_switch_camera"
+            android:layout_marginLeft="@dimen/live_bottom_btn_margin"
+            android:layout_marginStart="@dimen/live_bottom_btn_margin"
+            android:layout_centerVertical="true"
+            android:src="@drawable/btn_beauty"
+            android:scaleType="centerCrop"
+            android:background="@drawable/rounded_bg_full_transparent"
+            android:onClick="onBeautyClicked"/-->
+        <!--ImageView
+            android:id="@+id/live_btn_more"
+            android:layout_width="@dimen/live_bottom_btn_size"
+            android:layout_height="@dimen/live_bottom_btn_size"
+            android:layout_toRightOf="@id/live_btn_switch_camera"
+            android:layout_toEndOf="@id/live_btn_switch_camera"
+            android:layout_marginLeft="@dimen/live_bottom_btn_margin"
+            android:layout_marginStart="@dimen/live_bottom_btn_margin"
+            android:layout_centerVertical="true"
+            android:src="@drawable/btn_more"
+            android:scaleType="centerCrop"
+            android:background="@drawable/rounded_bg_full_transparent"
+            android:onClick="onMoreClicked"/-->
+        <!--ImageView
+            android:id="@+id/live_btn_push_stream"
+            android:layout_width="@dimen/live_bottom_btn_size"
+            android:layout_height="@dimen/live_bottom_btn_size"
+
+            android:layout_toRightOf="@id/live_btn_mute_audio"
+            android:layout_toEndOf="@id/live_btn_mute_audio"
+            android:layout_centerVertical="true"
+            android:src="@drawable/btn_push_stream"
+            android:scaleType="centerCrop"
+            android:background="@drawable/rounded_bg_full_transparent"
+            android:onClick="onPushStreamClicked"/-->
+        <ImageView
+            android:id="@+id/live_btn_mute_audio"
+            android:layout_width="@dimen/live_bottom_btn_size"
+            android:layout_height="@dimen/live_bottom_btn_size"
+            android:layout_toRightOf="@id/live_btn_mute_video"
+            android:layout_toEndOf="@id/live_btn_mute_video"
+            android:layout_marginRight="@dimen/live_bottom_btn_margin"
+            android:layout_marginEnd="@dimen/live_bottom_btn_margin"
+            android:layout_centerVertical="true"
+            android:src="@drawable/btn_mute_audio"
+            android:scaleType="centerCrop"
+            android:background="@drawable/rounded_bg_full_transparent"
+            android:onClick="onMuteAudioClicked"/>
+        <ImageView
+            android:id="@+id/live_btn_mute_video"
+            android:layout_width="@dimen/live_bottom_btn_size"
+            android:layout_height="@dimen/live_bottom_btn_size"
+            android:layout_toRightOf="@id/live_btn_switch_camera"
+            android:layout_toEndOf="@id/live_btn_switch_camera"
+            android:layout_marginRight="@dimen/live_bottom_btn_margin"
+            android:layout_marginEnd="@dimen/live_bottom_btn_margin"
+            android:layout_centerVertical="true"
+            android:src="@drawable/btn_mute_video"
+            android:scaleType="centerCrop"
+            android:background="@drawable/rounded_bg_full_transparent"
+            android:onClick="onMuteVideoClicked"/>
+    </RelativeLayout>
+    <!--控制-->
+
+    <RelativeLayout
+        android:layout_width="230dp"
+        android:layout_height="match_parent"
+        android:paddingTop="100dp"
+        android:paddingBottom="200dp"
+        android:layout_alignParentRight="true">
+        <TextView
+            android:id="@+id/message_title"
+            android:layout_width="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="@color/white" />
+
+        <!--<ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:onClick="onClickFinish"
+            android:padding="5dp"
+            android:src="@drawable/icon_back" />-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/message_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/cardview_shadow_start_color"
+            android:layout_above="@+id/message_edittiext"
+            android:layout_below="@+id/message_title"
+            />
+        <!--<TextView
+            android:id="@+id/selection_chat_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginVertical="20dp"
+            android:layout_toLeftOf="@+id/selection_img_btn"
+            android:background="@color/blue"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="onChatClick"
+            android:paddingLeft="10dp"
+            android:paddingRight="20dp"
+            android:text="@string/str_send"
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:id="@+id/selection_img_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/live_bottom_layout_margin"
+            android:clickable="true"
+            android:gravity="center"
+            android:onClick="onChatClick"
+            android:src="@drawable/ic_image_black_24dp"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/message_edittiext"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="20dp"
+            android:layout_toLeftOf="@+id/selection_chat_btn"
+            android:background="@color/white"
+            android:hint="@string/single_input"
+            android:lines="1"
+            android:padding="5dp" />
+
+
+
+        <ImageView
+            android:id="@+id/big_image"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:onClick="onChatClick"
+            android:visibility="gone" />-->
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/controlLayout0"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="70dp"
+        android:orientation="vertical"
+        android:visibility="visible"
+        tools:visibility="visible">
+
+        <Button
+            android:id="@+id/for_btn"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="90dp"
+            android:onClick="onCarClick"
+            android:background="@drawable/left1"
+            android:text="前进" />
+
+        <Button
+            android:id="@+id/stop_btn"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/for_btn"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="-95dp"
+            android:onClick="onCarClick"
+            android:background="@drawable/cent"
+            android:text="停止" />
+
+        <Button
+            android:id="@+id/right_btn"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/for_btn"
+            android:layout_marginTop="-95dp"
+            android:layout_toEndOf="@+id/for_btn"
+            android:onClick="onCarClick"
+            android:background="@drawable/left1"
+            android:text="右转" />
+
+        <Button
+            android:id="@+id/left_btn"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/for_btn"
+            android:layout_marginTop="-95dp"
+            android:layout_toStartOf="@+id/for_btn"
+            android:onClick="onCarClick"
+            android:background="@drawable/left1"
+            android:text="左转" />
+
+        <Button
+            android:id="@+id/back_btn"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="onCarClick"
+            android:background="@drawable/left1"
+            android:text="后退" />
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            style="@style/Widget.AppCompat.SeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/live_name_board_height"
+            android:layout_above="@+id/for_btn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:max="180"
+            android:progress="60" />
+
+    </RelativeLayout>
+</RelativeLayout>

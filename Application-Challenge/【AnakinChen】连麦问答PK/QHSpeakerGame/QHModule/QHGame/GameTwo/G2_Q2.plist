@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>t</key>
+	<string>中国最耀眼的明星</string>
+	<key>a</key>
+	<array>
+		<array>
+			<string>中国导弹之父</string>
+			<string>钱学森</string>
+		</array>
+		<array>
+			<string>中国原子弹之父</string>
+			<string>钱三强</string>
+		</array>
+		<array>
+			<string>中国氢弹之父</string>
+			<string>于敏</string>
+		</array>
+		<array>
+			<string>中国杂交水稻之父</string>
+			<string>袁隆平</string>
+		</array>
+	</array>
+</dict>
+</plist>

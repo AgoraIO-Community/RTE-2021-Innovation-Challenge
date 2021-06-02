@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>基本视频通话-现在</title>
+    <link href="../static/live/vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/live/live.css" rel="stylesheet">
+    <script src="https://www.layuicdn.com/layui/layui.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui/css/layui.css"/>
+    <script src="../static/live/WebSocket.js"></script>
+</head>
+<body>
+<div style="display: inline-block; width: 100%;" id="joinView">
+    <div style=" width: 100%;height: 100%; min-height:100vh; background: linear-gradient(#1ea0ff,#ffffff);">
+        <div style=" text-align: center; width: 100%;height: 100px; margin-bottom: 10px; background-color: rgba(30,160,255,0)">
+            <img style="width: 100px;height: 100px; margin: -15px -5px -5px -80px; padding: 10px; line-height:100px;"
+                 src="../static/img/logo1.png" alt="智能AR场景模拟书法临摹教学系统"/>
+            <h1 style="display: inline-block;height: auto;line-height:100px; color: #ffffff">智能AR场景模拟书法临摹教学系统</h1>
+        </div>
+        <div style="text-align: center">
+            <button type="button" class="layui-btn layui-btn-normal layui-btn-radius" id="join" onclick="f1()"
+                    style="margin-top: 200px;">进入系统
+            </button>
+            <button type="button" class="layui-btn layui-btn-normal layui-btn-radius" onclick="demo()"
+                    style="margin-top: 200px;" >跳转演示
+            </button>
+        </div>
+    </div>
+</div>
+<div style="display: inline-block;  width: 100%;" hidden id="teachView">
+    <div style="width: 100%;height: 100px; margin-bottom: 10px; background-color: rgba(30,160,255,0.62)">
+        <img style="width: 100px;height: 100px; padding: 15px; margin-top: -5px;margin-bottom: 5px; line-height:100px;"
+             src="../static/img/logo1.png" alt="智能AR场景模拟书法临摹教学系统"/>
+        <h1 style="display: inline-block; color: rgb(255,255,255); height: auto;line-height:100px;">
+            智能AR场景模拟书法临摹教学系统</h1>
+        <div style="display: inline-block;float: right;height: 100%;width: 220px;margin-right: 50px;">
+            <img class="leave"
+                 style="width: 80px;height: 80px; padding: 15px; margin-top: 10px;margin-bottom: 5px;margin-right: -10px;"
+                 src="../static/img/exit.png" alt="退出"/>
+            <h3 class="leave" style="float: right; line-height:100px;margin-right: 30px;">退出教学</h3>
+        </div>
+    </div>
+    <div style="display: block; margin-left: 5%; width: 60%;  float: left;">
+        <div class="container-fluid banner" hidden>
+            <p class="banner-text">Basic Video Call</p>
+            <a class="Header-link "
+               href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG/tree/master/Demo"
+               style="color: rgb(255, 255, 255);fill: rgb(255, 255, 255);fill-rule: evenodd; position: absolute; right: 10px; top: 4px;">
+                <svg aria-hidden="true" class="octicon octicon-mark-github v-align-middle" height="32"
+                     viewBox="0 0 16 16"
+                     width="32">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                          fill-rule="evenodd"></path>
+                </svg>
+            </a>
+        </div>
+
+        <div class="alert alert-success alert-dismissible fade show" id="success-alert" role="alert">
+            <strong>恭喜你！</strong><span> 您以加入此频道 </span>
+            <!--        <a href="" target="_blank">here</a>-->
+            <button aria-label="Close" class="close" data-dismiss="alert" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="success-alert-with-token alert alert-success alert-dismissible fade show" role="alert">
+            <strong>恭喜你！</strong><span> 已成功加入会议室。 </span>
+            <button aria-label="Close" class="close" data-dismiss="alert" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="container">
+            <form id="join-form">
+                <div class="row join-info-group" hidden>
+                    <div class="col-sm">
+                        <p class="join-info-text">AppID</p>
+                        <label for="appid"></label><input id="appid" placeholder="enter appid" required
+                                                          type="text"
+                                                          value="2ef0988591514cb18e77bea03309b9cc">
+                        <p class="tips">如果您不知道自己的appid是什么，请结帐 <a
+                                href="https://docs.agora.io/en/Agora%20Platform/terms?platform=All%20Platforms#a-nameappidaapp-id">this</a>
+                        </p>
+                    </div>
+                    <div class="col-sm" hidden>
+                        <p class="join-info-text">Token(optional)</p>
+                        <label for="token"></label><input id="token" placeholder="enter token" type="text"
+                                                          value="">
+                        <p class="tips">如果您不知道代币是什么，请结帐 <a
+                                href="https://docs.agora.io/en/Agora%20Platform/terms?platform=All%20Platforms#a-namekeyadynamic-key">this</a>
+                        </p>
+                    </div>
+                    <div class="col-sm">
+                        <p class="join-info-text">Channel</p>
+                        <label for="channel"></label><input id="channel" placeholder="enter channel name" required
+                                                            type="text"
+                                                            value="123456">
+                        <p class="tips">如果您不知道自己的频道是什么，请结帐 <a
+                                href="https://docs.agora.io/en/Agora%20Platform/terms?platform=All%20Platforms#channel">this</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="button-group" hidden>
+                    <!--                    <button class="btn btn-primary btn-sm" id="join" type="submit">加入</button>-->
+                    <button class="btn btn-primary btn-sm" disabled id="leave" type="button">离开</button>
+                </div>
+            </form>
+
+            <div class="row video-group">
+                <div class="col" hidden>
+                    <p class="player-name" id="local-player-name"></p>
+                    <div class="player" id="local-player"></div>
+                </div>
+                <div class="w-100"></div>
+                <div class="col">
+                    <div id="remote-playerlist"
+                         style="display: inline-block;width: 1110px;height: 795px;background-color: rgba(143,143,143,0.2)"></div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div style="display: block; margin-right: 5%; width: 30%; float: right;">
+        <canvas height="640" id="canvas" width="640"
+                style="float: left; margin: 0; background-color: rgba(214,214,214,0.62)">
+        </canvas>
+        <div style="float: right;">
+            <button onclick="hw.clear();" type="button" class="niu layui-btn layui-btn-normal layui-btn-radius">清除
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="../static/live/vendor/jquery-3.4.1.min.js"></script>
+<script src="../static/live/vendor/bootstrap.bundle.min.js"></script>
+<script src="../static/live/AgoraRTC_N-4.4.0.js"></script>
+<script src="../static/live/live.js"></script>
+<script>
+
+    try {
+        document.createElement('canvas').getContext('2d');
+    } catch (ex) {
+        alert("您的浏览器不支持画布！")
+    }
+
+    function Handwriting(id) {
+        this.canvas = document.getElementById(id);
+        this.ctx = this.canvas.getContext("2d");
+        drawBackGround(this.ctx);
+        this.ctx.fillStyle = "rgba(0,0,0,0.30)";
+        let _this = this;
+        this.canvas.onmousedown = function (e) {
+            _this.downEvent(e)
+        };
+        this.canvas.onmousemove = function (e) {
+            _this.moveEvent(e)
+        };
+        this.canvas.onmouseup = function (e) {
+            _this.upEvent(e)
+        };
+        this.canvas.onmouseout = function (e) {
+            _this.upEvent(e)
+        };
+        this.moveFlag = false;
+        this.upof = {};
+        this.radius = 0;
+        this.has = [];
+        this.lineMax = 30;
+        this.lineMin = 3;
+        this.linePressure = 1;
+        this.smoothness = 80;
+    }
+
+    function drawBackGround(context) {
+        // 红色矩形
+        context.beginPath();
+        context.lineWidth = "6";
+        context.strokeStyle = "red";
+        context.rect(0, 0, this.canvas.width, this.canvas.height);
+        context.stroke();
+        //画四条虚线
+        context.beginPath();
+        context.lineWidth = "3";
+        context.setLineDash([12]);
+        context.moveTo(0, 0);
+        context.lineTo(this.canvas.width, this.canvas.height);
+        context.moveTo(this.canvas.width / 2, 0);
+        context.lineTo(this.canvas.width / 2, this.canvas.height);
+        context.moveTo(this.canvas.width, 0);
+        context.lineTo(0, this.canvas.height);
+        context.moveTo(this.canvas.width, this.canvas.height / 2);
+        context.lineTo(0, this.canvas.height / 2);
+        context.stroke();
+    }
+
+    Handwriting.prototype.clear = function () {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+        send("clear")
+        drawBackGround(this.ctx);
+    }
+
+    Handwriting.prototype.downEvent = function (e) {
+        ToTransmitData(e, 0)
+        this.moveFlag = true;
+        this.has = [];
+        this.upof = this.getXY(e);
+    }
+
+    Handwriting.prototype.moveEvent = function (e) {
+        if (!this.moveFlag)
+            return;
+        // if (document.getElementById("join").disabled === false)
+        //     return;
+        if (websocket.readyState === websocket.CLOSED) return;
+
+        ToTransmitData(e, 1)
+        let of = this.getXY(e);
+        let up = this.upof;
+        let ur = this.radius;
+        this.has.unshift({time: new Date().getTime(), dis: this.distance(up, of)});
+        let dis = 0;
+        let time = 0;
+        for (let n = 0; n < this.has.length - 1; n++) {
+            dis += this.has[n].dis;
+            time += this.has[n].time - this.has[n + 1].time;
+            if (dis > this.smoothness)
+                break;
+        }
+        let or = Math.min(time / dis * this.linePressure + this.lineMin, this.lineMax) / 2;
+        this.radius = or;
+        this.upof = of;
+        if (this.has.length <= 4)
+            return;
+        let len = Math.round(this.has[0].dis / 2) + 1;
+        for (let i = 0; i < len; i++) {
+            let x = up.x + (of.x - up.x) / len * i;
+            let y = up.y + (of.y - up.y) / len * i;
+            let r = ur + (or - ur) / len * i;
+            this.ctx.beginPath();
+            this.ctx.arc(x, y, r, 0, 2 * Math.PI, true);
+            this.ctx.fill();
+        }
+    }
+
+    Handwriting.prototype.upEvent = function (e) {
+        ToTransmitData(e, 2)
+        this.moveFlag = false;
+    }
+
+    Handwriting.prototype.getXY = function (e) {
+        return {
+            x: e.clientX - this.canvas.offsetLeft + (document.body.scrollLeft || document.documentElement.scrollLeft),
+            y: e.clientY - this.canvas.offsetTop + (document.body.scrollTop || document.documentElement.scrollTop)
+        }
+    }
+
+    Handwriting.prototype.distance = function (a, b) {
+        let x = b.x - a.x, y = b.y - a.y;
+        return Math.sqrt(x * x + y * y);
+    }
+
+    let hw = new Handwriting("canvas");
+    hw.lineMax = 30;
+    hw.lineMin = 3;
+    hw.linePressure = 2.5;
+    hw.smoothness = 100;
+
+    function ToTransmitData(e, p) {
+        // if (document.getElementById("join").disabled === false)
+        //     return;
+        if (websocket.readyState === websocket.CLOSED) {
+
+        } else {
+            send(
+                JSON.stringify(
+                    {
+                        "x": hw.getXY(e).x,
+                        "y": hw.getXY(e).y,
+                        "p": p
+                    }
+                )
+            )
+        }
+    }
+</script>
+</body>
+</html>

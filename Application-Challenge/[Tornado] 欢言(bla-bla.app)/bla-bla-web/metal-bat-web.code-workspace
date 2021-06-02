@@ -1,0 +1,40 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.detectIndentation": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "files.trimTrailingWhitespace": true,
+    "files.watcherExclude": {
+      "**/node_modules": true,
+      "**/build": true,
+      "**/dist": true,
+    },
+    "js/ts.implicitProjectConfig.experimentalDecorators": true,
+    "eslint.runtime": "node",
+    "prettier.configPath": "./.prettierrc",
+    "prettier.requireConfig": true
+  },
+  "extensions": {
+    "recommendations": [
+      "chiragpat.vscode-glimmer",
+      "dakara.dakara-foldplus",
+      "dbaeumer.vscode-eslint",
+      "eamodio.gitlens",
+      "editorconfig.editorconfig",
+      "embertooling.prettier-for-handlebars-vscode",
+      "esbenp.prettier-vscode",
+      "mrmlnc.vscode-postcss-sorting",
+      "ms-vscode.sublime-keybindings",
+      "lifeart.vscode-ember-unstable",
+      "lifeart.vscode-glimmer-syntax",
+      "stylelint.vscode-stylelint",
+      "suchitadoshi1987.file-hopper"
+    ]
+  }
+}

@@ -138,7 +138,7 @@ class LookupFilter @JvmOverloads constructor(
 
     companion object {
 
-        fun FILTER_DEFAULT() = "lut/lut_day_for_night.png"
+        fun FILTER_DEFAULT() = "lut/lut_day_for_night.jpg"
 
         const val NO_FILTER_VERTEX_SHADERX = "" +
                 "attribute vec4 position;\n" +

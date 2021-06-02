@@ -1,0 +1,106 @@
+{
+  "name": "ITalking-Client",
+  "version": "1.0.0",
+  "description": "Create / Share / Explore / Connect",
+  "main": "./dist/electron.js",
+  "scripts": {
+    "compile": "tsc",
+    "watch": "tsc -w",
+    "dev": "yarn compile && node ./dist/dev.js",
+    "start": "yarn compile && electron ./dist/electron.js",
+    "build:all": "yarn compile && electron-builder -mwl",
+    "build:mac": "yarn compile && electron-builder --mac",
+    "build:win": "yarn compile && electron-builder --win",
+    "build:linux": "yarn compile && electron-builder --linux"
+  },
+  "keywords": [
+    "ITalking",
+    "Electron",
+    "voice-chat"
+  ],
+  "author": "Simon Ma <simon@tomotoes.com>",
+  "homepage": "https://github.com/Tomotoes/ITalking/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tomotoes/ITalking"
+  },
+  "bugs": {
+    "url": "https://github.com/Tomotoes/ITalking/issues"
+  },
+  "license": "MIT",
+  "build": {
+    "appId": "com.tomotoes.italking",
+    "productName": "ITalking",
+    "afterSign": "electron-builder-notarize",
+    "mac": {
+      "hardenedRuntime": true,
+      "icon": "icons/icon.png",
+      "category": "public.app-category.social-networking",
+      "entitlements": "settings/entitlements.mac.plist",
+      "extendInfo": {
+        "NSMicrophoneUsageDescription": "Mic access for speech input in voice."
+      },
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "icon": "icons/icon.png",
+      "target": "nsis",
+      "publish": [
+        "github"
+      ]
+    },
+    "linux": {
+      "icon": "icons/icon.png",
+      "target": [
+        "deb",
+        "AppImage",
+        "snap",
+        "tar.gz",
+        "rpm"
+      ],
+      "category": "AudioVideo"
+    },
+    "snap": {
+      "confinement": "strict",
+      "plugs": [
+        "default",
+        "audio-playback",
+        "audio-record",
+        {
+          "browser-support": {
+            "interface": "browser-support",
+            "allow-sandbox": false
+          }
+        }
+      ]
+    },
+    "extraMetadata": {
+      "main": "dist/electron.js"
+    },
+    "directories": {
+      "output": "./builds"
+    },
+    "extends": null
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.168",
+    "@types/node": "^14.14.31",
+    "builder-util": "^22.10.5",
+    "del-cli": "^3.0.1",
+    "electron": "^12.0.2",
+    "electron-build-env": "^0.2.0",
+    "electron-builder": "^22.10.5",
+    "electron-builder-notarize": "^1.2.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.2"
+  },
+  "files": [
+    "./icons/**/*"
+  ],
+  "engines": {
+    "node": "<16"
+  }
+}

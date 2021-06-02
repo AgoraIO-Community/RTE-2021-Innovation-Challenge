@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="public_common_color_a42dd4">#a42dd4</color>
+    <color name="public_common_color_656565">#656565</color>
+    <color name="public_common_color_e8e8e8">#e8e8e8</color>
+    <color name="public_common_color_303030">#303030</color>
+    <color name="public_common_color_9F4BF7">#9F4BF7</color>
+    <color name="public_common_color_222222">#222222</color>
+
+
+<!--    <color name="public_common_color_A04CF7">#A04CF7</color>-->
+<!--    <color name="public_common_color_F6F6F6">#F6F6F6</color>-->
+<!--    <color name="public_common_color_FF9600">#FF9600</color>-->
+<!--    <color name="public_common_color_939393">#939393</color>-->
+<!--    <color name="public_common_color_FFDA2D">#FFDA2D</color>-->
+    <color name="public_common_color_959595">#959595</color>
+<!--    <color name="public_common_color_E4C9FF">#E4C9FF</color>-->
+<!--    <color name="public_common_color_303030">#303030</color>-->
+<!--    <color name="public_common_color_ebebeb">#ebebeb</color>-->
+<!--    <color name="public_common_color_898989">#898989</color>-->
+<!--    <color name="public_common_color_4e4e4e">#4E4E4E</color>-->
+<!--    <color name="public_common_color_F7F7F7">#F7F7F7</color>-->
+<!--    <color name="public_common_color_262626">#262626</color>-->
+<!--    <color name="public_common_color_fff4e5">#FFF4E5</color>-->
+<!--    <color name="public_common_color_ffd40e">#FFD40E</color>-->
+<!--    <color name="public_common_color_88888888">#88888888</color>-->
+<!--    <color name="public_common_color_f3f5f7">#f3f5f7</color>-->
+<!--    <color name="public_common_color_fbf1ff">#fbf1ff</color>-->
+<!--    <color name="public_common_color_eec5ff">#eec5ff</color>-->
+<!--    <color name="public_common_color_f8f8f8">#f8f8f8</color>-->
+<!--    <color name="public_common_color_b2b2b2">#b2b2b2</color>-->
+
+</resources>

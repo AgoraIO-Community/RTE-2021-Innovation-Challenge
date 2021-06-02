@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	android:orientation="vertical"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kangaroo.studentedu.ui.fragment.MeFragment">
+
+
+	<TextView
+		android:id="@+id/username"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="账号 ： sdw"
+		android:drawablePadding="10dp"
+		android:padding="40dp"
+		android:drawableStart="@drawable/ic_baseline_people_24"
+		android:background="@color/white"
+		/>
+	<TextView
+		android:id="@+id/role"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:padding="20dp"
+		android:background="@color/white"
+		android:drawablePadding="10dp"
+		android:paddingStart="30dp"
+		android:drawableStart="@drawable/ic_baseline_privacy_tip_24"
+		android:text="权限 ： teacher" />
+
+	<TextView
+		android:id="@+id/role_type"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:padding="20dp"
+		android:background="@color/white"
+		android:drawablePadding="10dp"
+		android:paddingStart="30dp"
+		android:visibility="gone"
+		android:drawableLeft="@drawable/ic_baseline_policy_24"
+		android:text="老师类型 ： shuxue" />
+
+	<TextView
+		android:layout_marginTop="20dp"
+		android:id="@+id/textView3"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:padding="20dp"
+		android:background="@color/white"
+		android:text="面包派工作室" />
+
+	<TextView
+		android:layout_marginTop="5dp"
+		android:id="@+id/textView4"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:padding="20dp"
+		android:background="@color/white"
+		android:text="版本v1.0.0" />
+
+	<TextView
+		android:layout_marginTop="45dp"
+		android:id="@+id/logout"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:padding="20dp"
+		android:background="@color/lib_color_tomato"
+		android:textColor="@color/white"
+		android:gravity="center"
+		android:text="退出登录" />
+</LinearLayout>

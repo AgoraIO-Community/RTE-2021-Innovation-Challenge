@@ -160,6 +160,11 @@ class MainViewModel : ViewModel() {
                     emClient.logout(false)
                     AVUser.logOut()
                     live.finishLive()
+                    emClient.logout(true)
+                    subscriberUpdate.postValue(false)
+                    subscriberChannelMessagesLD.postValue("")
+                    subscriberChannelMessages.clear()
+                    subscriberChannels.clear()
                 }
                 logout.value = true
             } catch (t: Throwable) {

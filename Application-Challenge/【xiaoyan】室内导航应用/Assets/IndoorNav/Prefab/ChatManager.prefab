@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7268869047854784824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7268869047854784826}
+  - component: {fileID: 7268869047854784827}
+  - component: {fileID: 7268869047854784829}
+  m_Layer: 0
+  m_Name: ChatManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7268869047854784826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7268869047854784824}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 572.32245, y: 438.71182, z: -8.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7268869047854784827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7268869047854784824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fada1dae731e4492a83d78e079c3324b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appId: 
+  token: 
+  ImagePath: 
+  userNameInput: {fileID: 0}
+  channelNameInput: {fileID: 0}
+  channelMsgInputBox: {fileID: 0}
+  peerUserBox: {fileID: 0}
+  peerMessageBox: {fileID: 0}
+  queryUsersBox: {fileID: 0}
+  appIdDisplayText: {fileID: 0}
+  tokenDisplayText: {fileID: 0}
+  messageDisplay: {fileID: 7268869047854784829}
+  UploadImageButton: {fileID: 0}
+  SendMessageButton: {fileID: 0}
+  DownloadImageButton: {fileID: 0}
+--- !u!114 &7268869047854784829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7268869047854784824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2821b8e26f7942a7985b65c466fda06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxMessages: 25
+  chatPanel: {fileID: 0}
+  textPrefab: {fileID: 1044596515752880618, guid: ffde59693ac8ad54d84a9d557b006d96,
+    type: 3}
+  MessageColors:
+    infoColor: {r: 0.086451516, g: 0.63235295, b: 0.013948975, a: 1}
+    errorColor: {r: 0.6544118, g: 0, b: 0, a: 1}
+    playerColor: {r: 0.15700692, g: 0.20094249, b: 0.64705884, a: 1}
+    peerColor: {r: 0.8602941, g: 0.08223397, b: 0.83883053, a: 1}
+    channelColor: {r: 0.0064878957, g: 0.027472794, b: 0.44117647, a: 1}
+  messageList: []
+  ImageDisplay: {fileID: 0}

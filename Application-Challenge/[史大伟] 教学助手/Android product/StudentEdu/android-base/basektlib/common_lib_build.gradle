@@ -1,0 +1,68 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        testInstrumentationRunner rootProject.ext.dependencies.androidJUnitRunner
+        multiDexEnabled true
+        //Arouter路由配置 java配置
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [AROUTER_MODULE_NAME: project.getName()]
+//            }
+//        }
+        // consumerProguardFiles，然后 aar 库项目就会把 proguard 文件打包到 aar 输出中，app 项目用到这中 aar，会在打包时自动应用 aar 中自带的 proguard 文件。完美解决了此类问题。
+        consumerProguardFiles "consumer-rules.pro"
+
+    }
+
+    dexOptions {
+        //使用增量模式构建
+        incremental true
+        //最大堆内存
+        javaMaxHeapSize "8g"  //注意内存是自己电脑内存大小配置
+        //是否支持大工程模式
+        jumboMode = true
+        //预编译
+        preDexLibraries = true
+        //线程数
+        threadCount = 8
+    }
+    androidExtensions {
+        experimental = true
+    }
+}
+
+kotlin {
+    experimental {
+        coroutines 'enable'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    testImplementation rootProject.ext.dependencies.test.junit
+    androidTestImplementation rootProject.ext.dependencies.test.runner
+    androidTestImplementation rootProject.ext.dependencies.test.espresso_core
+
+    kapt rootProject.ext.dependencies.butterknife.butterknife_compiler
+    kapt rootProject.ext.dependencies.tools.moshi_kotlin_codegen
+
+}

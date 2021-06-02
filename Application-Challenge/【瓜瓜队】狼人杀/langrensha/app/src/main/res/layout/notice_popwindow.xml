@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginStart="@dimen/dp_40"
+    android:layout_marginEnd="@dimen/dp_40"
+
+    app:cardBackgroundColor="#1D1D1D"
+    app:cardCornerRadius="5dp"
+    app:contentPadding="2dp"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp"
+        >
+
+    <RelativeLayout
+        android:id="@+id/notice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:background="#6BA5F1"
+        >
+
+        <RelativeLayout
+            android:id="@+id/notice_text_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="#5290E1"
+            android:paddingStart="20dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/notice_top_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="添加好友"
+                android:textColor="#FFFFFF"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                />
+
+            <ImageView
+                android:id="@+id/notice_cancel_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@mipmap/cancel"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="5dp"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/notice_text_layout"
+            >
+
+            <TextView
+                android:id="@+id/notice_content_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请输入UID"
+                android:textColor="#1D1D1D"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"/>
+
+
+            <RelativeLayout
+                android:id="@+id/textlayout"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_below="@id/notice_content_text"
+                android:background="@drawable/textbox"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginTop="15dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                >
+            <EditText
+                android:id="@+id/notice_content_textbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/notice_content_sure"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:background="@drawable/button_sure"
+                android:text="确认"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/textlayout"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="@dimen/dp_10"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,9 @@
+logging:
+  level:
+    top.joeallen.closedboot.dao: trace
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      max-request-size: 200MB

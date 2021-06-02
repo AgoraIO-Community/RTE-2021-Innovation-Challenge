@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="./stylesheets/style-canvas.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3064a9342a.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="./javascripts/jquery-3.6.0.js"></script>
+    <meta name="author" content="damage">
+    <meta charset="utf-8">
+    <meta name="keywords" content="pixel,RTE2021">
+    <html lang="zh-cn">
+    <title>Small pixels, ∞ possibilities</title>
+</head>
+
+<body>
+    <div class="desktop" id="desktop">
+        <canvas width="400" height="400" class="drawer" id="canvas"></canvas>
+        <div id="tools" class="tools">
+            <div id="color-picker">
+                <div class="ColorPalette__list">
+                    <div id="#FFFFFF" onclick="selectColor(this)" class="ColorPalette__color white "
+                        style="background-color: rgb(255, 255, 255);"></div>
+                    <div id="#C2C2C2" onclick="selectColor(this)" class="ColorPalette__color"
+                        style="background-color: rgb(194, 194, 194);"></div>
+                    <div id="#858585" onclick="selectColor(this)" class="ColorPalette__color"
+                        style="background-color: rgb(133, 133, 133);"></div>
+                    <div id="#474747" onclick="selectColor(this)" class="ColorPalette__color"
+                        style="background-color: rgb(71, 71, 71);"></div>
+                    <div id="#000000" onclick="selectColor(this)" class="ColorPalette__color no-right active"
+                        style="background-color: rgb(0, 0, 0);"></div>
+                    <div id="#3AAFFF" onclick="selectColor(this)" class="ColorPalette__color"
+                        style="background-color: rgb(58, 175, 255);"></div>
+                    <div id="#71AAEB" onclick="selectColor(this)" class="ColorPalette__color"
+                        style="background-color: rgb(113, 170, 235);"></div>
+                    <div id="#4a76a8" onclick="selectColor(this)" class="ColorPalette__color"
+                        style="background-color: rgb(74, 118, 168);"></div>
+                    <div id="#074BF3" onclick="selectColor(this)" class="ColorPalette__color"
+                        style="background-color: rgb(7, 75, 243);"></div>
+                    <div id="#5E30EB" onclick="selectColor(this)" class="ColorPalette__color no-right"
+                        style="background-color: rgb(94, 48, 235);">
+                    </div>
+                    <div id="#FF6C5B" onclick="selectColor(this)" class="ColorPalette__color"
+                        style="background-color: rgb(255, 108, 91);"></div>
+                    <div id="#FE2500" onclick="selectColor(this)" class="ColorPalette__color"
+                        style="background-color: rgb(254, 37, 0);"></div>
+                    <div id="#FF218B" onclick="selectColor(this)" class="ColorPalette__color"
+                        style="background-color: rgb(255, 33, 139);"></div>
+                    <div id="#99244F" onclick="selectColor(this)" class="ColorPalette__color"
+                        style="background-color: rgb(153, 36, 79);"></div>
+                    <div id="#4D2C9C" onclick="selectColor(this)" class="ColorPalette__color no-right"
+                        style="background-color: rgb(77, 44, 156);">
+                    </div>
+                    <div id="#FFCF4A" onclick="selectColor(this)" class="ColorPalette__color"
+                        style="background-color: rgb(255, 207, 74);"></div>
+                    <div id="#FEB43F" onclick="selectColor(this)" class="ColorPalette__color"
+                        style="background-color: rgb(254, 180, 63);"></div>
+                    <div id="#FE8648" onclick="selectColor(this)" class="ColorPalette__color"
+                        style="background-color: rgb(254, 134, 72);"></div>
+                    <div id="#FF5B36" onclick="selectColor(this)" class="ColorPalette__color"
+                        style="background-color: rgb(255, 91, 54);"></div>
+                    <div id="#DA5100" onclick="selectColor(this)" class="ColorPalette__color no-right"
+                        style="background-color: rgb(218, 81, 0);"></div>
+                    <div id="#94E044" onclick="selectColor(this)" class="ColorPalette__color no-bottom"
+                        style="background-color: rgb(148, 224, 68);">
+                    </div>
+                    <div id="#5CBF0D" onclick="selectColor(this)" class="ColorPalette__color no-bottom"
+                        style="background-color: rgb(92, 191, 13);">
+                    </div>
+                    <div id="#C3D117" onclick="selectColor(this)" class="ColorPalette__color no-bottom"
+                        style="background-color: rgb(195, 209, 23);">
+                    </div>
+                    <div id="#FCC700" onclick="selectColor(this)" class="ColorPalette__color no-bottom"
+                        style="background-color: rgb(252, 199, 0);">
+                    </div>
+                    <div id="#D38301" onclick="selectColor(this)" class="ColorPalette__color no-right no-bottom"
+                        style="background-color: rgb(211, 131, 1);"></div>
+                </div>
+            </div>
+            <div id="coordinate">
+               <div id = "selectedCoord">
+                <div class="row">
+                    <span>
+                      <input class="basic-slide" id="selectedX" type="text"/><label >X</label>
+                    </span>
+                    <span>
+                      <input class="basic-slide" id="selectedY" type="text"/><label >Y</label>
+                    </span>
+                  </div>
+               </div>
+            </div>
+            <a id="drawPixelBtn" data-title="画下一个像素" onclick="changePixel()"></a>
+
+        </div>
+        <div id="realTimeCoord"></div>
+    </div>
+
+
+
+
+</body>
+<script async src="./javascripts/canvas.js"></script>
+
+</html>

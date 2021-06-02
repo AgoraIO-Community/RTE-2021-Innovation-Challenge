@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" package="com.kangaroo.studentedu">  
+    <!-- IM SDK required start -->  
+    <uses-permission android:name="android.permission.VIBRATE"/>  
+    <uses-permission android:name="android.permission.INTERNET"/>  
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>  
+    <uses-permission android:name="android.permission.CAMERA"/>  
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>  
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>  
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>  
+    <uses-permission android:name="android.permission.GET_TASKS"/>  
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>  
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>  
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>  
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>  
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>  
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>  
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>  
+    <uses-permission android:name="android.permission.BLUETOOTH"/>  
+    <!-- IM SDK required end -->  
+    <application android:allowBackup="true" android:name=".app.App"
+        android:icon="@mipmap/ic_launcher" android:label="@string/app_name"
+        android:supportsRtl="true" android:theme="@style/AppTheme">
+        <!--        <activity-->  
+        <!--            android:name=".MainActivity"-->  
+        <!--            android:label="@string/app_name"-->  
+        <!--            android:theme="@style/Theme.StudentEdu.NoActionBar">-->  
+        <!--            <intent-filter>-->  
+        <!--                <action android:name="android.intent.action.MAIN" />-->  
+        <!--                <category android:name="android.intent.category.LAUNCHER" />-->  
+        <!--            </intent-filter>-->  
+        <!--        </activity>-->  
+        <meta-data android:name="EASEMOB_APPKEY" android:value="s297165331#eduhelp"/>  
+        <activity android:name="com.kangaroo.studentedu.ui.activity.SplashActivity" android:screenOrientation="portrait"> 
+            <intent-filter> 
+                <action android:name="android.intent.action.MAIN"/>  
+                <category android:name="android.intent.category.LAUNCHER"/> 
+            </intent-filter> 
+        </activity>  
+        <activity android:name="com.kangaroo.studentedu.ui.activity.MainActivity" android:screenOrientation="portrait"/>  
+        <service android:name="com.hyphenate.chat.EMChatService" android:exported="true"/>  
+        <service android:name="com.hyphenate.chat.EMJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="true"/>  
+        <receiver android:name="com.hyphenate.chat.EMMonitorReceiver"> 
+            <intent-filter> 
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>  
+                <data android:scheme="package"/> 
+            </intent-filter>  
+            <intent-filter> 
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>  
+                <action android:name="android.intent.action.USER_PRESENT"/> 
+            </intent-filter> 
+        </receiver>  
+        <activity android:name="com.kangaroo.studentedu.ui.activity.ChatActivity" android:launchMode="singleTask" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustResize"/>  
+        <activity android:name="com.kangaroo.studentedu.ui.activity.LoginActivity" android:screenOrientation="portrait"/>  
+        <activity android:name="com.kangaroo.studentedu.ui.activity.GroupActivity" android:screenOrientation="portrait"/>  
+        <activity android:name="com.kangaroo.studentedu.ui.activity.ChatRoomActivity" android:screenOrientation="portrait"/>  
+        <activity android:name="com.kangaroo.studentedu.ui.activity.QianDaoActivity" android:screenOrientation="portrait"/>  
+        <activity android:name="com.kangaroo.studentedu.ui.activity.MyClassActivity" android:screenOrientation="portrait"/>  
+        <activity android:name="com.kangaroo.studentedu.ui.activity.TongJiActivity" android:screenOrientation="portrait"/>  
+        <activity android:name="com.kangaroo.studentedu.ui.activity.KaoQingActivity" android:screenOrientation="portrait"/>  
+        <activity android:name="com.kangaroo.studentedu.ui.activity.KaoQingListActivity" android:screenOrientation="portrait"/>  
+        <activity android:name="com.kangaroo.studentedu.ui.activity.DianPingActivity" android:screenOrientation="portrait"/>  
+        <activity android:name="com.kangaroo.studentedu.ui.activity.DianPingDetailActivity" android:screenOrientation="portrait"/>  
+        <activity android:name="com.kangaroo.studentedu.ui.activity.EditDianPingActivity" android:screenOrientation="portrait"/>  
+        <activity android:name="com.kangaroo.studentedu.ui.activity.ClassListActivity" android:screenOrientation="portrait"/>  
+        <activity android:name="com.kangaroo.studentedu.ui.activity.PiGaiHomeWorkDetailActivity" android:screenOrientation="portrait"/>  
+        <activity android:name="com.kangaroo.studentedu.ui.activity.PiGaiHomeWorkActivity" android:screenOrientation="portrait"/>  
+        <activity android:name="com.kangaroo.studentedu.ui.activity.BuZhiHomeWorkDetailActivity" android:screenOrientation="portrait"/>  
+        <activity android:name="com.kangaroo.studentedu.ui.activity.BuZhiHomeWorkActivity" android:screenOrientation="portrait"/>  
+        <activity android:name="com.kangaroo.studentedu.ui.activity.XieHomeWorkActivity" android:screenOrientation="portrait"/>  
+        <activity android:name="com.kangaroo.studentedu.ui.activity.XieHomeWorkDeatilActivity" android:screenOrientation="portrait"/>
+    </application> 
+</manifest>

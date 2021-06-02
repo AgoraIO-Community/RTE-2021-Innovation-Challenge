@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.kangaroo.studentedu.ui.activity.EditDianPingActivity">
+
+    <include
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        layout="@layout/lib_include_titlebar"
+        />
+
+
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="10dp"
+        android:background="@color/white"
+        >
+
+        <TextView
+            android:textSize="19dp"
+            android:text="123"
+            android:id="@+id/titlekecheng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="9dp"
+            app:lib_solid_color="#D1CCC4"
+            />
+
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="5"
+            android:stepSize="1.0"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:textSize="17dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="9dp"
+            android:id="@+id/name"
+            android:textColor="@color/white"
+            app:lib_corners_radius="4dp"
+            app:lib_solid_color="#2196F3"
+            app:lib_stroke_color="#3F51B5"
+            app:lib_stroke_dash_gap="5dp"
+            app:lib_stroke_dash_width="10dp"
+            app:lib_stroke_width="2dp"
+            />
+        <EditText
+            android:layout_marginTop="10dp"
+            android:textSize="17dp"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:padding="5dp"
+            android:id="@+id/content"
+            android:hint="请输入评价内容"
+            android:gravity="top"
+            app:lib_corners_radius="4dp"
+            app:lib_solid_color="@color/transparent"
+            app:lib_stroke_color="#E3B666"
+            app:lib_stroke_dash_gap="5dp"
+            app:lib_stroke_dash_width="10dp"
+            app:lib_stroke_width="2dp"
+            />
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请选择图片："
+            android:padding="5dp"
+            />
+
+        <ImageView
+            android:textSize="17dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:padding="5dp"
+            android:id="@+id/img"
+            android:src="@mipmap/public_homework_image_select_photo"
+            android:background="@color/gray"
+            />
+
+        <Button
+            android:layout_marginTop="50dp"
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="提交评价"
+            android:textColor="@color/white"
+            android:textSize="17dp"
+            app:lib_corners_radius="3dp"
+            app:lib_pressed_drawable="#9DD1F6"
+            app:lib_shape="rectangle"
+            app:lib_stroke_width="1dp"
+            app:lib_unenabled_drawable="#9DD1F6"
+            app:lib_unpressed_drawable="#1B82D1"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

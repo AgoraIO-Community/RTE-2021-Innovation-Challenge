@@ -1,0 +1,11 @@
+<div
+  class="dropdown-container"
+>
+  {{yield
+    (hash
+      trigger=(component "dropdown/trigger")
+      content=(component "dropdown/content")
+      item=(component "dropdown/item")
+    )
+  }}
+</div>

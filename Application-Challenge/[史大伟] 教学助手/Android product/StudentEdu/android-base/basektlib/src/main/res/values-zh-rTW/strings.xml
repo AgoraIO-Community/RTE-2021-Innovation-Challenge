@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="libDebugModeIntroduce">
+        \t\t調試模式：在開發階段，為了調試及測試方便，
+        提供測試階段的環境切換，此頁面發佈後的線上環境不顯示。\n
+    </string>
+    <string name="libQuit">app退出</string>
+    <string name="libActivityFrom">來自：</string>
+    <string name="libActivityOutStack">出棧</string>
+    <string name="libActivityInStack">入棧</string>
+    <string name="libFragmentShow">展示</string>
+    <string name="libFragmentClose">關閉</string>
+    <string name="libLodingFontIcon">加載字體圖標</string>
+    <string name="libCloseThreadPool">關閉執行緒池</string>
+    <string name="libWebSend">網頁請求：</string>
+    <string name="libWebSendSuccess">網頁請求成功：</string>
+<string name="libWebSendFail">網頁請求失敗：</string>
+<string name="libWebSendOver">網頁加載完成</string>
+    <string name="libLoding">加載中…</string>
+    <string name="libEmptyAllCountNotEmpty">總條數不能為空</string>
+    <string name="libEmptyNowCountNotEmpty">當前頁總條數不能為空</string>
+    <string name="libEmptyDataNotEmpty">數據不能為空</string>
+    <string name="libDebugConsole">控制台</string>
+    <string name="libDebugConfigFinish">配寘完成</string>
+    <string name="libIsNotEmpty">不能為空</string>
+    <string name="libCrashLogInPhone">奔潰日誌已經記錄在智慧型手機中</string>
+    <string name="libFloatWindowPermission">需要在應用設定中開啟懸浮窗許可權，是否前往開啟許可權？</string>
+    <string name="libYes">是</string>
+    <string name="libNo">否</string>
+    <string name="libFloatWindowNotJumpPermission">無法跳轉至許可權設定頁面，請手動設置或向我迴響</string>
+    <string name="libNetSend">發送請求</string>
+    <string name="libNetGet">接收響應：</string>
+    <string name="libNetGetTime">請求時長：</string>
+    <string name="libNetBackData">返回数据：</string>
+    <string name="libRefresh">重繪</string>
+    <string name="libNotData">暫無數據</string>
+    <string name="libTipTitle">提示標題</string>
+    <string name="libTip">提示</string>
+    <string name="libTipMsg">提示內容！</string>
+    <string name="libCancle">取消</string>
+    <string name="libSure">確定</string>
+    <string name="libRefreshing">重繪中…</string>
+    <string name="libRefreshDown">下拉重繪</string>
+    <string name="libRefreshUp">上拉加載</string>
+    <string name="libRefreshContent">鬆開重繪內容</string>
+    <string name="libFinish">完成</string>
+    <string name="libLodingMore">鬆開加載更多</string>
+    <string name="libLodingFight">努力加載中…</string>
+    <string name="libLodingFinish">加載完成</string>
+    <string name="LibLoadingFailed">加載失敗，請點我重試</string>
+    <string name="LibLoadingNoMoreData">沒有更多數據</string>
+
+    <string name="libSFontCheck">字體圖標為空，該控制項不能正常運行</string>
+    <string name="libNetCheck">當前網絡不可用，請檢查網絡設定</string>
+    <string name="libNetFailCheck">網絡請求失敗，請檢查</string>
+    <string name="libNetNotNetCheck">無網絡，請檢查</string>
+    <string name="libNetUnknownHostCheck">無法找到服務器</string>
+    <string name="libNetTimeOutCheck">網絡請求超時，請檢查</string>
+    <string name="libNetErrorCheck">網絡錯誤</string>
+    <string name="libNetSuccessCheck">網絡請求成功</string>
+    <string name="libNetJsonErrorCheck">json解析錯誤</string>
+    <string name="libSslErrorCheck">證書錯誤</string>
+    <string name="libSocketCloseCheck">連結關閉</string>
+    <string name="libPermissionsReadSdcard">讀取存儲卡內容</string>
+    <string name="libPermissionsWriteSdcard">寫入檔案到存儲卡</string>
+    <string name="libPermissionsCamera">照相功能</string>
+    <string name="libEmptyPageNetError"> Oops，遇到問題了，重繪試試</string>
+    <string name="libEmptyPageNoData">暫時沒有任何數據，去別處看看吧</string>
+    <string name="libEmptyPageCheckCode">頁面异常，檢查程式碼</string>
+    <string name="libBackNotJson">返回非json</string>
+    <string name="libEncryptionError">app解密异常，數據重置</string>
+
+    <string name="libDownloadFailCheck">文件下載失敗</string>
+    <string name="libDownloadLoding">下載中</string>
+
+    <string name="libDownloadisLoding">當前下載任務正在執行</string>
+    <string name="libStoragePermisssionCheck">請檢查存儲許可權</string>
+
+    <string name="libStorageHasWriteCheck">SD卡不可寫入</string>
+    <string name="libStorageNoEnoughSpaceCheck">存儲空間不足</string>
+
+    <string name="libExitErrorMessage">很抱歉，程式發生异常，即將退出</string>
+
+    <string name="libSaveErrorMessage">資料存儲失敗</string>
+    <string name="libGetErrorMessage">獲取數據失敗</string>
+
+    <string name="libPleaseEnterAppSafeCode">請輸入appSafeCode</string>
+
+
+    <string name="libRecordingNotInitialized">錄音尚未初始化</string>
+    <string name="libRecording">正在錄音</string>
+    <string name="libPleaseCheckRecordPermissions">請檢查錄音許可權</string>
+    <string name="libRecordingNotStarted">錄音尚未開始</string>
+    <string name="libRecordingStopped">錄音已經停止</string>
+    <string name="libNotRecorded">沒有在錄音</string>
+
+    <string name="libUninitializedPlaybackTool">未初始化播放工具</string>
+    <string name="libMusicPlaying">音樂正在播放</string>
+    <string name="libMediaStreamLoading">媒體流加載中</string>
+    <string name="libMediaStreamLoadingFailure">媒體流裝載失敗</string>
+    <string name="libNoMusicPlayed">未播放音樂</string>
+</resources>

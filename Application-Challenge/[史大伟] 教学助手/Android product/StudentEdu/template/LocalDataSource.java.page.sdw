@@ -1,0 +1,21 @@
+package {{packagename}}.data.source.local
+
+import com.kangraoo.basektlib.data.DataResult
+import com.kangraoo.basektlib.data.source.local.BaseLocalDataSource
+import {{packagename}}.data.source.{{dataSource}}
+import {{packagename}}.data.model.params.*
+import {{packagename}}.data.model.responses.*
+import com.qdedu.baselibcommon.data.model.responses.BasicApiResult
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+
+/**
+ * 自动生成：by WaTaNaBe on {{now}}.
+ * {{localDataSource}}
+ */
+public class {{localDataSource}} internal constructor(
+     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
+) : BaseLocalDataSource(), {{dataSource}} {
+
+//#06#
+}

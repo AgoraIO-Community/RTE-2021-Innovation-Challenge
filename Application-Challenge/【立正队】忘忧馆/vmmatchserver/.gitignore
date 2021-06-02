@@ -1,0 +1,17 @@
+app/public/uploads/
+logs/
+npm-debug.log
+yarn-error.log
+node_modules/
+package-lock.json
+yarn.lock
+coverage/
+.idea/
+run/
+.DS_Store
+*.sw*
+*.un~
+typings/
+.nyc_output/
+config/config.local.js
+config/config.prod.js
