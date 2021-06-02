@@ -3,5 +3,5 @@
 提取码：ugal 
 
 下载后的：
-文件中voc文件夹为机器学习模型，下载后置于Assets同级目录即可
+文件中voc文件夹为机器学习模型，下载后置于Project同级目录即可
 文件 opencv world3xx，拷贝到Assets的Plugins文件夹
