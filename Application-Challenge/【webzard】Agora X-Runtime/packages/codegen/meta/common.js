@@ -119,9 +119,7 @@ function argumentNodeToArgument(argumentNode) {
   const type = argumentNode.value.kind;
   let value = "";
 
-  if (type === "Variable") {
-    value = argumentNode.value.name.value;
-  } else if (type === "ObjectValue") {
+  const formatObjectValue = (nodeValue) => {
     const output = [];
     const collect = (objectValue) => {
       output.push("{");
@@ -137,7 +135,21 @@ function argumentNodeToArgument(argumentNode) {
       }
       output.push("}");
     };
-    collect(argumentNode.value);
+    collect(nodeValue);
+    return output.join(" ");
+  };
+
+  if (type === "Variable") {
+    value = argumentNode.value.name.value;
+  } else if (type === "ObjectValue") {
+    value = formatObjectValue(argumentNode.value);
+  } else if (type === "ListValue") {
+    const output = [];
+    output.push("[");
+    argumentNode.value.values.forEach((v) => {
+      output.push(formatObjectValue(v));
+    });
+    output.push("]");
     value = output.join(" ");
   }
 

@@ -1,5 +1,5 @@
 query userTable {
-  users(where: {})
+  users(where: {}, orderBy: [{ id: desc }])
     @view(type: "table")
     @modal(
       trigger: "tableRow"

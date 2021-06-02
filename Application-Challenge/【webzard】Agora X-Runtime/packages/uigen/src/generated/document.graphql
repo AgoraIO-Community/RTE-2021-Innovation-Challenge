@@ -60,7 +60,7 @@ mutation createOneLessonForm($data: LessonCreateInput!) {
 }
 
 query userTable {
-  users(where: {}) {
+  users(where: {}, orderBy: [{ id: desc }]) {
     id
     name
     role

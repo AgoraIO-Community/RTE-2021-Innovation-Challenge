@@ -3,6 +3,7 @@ import { Box } from "@chakra-ui/react";
 import RGL, { WidthProvider, Layout } from "react-grid-layout";
 import {
   UserTable,
+  UserKanban,
   CreateOneUserModal,
   CreateOneClassModal,
   DeleteOneUserModal,
@@ -75,8 +76,11 @@ function App() {
         <LayoutItem key="CreateOneUserModal">
           <CreateOneUserModal />
         </LayoutItem>
-        <LayoutItem key="UserModal">
+        <LayoutItem key="UserTable">
           <UserTable />
+        </LayoutItem>
+        <LayoutItem key="UserKanban">
+          <UserKanban />
         </LayoutItem>
         <LayoutItem key="DeleteOneUserModal">
           <DeleteOneUserModal />

@@ -13,21 +13,21 @@ export type FieldsRenderer<T> = {
   [K in keyof T]?: (result: AsyncResult<T[K]>) => React.ReactNode;
 };
 
+export type QueryContext = {
+  path: string;
+  type: string;
+  component: string;
+}
+
 export type Renderer = {
   query: {
-    Int: React.FC<{ value: number }>;
-    Float: React.FC<{ value: number }>;
-    String: React.FC<{ value: string }>;
-    Boolean: React.FC<{ value: boolean }>;
-    Enum: React.FC<{ value: string }>;
-    DateTime: React.FC<{ value: string }>;
-        User?: ((result: AsyncResult<User>) => React.ReactNode)
-      | FieldsRenderer<User>;
-        Class?: ((result: AsyncResult<Class>) => React.ReactNode)
-      | FieldsRenderer<Class>;
-        Lesson?: ((result: AsyncResult<Lesson>) => React.ReactNode)
-      | FieldsRenderer<Lesson>;
-      };
+    Int: React.FC<{ value: number; context: QueryContext }>;
+    Float: React.FC<{ value: number; context: QueryContext }>;
+    String: React.FC<{ value: string; context: QueryContext }>;
+    Boolean: React.FC<{ value: boolean; context: QueryContext }>;
+    Enum: React.FC<{ value: string; context: QueryContext }>;
+    DateTime: React.FC<{ value: string; context: QueryContext }>;
+  };
   mutation: {
     Int: React.FC<UseFormRegisterReturn & { id?: string }>;
     Float: React.FC<UseFormRegisterReturn & { id?: string }>;

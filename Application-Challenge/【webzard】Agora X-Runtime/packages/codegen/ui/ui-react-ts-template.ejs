@@ -91,7 +91,14 @@ export const <%- table.componentName %>: React.FC = () => {
             return (
               <Tr key={entity.<%- table.idName %>} <%- trigger === 'tableRow' ? 'onClick={() => setSelected(entity)}' : '' %>>
                 <% for (const selection of table.selections) { -%>
-                <Td>{entity.<%- selection.path %>}</Td>
+                <Td>{renderer.query.<%- selection.renderType %>({
+                  value: entity.<%- selection.path %>,
+                  context: {
+                    type: "<%- selection.rootType %>",
+                    path: "<%- selection.path %>",
+                    component: "<%- table.componentName %>",
+                  }
+                })}</Td>
                 <% } -%>
               </Tr>
             );
@@ -143,7 +150,14 @@ export const <%- list.componentName %>: React.FC = () => {
         return (
           <ListItem key={entity.<%- list.idName %>} display="flex" justifyContent="space-between" p="6">
             <% for (const selection of list.selections) { -%>
-            <Flex flex="1">{entity.<%- selection.name %>}</Flex>
+            <Flex flex="1">{renderer.query.<%- selection.renderType %>({
+              value: entity.<%- selection.path %>,
+              context: {
+                type: "<%- selection.rootType %>",
+                path: "<%- selection.path %>",
+                component: "<%- table.componentName %>",
+              }
+            })}</Flex>
             <% } -%>
           </ListItem>
         );
@@ -192,7 +206,14 @@ export const <%- kanban.componentName %>: React.FC = () => {
                   borderRadius="md"
                 >
                   <% for (const selection of kanban.selections) { -%>
-                  <Text mt={4}>{entity.<%- selection.name %>}</Text>
+                  <Text mt={4}>{renderer.query.<%- selection.renderType %>({
+                    value: entity.<%- selection.path %>,
+                    context: {
+                      type: "<%- selection.rootType %>",
+                      path: "<%- selection.path %>",
+                      component: "<%- table.componentName %>",
+                    }
+                  })}</Text>
                   <% } -%>
                 </Box>
               );
@@ -322,7 +343,7 @@ export const <%- form.componentName %>: React.FC<<%- form.componentName %>Props>
                 <Box key={field._id}>
                   <Flex justify-content="space-between">
                     <Box flex="1" mb={2}>
-                      <renderer.mutation.<%- field.baseType %>
+                      <renderer.mutation.<%- common.getRenderType(field) %>
                         <%- field.placeholder ? `placeholder="${field.placeholder}"` : '' %>
                         {...register(`<%- field.path %>.${index}.id` as const, {
                           <%- field.nullable ? '' : 'required: "This is required",' %>

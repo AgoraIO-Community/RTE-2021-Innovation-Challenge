@@ -1227,7 +1227,7 @@ export function useCreateOneLessonFormMutation() {
 };
 export const UserTableDocument = gql`
     query userTable {
-  users(where: {}) {
+  users(where: {}, orderBy: [{id: desc}]) {
     id
     name
     role

@@ -59,6 +59,13 @@ function formatMappings(mappings) {
   return output.join(" ");
 }
 
+function getRenderType(item) {
+  if (item.customType === "DateTime") {
+    return item.customType;
+  }
+  return item.baseType;
+}
+
 module.exports = async function (dataMeta, documentMeta) {
   const views = {
     table: [],
@@ -248,21 +255,31 @@ module.exports = async function (dataMeta, documentMeta) {
       dataHookType,
       selections: selection.selections.map((sel) => {
         const output = [];
+        let renderType;
+        let rootType = selection.customType || selection.baseType;
 
         const collect = (_sel) => {
           output.push(_sel.name);
+          renderType = getRenderType(_sel);
           if (_sel.selections.length === 0) {
             // nothing to do
           } else if (_sel.selections.length === 1) {
             collect(_sel.selections[0]);
+            rootType = _sel.customType || _sel.baseType;
           } else {
             const firstNonIdSel = _sel.selections.find((s) => s.name !== "id");
             collect(firstNonIdSel);
+            rootType = _sel.customType || _sel.baseType;
           }
         };
         collect(sel);
 
-        return { ...sel, path: output.join(".") };
+        return {
+          ...sel,
+          path: output.join("."),
+          renderType,
+          rootType,
+        };
       }),
       attributes: selection.attributes,
       idName: selectionWithIdAttr ? selectionWithIdAttr.name : undefined,
@@ -353,6 +370,7 @@ module.exports = async function (dataMeta, documentMeta) {
               }
             }
           },
+          getRenderType,
         },
       }
     ),

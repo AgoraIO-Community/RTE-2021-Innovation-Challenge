@@ -1144,6 +1144,11 @@
               "name": "where",
               "type": "ObjectValue",
               "value": "{ }"
+            },
+            {
+              "name": "orderBy",
+              "type": "ListValue",
+              "value": "[ { id : desc } ]"
             }
           ],
           "nullable": false,

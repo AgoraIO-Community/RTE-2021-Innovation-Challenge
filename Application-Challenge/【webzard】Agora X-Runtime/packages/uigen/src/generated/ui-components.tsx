@@ -150,9 +150,36 @@ export const ClassTable: React.FC = () => {
           {(data.classes || []).map((entity) => {
             return (
               <Tr key={entity.id}>
-                <Td>{entity.id}</Td>
-                <Td>{entity.name}</Td>
-                <Td>{entity.teacher.name}</Td>
+                <Td>
+                  {renderer.query.Int({
+                    value: entity.id,
+                    context: {
+                      type: "Class",
+                      path: "id",
+                      component: "ClassTable",
+                    },
+                  })}
+                </Td>
+                <Td>
+                  {renderer.query.String({
+                    value: entity.name,
+                    context: {
+                      type: "Class",
+                      path: "name",
+                      component: "ClassTable",
+                    },
+                  })}
+                </Td>
+                <Td>
+                  {renderer.query.String({
+                    value: entity.teacher.name,
+                    context: {
+                      type: "User",
+                      path: "teacher.name",
+                      component: "ClassTable",
+                    },
+                  })}
+                </Td>
               </Tr>
             );
           })}
@@ -205,11 +232,56 @@ export const LessonTable: React.FC = () => {
           {(data.lessons || []).map((entity) => {
             return (
               <Tr key={entity.id}>
-                <Td>{entity.id}</Td>
-                <Td>{entity.name}</Td>
-                <Td>{entity.class.name}</Td>
-                <Td>{entity.startedAt}</Td>
-                <Td>{entity.duration}</Td>
+                <Td>
+                  {renderer.query.Int({
+                    value: entity.id,
+                    context: {
+                      type: "Lesson",
+                      path: "id",
+                      component: "LessonTable",
+                    },
+                  })}
+                </Td>
+                <Td>
+                  {renderer.query.String({
+                    value: entity.name,
+                    context: {
+                      type: "Lesson",
+                      path: "name",
+                      component: "LessonTable",
+                    },
+                  })}
+                </Td>
+                <Td>
+                  {renderer.query.String({
+                    value: entity.class.name,
+                    context: {
+                      type: "Class",
+                      path: "class.name",
+                      component: "LessonTable",
+                    },
+                  })}
+                </Td>
+                <Td>
+                  {renderer.query.DateTime({
+                    value: entity.startedAt,
+                    context: {
+                      type: "Lesson",
+                      path: "startedAt",
+                      component: "LessonTable",
+                    },
+                  })}
+                </Td>
+                <Td>
+                  {renderer.query.Int({
+                    value: entity.duration,
+                    context: {
+                      type: "Lesson",
+                      path: "duration",
+                      component: "LessonTable",
+                    },
+                  })}
+                </Td>
               </Tr>
             );
           })}
@@ -262,11 +334,56 @@ export const UserTable: React.FC = () => {
           {(data.users || []).map((entity) => {
             return (
               <Tr key={entity.id} onClick={() => setSelected(entity)}>
-                <Td>{entity.id}</Td>
-                <Td>{entity.name}</Td>
-                <Td>{entity.role}</Td>
-                <Td>{entity.email}</Td>
-                <Td>{entity.createdAt}</Td>
+                <Td>
+                  {renderer.query.Int({
+                    value: entity.id,
+                    context: {
+                      type: "User",
+                      path: "id",
+                      component: "UserTable",
+                    },
+                  })}
+                </Td>
+                <Td>
+                  {renderer.query.String({
+                    value: entity.name,
+                    context: {
+                      type: "User",
+                      path: "name",
+                      component: "UserTable",
+                    },
+                  })}
+                </Td>
+                <Td>
+                  {renderer.query.Enum({
+                    value: entity.role,
+                    context: {
+                      type: "User",
+                      path: "role",
+                      component: "UserTable",
+                    },
+                  })}
+                </Td>
+                <Td>
+                  {renderer.query.String({
+                    value: entity.email,
+                    context: {
+                      type: "User",
+                      path: "email",
+                      component: "UserTable",
+                    },
+                  })}
+                </Td>
+                <Td>
+                  {renderer.query.DateTime({
+                    value: entity.createdAt,
+                    context: {
+                      type: "User",
+                      path: "createdAt",
+                      component: "UserTable",
+                    },
+                  })}
+                </Td>
               </Tr>
             );
           })}
@@ -323,9 +440,36 @@ export const UserList: React.FC = () => {
             justifyContent="space-between"
             p="6"
           >
-            <Flex flex="1">{entity.id}</Flex>
-            <Flex flex="1">{entity.name}</Flex>
-            <Flex flex="1">{entity.role}</Flex>
+            <Flex flex="1">
+              {renderer.query.Int({
+                value: entity.id,
+                context: {
+                  type: "User",
+                  path: "id",
+                  component: "UserTable",
+                },
+              })}
+            </Flex>
+            <Flex flex="1">
+              {renderer.query.String({
+                value: entity.name,
+                context: {
+                  type: "User",
+                  path: "name",
+                  component: "UserTable",
+                },
+              })}
+            </Flex>
+            <Flex flex="1">
+              {renderer.query.Enum({
+                value: entity.role,
+                context: {
+                  type: "User",
+                  path: "role",
+                  component: "UserTable",
+                },
+              })}
+            </Flex>
           </ListItem>
         );
       })}
@@ -368,9 +512,36 @@ export const UserKanban: React.FC = () => {
                   flex="1"
                   borderRadius="md"
                 >
-                  <Text mt={4}>{entity.id}</Text>
-                  <Text mt={4}>{entity.name}</Text>
-                  <Text mt={4}>{entity.role}</Text>
+                  <Text mt={4}>
+                    {renderer.query.Int({
+                      value: entity.id,
+                      context: {
+                        type: "User",
+                        path: "id",
+                        component: "UserTable",
+                      },
+                    })}
+                  </Text>
+                  <Text mt={4}>
+                    {renderer.query.String({
+                      value: entity.name,
+                      context: {
+                        type: "User",
+                        path: "name",
+                        component: "UserTable",
+                      },
+                    })}
+                  </Text>
+                  <Text mt={4}>
+                    {renderer.query.Enum({
+                      value: entity.role,
+                      context: {
+                        type: "User",
+                        path: "role",
+                        component: "UserTable",
+                      },
+                    })}
+                  </Text>
                 </Box>
               );
             })}
@@ -392,9 +563,36 @@ export const UserKanban: React.FC = () => {
                   flex="1"
                   borderRadius="md"
                 >
-                  <Text mt={4}>{entity.id}</Text>
-                  <Text mt={4}>{entity.name}</Text>
-                  <Text mt={4}>{entity.role}</Text>
+                  <Text mt={4}>
+                    {renderer.query.Int({
+                      value: entity.id,
+                      context: {
+                        type: "User",
+                        path: "id",
+                        component: "UserTable",
+                      },
+                    })}
+                  </Text>
+                  <Text mt={4}>
+                    {renderer.query.String({
+                      value: entity.name,
+                      context: {
+                        type: "User",
+                        path: "name",
+                        component: "UserTable",
+                      },
+                    })}
+                  </Text>
+                  <Text mt={4}>
+                    {renderer.query.Enum({
+                      value: entity.role,
+                      context: {
+                        type: "User",
+                        path: "role",
+                        component: "UserTable",
+                      },
+                    })}
+                  </Text>
                 </Box>
               );
             })}
@@ -416,9 +614,36 @@ export const UserKanban: React.FC = () => {
                   flex="1"
                   borderRadius="md"
                 >
-                  <Text mt={4}>{entity.id}</Text>
-                  <Text mt={4}>{entity.name}</Text>
-                  <Text mt={4}>{entity.role}</Text>
+                  <Text mt={4}>
+                    {renderer.query.Int({
+                      value: entity.id,
+                      context: {
+                        type: "User",
+                        path: "id",
+                        component: "UserTable",
+                      },
+                    })}
+                  </Text>
+                  <Text mt={4}>
+                    {renderer.query.String({
+                      value: entity.name,
+                      context: {
+                        type: "User",
+                        path: "name",
+                        component: "UserTable",
+                      },
+                    })}
+                  </Text>
+                  <Text mt={4}>
+                    {renderer.query.Enum({
+                      value: entity.role,
+                      context: {
+                        type: "User",
+                        path: "role",
+                        component: "UserTable",
+                      },
+                    })}
+                  </Text>
                 </Box>
               );
             })}
