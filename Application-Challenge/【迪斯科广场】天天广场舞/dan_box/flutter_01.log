@@ -1,0 +1,91 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run
+
+## exception
+
+DartDevelopmentServiceException: DartDevelopmentServiceException: WebSocketChannelException: WebSocketChannelException: WebSocketException: Connection to 'http://127.0.0.1:41061/nkvPDr4hUGY=/ws#' was not upgraded to websocket
+
+```
+#0      new IOWebSocketChannel._withoutSocket.<anonymous closure> (package:web_socket_channel/io.dart:98:24)
+#1      _invokeErrorHandler (dart:async/async_error.dart:45:24)
+#2      _HandleErrorStream._handleError (dart:async/stream_pipe.dart:272:9)
+#3      _ForwardingStreamSubscription._handleError (dart:async/stream_pipe.dart:157:13)
+#4      _rootRunBinary (dart:async/zone.dart:1378:47)
+#5      _CustomZone.runBinary (dart:async/zone.dart:1272:19)
+#6      _CustomZone.runBinaryGuarded (dart:async/zone.dart:1178:7)
+#7      _BufferingStreamSubscription._sendError.sendError (dart:async/stream_impl.dart:360:15)
+#8      _BufferingStreamSubscription._sendError (dart:async/stream_impl.dart:378:16)
+#9      _BufferingStreamSubscription._addError (dart:async/stream_impl.dart:280:7)
+#10     _SyncStreamControllerDispatch._sendError (dart:async/stream_controller.dart:737:19)
+#11     _StreamController._addError (dart:async/stream_controller.dart:615:7)
+#12     _rootRunBinary (dart:async/zone.dart:1378:47)
+#13     _CustomZone.runBinary (dart:async/zone.dart:1272:19)
+#14     _CustomZone.runBinaryGuarded (dart:async/zone.dart:1178:7)
+#15     _BufferingStreamSubscription._sendError.sendError (dart:async/stream_impl.dart:360:15)
+#16     _BufferingStreamSubscription._sendError (dart:async/stream_impl.dart:378:16)
+#17     _BufferingStreamSubscription._addError (dart:async/stream_impl.dart:280:7)
+#18     _SyncStreamControllerDispatch._sendError (dart:async/stream_controller.dart:737:19)
+#19     _StreamController._addError (dart:async/stream_controller.dart:615:7)
+#20     new Stream.fromFuture.<anonymous closure> (dart:async/stream.dart:166:18)
+#21     _rootRunBinary (dart:async/zone.dart:1378:47)
+#22     _CustomZone.runBinary (dart:async/zone.dart:1272:19)
+#23     _FutureListener.handleError (dart:async/future_impl.dart:169:20)
+#24     Future._propagateToListeners.handleError (dart:async/future_impl.dart:719:47)
+#25     Future._propagateToListeners (dart:async/future_impl.dart:740:24)
+#26     Future._completeError (dart:async/future_impl.dart:550:5)
+#27     Future._asyncCompleteError.<anonymous closure> (dart:async/future_impl.dart:606:7)
+#28     _rootRun (dart:async/zone.dart:1354:13)
+#29     _CustomZone.run (dart:async/zone.dart:1258:19)
+#30     _CustomZone.runGuarded (dart:async/zone.dart:1162:7)
+#31     _CustomZone.bindCallbackGuarded.<anonymous closure> (dart:async/zone.dart:1202:23)
+#32     _microtaskLoop (dart:async/schedule_microtask.dart:40:21)
+#33     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49:5)
+#34     _runPendingImmediateCallback (dart:isolate-patch/isolate_patch.dart:120:13)
+#35     _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:185:5)
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel stable, 2.2.1, on Linux, locale zh_CN.UTF-8)
+    • Flutter version 2.2.1 at /home/fxt0706/Application/flutter
+    • Framework revision 02c026b03c (5 天前), 2021-05-27 12:24:44 -0700
+    • Engine revision 0fdb562ac8
+    • Dart version 2.13.1
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 30.0.3)
+    • Android SDK at /home/fxt0706/Application/android-sdk
+    • Platform android-30, build-tools 30.0.3
+    • ANDROID_HOME = /home/fxt0706/Application/android-sdk
+    • Java binary at: /home/fxt0706/Software/android-studio/jre/bin/java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_242-release-1644-b3-6222593)
+    • All Android licenses accepted.
+
+[✓] Chrome - develop for the web
+    • CHROME_EXECUTABLE = /usr/bin/google-chrome
+
+[✓] Android Studio (version 4.1)
+    • Android Studio at /home/fxt0706/Software/android-studio
+    • Flutter plugin version 55.0.1
+    • Dart plugin version 201.9335
+    • Java version OpenJDK Runtime Environment (build 1.8.0_242-release-1644-b3-6222593)
+
+[✓] VS Code (version 1.55.1)
+    • VS Code at /usr/share/code
+    • Flutter extension version 3.22.0
+
+[!] Proxy Configuration
+    • HTTP_PROXY is set
+    • NO_PROXY is localhost,127.0.0.0/8,::1
+    ! NO_PROXY does not contain 127.0.0.1
+    • NO_PROXY contains localhost
+
+[✓] Connected device (1 available)
+    • Chrome (web) • chrome • web-javascript • Google Chrome 90.0.4430.212
+
+! Doctor found issues in 1 category.
+```

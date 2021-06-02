@@ -1,0 +1,69 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:1:1-18:12
+INJECTED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:1:1-18:12
+INJECTED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:1:1-18:12
+	package
+		ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:3:3-38
+		INJECTED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml
+		INJECTED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:2:3-49
+	xmlns:android
+		ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:5:3-73
+	android:name
+		ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:5:20-70
+uses-permission#android.permission.INTERNET
+ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:6:3-65
+	android:name
+		ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:6:20-62
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:7:3-69
+	android:name
+		ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:7:20-66
+uses-permission#android.permission.CAMERA
+ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:8:3-63
+	android:name
+		ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:8:20-60
+uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
+ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:9:3-78
+	android:name
+		ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:9:20-75
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:10:3-77
+	android:name
+		ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:10:20-74
+uses-permission#android.permission.BLUETOOTH
+ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:11:3-66
+	android:name
+		ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:11:20-63
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:12:3-74
+	android:name
+		ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:12:20-71
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:13:3-78
+	android:name
+		ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:13:20-75
+uses-permission#android.permission.READ_PRIVILEGED_PHONE_STATE
+ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:14:3-16:43
+	tools:ignore
+		ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:16:5-40
+	android:name
+		ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:15:5-66
+uses-sdk
+INJECTED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml
+INJECTED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml
+INJECTED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml
+INJECTED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml
+		ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml
+		INJECTED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml
+		ADDED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml
+		INJECTED from /home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml

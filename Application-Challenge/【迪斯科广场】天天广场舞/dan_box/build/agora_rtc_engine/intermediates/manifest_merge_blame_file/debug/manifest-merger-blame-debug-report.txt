@@ -1,0 +1,46 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    xmlns:tools="http://schemas.android.com/tools"
+4    package="io.agora.agora_rtc_engine" >
+5
+6    <uses-sdk
+7        android:minSdkVersion="16"
+7-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml
+8        android:targetSdkVersion="28" />
+8-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml
+9
+10    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+10-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:5:3-73
+10-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:5:20-70
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:6:3-65
+11-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:6:20-62
+12    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+12-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:7:3-69
+12-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:7:20-66
+13    <uses-permission android:name="android.permission.CAMERA" />
+13-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:8:3-63
+13-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:8:20-60
+14    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+14-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:9:3-78
+14-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:9:20-75
+15    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+15-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:10:3-77
+15-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:10:20-74
+16    <uses-permission android:name="android.permission.BLUETOOTH" />
+16-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:11:3-66
+16-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:11:20-63
+17    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+17-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:12:3-74
+17-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:12:20-71
+18    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+18-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:13:3-78
+18-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:13:20-75
+19    <uses-permission
+19-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:14:3-16:43
+20        android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+20-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:15:5-66
+21        tools:ignore="ProtectedPermissions" />
+21-->/home/fxt0706/Application/flutter/.pub-cache/hosted/pub.dartlang.org/agora_rtc_engine-4.0.1/android/src/main/AndroidManifest.xml:16:5-40
+22
+23</manifest>

@@ -1,0 +1,4 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/fightwin/danbox/dan_box/BuildConfig.java
+ com.fightwin.danbox.dan_box.BuildConfig
