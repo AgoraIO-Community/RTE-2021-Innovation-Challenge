@@ -1,0 +1,115 @@
+PODS:
+  - AgoraAudio_iOS (3.4.2)
+  - AgoraRtm_iOS (1.4.5)
+  - Differentiator (5.0.0)
+  - IQKeyboardManager (6.5.6)
+  - Kingfisher (6.3.0)
+  - Mapbox-iOS-SDK (6.3.0):
+    - MapboxMobileEvents (~> 0.10.4)
+  - MapboxMobileEvents (0.10.8)
+  - Pulsator (0.6.0)
+  - R.swift (5.4.0):
+    - R.swift.Library (~> 5.3.0)
+  - R.swift.Library (5.3.0)
+  - ReactorKit (3.0.0):
+    - RxSwift (~> 6.0)
+    - WeakMapTable (~> 1.1)
+  - Reusable (4.1.1):
+    - Reusable/Storyboard (= 4.1.1)
+    - Reusable/View (= 4.1.1)
+  - Reusable/Storyboard (4.1.1)
+  - Reusable/View (4.1.1)
+  - RxCocoa (6.2.0):
+    - RxRelay (= 6.2.0)
+    - RxSwift (= 6.2.0)
+  - RxCoreLocation (1.5.1):
+    - RxCoreLocation/Core (= 1.5.1)
+  - RxCoreLocation/Core (1.5.1):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxDataSources (5.0.0):
+    - Differentiator (~> 5.0)
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxGesture (4.0.2):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxRelay (6.2.0):
+    - RxSwift (= 6.2.0)
+  - RxSwift (6.2.0)
+  - RxViewController (2.0.0):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - SnapKit (5.0.1)
+  - SVProgressHUD (2.2.5)
+  - WeakMapTable (1.2.0)
+
+DEPENDENCIES:
+  - AgoraAudio_iOS
+  - AgoraRtm_iOS
+  - IQKeyboardManager
+  - Kingfisher
+  - Mapbox-iOS-SDK
+  - Pulsator
+  - R.swift
+  - ReactorKit
+  - Reusable
+  - RxCoreLocation
+  - RxDataSources
+  - RxGesture
+  - RxViewController
+  - SnapKit
+  - SVProgressHUD
+
+SPEC REPOS:
+  trunk:
+    - AgoraAudio_iOS
+    - AgoraRtm_iOS
+    - Differentiator
+    - IQKeyboardManager
+    - Kingfisher
+    - Mapbox-iOS-SDK
+    - MapboxMobileEvents
+    - Pulsator
+    - R.swift
+    - R.swift.Library
+    - ReactorKit
+    - Reusable
+    - RxCocoa
+    - RxCoreLocation
+    - RxDataSources
+    - RxGesture
+    - RxRelay
+    - RxSwift
+    - RxViewController
+    - SnapKit
+    - SVProgressHUD
+    - WeakMapTable
+
+SPEC CHECKSUMS:
+  AgoraAudio_iOS: 74e3f73bef751fe584684ce8dab8206b14228fe8
+  AgoraRtm_iOS: 5e3c7b30297cec3075d6d4a9657a0b9fd7387349
+  Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
+  IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
+  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
+  Mapbox-iOS-SDK: 2563ed87ead6ec08f1c2090873977b8a7be335a8
+  MapboxMobileEvents: 36ff53b135aac486eed94b61f813c7967a0c2c6f
+  Pulsator: eb5a9f9be4bdcbd19903984c65deca6aabe50a17
+  R.swift: c533450b0f7dc494e0993f5f1a1db925d84c3006
+  R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
+  ReactorKit: 5348c9881dcb546605b451e32759dccc9937d36e
+  Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
+  RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
+  RxCoreLocation: a78f4cbf32a4c6c47ecccbe22d41ff93b7e8c099
+  RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
+  RxGesture: f059f2aeef966fb17dad56ee440e76410f10e55f
+  RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
+  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  RxViewController: 56486fa0afd629a1d6b5ba077f3b8cd9dc31b5d2
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
+
+PODFILE CHECKSUM: deb98103901ea7bc49ad56267e7566c9347240d4
+
+COCOAPODS: 1.10.1
