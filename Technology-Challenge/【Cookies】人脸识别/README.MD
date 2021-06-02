@@ -7,6 +7,8 @@
 * 微笑识别
 * 打哈欠识别
 
+![tutieshi_320x691_4s](https://user-images.githubusercontent.com/16119393/120501599-4f9c1e00-c3f4-11eb-8243-ddb6ef7a5006.gif)
+![tutieshi_320x691_6s](https://user-images.githubusercontent.com/16119393/120500616-93425800-c3f3-11eb-9cb4-ac79351c9e48.gif)                        ![tutieshi_320x691_10s](https://user-images.githubusercontent.com/16119393/120500666-9c332980-c3f3-11eb-8876-65aa21d36ae7.gif)
 
 ## 使用方法：
 
@@ -21,29 +23,97 @@
 
 ```Objective-C
 ///  初始化
-    @{
-        @"brf.init" : @{
-                          @"width" : @(AgoraVideoDimension640x480.width),
-                          @"height" : @(AgoraVideoDimension640x480.height)
-                        }
-    };
+    NSDictionary *data = @{
+                            @"brf.init" : @{
+                                              @"width" : @(AgoraVideoDimension640x480.width),
+                                              @"height" : @(AgoraVideoDimension640x480.height)
+                                            }
+                         };
 
-    ... 
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+            
+    [self.agoraKit setExtensionPropertyWithVendor:AgoraMediaSourceTypeVideoCamera vendor:vendorName key:@"key" value:jsonString];
+    ...
     ...
   
 ///  传入参数
-    @{
-        @"brf.single_face.enable" : @(YES),
-        @"brf.smile.enable" : @(NO),
-        @"brf.yawn.enable" : @(NO)
+   NSDictionary *data = @{
+                            @"brf.single_face.enable" : @(YES),
+                            @"brf.smile.enable" : @(NO),
+                            @"brf.yawn.enable" : @(NO)
     };
 
     ...
     ...
+
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+            
     [self.agoraKit setExtensionPropertyWithVendor:AgoraMediaSourceTypeVideoCamera vendor:vendorName key:@"key" value:jsonString];
 
 
 ```
+
+
+## 开启 / 关闭特效
+
+> 这里有两个方式，一种是通过传入参数，针对该插件的某个特效进行控制。一种是通过调用 AgoraEngineKit 方法，针对整个插件。后者级别最高。
+
+接口如下
+```
+/// 传入参数
+- (int)setExtensionPropertyWithVendor:(AgoraMediaSourceType)sourceType vendor:(NSString * __nonnull)vendor key:(NSString * __nonnull)key value:(NSString * __nonnull)value;
+/// 整个插件
+- (int)enableExtensionWithVendor:(AgoraMediaSourceType)sourceType vendor:(NSString * __nonnull)vendor enabled:(BOOL)enabled;
+
+```
+
+### Example
+1. 使用参数传递
+```Objective-C
+
+@implementation ViewController {
+    ...
+    ...
+    
+    NSDictionary *data = @{
+                            @"brf.single_face.enable" : @(YES),
+                            @"brf.smile.enable" : @(NO),
+                            @"brf.yawn.enable" : @(NO)
+    };
+
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+            
+    [self.agoraKit setExtensionPropertyWithVendor:AgoraMediaSourceTypeVideoCamera vendor:vendorName key:@"key" value:jsonString];
+    ...
+    ...
+    
+@end
+```
+
+2. 使用 AgoraEngineKit 方法控制
+
+``` Objectice-C
+- (IBAction)tapExtension:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    
+    self.featureButton.enabled = sender.selected;
+    
+    for (TYSM_VENDOR_NAME vendorName in TYSMExtensionManger.sharedInstance.vendorNames) {
+            [self.agoraKit enableExtensionWithVendor:AgoraMediaSourceTypeVideoCamera vendor:vendorName enabled:sender.selected];
+    }
+    
+}
+```
+如图所示：
+
+![tutieshi_320x691_15s](https://user-images.githubusercontent.com/16119393/120506057-27162300-c3f8-11eb-9d85-875dc75b19be.gif)
+
 
 ## 文件结构
 
