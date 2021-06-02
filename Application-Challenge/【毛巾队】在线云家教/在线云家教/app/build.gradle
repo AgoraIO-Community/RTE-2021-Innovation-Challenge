@@ -1,0 +1,103 @@
+def extGet(prop, key) {
+    if (rootProject.ext.has(prop)) {
+        def map = rootProject.ext.get(prop)
+        if (map.containsKey(key)) {
+            return map.get(key)
+        }
+    }
+    return "latest.release"
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        applicationId "io.agora.education"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode 8
+        versionName "6.0.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi-v7a', 'arm64-v8a' //, 'x86', 'armeabi-v7a', 'x86_64'
+        }
+
+        buildConfigField 'String', 'POLICY_URL', '"https://www.agora.io/privacy-policy"'
+        buildConfigField 'String', 'REPLAY_BASE_URL', '"https://agora-adc-artifacts.oss-accelerate.aliyuncs.com"'
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+//            applicationIdSuffix ".debug"
+        }
+        release {
+//            minifyEnabled true
+//            shrinkResources true
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "app"
+    productFlavors {
+        normal {
+            dimension "app"
+            applicationId "io.agora.education"
+            buildConfigField 'String', 'CODE', '"edu-demo"'
+            buildConfigField 'String', 'EXTRA', '"AgoraEducation"'
+        }
+    }
+
+    sourceSets {
+        main {
+            java.srcDir "src/main/java"
+            res.srcDir "src/main/res"
+            jniLibs.srcDir "src/main/jniLibs"
+            manifest.srcFile "src/main/AndroidManifest.xml"
+            assets.srcDir "src/main/assets"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':base')
+    implementation project(':log')
+    implementation project(':timeline')
+    implementation project(':whiteboard')
+//    implementation project(':edusdk-api')
+    implementation project(':edusdk-impl')
+
+    testImplementation "junit:junit:${extGet('dependencies', 'junit:junit')}"
+    androidTestImplementation "androidx.test.ext:junit:${extGet('dependencies', 'androidx.test.ext:junit')}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${extGet('dependencies', 'androidx.test.espresso:espresso-core')}"
+
+    implementation "androidx.constraintlayout:constraintlayout:${extGet('dependencies', 'androidx.constraintlayout:constraintlayout')}"
+    implementation "com.google.android.material:material:${extGet('dependencies', 'com.google.android.material:material')}"
+    implementation "com.google.android.exoplayer:exoplayer:${extGet('dependencies', 'com.google.android.exoplayer:exoplayer')}"
+    implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:${extGet('dependencies', 'com.github.CymChad:BaseRecyclerViewAdapterHelper')}"
+
+    implementation "com.jakewharton:butterknife:${extGet('dependencies', 'com.jakewharton:butterknife')}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${extGet('dependencies', 'com.jakewharton:butterknife-compiler')}"
+
+
+//    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
+
+    implementation 'com.tencent.bugly:crashreport:latest.release' //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
+    implementation 'com.tencent.bugly:nativecrashreport:latest.release' //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
+}
