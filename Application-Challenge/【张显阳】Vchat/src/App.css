@@ -1,0 +1,13 @@
+.local_player {
+  width: 640px;
+  height: 480px;
+}
+.remote_player {
+  width: 640px;
+  height: 480px;
+}
+
+.hidden {
+  width: 0px;
+  height: 0px;
+}
