@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/iv_call_peer_avatar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/person_image"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_call_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintLeft_toRightOf="@+id/iv_call_peer_avatar"
+        app:layout_constraintTop_toTopOf="@+id/iv_call_peer_avatar"
+        />
+
+    <TextView
+        android:id="@+id/tv_call_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_call_nickname"
+        app:layout_constraintTop_toBottomOf="@+id/tv_call_nickname"/>
+</merge>
