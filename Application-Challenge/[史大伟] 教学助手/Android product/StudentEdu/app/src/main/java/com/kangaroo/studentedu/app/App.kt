@@ -89,6 +89,8 @@ class App : SApplication() {
         val eyeCare = 0
         AgoraEduSDK.setConfig(AgoraEduSDKConfig(appId, eyeCare))
         agora = AgoraApplication()
+        agora!!.appId = appId
+        agora!!.appCe = appCe
         BaseActivity.agoraApplication = agora
         agora?.init()
     }

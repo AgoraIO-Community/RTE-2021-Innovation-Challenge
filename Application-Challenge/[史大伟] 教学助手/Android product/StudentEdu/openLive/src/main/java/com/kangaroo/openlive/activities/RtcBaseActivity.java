@@ -39,8 +39,8 @@ public abstract class RtcBaseActivity extends BaseActivity implements EventHandl
         // same channel successfully using the same app id.
         // 2. One token is only valid for the channel name and uid that
         // you use to generate this token.
-        String id = getString(R.string.private_app_id);
-        String ce = getString(R.string.private_app_ce);
+        String id = agoraApplication.appId;
+        String ce = agoraApplication.appCe;
         String channel = config().getChannelName();
 
         int timestamp = (int)(System.currentTimeMillis() / 1000 + 3600);

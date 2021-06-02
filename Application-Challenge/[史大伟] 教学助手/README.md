@@ -4,7 +4,12 @@
 开发环境：
 - Tools : Android Studio 4.1.2
 - os : windows 10
-- code : kotlin				 
+- code : kotlin			
+
+配置文件：
+
+- appId 目录	 com.kangaroo.studentedu.app.appId
+- appCe(证书) 目录	 com.kangaroo.studentedu.app.appCe
 
 运行环境：
 

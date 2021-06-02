@@ -18,12 +18,13 @@ public class AgoraApplication {
     private EngineConfig mGlobalConfig = new EngineConfig();
     private AgoraEventHandler mHandler = new AgoraEventHandler();
     private StatsManager mStatsManager = new StatsManager();
-
+    public String appId = "";
+    public String appCe = "";
     public String user;
 
     public void init(){
         try {
-            mRtcEngine = RtcEngine.create(SApplication.context(), SApplication.context().getString(R.string.private_app_id), mHandler);
+            mRtcEngine = RtcEngine.create(SApplication.context(), appId, mHandler);
             mRtcEngine.setLogFile(FileUtil.initializeLogFile(SApplication.context()));
         } catch (Exception e) {
             e.printStackTrace();
