@@ -11,8 +11,8 @@ namespace indoorNav{
     public class NavRtcManager: MonoBehaviour
     {
         // Use this for initialization
-        private string AppID = "f57a3cb69ecb4072a80d35a49fe13f64";
-        private string TempToken = "006f57a3cb69ecb4072a80d35a49fe13f64IABtqidO+45rQYLR56/h16VpH67VHR5EnAIjQWRkQpmxMQx+f9gAAAAAEADEZWnpOVKzYAEAAQA3UrNg";
+        private string AppID = "your_appid";
+        private string TempToken = "your_token";
         private string ChannelName = "test";
         private Color ActiveMicColor = Color.green;
         private Color DisabledMicColor = Color.red;
