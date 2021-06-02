@@ -29,8 +29,10 @@
   **4、增加对应调性背景音乐同步播放**  
   
   ## 使用说明
-  **appId填写位置:Common/LxLibrary.h->kSDK_appId ** 
-  **token填写位置:Common/LxLibrary.h->kSDK_token **   
+  ***appId填写位置:Common/LxLibrary.h->kSDK_appId***
+  ***token填写位置:Common/LxLibrary.h->kSDK_token***
+  
+  
   ![image](http://hailun-log.oss-cn-beijing.aliyuncs.com/readme.jpg)
 
 
