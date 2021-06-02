@@ -115,10 +115,14 @@ RTC 技术论坛:[https://rtcdeveloper.com/](https://rtcdeveloper.com/)（集成
 
 ## 团队
 **知声团队**
-目标：译音让了农业人
+目标：译音让聋哑人交流沟通无障碍
+
 团队代表：AceZhou
+
 微信：AceZhou20
+
 手机号：18515399610
+
 邮箱：zhoujn@accessible.org.cn
 
----
+
