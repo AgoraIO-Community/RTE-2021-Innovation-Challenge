@@ -1,0 +1,219 @@
+<template>
+	<view class="container">
+		<view class="top">
+			<button type="primary" @click="isJoined0 ? leaveChannel0() : joinChannel0()">{{`${isJoined0 ? 'Leave' : 'Join'} ${channelId0}`}}</button>
+			<button type="primary" @click="isJoined1 ? leaveChannel1() : joinChannel1()">{{`${isJoined1 ? 'Leave' : 'Join'} ${channelId1}`}}</button>
+		</view>
+		<view class="container">
+			<rtc-surface-view v-if="engine" class="local" :uid="0" :channelId="renderChannelId"></rtc-surface-view>
+			<scroll-view class="remoteContainer" scroll-x="true">
+				<view class="remote" v-for="(item, index) in renderChannelId === channelId0 ? remoteUid0 : remoteUid1" :key="index">
+					<rtc-surface-view class="remote" :uid="item" :channelId="renderChannelId" :zOrderMediaOverlay="true"></rtc-surface-view>
+				</view>
+			</scroll-view>
+		</view>
+		<view class="float">
+			<button type="primary" @click="publishChannel0">{{`Publish ${channelId0}`}}</button>
+			<button type="primary" @click="renderChannel0">{{`Render ${channelId0}`}}</button>
+			<button type="primary" @click="publishChannel1">{{`Publish ${channelId1}`}}</button>
+			<button type="primary" @click="renderChannel1">{{`Render ${channelId1}`}}</button>
+		</view>
+	</view>
+</template>
+
+<script>
+	import config from '@/common/agora.config';
+	import permision from "@/js_sdk/wa-permission/permission";
+
+	import RtcEngine, {
+		RtcChannel
+	} from '../../components/Agora-RTC-JS/index';
+	import {
+		ChannelMediaOptions
+	} from '../../components/Agora-RTC-JS/common/Classes';
+	import {
+		ClientRole,
+		ChannelProfile,
+		VideoRemoteState
+	} from '../../components/Agora-RTC-JS/common/Enums';
+	import RtcSurfaceView from '../../components/Agora-RTC-JS/RtcSurfaceView';
+
+	export default {
+		components: {
+			RtcSurfaceView: RtcSurfaceView
+		},
+		data() {
+			return {
+				engine: undefined,
+				channel0: undefined,
+				channel1: undefined,
+				channelId0: 'channel0',
+				channelId1: 'channel1',
+				renderChannelId: 'channel0',
+				isJoined0: false,
+				isJoined1: false,
+				remoteUid0: [],
+				remoteUid1: []
+			}
+		},
+		onLoad() {
+			console.log('onLoad');
+			this.initEngine();
+		},
+		onBackPress() {
+			console.log('onBackPress');
+			this.engine && this.engine.destroy();
+		},
+		methods: {
+			async initEngine() {
+				this.engine = await RtcEngine.create(config.appId);
+
+				await this.engine.enableVideo();
+				await this.engine.startPreview();
+				await this.engine.setChannelProfile(ChannelProfile.LiveBroadcasting);
+				await this.engine.setClientRole(ClientRole.Broadcaster);
+			},
+
+			async joinChannel0() {
+				if (uni.getSystemInfoSync().platform === 'android') {
+					await permision.requestAndroidPermission('android.permission.RECORD_AUDIO');
+					await permision.requestAndroidPermission('android.permission.CAMERA');
+				}
+
+				this.channel0 = await RtcChannel.create(this.channelId0);
+				this.addListener(this.channel0);
+
+				await this.channel0.setClientRole(ClientRole.Broadcaster);
+				await this.channel0.joinChannel(
+					null,
+					null,
+					0,
+					new ChannelMediaOptions(true, true)
+				);
+			},
+
+			async joinChannel1() {
+				if (uni.getSystemInfoSync().platform === 'android') {
+					await permision.requestAndroidPermission('android.permission.RECORD_AUDIO');
+					await permision.requestAndroidPermission('android.permission.CAMERA');
+				}
+
+				this.channel1 = await RtcChannel.create(this.channelId1);
+				this.addListener(this.channel1);
+
+				await this.channel1.setClientRole(ClientRole.Broadcaster);
+				await this.channel1.joinChannel(
+					null,
+					null,
+					0,
+					new ChannelMediaOptions(true, true)
+				);
+			},
+			async addListener(rtcChannel) {
+				const {
+					channelId
+				} = rtcChannel;
+				rtcChannel.addListener('JoinChannelSuccess', (channel, uid, elapsed) => {
+					console.info('JoinChannelSuccess', channel, uid, elapsed);
+					if (channelId === this.channelId0) {
+						this.isJoined0 = true;
+					} else if (channelId === this.channelId1) {
+						this.isJoined1 = true;
+					}
+				});
+				rtcChannel.addListener('UserJoined', (uid, elapsed) => {
+					console.info('UserJoined', channelId, uid, elapsed);
+				});
+				rtcChannel.addListener('UserOffline', (uid, reason) => {
+					console.info('UserOffline', channelId, uid, reason);
+				});
+				rtcChannel.addListener('LeaveChannel', (stats) => {
+					console.info('LeaveChannel', channelId, stats);
+					if (channelId === this.channelId0) {
+						this.isJoined0 = false;
+						this.remoteUid0 = [];
+					} else if (channelId === this.channelId1) {
+						this.isJoined1 = false;
+						this.remoteUid1 = [];
+					}
+				});
+				rtcChannel.addListener(
+					'RemoteVideoStateChanged',
+					(uid, state, reason, elapsed) => {
+						console.info('RemoteVideoStateChanged', uid, state, reason, elapsed);
+						if (state === VideoRemoteState.Starting) {
+							if (channelId === this.channelId0) {
+								this.remoteUid0 = [...this.remoteUid0, uid];
+							} else if (channelId === this.channelId1) {
+								this.remoteUid1 = [...this.remoteUid1, uid];
+							}
+						} else if (state === VideoRemoteState.Stopped) {
+							if (channelId === this.channelId0) {
+								this.remoteUid0 = this.remoteUid0.filter(
+									(value) => value !== uid
+								);
+							} else if (channelId === this.channelId1) {
+								this.remoteUid1 = this.remoteUid1.filter(
+									(value) => value !== uid
+								);
+							}
+						}
+					}
+				);
+			},
+			async publishChannel0() {
+				await this.channel1 && this.channel1.unpublish();
+				await this.channel0 && this.channel0.publish();
+			},
+			async publishChannel1() {
+				await this.channel0 && this.channel0.unpublish();
+				await this.channel1 && this.channel1.publish();
+			},
+			renderChannel0() {
+				this.renderChannelId = this.channelId0;
+			},
+			renderChannel1() {
+				this.renderChannelId = this.channelId1;
+			},
+			async leaveChannel0() {
+				await this.channel0 && this.channel0.leaveChannel();
+			},
+			async leaveChannel1() {
+				await this.channel1 && this.channel1.leaveChannel();
+			}
+		}
+	}
+</script>
+
+<style>
+	.container {
+		flex: 1;
+	}
+
+	.float {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
+
+	.top {
+		/* width: 100%; */
+	}
+
+	.local {
+		flex: 1;
+		background-color: #4CD964;
+	}
+
+	.remoteContainer {
+		position: absolute;
+		left: 0;
+		top: 0;
+		flex-direction: row;
+	}
+
+	.remote {
+		width: 120;
+		height: 120;
+	}
+</style>

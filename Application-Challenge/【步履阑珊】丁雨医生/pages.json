@@ -1,0 +1,196 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/main",
+			"style": {
+				"navigationBarTitleText": "医生列表",
+				"enablePullDownRefresh": true,
+				"navigationBarBackgroundColor": "#F7F8FA",
+				"backgroundColor": "#F7F8FA",
+				"app-plus": {
+					"background": "#F7F8FA"
+				}
+			}
+
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "APIExample"
+			}
+		},
+		{
+			"path": "pages/index/assistance",
+			"style": {
+				"navigationBarTitleText": "设置"
+			}
+		},
+		{
+			"path": "pages/Advanced/MultiChannel",
+			"style": {
+				"navigationBarTitleText": "MultiChannel"
+			}
+		},
+		{
+			"path": "pages/Basic/JoinChannelAudio",
+			"style": {
+				"navigationBarTitleText": "JoinChannelAudio"
+			}
+		},
+		{
+			"path": "pages/Basic/JoinChannelVideo",
+			"style": {
+				"navigationBarTitleText": "JoinChannelVideo"
+			}
+		},
+		{
+			"path": "pages/Basic/StringUid",
+			"style": {
+				"navigationBarTitleText": "StringUid"
+			}
+		}, {
+			"path": "pages/index/doc_detail/doc_detail",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				},
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/customer-consultation/customer-consultation",
+			"style": {
+				"navigationBarTitleText": "我的问诊",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/consultation/picconsultation01",
+			"style": {
+				"navigationBarTitleText": "图文问诊",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#F7F8FA",
+				"backgroundColor": "#F7F8FA",
+				"app-plus": {
+					"background": "#F7F8FA"
+				}
+			}
+
+		}, {
+			"path": "pages/consultation/picconsultation02",
+			"style": {
+				"navigationBarTitleText": "图文问诊",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#F7F8FA",
+				"backgroundColor": "#F7F8FA",
+				"app-plus": {
+					"background": "#F7F8FA"
+				}
+			}
+
+		}, {
+			"path": "pages/consultation/picconsultation10",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				},
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/consultation/picconsultation11",
+			"style": {
+				"navigationBarTitleText": "问题描述",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#F7F8FA",
+				"backgroundColor": "#F7F8FA",
+				"app-plus": {
+					"background": "#F7F8FA"
+				}
+			}
+
+		}, {
+			"path": "pages/consultation/picconsultation12",
+			"style": {
+				"navigationBarTitleText": "患者信息",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#F7F8FA",
+				"backgroundColor": "#F7F8FA",
+				"app-plus": {
+					"background": "#F7F8FA"
+				}
+			}
+
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				},
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "pages/login/forget",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				},
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "pages/login/register",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				},
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "pages/mine/personal-data",
+			"style": {
+				"navigationBarTitleText": "个人资料",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/mine/usersetings",
+			"style": {
+				"navigationBarTitleText": "通用设置",
+				"enablePullDownRefresh": false
+			}
+
+		}
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F7F8FA",
+		"backgroundColor": "#F7F8FA"
+	},
+	"tabBar": {
+		"color": "#bfbfbf",
+		"selectedColor": "#25B4A5",
+		"backgroundColor": "#FFFFFF",
+		"borderStyle": "black",
+		"list": [{
+				"pagePath": "pages/index/main",
+				"iconPath": "static/tabbar/icon_info_nor.png",
+				"selectedIconPath": "static/tabbar/icon_info_gre.png",
+				"text": "消息"
+			},
+			{
+				"pagePath": "pages/customer-consultation/customer-consultation",
+				"iconPath": "static/tabbar/icon_cont_nor.png",
+				"selectedIconPath": "static/tabbar/icon_cont_gre.png",
+				"text": "我的问诊"
+			},
+			{
+				"pagePath": "pages/index/assistance",
+				"iconPath": "static/tabbar/icon_cust_nor.png",
+				"selectedIconPath": "static/tabbar/icon_cust_gre.png",
+				"text": "设置"
+			}
+		]
+	}
+}
