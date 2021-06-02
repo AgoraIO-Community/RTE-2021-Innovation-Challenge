@@ -92,17 +92,11 @@
     _pageArray = [NSMutableArray array];
     _classModelArray = [NSMutableArray array];
     _resouceListArray = [NSMutableArray array];
-    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]){
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
-        [self setStaticGuidePage];
-    }else{
-        //不是第一次启动
-        [self setNetWorkRequest];
-        [self createNavgation];
-        [self createTableView];
-        [self requesData:1];
-        [self requestDataOfTypeClass];
-    }
+    [self setNetWorkRequest];
+    [self createNavgation];
+    [self createTableView];
+    [self requesData:1];
+    [self requestDataOfTypeClass];
     // Do any additional setup after loading the view.
 }
 
