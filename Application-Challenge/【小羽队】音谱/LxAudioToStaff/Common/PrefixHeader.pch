@@ -13,6 +13,7 @@
 #import "MacroDefine.h"
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "LxKeyDefine.h"
 #import <CoreFoundation/CoreFoundation.h>
 #import "LxLibrary.h"
 #import "MBProgressHUD+Helper.h"

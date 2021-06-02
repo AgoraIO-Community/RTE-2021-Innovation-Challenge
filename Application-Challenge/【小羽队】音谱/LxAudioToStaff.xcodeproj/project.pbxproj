@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		268141820250BDF8E3188F22 /* Pods_LxAudioToStaff_LxAudioToStaffUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 060CF774AC566FAA2320C541 /* Pods_LxAudioToStaff_LxAudioToStaffUITests.framework */; };
 		421E837517D9142F2A060C0F /* Pods_LxAudioToStaff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F60E1BF8A00E037AC12F5AEA /* Pods_LxAudioToStaff.framework */; };
+		B43B369B2667301900162EB1 /* LxLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = B43B369A2667301900162EB1 /* LxLibrary.m */; };
 		B4A8126526652B7000B1236A /* LxRecordListVc.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A8126326652B7000B1236A /* LxRecordListVc.m */; };
 		B4A8126626652B7000B1236A /* LxRecordListVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4A8126426652B7000B1236A /* LxRecordListVc.xib */; };
 		B4A8126A26652F4000B1236A /* LxRecordListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A8126826652F4000B1236A /* LxRecordListCell.m */; };
@@ -383,7 +384,6 @@
 		B4DB8D25265F87C500C501EC /* NSArray+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DB8CFA265F87C400C501EC /* NSArray+Helper.m */; };
 		B4DB8D26265F87C500C501EC /* NSTimer+Default.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DB8CFE265F87C400C501EC /* NSTimer+Default.m */; };
 		B4DB8D27265F87C500C501EC /* NSObject+Default.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DB8D02265F87C400C501EC /* NSObject+Default.m */; };
-		B4DB8D2A265F87F900C501EC /* LxLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DB8D28265F87F900C501EC /* LxLibrary.m */; };
 		B4DB8D2E265F894D00C501EC /* UIView+QHUIViewCtg.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DB8D2C265F894D00C501EC /* UIView+QHUIViewCtg.m */; };
 		B4DB8D32265F8A8B00C501EC /* CKNoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DB8D30265F8A8B00C501EC /* CKNoteModel.m */; };
 		B4DB8D35265F9F1600C501EC /* UIImage+RTTint.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DB8D34265F9F1600C501EC /* UIImage+RTTint.m */; };
@@ -497,6 +497,9 @@
 		5FC4A36B903BFE931DBDF84C /* Pods-LxAudioToStaff.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LxAudioToStaff.debug.xcconfig"; path = "Target Support Files/Pods-LxAudioToStaff/Pods-LxAudioToStaff.debug.xcconfig"; sourceTree = "<group>"; };
 		921FE68795755CAC8AF75C3E /* Pods-LxAudioToStaff-LxAudioToStaffUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LxAudioToStaff-LxAudioToStaffUITests.debug.xcconfig"; path = "Target Support Files/Pods-LxAudioToStaff-LxAudioToStaffUITests/Pods-LxAudioToStaff-LxAudioToStaffUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A8249C30394314B3AA2AF2DF /* Pods-LxAudioToStaff-LxAudioToStaffUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LxAudioToStaff-LxAudioToStaffUITests.release.xcconfig"; path = "Target Support Files/Pods-LxAudioToStaff-LxAudioToStaffUITests/Pods-LxAudioToStaff-LxAudioToStaffUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B43B36992667301900162EB1 /* LxLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxLibrary.h; sourceTree = "<group>"; };
+		B43B369A2667301900162EB1 /* LxLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxLibrary.m; sourceTree = "<group>"; };
+		B43B369C266730D500162EB1 /* LxKeyDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LxKeyDefine.h; sourceTree = "<group>"; };
 		B4A8126226652B7000B1236A /* LxRecordListVc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LxRecordListVc.h; sourceTree = "<group>"; };
 		B4A8126326652B7000B1236A /* LxRecordListVc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LxRecordListVc.m; sourceTree = "<group>"; };
 		B4A8126426652B7000B1236A /* LxRecordListVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LxRecordListVc.xib; sourceTree = "<group>"; };
@@ -949,8 +952,6 @@
 		B4DB8CFF265F87C400C501EC /* NSTimer+Default.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Default.h"; sourceTree = "<group>"; };
 		B4DB8D01265F87C400C501EC /* NSObject+Default.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Default.h"; sourceTree = "<group>"; };
 		B4DB8D02265F87C400C501EC /* NSObject+Default.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Default.m"; sourceTree = "<group>"; };
-		B4DB8D28265F87F900C501EC /* LxLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxLibrary.m; sourceTree = "<group>"; };
-		B4DB8D29265F87F900C501EC /* LxLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxLibrary.h; sourceTree = "<group>"; };
 		B4DB8D2B265F886700C501EC /* LxMusicDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxMusicDefine.h; sourceTree = "<group>"; };
 		B4DB8D2C265F894D00C501EC /* UIView+QHUIViewCtg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+QHUIViewCtg.m"; sourceTree = "<group>"; };
 		B4DB8D2D265F894D00C501EC /* UIView+QHUIViewCtg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+QHUIViewCtg.h"; sourceTree = "<group>"; };
@@ -1804,11 +1805,12 @@
 		B4DB8C92265F875C00C501EC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B43B36992667301900162EB1 /* LxLibrary.h */,
+				B43B369A2667301900162EB1 /* LxLibrary.m */,
 				B4DB8C93265F876C00C501EC /* PrefixHeader.pch */,
 				B4DB8C94265F878C00C501EC /* MacroDefine.h */,
-				B4DB8D29265F87F900C501EC /* LxLibrary.h */,
-				B4DB8D28265F87F900C501EC /* LxLibrary.m */,
 				B4DB8D2F265F899C00C501EC /* QHDefine.h */,
+				B43B369C266730D500162EB1 /* LxKeyDefine.h */,
 				B4DB8D98266376B100C501EC /* SpeechKit */,
 			);
 			path = Common;
@@ -2814,7 +2816,6 @@
 				B4DB8D14265F87C500C501EC /* UIView+Default.m in Sources */,
 				B4DB8D16265F87C500C501EC /* UIFont+Default.m in Sources */,
 				B4DB8C82265F83FB00C501EC /* LxMcStaffLineView+MeasureLayout.m in Sources */,
-				B4DB8D2A265F87F900C501EC /* LxLibrary.m in Sources */,
 				B4DB8D21265F87C500C501EC /* NSDictionary+Helper.m in Sources */,
 				B4DB8D09265F87C500C501EC /* LxAvPlayerLayer.m in Sources */,
 				B4DB8D20265F87C500C501EC /* NSDictionary+XmlHelper.m in Sources */,
@@ -2876,6 +2877,7 @@
 				B4DB8D04265F87C400C501EC /* LxSegmentedControl.m in Sources */,
 				B4DB8C8A265F83FB00C501EC /* CKMakeMusic.m in Sources */,
 				B4DB8D1B265F87C500C501EC /* CAShapeLayer+Default.m in Sources */,
+				B43B369B2667301900162EB1 /* LxLibrary.m in Sources */,
 				B4DB8D26265F87C500C501EC /* NSTimer+Default.m in Sources */,
 				B4DB8D17265F87C500C501EC /* UIImageView+Default.m in Sources */,
 				B4DB8D25265F87C500C501EC /* NSArray+Helper.m in Sources */,
@@ -3055,9 +3057,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = ADM37CQZ5K;
 				ENABLE_BITCODE = NO;
-				GCC_PREFIX_HEADER = "/Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/LxAudioToStaff/Common/PrefixHeader.pch";
 				INFOPLIST_FILE = LxAudioToStaff/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3067,8 +3070,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LxAudioToStaff/Lib/makeMusic/Tool",
 				);
-				MARKETING_VERSION = 1.2.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.HaiLun.SmartPainoGame;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.audioToStaff.xytec;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LxAudioToStaff/Lib/makeMusic/LxAudioToStaff-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -3086,9 +3089,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = ADM37CQZ5K;
 				ENABLE_BITCODE = NO;
-				GCC_PREFIX_HEADER = "/Users/davinlee/MineProject/RTE-2021-challenge/RTE-2021-Innovation-Challenge/Application-Challenge/【小羽队】音谱/LxAudioToStaff/Common/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/LxAudioToStaff/Common/PrefixHeader.pch";
 				INFOPLIST_FILE = LxAudioToStaff/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3098,8 +3102,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LxAudioToStaff/Lib/makeMusic/Tool",
 				);
-				MARKETING_VERSION = 1.2.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.HaiLun.SmartPainoGame;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.audioToStaff.xytec;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LxAudioToStaff/Lib/makeMusic/LxAudioToStaff-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

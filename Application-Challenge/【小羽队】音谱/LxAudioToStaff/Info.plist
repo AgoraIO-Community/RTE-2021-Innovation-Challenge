@@ -19,11 +19,13 @@
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>不让我录音，你还玩个啥？赶紧点了</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>允许保存图片</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>不让我翻译，你还玩个啥？赶紧点了</string>
 	<key>UIApplicationSceneManifest</key>
