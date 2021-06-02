@@ -4,10 +4,4 @@
     <!-- PLEASE KEEP THIS App ID IN SAFE PLACE -->
     <!-- Get your own App ID at https://dashboard.agora.io/ -->
     <!-- After you entered the App ID, remove <##> outside of Your App ID -->
-    <string name="private_app_id" translatable="false">287029cb003a4563ac8426b5785da676</string>
-    <string name="private_app_ce" translatable="false">f1f0e078948549a9840dbcf3bba074a8</string>
-    <!-- Obtain a temp Access Token at https://dashboard.agora.io -->
-    <!-- You will need to deploy your own token server for production release -->
-    <!-- Leave this value empty if Security keys/Token is not enabled for your project -->
-    <string name="agora_access_token" translatable="false">006287029cb003a4563ac8426b5785da676IACvupZycYdVOXh7jpM7FSYqg+DveDMXxKBEiNmaCpul8tJjSIgAAAAAEACK525Z9gSvYAEAAQDyBK9g</string>
 </resources>
