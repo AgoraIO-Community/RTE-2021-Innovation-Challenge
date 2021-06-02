@@ -12,8 +12,8 @@ namespace indoorNav
     {
 #pragma warning disable 0649
 
-        private string appId = "f57a3cb69ecb4072a80d35a49fe13f64";
-        private string token = "006f57a3cb69ecb4072a80d35a49fe13f64IACGG3Oh24xjawTVKzIzN7CW1kgquEcbBDB2Rw58h2Vcgwx+f9gAAAAAEAA8g5F5ot6xYAEAAQCh3rFg";
+        private string appId = "your_appid";
+        private string token = "your_token";
 
         [Header("Application Properties")]
         // put absolute path like /Users/yournameonmac/Downloads/mono-boad.jpg  in the Inspector

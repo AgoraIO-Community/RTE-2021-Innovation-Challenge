@@ -14,28 +14,36 @@ namespace indoorNav{
         {
 
         }
-        public void Letsgo(uint uid){
+        public void Letsgo(uint goalUID){
             //start movement on the new path
-            // NavMoveit moveRef = items[uid][0].gameObject.GetComponent<NavMoveit>();
-            NavMoveit moveRef = getMove(uid);
+
+            // bool isFinished = (items[startUID][0].transform.position - items[goalUID][0].transform.position) < 1;
+            uint startUID = NavRtcManager.RemoteUIDs["me"][0];
+            Vector3[] endpoints = new Vector3[] {items[startUID][0].transform.position,items[goalUID][0].transform.position};
+            string name = startUID.ToString() + goalUID.ToString();
+            NavMoveit moveRef = getMove(startUID);
             moveRef.moveToPath = false;
-            moveRef.SetPath(NavWaypointManager.Paths[uid.ToString()]);
+            items[startUID].Add(NavPath(name, endpoints));
+
+            moveRef.SetPath(NavWaypointManager.Paths[name]);
         }
-        public Transform NavPath( uint uid, Vector3[] endpoints){
+        public Transform NavPath( string name, Vector3[] endpoints){
             //nav path generate after set destination
             // GameObject path = (GameObject)Instantiate(pathPrefab);
             // path7  will be replace with new destination name
-            GameObject path = new GameObject(uid.ToString());
-
+            GameObject path = new GameObject(name);
             NavPathManager pathManager = path.AddComponent<NavPathManager>();
-            pathManager.name = uid.ToString();
-            path.name = uid.ToString();
+            pathManager.name = name;
+            path.name = name;
             pathManager.Create(GenerateWayPoints(endpoints));
 
             path.AddComponent<NavPathRenderer>();
             path.GetComponent<LineRenderer>().material = new Material(Shader.Find("Sprites/Default"));
 
-            // WaypointManager.AddPath(path);
+            if(NavWaypointManager.Paths.ContainsKey(name)){
+                NavWaypointManager.Paths.Remove(name);
+                NavWaypointManager.AddPath(path);
+            }
             return path.transform;
         }
         public Transform[] GenerateWayPoints(Vector3[] endpoints){
@@ -63,18 +71,15 @@ namespace indoorNav{
 
             //instantiate walker prefab , walker inital locationlization with random value
             GameObject walker = (GameObject)Instantiate(walkerPrefab, position, rotation);
-            // GameObject walker2 = (GameObject)Instantiate(walkerPrefab, endpoints[0], rotation);
-            // GameObject walker3 = (GameObject)Instantiate(walkerPrefab, endpoints[1], rotation);
             walker.name = "walker"+uid;
             NavMoveit myMove =  walker.GetComponent<NavMoveit>();
             myMove.onStart = false;
-
-            items.Add(uid, new List<Transform> { walker.transform });
+            // items[uid].Add(NavPath(uid, endpoints));
             if(items.ContainsKey(uid)){
-                items[uid].Add(NavPath(uid, endpoints));
+                Debug.Log("there is already worker under this uid!!!!");
             }
             else{
-                Debug.Log("walker uid not in ObjectDic");
+                items.Add(uid, new List<Transform> { walker.transform });
             }
         }
         public NavMoveit getMove(uint uid){
