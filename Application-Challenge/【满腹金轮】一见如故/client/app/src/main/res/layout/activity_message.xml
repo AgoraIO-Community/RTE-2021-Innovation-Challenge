@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jialichun.client.activities.MessageActivity">
+
+    <com.zhy.android.percent.support.PercentFrameLayout
+        android:id="@+id/note_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.zhy.android.percent.support.PercentLinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.zhy.android.percent.support.PercentLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/colorPrimary"
+                android:orientation="horizontal"
+                app:layout_heightPercent="15%w">
+
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:onClick="onClickBack"
+                    android:src="@drawable/back"
+                    app:layout_marginLeftPercent="5%w"
+                    app:layout_widthPercent="3%w" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="消息队列"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp"
+                    app:layout_widthPercent="80%w" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    app:layout_marginRightPercent="5%w"
+                    app:layout_widthPercent="7%w" />
+
+            </com.zhy.android.percent.support.PercentLinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBackground">
+
+                <com.zhy.android.percent.support.PercentLinearLayout
+                    android:id="@+id/note_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.zhy.android.percent.support.PercentLinearLayout
+                        android:id="@+id/maneger"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:background="@color/white"
+                        android:onClick="onClick"
+                        android:orientation="horizontal"
+                        app:layout_heightPercent="22%w">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:src="@drawable/qiao"
+                            app:layout_heightPercent="16%w"
+                            app:layout_marginLeftPercent="6%w"
+                            app:layout_marginTopPercent="3%w"
+                            app:layout_widthPercent="16%w">
+
+
+                        </de.hdodenhof.circleimageview.CircleImageView>
+
+                        <com.zhy.android.percent.support.PercentLinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_widthPercent="60%w">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="管理员"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                app:layout_marginLeftPercent="20%h"
+                                app:layout_marginTopPercent="20%h" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="您好"
+                                android:textColor="@color/grey"
+                                android:textSize="12sp"
+                                app:layout_marginLeftPercent="20%h"
+                                app:layout_marginTopPercent="20%h" />
+
+                        </com.zhy.android.percent.support.PercentLinearLayout>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="12:30"
+                            android:textColor="@color/grey"
+                            android:textSize="12sp"
+                            app:layout_marginLeftPercent="20%h"
+                            app:layout_marginTopPercent="20%h"
+                            app:layout_widthPercent="18%w" />
+
+                    </com.zhy.android.percent.support.PercentLinearLayout>
+
+                    <com.zhy.android.percent.support.PercentLinearLayout
+                        android:id="@+id/cus"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="3dp"
+                        android:background="@color/white"
+                        android:onClick="onClick"
+                        android:orientation="horizontal"
+                        app:layout_heightPercent="22%w">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:src="@drawable/touxiang2"
+                            app:layout_heightPercent="16%w"
+                            app:layout_marginLeftPercent="6%w"
+                            app:layout_marginTopPercent="3%w"
+                            app:layout_widthPercent="16%w">
+
+
+                        </de.hdodenhof.circleimageview.CircleImageView>
+
+                        <com.zhy.android.percent.support.PercentLinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_widthPercent="60%w">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cus_name1"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                app:layout_marginLeftPercent="20%h"
+                                app:layout_marginTopPercent="20%h" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="好久不见"
+                                android:textColor="@color/grey"
+                                android:textSize="12sp"
+                                app:layout_marginLeftPercent="20%h"
+                                app:layout_marginTopPercent="20%h" />
+
+                        </com.zhy.android.percent.support.PercentLinearLayout>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="11:30"
+                            android:textColor="@color/grey"
+                            android:textSize="12sp"
+                            app:layout_marginLeftPercent="20%h"
+                            app:layout_marginTopPercent="20%h"
+                            app:layout_widthPercent="18%w" />
+
+                    </com.zhy.android.percent.support.PercentLinearLayout>
+
+                </com.zhy.android.percent.support.PercentLinearLayout>
+
+
+            </ScrollView>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+    </com.zhy.android.percent.support.PercentFrameLayout>
+</android.support.constraint.ConstraintLayout>

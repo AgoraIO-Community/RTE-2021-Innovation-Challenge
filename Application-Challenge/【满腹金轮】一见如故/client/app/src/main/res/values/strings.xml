@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Via</string>
+    <string name="name">住户姓名</string>
+    <string name="cus_name1">用户123</string>
+    <string name="title_activity_note">NoteActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>

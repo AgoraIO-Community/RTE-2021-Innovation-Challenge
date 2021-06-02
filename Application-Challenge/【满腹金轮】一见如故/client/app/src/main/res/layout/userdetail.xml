@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+    <com.zhy.android.percent.support.PercentFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_heightPercent="97.5%w">
+
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="top"
+            app:layout_heightPercent="67%w"
+            android:src="@drawable/db" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back"
+            app:layout_heightPercent="10%w"
+            app:layout_marginLeftPercent="3%w"
+            app:layout_widthPercent="5%w" />
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_marginLeftPercent="8%w">
+            <com.zhy.android.percent.support.PercentFrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_marginTopPercent="50%w">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/circleImageView2"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:src="@drawable/touxiang"
+                    app:layout_heightPercent="20%w"
+                    app:layout_widthPercent="20%w" />
+            </com.zhy.android.percent.support.PercentFrameLayout>
+            <com.zhy.android.percent.support.PercentLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="住户123"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="20sp"
+                    app:layout_marginTopPercent="3%h" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="2dp"
+                    app:layout_widthPercent="14%h"
+                    app:layout_heightPercent="14%h"
+                    android:src="@drawable/woman"/>
+            </com.zhy.android.percent.support.PercentLinearLayout>
+            <com.example.jialichun.client.view.CircleRec
+                android:layout_width="28dp"
+                android:layout_height="14dp"
+                android:layout_gravity="left"
+                android:layout_marginTop="2dp"
+                android:text="住户"
+                android:textColor="@color/yellow"
+                android:textSize="10sp"
+                app:appBorder="true"
+                app:appBorderColor="@color/yellow"
+                app:appBorderWidth="1dp"
+                app:appRadius="7dp">
+
+            </com.example.jialichun.client.view.CircleRec>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="梅岭苑13栋5单元601室"
+                android:textColor="@color/grey"
+                android:layout_marginTop="8dp"/>
+
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+    </com.zhy.android.percent.support.PercentFrameLayout>
+    <com.example.jialichun.client.view.CircleRec
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="发送消息"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp"
+        app:layout_widthPercent="92%w"
+
+        app:appBorder="false"
+        app:appBgColor="@color/yellow"
+        app:appBorderWidth="1dp"
+        app:appRadius="7dp"/>
+    <com.example.jialichun.client.view.CircleRec
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="屏蔽用户"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp"
+        app:layout_widthPercent="92%w"
+
+        app:appBorder="false"
+        app:appBgColor="@color/white"
+        app:appBorderWidth="1dp"
+        app:appRadius="7dp"/>
+
+</com.zhy.android.percent.support.PercentLinearLayout>
