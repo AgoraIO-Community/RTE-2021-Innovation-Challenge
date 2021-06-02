@@ -1,1 +1,0 @@
-export const DefaultAvatarURL = 'https://ftp.bmp.ovh/imgs/2021/05/c1734c64467ef77c.jpeg';
