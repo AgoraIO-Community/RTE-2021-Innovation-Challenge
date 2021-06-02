@@ -35,5 +35,5 @@
   
   
   ![image](http://hailun-log.oss-cn-beijing.aliyuncs.com/readme.jpg)
-  ***[视频Demo]http://hailun-log.oss-cn-beijing.aliyuncs.com/readme.mp4***
+  ***[视频Demo](http://hailun-log.oss-cn-beijing.aliyuncs.com/readme.mp4)***
 
