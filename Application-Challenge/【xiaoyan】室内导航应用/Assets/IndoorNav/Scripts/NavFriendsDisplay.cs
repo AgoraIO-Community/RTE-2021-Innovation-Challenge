@@ -9,15 +9,36 @@ namespace indoorNav{
     public class NavFriendsDisplay : MonoBehaviour
     {
         // Start is called before the first frame update
-        public Dictionary<uint, List<Transform>> items = new Dictionary<uint, List<Transform>>();
+        public static readonly Dictionary<uint, List<Transform>> items = new Dictionary<uint, List<Transform>>();
         [SerializeField] 
         public GameObject buttonPrefab;
+        [SerializeField] 
+        public GameObject profile;
 
         NavPathBehavior pathBehavior;
         
         void Start()
         {
             pathBehavior = this.GetComponent<NavPathBehavior>();
+        }
+        public void updateProfile(uint uid){
+            TextMeshProUGUI name =  profile.transform.Find("Name").GetComponent<TextMeshProUGUI>();
+            if(name != null){
+                name.SetText(uid.ToString());
+            }
+            else{
+                Debug.LogError("name is a null obj");
+            }
+            Slider powerContainer = profile.GetComponentInChildren<Slider>();
+            if(powerContainer != null){
+                powerContainer.value = Random.Range(0f, 10f);
+            }
+            else{
+                Debug.LogError("powerContainer is null");
+            }
+            // new minimap in canvas
+            // walker.GetComponent<Camera>().targetTexture 
+
         }
         public void UpdateFriends(uint uid){
             GameObject list =  GameObject.Find("Friend List").transform.Find("List").gameObject;
@@ -49,6 +70,7 @@ namespace indoorNav{
             else{
                 Debug.Log("Nav obj is null");
             }
+
         }
         public void Clear(uint uid){
             for (int i = 0; i < items[uid].Count; i++)

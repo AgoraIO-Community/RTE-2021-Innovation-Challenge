@@ -50,8 +50,8 @@ namespace indoorNav{
         NavFriendsDisplay friendsDisplay;
         
 
-        public Dictionary<string, List<uint>> RemoteUIDs = new Dictionary<string, List<uint>>(); // RemotUID to track UID
-        public Dictionary<uint, List<Transform>> ObjectDic = new Dictionary<uint, List<Transform>>();
+        public static readonly Dictionary<string, List<uint>> RemoteUIDs = new Dictionary<string, List<uint>>(); // RemotUID to track UID
+        public static readonly Dictionary<uint, List<Transform>> items = new Dictionary<uint, List<Transform>>();
 
         bool InChannel = false;
 
@@ -118,16 +118,17 @@ namespace indoorNav{
             ReloadAgoraEngine();
             client.LoadEngine(AppID); // load engine
             string appidMSG = string.Format("Initializing client with appid: ${0}", AppID);
-            Debug.Log(appidMSG);
+            // Debug.Log(appidMSG);
 
             // Set up the texture for rendering POV as a texture
+
+            AddCallbackEvents(); // add custom event handling
             if (VirtualCam.isActiveAndEnabled)
             {
                 client.CustomVideo = true;
                 int width = Screen.width;
                 int height = Screen.height;
             }
-            AddCallbackEvents(); // add custom event handling
             if (TokenServerURL != "")
             {
                 client.JoinWithTokenServer(ChannelName, UID, TokenServerURL);
@@ -225,8 +226,8 @@ namespace indoorNav{
             Debug.Log("user added UID:" + uid);
             chatManager.Login(uid.ToString(),TokenServerURL,uid);
             pbehavior.CreateWalker(uid, Quaternion.Euler(0, 90, 0), new Vector3(-1.777f,-1.0f, -1.0f));
-            friendsDisplay.UpdateFriends(uid);
-
+            friendsDisplay.updateProfile(uid);
+            // friendsDisplay.UpdateFriends(uid);
 
             if (VirtualCam != null && VirtualCam.isActiveAndEnabled)
             {
@@ -246,6 +247,9 @@ namespace indoorNav{
             // enable dual stream mode
             IRtcEngine mRtcEngine = IRtcEngine.QueryEngine();
             mRtcEngine.EnableDualStreamMode(true);
+            string remoteUIDtype;
+            remoteUIDtype = "me";
+            RemoteUIDs.Add(remoteUIDtype, new List<uint> { uid });
         }
 
         public void onTriggerJoinNotify(string channelName,uint uid, int elapsed){
@@ -260,7 +264,7 @@ namespace indoorNav{
             }
             else{
 
-                textPro.GetComponent<TextMeshProUGUI>().SetText("remote user added UID:" + uid);
+                textPro.GetComponent<TextMeshProUGUI>().SetText("join channel success with UID:" + uid);
             }
         }
         public void OnTriggerUserNotify(uint uid, int elapsed){
@@ -295,23 +299,36 @@ namespace indoorNav{
 
             pbehavior.CreateWalker(uid, Quaternion.Euler(0, 90, 0), new Vector3(-1.777f,-1.0f, -1.0f));
             friendsDisplay.UpdateFriends(uid);
+            NavSwitchManager onButton = NavFriendsDisplay.items[uid][0].Find("Switch").GetComponent<NavSwitchManager>();
+            // onButton.onEvent.AddListener(()=>{
+            //     VideoShare(uid);
+            //     }
+            // );
             
             remoteUIDtype = "peer";
-            if (RemoteUIDs.ContainsKey(remoteUIDtype))
-            {
+            if (RemoteUIDs.ContainsKey(remoteUIDtype)){
                 RemoteUIDs[remoteUIDtype].Add(uid);
-            } else { 
+            }
+            else{
                 RemoteUIDs.Add(remoteUIDtype, new List<uint> { uid });
             }
-          
+            NavInTextDropdown.AddOption(uid.ToString());
+
+        }
+        public void Clear(uint uid){
+            for (int i = 0; i < items[uid].Count; i++)
+            {
+                GameObject.Destroy(items[uid][i].gameObject);
+            }
         }
 
         public void OnUserOffline(uint uid, USER_OFFLINE_REASON reason)
         {
-            if (ObjectDic.ContainsKey(uid))
+            if (RemoteUIDs["peer"].Contains(uid))
             {
                 // obj.SetEnable(false);
-                // RemoteUIDs.Remove(uid);
+                RemoteUIDs["peer"].Remove(uid);
+                // Clear(uid);
                 pbehavior.Clear(uid);
                 friendsDisplay.Clear(uid);
 
@@ -348,8 +365,8 @@ namespace indoorNav{
             }
             // create a GameObject and assign to this new user
             // VideoSurface videoSurface = makePlaneSurface(uid.ToString(), parentNode, position, rotation, scale);
-            GameObject thumbView = GameObject.Find("PreviewImage");
-            VideoSurface videoSurface = thumbView.GetComponent<VideoSurface>();
+            GameObject thumbView = GameObject.Find("MinimapBorder");
+            VideoSurface videoSurface = thumbView.GetComponentInChildren<VideoSurface>();
             if (videoSurface != null)
             {
                 // configure videoSurface

@@ -2874,7 +2874,7 @@ GameObject:
   - component: {fileID: 1312397761074358947}
   - component: {fileID: 8375562292240203817}
   - component: {fileID: 7490491050015905200}
-  - component: {fileID: 7490491050015905203}
+  - component: {fileID: 8146124329650521771}
   m_Layer: 10
   m_Name: Walker(Custom)
   m_TagString: Player
@@ -2971,7 +2971,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7490491050015905203
+--- !u!114 &8146124329650521771
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2980,7 +2980,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7490491050015905213}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f6d286bc8af6064586611bb74e502a3, type: 3}
+  m_Script: {fileID: 11500000, guid: de0a011ba01561a4dbb8e9f633ada0f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7490491050074471120
