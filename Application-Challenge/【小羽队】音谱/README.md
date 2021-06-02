@@ -29,6 +29,6 @@
   4、增加对应调性背景音乐同步播放
   
   ## 使用说明
-  ![role](http://hailun-log.oss-cn-beijing.aliyuncs.com/readme.jpg)
+  ![image](http://hailun-log.oss-cn-beijing.aliyuncs.com/readme.jpg)
 
 
