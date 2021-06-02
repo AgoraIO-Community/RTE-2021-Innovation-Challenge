@@ -32,6 +32,7 @@ WebRTC的工业应用的场景应用。工业场景的应用不光涉及到人�
     2.1 列表的子模板内也包含navigate 按钮，指派人员或机器到其地址
  
     2.2 列表的头部包含你的设备当前的在线信息和power和地址信息
+ 
 3 .chatroom input field里，可以通过命令行进行指派，比如
  
    ` # user1 # user2 # user3 @ user4`
