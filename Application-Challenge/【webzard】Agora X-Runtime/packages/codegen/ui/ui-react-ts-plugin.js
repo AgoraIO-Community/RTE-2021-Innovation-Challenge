@@ -15,6 +15,8 @@ const viewImportMap = {
     "Button",
     "ModalFooter",
     "useToast",
+    "IconButton",
+    "Flex",
   ],
   button: ["Button"],
   modal: [
@@ -210,14 +212,9 @@ module.exports = async function (dataMeta, documentMeta) {
 
       const walk = (fields, path) => {
         for (const nestField of fields) {
-          const nestPath = `${path}.${nestField.name}${
-            nestField.list ? "[0]" : ""
-          }`;
-          const safePath = nestPath
-            .split(".")
-            .join("?.")
-            .replace(/\[0\]/g, "?.[0]");
-          if (nestField.fields) {
+          const nestPath = `${path}.${nestField.name}`;
+          const safePath = nestPath.split(".").join("?.");
+          if (nestField.fields && !nestField.list) {
             walk(nestField.fields, nestPath);
           } else {
             flattenedFields.push({
@@ -323,6 +320,9 @@ module.exports = async function (dataMeta, documentMeta) {
             }
             output.push("}");
             return output.join(" ");
+          },
+          dotToDash(str) {
+            return str.replace(/\./g, "_");
           },
         },
       }

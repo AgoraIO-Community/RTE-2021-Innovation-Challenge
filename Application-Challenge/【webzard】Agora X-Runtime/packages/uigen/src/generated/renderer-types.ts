@@ -39,6 +39,7 @@ export type Renderer = {
         options: { text: string; value: string }[];
       }
     >;
+    InputObject: React.FC<UseFormRegisterReturn & { id?: string }>;
     DateTime: React.FC<UseFormRegisterReturn & { id?: string }>;
   };
 };

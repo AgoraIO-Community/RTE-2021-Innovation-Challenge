@@ -81,6 +81,28 @@ export const EnumInput = forwardRef<
   );
 });
 
+export const InputObjectInput = forwardRef<
+  UseFormRegisterReturn & { id?: string },
+  "input"
+>((props, ref) => {
+  return (
+    <NumberInput>
+      <NumberInputField
+        {...props}
+        ref={ref}
+        onChange={(evt) => {
+          console.log(evt);
+          props.onChange(evt);
+        }}
+      />
+      <NumberInputStepper>
+        <NumberIncrementStepper />
+        <NumberDecrementStepper />
+      </NumberInputStepper>
+    </NumberInput>
+  );
+});
+
 export const renderer: Renderer = {
   query: {
     Int,
@@ -97,5 +119,6 @@ export const renderer: Renderer = {
     Boolean: Switch,
     Enum: EnumInput,
     DateTime: Input,
+    InputObject: InputObjectInput,
   },
 };

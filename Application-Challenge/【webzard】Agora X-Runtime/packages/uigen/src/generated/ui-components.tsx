@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CombinedError } from "urql";
-import { useForm, DeepPartial } from "react-hook-form";
+import { useForm, DeepPartial, useFieldArray } from "react-hook-form";
 import { renderer } from "../renderer";
 import {
   Spinner,
@@ -24,6 +24,8 @@ import {
   Button,
   ModalFooter,
   useToast,
+  IconButton,
+  Flex,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -33,13 +35,13 @@ import {
   useDisclosure,
   List,
   ListItem,
-  Flex,
   Divider,
   VStack,
   HStack,
   Box,
   Heading,
 } from "@chakra-ui/react";
+import { AddIcon, CloseIcon } from "@chakra-ui/icons";
 import {
   Scalars,
   Role,
@@ -449,15 +451,22 @@ export const CreateOneClassForm: React.FC<CreateOneClassFormProps> = ({
   defaultValues,
 }) => {
   const [, trigger] = useCreateOneClassFormMutation();
+  const toast = useToast();
+
   const {
     handleSubmit,
     register,
     formState: { errors, isSubmitting },
     reset,
+    control,
   } = useForm<CreateOneClassFormValues>({
     defaultValues,
   });
-  const toast = useToast();
+  const data_students_connect_FieldArray = useFieldArray({
+    name: "data.students.connect",
+    control,
+    keyName: "_id",
+  });
 
   async function onSubmit(values: CreateOneClassFormValues) {
     try {
@@ -485,7 +494,7 @@ export const CreateOneClassForm: React.FC<CreateOneClassFormProps> = ({
         <FormLabel htmlFor="data.name">data.name</FormLabel>
         <renderer.mutation.String
           id="data.name"
-          {...register("data.name", {
+          {...register("data.name" as const, {
             required: "This is required",
           })}
         />
@@ -493,28 +502,51 @@ export const CreateOneClassForm: React.FC<CreateOneClassFormProps> = ({
           {errors.data?.name && errors.data.name.message}
         </FormErrorMessage>
       </FormControl>
-      <FormControl isInvalid={Boolean(errors.data?.students?.connect?.[0]?.id)}>
-        <FormLabel htmlFor="data.students.connect[0].id">
-          data.students.connect[0].id
-        </FormLabel>
-        <renderer.mutation.Int
-          id="data.students.connect[0].id"
-          {...register("data.students.connect[0].id", {
-            valueAsNumber: true,
-          })}
-        />
-        <FormErrorMessage>
-          {errors.data?.students?.connect?.[0]?.id &&
-            errors.data.students.connect[0].id.message}
-        </FormErrorMessage>
+
+      <FormControl isInvalid={Boolean(errors.data?.students?.connect)}>
+        <FormLabel>data.students.connect</FormLabel>
+        {data_students_connect_FieldArray.fields.map((field, index) => {
+          return (
+            <Box key={field._id}>
+              <Flex justify-content="space-between">
+                <Box flex="1" mb={2}>
+                  <renderer.mutation.InputObject
+                    {...register(
+                      `data.students.connect.${index}.id` as const,
+                      {}
+                    )}
+                    defaultValue={field.value}
+                  />
+                </Box>
+                <IconButton aria-label="remove-one" ml={4}>
+                  <CloseIcon
+                    onClick={() =>
+                      data_students_connect_FieldArray.remove(index)
+                    }
+                  />
+                </IconButton>
+              </Flex>
+              <FormErrorMessage>
+                {errors.data?.students?.connect &&
+                  errors.data.students.connect[0]?.id?.message}
+              </FormErrorMessage>
+            </Box>
+          );
+        })}
+        <IconButton aria-label="add-one" mt={4}>
+          <AddIcon
+            onClick={() => data_students_connect_FieldArray.append({})}
+          />
+        </IconButton>
       </FormControl>
+
       <FormControl isInvalid={Boolean(errors.data?.teacher?.connect?.id)}>
         <FormLabel htmlFor="data.teacher.connect.id">
           data.teacher.connect.id
         </FormLabel>
         <renderer.mutation.Int
           id="data.teacher.connect.id"
-          {...register("data.teacher.connect.id", {
+          {...register("data.teacher.connect.id" as const, {
             valueAsNumber: true,
           })}
         />
@@ -523,6 +555,7 @@ export const CreateOneClassForm: React.FC<CreateOneClassFormProps> = ({
             errors.data.teacher.connect.id.message}
         </FormErrorMessage>
       </FormControl>
+
       {variant === "plain" ? (
         <Button mt={4} isLoading={isSubmitting} type="submit">
           Submit
@@ -562,15 +595,17 @@ export const CreateOneLessonForm: React.FC<CreateOneLessonFormProps> = ({
   defaultValues,
 }) => {
   const [, trigger] = useCreateOneLessonFormMutation();
+  const toast = useToast();
+
   const {
     handleSubmit,
     register,
     formState: { errors, isSubmitting },
     reset,
+    control,
   } = useForm<CreateOneLessonFormValues>({
     defaultValues,
   });
-  const toast = useToast();
 
   async function onSubmit(values: CreateOneLessonFormValues) {
     try {
@@ -600,7 +635,7 @@ export const CreateOneLessonForm: React.FC<CreateOneLessonFormProps> = ({
         </FormLabel>
         <renderer.mutation.Int
           id="data.class.connect.id"
-          {...register("data.class.connect.id", {
+          {...register("data.class.connect.id" as const, {
             valueAsNumber: true,
           })}
         />
@@ -609,11 +644,12 @@ export const CreateOneLessonForm: React.FC<CreateOneLessonFormProps> = ({
             errors.data.class.connect.id.message}
         </FormErrorMessage>
       </FormControl>
+
       <FormControl isInvalid={Boolean(errors.data?.duration)}>
         <FormLabel htmlFor="data.duration">data.duration</FormLabel>
         <renderer.mutation.Int
           id="data.duration"
-          {...register("data.duration", {
+          {...register("data.duration" as const, {
             required: "This is required",
             valueAsNumber: true,
           })}
@@ -622,11 +658,12 @@ export const CreateOneLessonForm: React.FC<CreateOneLessonFormProps> = ({
           {errors.data?.duration && errors.data.duration.message}
         </FormErrorMessage>
       </FormControl>
+
       <FormControl isInvalid={Boolean(errors.data?.name)}>
         <FormLabel htmlFor="data.name">data.name</FormLabel>
         <renderer.mutation.String
           id="data.name"
-          {...register("data.name", {
+          {...register("data.name" as const, {
             required: "This is required",
           })}
         />
@@ -634,11 +671,12 @@ export const CreateOneLessonForm: React.FC<CreateOneLessonFormProps> = ({
           {errors.data?.name && errors.data.name.message}
         </FormErrorMessage>
       </FormControl>
+
       <FormControl isInvalid={Boolean(errors.data?.startedAt)}>
         <FormLabel htmlFor="data.startedAt">data.startedAt</FormLabel>
         <renderer.mutation.String
           id="data.startedAt"
-          {...register("data.startedAt", {
+          {...register("data.startedAt" as const, {
             required: "This is required",
           })}
         />
@@ -646,6 +684,7 @@ export const CreateOneLessonForm: React.FC<CreateOneLessonFormProps> = ({
           {errors.data?.startedAt && errors.data.startedAt.message}
         </FormErrorMessage>
       </FormControl>
+
       {variant === "plain" ? (
         <Button mt={4} isLoading={isSubmitting} type="submit">
           Submit
@@ -680,15 +719,17 @@ export const CreateOneUserForm: React.FC<CreateOneUserFormProps> = ({
   defaultValues,
 }) => {
   const [, trigger] = useCreateOneUserFormMutation();
+  const toast = useToast();
+
   const {
     handleSubmit,
     register,
     formState: { errors, isSubmitting },
     reset,
+    control,
   } = useForm<CreateOneUserFormValues>({
     defaultValues,
   });
-  const toast = useToast();
 
   async function onSubmit(values: CreateOneUserFormValues) {
     try {
@@ -716,7 +757,7 @@ export const CreateOneUserForm: React.FC<CreateOneUserFormProps> = ({
         <FormLabel htmlFor="data.email">data.email</FormLabel>
         <renderer.mutation.String
           id="data.email"
-          {...register("data.email", {
+          {...register("data.email" as const, {
             required: "This is required",
           })}
         />
@@ -724,11 +765,12 @@ export const CreateOneUserForm: React.FC<CreateOneUserFormProps> = ({
           {errors.data?.email && errors.data.email.message}
         </FormErrorMessage>
       </FormControl>
+
       <FormControl isInvalid={Boolean(errors.data?.name)}>
         <FormLabel htmlFor="data.name">data.name</FormLabel>
         <renderer.mutation.String
           id="data.name"
-          {...register("data.name", {
+          {...register("data.name" as const, {
             required: "This is required",
           })}
         />
@@ -736,11 +778,12 @@ export const CreateOneUserForm: React.FC<CreateOneUserFormProps> = ({
           {errors.data?.name && errors.data.name.message}
         </FormErrorMessage>
       </FormControl>
+
       <FormControl isInvalid={Boolean(errors.data?.role)}>
         <FormLabel htmlFor="data.role">data.role</FormLabel>
         <renderer.mutation.Enum
           id="data.role"
-          {...register("data.role", {
+          {...register("data.role" as const, {
             required: "This is required",
           })}
           options={[
@@ -753,6 +796,7 @@ export const CreateOneUserForm: React.FC<CreateOneUserFormProps> = ({
           {errors.data?.role && errors.data.role.message}
         </FormErrorMessage>
       </FormControl>
+
       {variant === "plain" ? (
         <Button mt={4} isLoading={isSubmitting} type="submit">
           Submit
@@ -796,15 +840,17 @@ export const UpdateOneUserForm: React.FC<UpdateOneUserFormProps> = ({
   defaultValues,
 }) => {
   const [, trigger] = useUpdateOneUserFormMutation();
+  const toast = useToast();
+
   const {
     handleSubmit,
     register,
     formState: { errors, isSubmitting },
     reset,
+    control,
   } = useForm<UpdateOneUserFormValues>({
     defaultValues,
   });
-  const toast = useToast();
 
   async function onSubmit(values: UpdateOneUserFormValues) {
     try {
@@ -832,27 +878,29 @@ export const UpdateOneUserForm: React.FC<UpdateOneUserFormProps> = ({
         <FormLabel htmlFor="data.email.set">data.email.set</FormLabel>
         <renderer.mutation.String
           id="data.email.set"
-          {...register("data.email.set", {})}
+          {...register("data.email.set" as const, {})}
         />
         <FormErrorMessage>
           {errors.data?.email?.set && errors.data.email.set.message}
         </FormErrorMessage>
       </FormControl>
+
       <FormControl isInvalid={Boolean(errors.data?.name?.set)}>
         <FormLabel htmlFor="data.name.set">data.name.set</FormLabel>
         <renderer.mutation.String
           id="data.name.set"
-          {...register("data.name.set", {})}
+          {...register("data.name.set" as const, {})}
         />
         <FormErrorMessage>
           {errors.data?.name?.set && errors.data.name.set.message}
         </FormErrorMessage>
       </FormControl>
+
       <FormControl isInvalid={Boolean(errors.data?.role?.set)}>
         <FormLabel htmlFor="data.role.set">data.role.set</FormLabel>
         <renderer.mutation.Enum
           id="data.role.set"
-          {...register("data.role.set", {})}
+          {...register("data.role.set" as const, {})}
           options={[
             { text: Role.Teacher, value: Role.Teacher },
             { text: Role.Student, value: Role.Student },
@@ -863,11 +911,12 @@ export const UpdateOneUserForm: React.FC<UpdateOneUserFormProps> = ({
           {errors.data?.role?.set && errors.data.role.set.message}
         </FormErrorMessage>
       </FormControl>
+
       <FormControl isInvalid={Boolean(errors.where?.id)}>
         <FormLabel htmlFor="where.id">where.id</FormLabel>
         <renderer.mutation.Int
           id="where.id"
-          {...register("where.id", {
+          {...register("where.id" as const, {
             valueAsNumber: true,
           })}
         />
@@ -875,6 +924,7 @@ export const UpdateOneUserForm: React.FC<UpdateOneUserFormProps> = ({
           {errors.where?.id && errors.where.id.message}
         </FormErrorMessage>
       </FormControl>
+
       {variant === "plain" ? (
         <Button mt={4} isLoading={isSubmitting} type="submit">
           Submit
@@ -907,15 +957,17 @@ export const DeleteOneUserForm: React.FC<DeleteOneUserFormProps> = ({
   defaultValues,
 }) => {
   const [, trigger] = useDeleteOneUserFormMutation();
+  const toast = useToast();
+
   const {
     handleSubmit,
     register,
     formState: { errors, isSubmitting },
     reset,
+    control,
   } = useForm<DeleteOneUserFormValues>({
     defaultValues,
   });
-  const toast = useToast();
 
   async function onSubmit(values: DeleteOneUserFormValues) {
     try {
@@ -943,7 +995,7 @@ export const DeleteOneUserForm: React.FC<DeleteOneUserFormProps> = ({
         <FormLabel htmlFor="where.id">where.id</FormLabel>
         <renderer.mutation.Int
           id="where.id"
-          {...register("where.id", {
+          {...register("where.id" as const, {
             valueAsNumber: true,
           })}
         />
@@ -951,6 +1003,7 @@ export const DeleteOneUserForm: React.FC<DeleteOneUserFormProps> = ({
           {errors.where?.id && errors.where.id.message}
         </FormErrorMessage>
       </FormControl>
+
       {variant === "plain" ? (
         <Button mt={4} isLoading={isSubmitting} type="submit">
           Submit

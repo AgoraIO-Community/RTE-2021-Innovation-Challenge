@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { CombinedError } from "urql";
-import { useForm, DeepPartial } from "react-hook-form";
+import { useForm, DeepPartial, useFieldArray } from "react-hook-form";
 import { renderer } from "../renderer";
 import { <%- componentImports.join(', ') %> } from '@chakra-ui/react';
+import { AddIcon, CloseIcon } from '@chakra-ui/icons';
 import { <%- dataImports.join(', ') %> } from "./data-components";
 
 export const Error: React.FC<{ error: CombinedError }> = ({ error }) => {
@@ -221,15 +222,24 @@ export const <%- form.componentName %>: React.FC<<%- form.componentName %>Props>
   defaultValues,
 }) => {
   const [, trigger] = <%- form.dataHook %>();
+  const toast = useToast();
+
   const {
     handleSubmit,
     register,
     formState: { errors, isSubmitting },
     reset,
+    control,
   } = useForm<<%- form.componentName %>Values>({
     defaultValues,
   });
-  const toast = useToast();
+  <% for (field of variable.flattenedFields.filter(field => field.list)) { -%>
+  const <%- common.dotToDash(field.path) %>_FieldArray = useFieldArray({
+    name: "<%- field.path %>",
+    control,
+    keyName: "_id",
+  });
+  <% } -%>
 
   async function onSubmit(values: <%- form.componentName %>Values) {
     try {
@@ -255,12 +265,46 @@ export const <%- form.componentName %>: React.FC<<%- form.componentName %>Props>
     <form onSubmit={handleSubmit(onSubmit)}>
       <% for (variable of form.variables) { -%>
         <% for (field of variable.flattenedFields) { -%>
+        <% const fieldArr = `${common.dotToDash(field.path)}_FieldArray`; %>
+        <% if (field.list) { -%>
+          <FormControl isInvalid={Boolean(errors.<%- field.safePath %>)}>
+            <FormLabel><%- field.label %></FormLabel>
+            {<%- fieldArr %>.fields.map((field, index) => {
+              return (
+                <Box key={field._id}>
+                  <Flex justify-content="space-between">
+                    <Box flex="1" mb={2}>
+                      <renderer.mutation.<%- field.baseType %>
+                        <%- field.placeholder ? `placeholder="${field.placeholder}"` : '' %>
+                        {...register(`<%- field.path %>.${index}.id` as const, {
+                          <%- field.nullable ? '' : 'required: "This is required",' %>
+                          <%- ["Int", "Float"].includes(field.baseType) ? 'valueAsNumber: true,' : '' %>
+                        })}
+                        <%- field.baseType === 'Enum' ? `options={${enumOptionsRawMap[field.customType]}}` : ''  %>
+                        defaultValue={field.value}
+                      />
+                    </Box>
+                    <IconButton aria-label="remove-one" ml={4}>
+                      <CloseIcon onClick={() => <%- fieldArr %>.remove(index)} />
+                    </IconButton>
+                  </Flex>
+                  <FormErrorMessage>
+                    {errors.<%- field.safePath %> && errors.<%- field.path %>[0]?.id?.message}
+                  </FormErrorMessage>
+                </Box>
+              )
+            })}
+            <IconButton aria-label="add-one" mt={4}>
+              <AddIcon onClick={() => <%- fieldArr %>.append({})} />
+            </IconButton>
+          </FormControl>
+        <% } else { -%>
           <FormControl isInvalid={Boolean(errors.<%- field.safePath %>)}>
             <FormLabel htmlFor="<%- field.path %>"><%- field.label %></FormLabel>
             <renderer.mutation.<%- field.baseType %>
               id="<%- field.path %>"
               <%- field.placeholder ? `placeholder="${field.placeholder}"` : '' %>
-              {...register("<%- field.path %>", {
+              {...register("<%- field.path %>" as const, {
                 <%- field.nullable ? '' : 'required: "This is required",' %>
                 <%- ["Int", "Float"].includes(field.baseType) ? 'valueAsNumber: true,' : '' %>
               })}
@@ -270,6 +314,7 @@ export const <%- form.componentName %>: React.FC<<%- form.componentName %>Props>
               {errors.<%- field.safePath %> && errors.<%- field.path %>.message}
             </FormErrorMessage>
           </FormControl>
+        <% } %>
         <% } -%>
       <% } -%>
       {variant === "plain" ? <Button
