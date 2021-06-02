@@ -7,6 +7,7 @@ import { AddIcon, CloseIcon } from '@chakra-ui/icons';
 import { <%- dataImports.join(', ') %> } from "./data-components";
 import Calendar from '../ui-kit/Calendar';
 import dayjs from 'dayjs';
+import { useTranslation, initReactI18next } from "react-i18next";
 
 export const Error: React.FC<{ error: CombinedError }> = ({ error }) => {
   return (
@@ -91,14 +92,29 @@ export const <%- table.componentName %>: React.FC = () => {
             return (
               <Tr key={entity.<%- table.idName %>} <%- trigger === 'tableRow' ? 'onClick={() => setSelected(entity)}' : '' %>>
                 <% for (const selection of table.selections) { -%>
-                <Td>{renderer.query.<%- selection.renderType %>({
-                  value: entity.<%- selection.path %>,
-                  context: {
-                    type: "<%- selection.rootType %>",
-                    path: "<%- selection.path %>",
-                    component: "<%- table.componentName %>",
-                  }
-                })}</Td>
+                <% if (selection.list) { -%>
+                  <Td>{(entity.<%- selection.path.replace(".name", "") %> || []).map(subEntity => {
+                    return (<Box key={subEntity.<%- table.idName %>}>
+                      {renderer.query.<%- selection.renderType %>({
+                        value: subEntity.name,
+                        context: {
+                          type: "<%- selection.rootType %>",
+                          path: "<%- selection.path %>",
+                          component: "<%- table.componentName %>",
+                        }
+                      })}
+                    </Box>)
+                  })}</Td>
+                <% } else { -%>
+                  <Td>{renderer.query.<%- selection.renderType %>({
+                    value: entity.<%- selection.path %>,
+                    context: {
+                      type: "<%- selection.rootType %>",
+                      path: "<%- selection.path %>",
+                      component: "<%- table.componentName %>",
+                    }
+                  })}</Td>
+                <% } -%>
                 <% } -%>
               </Tr>
             );
@@ -206,14 +222,14 @@ export const <%- kanban.componentName %>: React.FC = () => {
                   borderRadius="md"
                 >
                   <% for (const selection of kanban.selections) { -%>
-                  <Text mt={4}>{renderer.query.<%- selection.renderType %>({
+                  <Box mt={4}>{renderer.query.<%- selection.renderType %>({
                     value: entity.<%- selection.path %>,
                     context: {
                       type: "<%- selection.rootType %>",
                       path: "<%- selection.path %>",
                       component: "<%- table.componentName %>",
                     }
-                  })}</Text>
+                  })}</Box>
                   <% } -%>
                 </Box>
               );
@@ -292,6 +308,7 @@ export const <%- form.componentName %>: React.FC<<%- form.componentName %>Props>
 }) => {
   const [, trigger] = <%- form.dataHook %>();
   const toast = useToast();
+  const { t } = useTranslation();
 
   const {
     handleSubmit,
@@ -337,7 +354,7 @@ export const <%- form.componentName %>: React.FC<<%- form.componentName %>Props>
         <% const fieldArr = `${common.dotToDash(field.path)}_FieldArray`; %>
         <% if (field.list) { -%>
           <FormControl isInvalid={Boolean(errors.<%- field.safePath %>)}>
-            <FormLabel><%- field.label %></FormLabel>
+            <FormLabel>{t("<%- field.label %>")}</FormLabel>
             {<%- fieldArr %>.fields.map((field, index) => {
               return (
                 <Box key={field._id}>
@@ -347,7 +364,7 @@ export const <%- form.componentName %>: React.FC<<%- form.componentName %>Props>
                         <%- field.placeholder ? `placeholder="${field.placeholder}"` : '' %>
                         {...register(`<%- field.path %>.${index}.id` as const, {
                           <%- field.nullable ? '' : 'required: "This is required",' %>
-                          <%- ["Int", "Float"].includes(field.baseType) ? 'valueAsNumber: true,' : '' %>
+                          valueAsNumber: true,
                         })}
                         <%- field.baseType === 'Enum' ? `options={${enumOptionsRawMap[field.customType]}}` : ''  %>
                         defaultValue={field.value}
@@ -369,7 +386,7 @@ export const <%- form.componentName %>: React.FC<<%- form.componentName %>Props>
           </FormControl>
         <% } else { -%>
           <FormControl isInvalid={Boolean(errors.<%- field.safePath %>)}>
-            <FormLabel htmlFor="<%- field.path %>"><%- field.label %></FormLabel>
+            <FormLabel htmlFor="<%- field.path %>">{t("<%- field.label %>")}</FormLabel>
             <renderer.mutation.<%- field.baseType %>
               id="<%- field.path %>"
               <%- field.placeholder ? `placeholder="${field.placeholder}"` : '' %>

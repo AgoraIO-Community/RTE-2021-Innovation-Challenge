@@ -997,7 +997,10 @@ export type ClassTableQuery = (
     & { teacher: (
       { __typename?: 'User' }
       & Pick<User, 'id' | 'name'>
-    ) }
+    ), students: Array<(
+      { __typename?: 'User' }
+      & Pick<User, 'id' | 'name'>
+    )> }
   )> }
 );
 
@@ -1145,6 +1148,10 @@ export const ClassTableDocument = gql`
     id
     name
     teacher {
+      id
+      name
+    }
+    students {
       id
       name
     }

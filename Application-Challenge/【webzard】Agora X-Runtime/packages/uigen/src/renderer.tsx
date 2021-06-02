@@ -18,14 +18,15 @@ import {
 } from "@chakra-ui/react";
 import dayjs from "dayjs";
 import { Renderer } from "./generated/renderer-types";
-import { UseFormRegisterReturn, Controller } from "react-hook-form";
+import { UseFormRegisterReturn } from "react-hook-form";
 import { Role } from "./generated/data-components";
-import DatePicker from "./ui-kit/DatePicker";
 
 const Int: Renderer["query"]["Int"] = ({ value, context }) => {
   switch (true) {
     case context.path.endsWith("id"):
       return <Kbd shadow="2xl">{value}</Kbd>;
+    case context.type === "Lesson" && context.path.endsWith("duration"):
+      return <Text>{Math.round(value / 60)}分钟</Text>;
     default:
       break;
   }
@@ -135,7 +136,6 @@ export const InputObjectInput = forwardRef<
         {...props}
         ref={ref}
         onChange={(evt) => {
-          console.log(evt);
           props.onChange(evt);
         }}
       />

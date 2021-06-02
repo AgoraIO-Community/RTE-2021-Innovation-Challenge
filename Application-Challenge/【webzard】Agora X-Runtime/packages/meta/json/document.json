@@ -76,6 +76,40 @@
               "list": false,
               "baseType": "Object",
               "customType": "User"
+            },
+            {
+              "name": "students",
+              "attributes": [],
+              "selections": [
+                {
+                  "name": "id",
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "arguments": []
+                    }
+                  ],
+                  "selections": [],
+                  "arguments": [],
+                  "nullable": false,
+                  "list": false,
+                  "baseType": "Int"
+                },
+                {
+                  "name": "name",
+                  "attributes": [],
+                  "selections": [],
+                  "arguments": [],
+                  "nullable": false,
+                  "list": false,
+                  "baseType": "String"
+                }
+              ],
+              "arguments": [],
+              "nullable": false,
+              "list": true,
+              "baseType": "Object",
+              "customType": "User"
             }
           ],
           "arguments": [],

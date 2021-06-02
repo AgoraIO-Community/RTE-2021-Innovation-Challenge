@@ -18,10 +18,12 @@
     "framer-motion": "^4",
     "graphql": "^15.5.0",
     "graphql-tag": "^2.12.4",
+    "i18next": "^20.3.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-grid-layout": "^1.2.5",
     "react-hook-form": "^7.6.8",
+    "react-i18next": "^11.10.0",
     "urql": "^2.0.3"
   },
   "devDependencies": {

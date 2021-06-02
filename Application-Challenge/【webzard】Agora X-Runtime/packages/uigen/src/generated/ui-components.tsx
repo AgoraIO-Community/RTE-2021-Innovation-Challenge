@@ -71,6 +71,7 @@ import {
 } from "./data-components";
 import Calendar from "../ui-kit/Calendar";
 import dayjs from "dayjs";
+import { useTranslation, initReactI18next } from "react-i18next";
 
 export const Error: React.FC<{ error: CombinedError }> = ({ error }) => {
   return (
@@ -144,6 +145,7 @@ export const ClassTable: React.FC = () => {
             <Th>id</Th>
             <Th>name</Th>
             <Th>teacher</Th>
+            <Th>students</Th>
           </Tr>
         </Thead>
         <Tbody>
@@ -178,6 +180,22 @@ export const ClassTable: React.FC = () => {
                       path: "teacher.name",
                       component: "ClassTable",
                     },
+                  })}
+                </Td>
+                <Td>
+                  {(entity.students || []).map((subEntity) => {
+                    return (
+                      <Box key={subEntity.id}>
+                        {renderer.query.String({
+                          value: subEntity.name,
+                          context: {
+                            type: "User",
+                            path: "students.name",
+                            component: "ClassTable",
+                          },
+                        })}
+                      </Box>
+                    );
                   })}
                 </Td>
               </Tr>
@@ -512,7 +530,7 @@ export const UserKanban: React.FC = () => {
                   flex="1"
                   borderRadius="md"
                 >
-                  <Text mt={4}>
+                  <Box mt={4}>
                     {renderer.query.Int({
                       value: entity.id,
                       context: {
@@ -521,8 +539,8 @@ export const UserKanban: React.FC = () => {
                         component: "UserTable",
                       },
                     })}
-                  </Text>
-                  <Text mt={4}>
+                  </Box>
+                  <Box mt={4}>
                     {renderer.query.String({
                       value: entity.name,
                       context: {
@@ -531,8 +549,8 @@ export const UserKanban: React.FC = () => {
                         component: "UserTable",
                       },
                     })}
-                  </Text>
-                  <Text mt={4}>
+                  </Box>
+                  <Box mt={4}>
                     {renderer.query.Enum({
                       value: entity.role,
                       context: {
@@ -541,7 +559,7 @@ export const UserKanban: React.FC = () => {
                         component: "UserTable",
                       },
                     })}
-                  </Text>
+                  </Box>
                 </Box>
               );
             })}
@@ -563,7 +581,7 @@ export const UserKanban: React.FC = () => {
                   flex="1"
                   borderRadius="md"
                 >
-                  <Text mt={4}>
+                  <Box mt={4}>
                     {renderer.query.Int({
                       value: entity.id,
                       context: {
@@ -572,8 +590,8 @@ export const UserKanban: React.FC = () => {
                         component: "UserTable",
                       },
                     })}
-                  </Text>
-                  <Text mt={4}>
+                  </Box>
+                  <Box mt={4}>
                     {renderer.query.String({
                       value: entity.name,
                       context: {
@@ -582,8 +600,8 @@ export const UserKanban: React.FC = () => {
                         component: "UserTable",
                       },
                     })}
-                  </Text>
-                  <Text mt={4}>
+                  </Box>
+                  <Box mt={4}>
                     {renderer.query.Enum({
                       value: entity.role,
                       context: {
@@ -592,7 +610,7 @@ export const UserKanban: React.FC = () => {
                         component: "UserTable",
                       },
                     })}
-                  </Text>
+                  </Box>
                 </Box>
               );
             })}
@@ -614,7 +632,7 @@ export const UserKanban: React.FC = () => {
                   flex="1"
                   borderRadius="md"
                 >
-                  <Text mt={4}>
+                  <Box mt={4}>
                     {renderer.query.Int({
                       value: entity.id,
                       context: {
@@ -623,8 +641,8 @@ export const UserKanban: React.FC = () => {
                         component: "UserTable",
                       },
                     })}
-                  </Text>
-                  <Text mt={4}>
+                  </Box>
+                  <Box mt={4}>
                     {renderer.query.String({
                       value: entity.name,
                       context: {
@@ -633,8 +651,8 @@ export const UserKanban: React.FC = () => {
                         component: "UserTable",
                       },
                     })}
-                  </Text>
-                  <Text mt={4}>
+                  </Box>
+                  <Box mt={4}>
                     {renderer.query.Enum({
                       value: entity.role,
                       context: {
@@ -643,7 +661,7 @@ export const UserKanban: React.FC = () => {
                         component: "UserTable",
                       },
                     })}
-                  </Text>
+                  </Box>
                 </Box>
               );
             })}
@@ -713,6 +731,7 @@ export const CreateOneClassForm: React.FC<CreateOneClassFormProps> = ({
 }) => {
   const [, trigger] = useCreateOneClassFormMutation();
   const toast = useToast();
+  const { t } = useTranslation();
 
   const {
     handleSubmit,
@@ -752,7 +771,7 @@ export const CreateOneClassForm: React.FC<CreateOneClassFormProps> = ({
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <FormControl isInvalid={Boolean(errors.data?.name)}>
-        <FormLabel htmlFor="data.name">data.name</FormLabel>
+        <FormLabel htmlFor="data.name">{t("data.name")}</FormLabel>
         <renderer.mutation.String
           id="data.name"
           {...register("data.name" as const, {
@@ -765,17 +784,16 @@ export const CreateOneClassForm: React.FC<CreateOneClassFormProps> = ({
       </FormControl>
 
       <FormControl isInvalid={Boolean(errors.data?.students?.connect)}>
-        <FormLabel>data.students.connect</FormLabel>
+        <FormLabel>{t("data.students.connect")}</FormLabel>
         {data_students_connect_FieldArray.fields.map((field, index) => {
           return (
             <Box key={field._id}>
               <Flex justify-content="space-between">
                 <Box flex="1" mb={2}>
                   <renderer.mutation.InputObject
-                    {...register(
-                      `data.students.connect.${index}.id` as const,
-                      {}
-                    )}
+                    {...register(`data.students.connect.${index}.id` as const, {
+                      valueAsNumber: true,
+                    })}
                     defaultValue={field.value}
                   />
                 </Box>
@@ -803,7 +821,7 @@ export const CreateOneClassForm: React.FC<CreateOneClassFormProps> = ({
 
       <FormControl isInvalid={Boolean(errors.data?.teacher?.connect?.id)}>
         <FormLabel htmlFor="data.teacher.connect.id">
-          data.teacher.connect.id
+          {t("data.teacher.connect.id")}
         </FormLabel>
         <renderer.mutation.Int
           id="data.teacher.connect.id"
@@ -857,6 +875,7 @@ export const CreateOneLessonForm: React.FC<CreateOneLessonFormProps> = ({
 }) => {
   const [, trigger] = useCreateOneLessonFormMutation();
   const toast = useToast();
+  const { t } = useTranslation();
 
   const {
     handleSubmit,
@@ -892,7 +911,7 @@ export const CreateOneLessonForm: React.FC<CreateOneLessonFormProps> = ({
     <form onSubmit={handleSubmit(onSubmit)}>
       <FormControl isInvalid={Boolean(errors.data?.class?.connect?.id)}>
         <FormLabel htmlFor="data.class.connect.id">
-          data.class.connect.id
+          {t("data.class.connect.id")}
         </FormLabel>
         <renderer.mutation.Int
           id="data.class.connect.id"
@@ -907,7 +926,7 @@ export const CreateOneLessonForm: React.FC<CreateOneLessonFormProps> = ({
       </FormControl>
 
       <FormControl isInvalid={Boolean(errors.data?.duration)}>
-        <FormLabel htmlFor="data.duration">data.duration</FormLabel>
+        <FormLabel htmlFor="data.duration">{t("data.duration")}</FormLabel>
         <renderer.mutation.Int
           id="data.duration"
           {...register("data.duration" as const, {
@@ -921,7 +940,7 @@ export const CreateOneLessonForm: React.FC<CreateOneLessonFormProps> = ({
       </FormControl>
 
       <FormControl isInvalid={Boolean(errors.data?.name)}>
-        <FormLabel htmlFor="data.name">data.name</FormLabel>
+        <FormLabel htmlFor="data.name">{t("data.name")}</FormLabel>
         <renderer.mutation.String
           id="data.name"
           {...register("data.name" as const, {
@@ -934,7 +953,7 @@ export const CreateOneLessonForm: React.FC<CreateOneLessonFormProps> = ({
       </FormControl>
 
       <FormControl isInvalid={Boolean(errors.data?.startedAt)}>
-        <FormLabel htmlFor="data.startedAt">data.startedAt</FormLabel>
+        <FormLabel htmlFor="data.startedAt">{t("data.startedAt")}</FormLabel>
         <renderer.mutation.String
           id="data.startedAt"
           {...register("data.startedAt" as const, {
@@ -981,6 +1000,7 @@ export const CreateOneUserForm: React.FC<CreateOneUserFormProps> = ({
 }) => {
   const [, trigger] = useCreateOneUserFormMutation();
   const toast = useToast();
+  const { t } = useTranslation();
 
   const {
     handleSubmit,
@@ -1015,7 +1035,7 @@ export const CreateOneUserForm: React.FC<CreateOneUserFormProps> = ({
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <FormControl isInvalid={Boolean(errors.data?.email)}>
-        <FormLabel htmlFor="data.email">data.email</FormLabel>
+        <FormLabel htmlFor="data.email">{t("data.email")}</FormLabel>
         <renderer.mutation.String
           id="data.email"
           {...register("data.email" as const, {
@@ -1028,7 +1048,7 @@ export const CreateOneUserForm: React.FC<CreateOneUserFormProps> = ({
       </FormControl>
 
       <FormControl isInvalid={Boolean(errors.data?.name)}>
-        <FormLabel htmlFor="data.name">data.name</FormLabel>
+        <FormLabel htmlFor="data.name">{t("data.name")}</FormLabel>
         <renderer.mutation.String
           id="data.name"
           {...register("data.name" as const, {
@@ -1041,7 +1061,7 @@ export const CreateOneUserForm: React.FC<CreateOneUserFormProps> = ({
       </FormControl>
 
       <FormControl isInvalid={Boolean(errors.data?.role)}>
-        <FormLabel htmlFor="data.role">data.role</FormLabel>
+        <FormLabel htmlFor="data.role">{t("data.role")}</FormLabel>
         <renderer.mutation.Enum
           id="data.role"
           {...register("data.role" as const, {
@@ -1102,6 +1122,7 @@ export const UpdateOneUserForm: React.FC<UpdateOneUserFormProps> = ({
 }) => {
   const [, trigger] = useUpdateOneUserFormMutation();
   const toast = useToast();
+  const { t } = useTranslation();
 
   const {
     handleSubmit,
@@ -1136,7 +1157,7 @@ export const UpdateOneUserForm: React.FC<UpdateOneUserFormProps> = ({
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <FormControl isInvalid={Boolean(errors.data?.email?.set)}>
-        <FormLabel htmlFor="data.email.set">data.email.set</FormLabel>
+        <FormLabel htmlFor="data.email.set">{t("data.email.set")}</FormLabel>
         <renderer.mutation.String
           id="data.email.set"
           {...register("data.email.set" as const, {})}
@@ -1147,7 +1168,7 @@ export const UpdateOneUserForm: React.FC<UpdateOneUserFormProps> = ({
       </FormControl>
 
       <FormControl isInvalid={Boolean(errors.data?.name?.set)}>
-        <FormLabel htmlFor="data.name.set">data.name.set</FormLabel>
+        <FormLabel htmlFor="data.name.set">{t("data.name.set")}</FormLabel>
         <renderer.mutation.String
           id="data.name.set"
           {...register("data.name.set" as const, {})}
@@ -1158,7 +1179,7 @@ export const UpdateOneUserForm: React.FC<UpdateOneUserFormProps> = ({
       </FormControl>
 
       <FormControl isInvalid={Boolean(errors.data?.role?.set)}>
-        <FormLabel htmlFor="data.role.set">data.role.set</FormLabel>
+        <FormLabel htmlFor="data.role.set">{t("data.role.set")}</FormLabel>
         <renderer.mutation.Enum
           id="data.role.set"
           {...register("data.role.set" as const, {})}
@@ -1174,7 +1195,7 @@ export const UpdateOneUserForm: React.FC<UpdateOneUserFormProps> = ({
       </FormControl>
 
       <FormControl isInvalid={Boolean(errors.where?.id)}>
-        <FormLabel htmlFor="where.id">where.id</FormLabel>
+        <FormLabel htmlFor="where.id">{t("where.id")}</FormLabel>
         <renderer.mutation.Int
           id="where.id"
           {...register("where.id" as const, {
@@ -1219,6 +1240,7 @@ export const DeleteOneUserForm: React.FC<DeleteOneUserFormProps> = ({
 }) => {
   const [, trigger] = useDeleteOneUserFormMutation();
   const toast = useToast();
+  const { t } = useTranslation();
 
   const {
     handleSubmit,
@@ -1253,7 +1275,7 @@ export const DeleteOneUserForm: React.FC<DeleteOneUserFormProps> = ({
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <FormControl isInvalid={Boolean(errors.where?.id)}>
-        <FormLabel htmlFor="where.id">where.id</FormLabel>
+        <FormLabel htmlFor="where.id">{t("where.id")}</FormLabel>
         <renderer.mutation.Int
           id="where.id"
           {...register("where.id" as const, {

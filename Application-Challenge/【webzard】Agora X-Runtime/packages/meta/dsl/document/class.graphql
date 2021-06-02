@@ -6,6 +6,10 @@ query classTable {
       id @id
       name
     }
+    students {
+      id @id
+      name
+    }
   }
 }
 
