@@ -247,7 +247,24 @@ module.exports = async function (dataMeta, documentMeta) {
       selectionName: selection.name,
       dataHook,
       dataHookType,
-      selections: selection.selections,
+      selections: selection.selections.map((sel) => {
+        const output = [];
+
+        const collect = (_sel) => {
+          output.push(_sel.name);
+          if (_sel.selections.length === 0) {
+            // nothing to do
+          } else if (_sel.selections.length === 1) {
+            collect(_sel.selections[0]);
+          } else {
+            const firstNonIdSel = _sel.selections.find((s) => s.name !== "id");
+            collect(firstNonIdSel);
+          }
+        };
+        collect(sel);
+
+        return { ...sel, path: output.join(".") };
+      }),
       attributes: selection.attributes,
       idName: selectionWithIdAttr ? selectionWithIdAttr.name : undefined,
       groupByName: groupBySelection ? groupBySelection.name : undefined,

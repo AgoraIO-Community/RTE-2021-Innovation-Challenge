@@ -77,7 +77,7 @@ module.exports = {
                 variableDefName,
                 astNode,
                 typeMap,
-                new Set()
+                0
               ).filter((field) => {
                 return pickList ? pickList.includes(field.name) : true;
               });

@@ -9,8 +9,45 @@ query classTable {
   }
 }
 
+mutation createOneClassForm($data: ClassCreateInput!) {
+  createOneClass(data: $data) {
+    id
+    name
+    teacher {
+      id
+      name
+    }
+  }
+}
+
+query lessonTable {
+  lessons {
+    id
+    name
+    class {
+      id
+      name
+    }
+    startedAt
+    duration
+  }
+}
+
+mutation createOneLessonForm($data: LessonCreateInput!) {
+  createOneLesson(data: $data) {
+    id
+    name
+    class {
+      id
+      name
+    }
+    startedAt
+    duration
+  }
+}
+
 query userTable {
-  users {
+  users(where: {}) {
     id
     name
     role

@@ -88,7 +88,7 @@ export const <%- table.componentName %>: React.FC = () => {
             return (
               <Tr key={entity.<%- table.idName %>} <%- trigger === 'tableRow' ? 'onClick={() => setSelected(entity)}' : '' %>>
                 <% for (const selection of table.selections) { -%>
-                <Td>{entity.<%- selection.name %>}</Td>
+                <Td>{entity.<%- selection.path %>}</Td>
                 <% } -%>
               </Tr>
             );
@@ -315,7 +315,7 @@ export const <%- modal.componentName %>: React.FC = () => {
   <% const { title, triggerId, contentId } = modal.variables.find((v) => v.name === "props").defaultValue; %>
   return (
     <>
-      <CreateUserButton onClick={onOpen} />
+      <<%- common.capitalize(triggerId) %> onClick={onOpen} />
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>

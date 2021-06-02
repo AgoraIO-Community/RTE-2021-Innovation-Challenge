@@ -7,4 +7,4 @@ spec:
   template:
     spec:
       containers:
-        - image: docker.io/yanzhen/x-runtime-data:0.5
+        - image: docker.io/yanzhen/x-runtime-data:0.6

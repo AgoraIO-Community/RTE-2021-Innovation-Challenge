@@ -9,6 +9,7 @@ enum ButtonVariant {
 input ButtonProps {
   children: String
   variant: ButtonVariant
+  isFullWidth: Boolean
 }
 
 input ModalProps {

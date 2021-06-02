@@ -110,6 +110,7 @@
         },
         {
           "name": "createdAt",
+          "baseType": "String",
           "customType": "DateTime",
           "nullable": false,
           "list": false,
@@ -129,6 +130,7 @@
         },
         {
           "name": "updatedAt",
+          "baseType": "String",
           "customType": "DateTime",
           "nullable": false,
           "list": false,
@@ -265,6 +267,7 @@
         },
         {
           "name": "createdAt",
+          "baseType": "String",
           "customType": "DateTime",
           "nullable": false,
           "list": false,
@@ -284,6 +287,7 @@
         },
         {
           "name": "updatedAt",
+          "baseType": "String",
           "customType": "DateTime",
           "nullable": false,
           "list": false,
@@ -377,7 +381,23 @@
           ]
         },
         {
+          "name": "startedAt",
+          "baseType": "String",
+          "customType": "DateTime",
+          "nullable": false,
+          "list": false,
+          "attributes": []
+        },
+        {
+          "name": "duration",
+          "baseType": "Int",
+          "nullable": false,
+          "list": false,
+          "attributes": []
+        },
+        {
           "name": "createdAt",
+          "baseType": "String",
           "customType": "DateTime",
           "nullable": false,
           "list": false,
@@ -397,6 +417,7 @@
         },
         {
           "name": "updatedAt",
+          "baseType": "String",
           "customType": "DateTime",
           "nullable": false,
           "list": false,

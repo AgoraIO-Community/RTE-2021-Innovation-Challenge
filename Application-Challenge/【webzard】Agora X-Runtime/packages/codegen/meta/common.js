@@ -10,7 +10,7 @@ const SCALAR_TYPES = new Set([
   "InputObject",
 ]);
 const CUSTOM_TYPE_MAP = {
-  DateTime: String,
+  DateTime: "String",
 };
 
 function isBaseType(type) {
@@ -114,6 +114,40 @@ function directiveNodeToAttribute(directiveNode) {
   return attribute;
 }
 
+function argumentNodeToArgument(argumentNode) {
+  const name = argumentNode.name.value;
+  const type = argumentNode.value.kind;
+  let value = "";
+
+  if (type === "Variable") {
+    value = argumentNode.value.name.value;
+  } else if (type === "ObjectValue") {
+    const output = [];
+    const collect = (objectValue) => {
+      output.push("{");
+      for (const field of objectValue.fields) {
+        output.push(field.name.value, ":");
+        if (field.value.kind === "ObjectValue") {
+          collect(field.value);
+        } else if (field.value.kind === "StringValue") {
+          output.push(`"${field.value.value}"`);
+        } else if (field.value.value) {
+          output.push(field.value.value);
+        }
+      }
+      output.push("}");
+    };
+    collect(argumentNode.value);
+    value = output.join(" ");
+  }
+
+  return {
+    name,
+    type,
+    value,
+  };
+}
+
 function fieldNodeToSelection(fieldNode, typeInfo, typeMap) {
   const astNode = typeInfo.getFieldDef().astNode;
   const typename = getTypename(astNode);
@@ -133,11 +167,7 @@ function fieldNodeToSelection(fieldNode, typeInfo, typeMap) {
   }
 
   for (const argumentNode of fieldNode.arguments) {
-    selection.arguments.push({
-      name: argumentNode.name.value,
-      type: argumentNode.value.kind,
-      value: argumentNode.value.name.value,
-    });
+    selection.arguments.push(argumentNodeToArgument(argumentNode));
   }
 
   if (fieldNode.selectionSet) {
@@ -161,6 +191,7 @@ function variableDefNameToFields(
   variableDefName,
   astNode,
   typeMap,
+  level,
   walkedObjects
 ) {
   const fields = [];
@@ -174,15 +205,28 @@ function variableDefNameToFields(
     throw new Error(`Variable "${variableDefName}" not defined.`);
   }
   for (const fieldNode of variableDef.fields) {
+    // ad-hoc hacks
+    if (["connectOrCreate", "create"].includes(fieldNode.name.value)) {
+      continue;
+    }
+    if (
+      variableDefName.includes("WhereUniqueInput") &&
+      fieldNode.name.value !== "id"
+    ) {
+      continue;
+    }
+
     const typename = getTypename(fieldNode);
     const baseType = mapBaseType(typename, typeMap);
-    if (walkedObjects.has(typename)) {
-      continue;
-    } else if (
-      baseType === "InputObject" &&
-      !typename.includes("FieldUpdateOperationsInput")
-    ) {
-      walkedObjects.add(typename);
+    if (walkedObjects) {
+      if (walkedObjects.has(typename)) {
+        continue;
+      } else if (
+        baseType === "InputObject" &&
+        !typename.includes("FieldUpdateOperationsInput")
+      ) {
+        walkedObjects.add(typename);
+      }
     }
     fields.push({
       name: fieldNode.name.value,
@@ -190,7 +234,13 @@ function variableDefNameToFields(
       customType: isBaseType(typename) ? undefined : typename,
       fields:
         baseType === "InputObject"
-          ? variableDefNameToFields(typename, astNode, typeMap, walkedObjects)
+          ? variableDefNameToFields(
+              typename,
+              astNode,
+              typeMap,
+              level + 1,
+              level === 0 ? new Set() : walkedObjects
+            )
           : undefined,
       nullable: isNullableNode(fieldNode),
       list: isListNode(fieldNode),

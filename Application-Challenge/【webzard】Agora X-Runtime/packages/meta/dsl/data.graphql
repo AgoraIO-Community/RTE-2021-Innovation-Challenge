@@ -34,6 +34,8 @@ type Lesson {
   name: String!
   class: Class! @relation(fields: [classId], references: [id])
   classId: Int! @invisible
+  startedAt: DateTime!
+  duration: Int!
   createdAt: DateTime! @default(_: "now()")
   updatedAt: DateTime! @updatedAt
 }

@@ -23,6 +23,7 @@ export type AffectedRowsOutput = {
 export type ButtonProps = {
   children?: Maybe<Scalars['String']>;
   variant?: Maybe<ButtonVariant>;
+  isFullWidth?: Maybe<Scalars['Boolean']>;
 };
 
 export enum ButtonVariant {
@@ -324,6 +325,14 @@ export type EnumRoleFilter = {
   notIn?: Maybe<Array<Role>>;
 };
 
+export type IntFieldUpdateOperationsInput = {
+  decrement?: Maybe<Scalars['Int']>;
+  divide?: Maybe<Scalars['Int']>;
+  increment?: Maybe<Scalars['Int']>;
+  multiply?: Maybe<Scalars['Int']>;
+  set?: Maybe<Scalars['Int']>;
+};
+
 export type IntFilter = {
   equals?: Maybe<Scalars['Int']>;
   gt?: Maybe<Scalars['Int']>;
@@ -339,22 +348,28 @@ export type Lesson = {
   __typename?: 'Lesson';
   class: Class;
   createdAt: Scalars['DateTime'];
+  duration: Scalars['Int'];
   id: Scalars['Int'];
   name: Scalars['String'];
+  startedAt: Scalars['DateTime'];
   updatedAt: Scalars['DateTime'];
 };
 
 export type LessonCreateInput = {
   class: ClassCreateNestedOneWithoutLessonsInput;
   createdAt?: Maybe<Scalars['DateTime']>;
+  duration: Scalars['Int'];
   name: Scalars['String'];
+  startedAt: Scalars['DateTime'];
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type LessonCreateManyClassInput = {
   createdAt?: Maybe<Scalars['DateTime']>;
+  duration: Scalars['Int'];
   id?: Maybe<Scalars['Int']>;
   name: Scalars['String'];
+  startedAt: Scalars['DateTime'];
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
@@ -377,7 +392,9 @@ export type LessonCreateOrConnectWithoutClassInput = {
 
 export type LessonCreateWithoutClassInput = {
   createdAt?: Maybe<Scalars['DateTime']>;
+  duration: Scalars['Int'];
   name: Scalars['String'];
+  startedAt: Scalars['DateTime'];
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
@@ -390,8 +407,10 @@ export type LessonListRelationFilter = {
 export type LessonOrderByInput = {
   classId?: Maybe<SortOrder>;
   createdAt?: Maybe<SortOrder>;
+  duration?: Maybe<SortOrder>;
   id?: Maybe<SortOrder>;
   name?: Maybe<SortOrder>;
+  startedAt?: Maybe<SortOrder>;
   updatedAt?: Maybe<SortOrder>;
 };
 
@@ -401,21 +420,27 @@ export type LessonScalarWhereInput = {
   OR?: Maybe<Array<LessonScalarWhereInput>>;
   classId?: Maybe<IntFilter>;
   createdAt?: Maybe<DateTimeFilter>;
+  duration?: Maybe<IntFilter>;
   id?: Maybe<IntFilter>;
   name?: Maybe<StringFilter>;
+  startedAt?: Maybe<DateTimeFilter>;
   updatedAt?: Maybe<DateTimeFilter>;
 };
 
 export type LessonUpdateInput = {
   class?: Maybe<ClassUpdateOneRequiredWithoutLessonsInput>;
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  duration?: Maybe<IntFieldUpdateOperationsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
+  startedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
 };
 
 export type LessonUpdateManyMutationInput = {
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  duration?: Maybe<IntFieldUpdateOperationsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
+  startedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
 };
 
@@ -445,7 +470,9 @@ export type LessonUpdateWithWhereUniqueWithoutClassInput = {
 
 export type LessonUpdateWithoutClassInput = {
   createdAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
+  duration?: Maybe<IntFieldUpdateOperationsInput>;
   name?: Maybe<StringFieldUpdateOperationsInput>;
+  startedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
   updatedAt?: Maybe<DateTimeFieldUpdateOperationsInput>;
 };
 
@@ -462,8 +489,10 @@ export type LessonWhereInput = {
   class?: Maybe<ClassWhereInput>;
   classId?: Maybe<IntFilter>;
   createdAt?: Maybe<DateTimeFilter>;
+  duration?: Maybe<IntFilter>;
   id?: Maybe<IntFilter>;
   name?: Maybe<StringFilter>;
+  startedAt?: Maybe<DateTimeFilter>;
   updatedAt?: Maybe<DateTimeFilter>;
 };
 
@@ -972,6 +1001,55 @@ export type ClassTableQuery = (
   )> }
 );
 
+export type CreateOneClassFormMutationVariables = Exact<{
+  data: ClassCreateInput;
+}>;
+
+
+export type CreateOneClassFormMutation = (
+  { __typename?: 'Mutation' }
+  & { createOneClass: (
+    { __typename?: 'Class' }
+    & Pick<Class, 'id' | 'name'>
+    & { teacher: (
+      { __typename?: 'User' }
+      & Pick<User, 'id' | 'name'>
+    ) }
+  ) }
+);
+
+export type LessonTableQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type LessonTableQuery = (
+  { __typename?: 'Query' }
+  & { lessons: Array<(
+    { __typename?: 'Lesson' }
+    & Pick<Lesson, 'id' | 'name' | 'startedAt' | 'duration'>
+    & { class: (
+      { __typename?: 'Class' }
+      & Pick<Class, 'id' | 'name'>
+    ) }
+  )> }
+);
+
+export type CreateOneLessonFormMutationVariables = Exact<{
+  data: LessonCreateInput;
+}>;
+
+
+export type CreateOneLessonFormMutation = (
+  { __typename?: 'Mutation' }
+  & { createOneLesson: (
+    { __typename?: 'Lesson' }
+    & Pick<Lesson, 'id' | 'name' | 'startedAt' | 'duration'>
+    & { class: (
+      { __typename?: 'Class' }
+      & Pick<Class, 'id' | 'name'>
+    ) }
+  ) }
+);
+
 export type UserTableQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -1062,9 +1140,61 @@ export const ClassTableDocument = gql`
 export function useClassTableQuery(options: Omit<Urql.UseQueryArgs<ClassTableQueryVariables>, 'query'> = {}) {
   return Urql.useQuery<ClassTableQuery>({ query: ClassTableDocument, ...options });
 };
+export const CreateOneClassFormDocument = gql`
+    mutation createOneClassForm($data: ClassCreateInput!) {
+  createOneClass(data: $data) {
+    id
+    name
+    teacher {
+      id
+      name
+    }
+  }
+}
+    `;
+
+export function useCreateOneClassFormMutation() {
+  return Urql.useMutation<CreateOneClassFormMutation, CreateOneClassFormMutationVariables>(CreateOneClassFormDocument);
+};
+export const LessonTableDocument = gql`
+    query lessonTable {
+  lessons {
+    id
+    name
+    class {
+      id
+      name
+    }
+    startedAt
+    duration
+  }
+}
+    `;
+
+export function useLessonTableQuery(options: Omit<Urql.UseQueryArgs<LessonTableQueryVariables>, 'query'> = {}) {
+  return Urql.useQuery<LessonTableQuery>({ query: LessonTableDocument, ...options });
+};
+export const CreateOneLessonFormDocument = gql`
+    mutation createOneLessonForm($data: LessonCreateInput!) {
+  createOneLesson(data: $data) {
+    id
+    name
+    class {
+      id
+      name
+    }
+    startedAt
+    duration
+  }
+}
+    `;
+
+export function useCreateOneLessonFormMutation() {
+  return Urql.useMutation<CreateOneLessonFormMutation, CreateOneLessonFormMutationVariables>(CreateOneLessonFormDocument);
+};
 export const UserTableDocument = gql`
     query userTable {
-  users {
+  users(where: {}) {
     id
     name
     role

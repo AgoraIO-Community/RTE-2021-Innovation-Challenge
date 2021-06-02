@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, forwardRef } from "react";
 import { Box, Heading } from "@chakra-ui/react";
 import RGL, { WidthProvider, Layout } from "react-grid-layout";
 import {
   UserTable,
-  UserList,
-  UserKanban,
-  DeleteOneUserForm,
   CreateOneUserModal,
+  CreateOneClassModal,
+  DeleteOneUserModal,
+  LessonTable,
+  ClassTable,
+  CreateOneLessonModal,
 } from "./generated/ui-components";
 
 import Calendar from "@toast-ui/react-calendar";
@@ -30,75 +32,84 @@ const getDate = (type: string, start: any, value: number, operator: string) => {
 
 const GridLayout = WidthProvider(RGL);
 
+function getFromLS(key: string) {
+  try {
+    return (JSON.parse(localStorage.getItem("x-runtime")!) || {})[key];
+  } catch (e) {
+    /*Ignore*/
+  }
+}
+
+function saveToLS(key: string, value: unknown) {
+  localStorage.setItem(
+    "x-runtime",
+    JSON.stringify({
+      [key]: value,
+    })
+  );
+}
+
+const originalLayout = getFromLS("layout") || [];
+
+const LayoutItem = forwardRef<
+  HTMLDivElement,
+  { key: string; children?: React.ReactChild }
+>(({ key, children, ...rest }, ref) => {
+  return (
+    <Box
+      key={key}
+      ref={ref}
+      rounded="md"
+      shadow="md"
+      p="2"
+      backgroundColor="white"
+      overflow="auto"
+      {...rest}
+    >
+      {children}
+    </Box>
+  );
+});
+
 function App() {
-  const [layout, setLayout] = useState<Layout[]>([
-    { i: "UserTable", x: 0, y: 0, w: 6, h: 12 },
-    { i: "UserList", x: 7, y: 0, w: 6, h: 12 },
-    { i: "UserKanban", x: 0, y: 3, w: 6, h: 12 },
-    { i: "CreateOneUserModal", x: 7, y: 3, w: 6, h: 12 },
-    { i: "UpdateOneUserForm", x: 0, y: 6, w: 6, h: 12 },
-    { i: "DeleteOneUserForm", x: 7, y: 6, w: 6, h: 12 },
-  ]);
+  const [layout, setLayout] = useState<Layout[]>(
+    JSON.parse(JSON.stringify(originalLayout))
+  );
 
   return (
     <Box width="full" p="12">
       <GridLayout
         className="layout"
         layout={layout}
-        onLayoutChange={(value) => setLayout(value)}
-        cols={12}
+        onLayoutChange={(value) => {
+          saveToLS("layout", value);
+          setLayout(value);
+        }}
+        cols={24}
         rowHeight={56}
-        style={{ backgroundColor: "lightgray" }}
+        style={{ backgroundColor: "white" }}
       >
-        <Box
-          key="CreateOneUserModal"
-          rounded="md"
-          p="2"
-          backgroundColor="white"
-          overflow="auto"
-        >
+        <LayoutItem key="CreateOneUserModal">
           <CreateOneUserModal />
-        </Box>
-        <Box
-          key="UserTable"
-          rounded="md"
-          p="2"
-          backgroundColor="white"
-          overflow="auto"
-        >
-          <Heading>table</Heading>
+        </LayoutItem>
+        <LayoutItem key="UserModal">
           <UserTable />
-        </Box>
-        <Box
-          key="UserList"
-          rounded="md"
-          p="2"
-          backgroundColor="white"
-          overflow="auto"
-        >
-          <Heading>list</Heading>
-          <UserList />
-        </Box>
-        <Box
-          key="UserKanban"
-          rounded="md"
-          p="2"
-          backgroundColor="white"
-          overflow="auto"
-        >
-          <Heading>kanban</Heading>
-          <UserKanban />
-        </Box>
-        <Box
-          key="DeleteOneUserForm"
-          rounded="md"
-          p="2"
-          backgroundColor="white"
-          overflow="auto"
-        >
-          <Heading>DeleteOneUserForm</Heading>
-          <DeleteOneUserForm />
-        </Box>
+        </LayoutItem>
+        <LayoutItem key="DeleteOneUserModal">
+          <DeleteOneUserModal />
+        </LayoutItem>
+        <LayoutItem key="CreateOneClassModal">
+          <CreateOneClassModal />
+        </LayoutItem>
+        <LayoutItem key="ClassTable">
+          <ClassTable />
+        </LayoutItem>
+        <LayoutItem key="LessonTable">
+          <LessonTable />
+        </LayoutItem>
+        <LayoutItem key="CreateOneLessonModal">
+          <CreateOneLessonModal />
+        </LayoutItem>
       </GridLayout>
       <Box>
         <Heading>Calendar</Heading>
