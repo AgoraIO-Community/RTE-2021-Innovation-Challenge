@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.ts"],"names":["RtcEngine"],"mappings":";;;;;;;;;;;;;AAAA;;AACA;;;;eAEeA,kB","sourcesContent":["import RtcEngine from './common/RtcEngine.native';\nimport RtcChannel from './common/RtcChannel.native';\n\nexport default RtcEngine;\nexport { RtcChannel };\n"]}

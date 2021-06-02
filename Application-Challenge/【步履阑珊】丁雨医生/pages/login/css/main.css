@@ -1,0 +1,238 @@
+.content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	/* margin-top: 128rpx; */
+}
+
+/* 头部 logo */
+.header {
+	display: flex;
+	margin: 196rpx 128rpx 64rpx;
+	flex-direction: row;
+}
+
+.header image {
+	width: 196rpx;
+	height: 66rpx;
+}
+
+.header_line {
+	margin-left: 24rpx;
+	margin-right: 24rpx;
+	width: 2rpx;
+	height: 70rpx;
+	background-color: #00C58F;
+}
+
+.header_text {
+	color: #00C58F;
+	font-size: 42rpx;
+	line-height: 66rpx;
+}
+
+/* 主体 */
+.login_main {
+	display: flex;
+	margin-top: 64rpx;
+	flex-direction: column;
+	padding-left: 48rpx;
+	padding-right: 48rpx;
+}
+
+.register_main {
+	display: flex;
+	margin-top: 4rpx;
+	flex-direction: column;
+	padding-left: 48rpx;
+	padding-right: 48rpx;
+}
+
+.login_user,
+.login_pwd,
+.login_btn,
+.register_user,
+.register_pwd,
+.register_btn,
+.register_again {
+	display: flex;
+	text-align: start;
+}
+
+.login_user input,
+.login_pwd input {
+	height: 84rpx;
+	background-color: #ffffff;
+	border: 2rpx solid #C2C3CA;
+	border-radius: 8rpx;
+	box-sizing: border-box;
+	padding: 0 32rpx;
+	font-size: 34rpx;
+	color: #000;
+	margin: 4rpx 32rpx 24rpx;
+	display: inline-block;
+	flex: 1;
+}
+
+.pass_icon {
+	position: fixed;
+	padding: 4rpx;
+	right: 96rpx;
+}
+
+.register_user input,
+.register_pwd input,
+.register_again input {
+	height: 84rpx;
+	background-color: #ffffff;
+	border: 2rpx solid #C2C3CA;
+	border-radius: 8rpx;
+	box-sizing: border-box;
+	padding: 0 32rpx;
+	font-size: 34rpx;
+	color: #000;
+	margin: 4rpx 32rpx 24rpx;
+	display: inline-block;
+	flex: 1;
+}
+
+.register_again input {
+	margin-bottom: 16rpx
+}
+
+.login_btn button {
+	flex: 1;
+	height: 84rpx;
+	margin-left: 80rpx;
+	margin-right: 80rpx;
+	border-radius: 8rpx;
+	line-height: 96rpx;
+	color: rgb(255, 255, 255);
+	background-color: #0873DE;
+	font-size: 34rpx;
+	margin-top: 96rpx;
+	letter-spacing: 8rpx;
+	background-image: linear-gradient(90deg, #07C193, #3EAAB4);
+}
+
+.register_btn button {
+	flex: 1;
+	height: 84rpx;
+	margin-left: 80rpx;
+	margin-right: 80rpx;
+	border-radius: 8rpx;
+	line-height: 96rpx;
+	color: rgb(255, 255, 255);
+	background-color: #0873DE;
+	font-size: 34rpx;
+	margin-top: 64rpx;
+	letter-spacing: 8rpx;
+	background-image: linear-gradient(90deg, #07C193, #3EAAB4);
+}
+
+.nameFocus input,
+.againFocus input,
+.psdFocus input {
+	border: 4rpx solid #00C58F;
+	box-sizing: border-box;
+}
+
+.header_tips {
+	text-align: start;
+	font-size: 28rpx;
+	margin: 24rpx 32rpx 4rpx;
+	font-size: 32rpx;
+	color: #92939F;
+}
+
+.tips {
+	color: #999999;
+	font-size: 28rpx;
+	margin-top: 64rpx;
+	margin-left: 48rpx;
+}
+
+/* 登录按钮 */
+.wbutton {
+	margin-top: 96rpx;
+}
+
+/* 其他登录方式 */
+.other_login {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin-top: 256rpx;
+	text-align: center;
+}
+
+.login_icon {
+	border: none;
+	font-size: 64rpx;
+	margin: 0 64rpx 0 64rpx;
+	color: rgba(0, 0, 0, 0.7)
+}
+
+.wechat_color {
+	color: #83DC42;
+}
+
+.weibo_color {
+	color: #F9221D;
+}
+
+.github_color {
+	color: #24292E;
+}
+
+/* 注册 */
+.footer {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	font-size: 28rpx;
+	margin: 32rpx 80rpx;
+	color: #25B4A5;
+	text-align: center;
+	height: 40rpx;
+	line-height: 40rpx;
+}
+
+.footer text {
+	font-size: 24rpx;
+}
+
+/* 底部 */
+.login_bottom {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin: 160rpx 80rpx 60rpx;
+	color: #92939F;
+	text-align: center;
+	height: 28rpx;
+	line-height: 28rpx;
+}
+
+.login_bottom text {
+	font-size: 24rpx;
+}
+
+.register_bottom {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin: 60rpx 80rpx 40rpx;
+	color: #92939F;
+	text-align: center;
+	height: 28rpx;
+	line-height: 28rpx;
+}
+
+.register_bottom text {
+	font-size: 24rpx;
+}
