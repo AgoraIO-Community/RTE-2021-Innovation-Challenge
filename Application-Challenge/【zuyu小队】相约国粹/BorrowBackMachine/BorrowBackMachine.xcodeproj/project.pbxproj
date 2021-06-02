@@ -204,6 +204,7 @@
 		9B109198265DE9950080E907 /* EMHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B109197265DE9950080E907 /* EMHomeViewController.m */; };
 		9B10919E265DEBE40080E907 /* EaseIMHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B10919C265DEBE40080E907 /* EaseIMHelper.m */; };
 		9B1091A4265E22240080E907 /* ChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B1091A3265E22240080E907 /* ChatVC.m */; };
+		9B4E3C7A26679A0B002B0686 /* bannerF01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B4E3C7926679A0B002B0686 /* bannerF01.jpg */; };
 		B48F63B2103748C0A4B26CA3 /* Pods_BorrowBackMachine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43840DD5870C5E67262BAD2F /* Pods_BorrowBackMachine.framework */; };
 		BA095749217719A5001A0144 /* BookDefault1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA095748217719A4001A0144 /* BookDefault1.jpg */; };
 		BA09574C21771F15001A0144 /* ResouceClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA09574B21771F15001A0144 /* ResouceClassModel.m */; };
@@ -965,6 +966,7 @@
 		9B10919D265DEBE40080E907 /* EaseIMHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EaseIMHelper.h; sourceTree = "<group>"; };
 		9B1091A2265E22240080E907 /* ChatVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatVC.h; sourceTree = "<group>"; };
 		9B1091A3265E22240080E907 /* ChatVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatVC.m; sourceTree = "<group>"; };
+		9B4E3C7926679A0B002B0686 /* bannerF01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bannerF01.jpg; sourceTree = "<group>"; };
 		BA095748217719A4001A0144 /* BookDefault1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BookDefault1.jpg; sourceTree = "<group>"; };
 		BA09574A21771F15001A0144 /* ResouceClassModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResouceClassModel.h; sourceTree = "<group>"; };
 		BA09574B21771F15001A0144 /* ResouceClassModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResouceClassModel.m; sourceTree = "<group>"; };
@@ -2432,6 +2434,7 @@
 				BAA2AF472150EF2100AC4F6A /* Model */,
 				BAA2B0442150F25B00AC4F6A /* OnlineResouceVC.h */,
 				BAA2B0452150F25B00AC4F6A /* OnlineResouceVC.m */,
+				9B4E3C7926679A0B002B0686 /* bannerF01.jpg */,
 			);
 			path = OnlineResources;
 			sourceTree = "<group>";
@@ -3902,6 +3905,7 @@
 				9B10911D265D12F60080E907 /* icon-音视频会议@3x.png in Resources */,
 				9B108FD8265D0FC50080E907 /* groupConversation@3x.png in Resources */,
 				BA777C7D2175AFA30033ED5E /* gcdBaner2.png in Resources */,
+				9B4E3C7A26679A0B002B0686 /* bannerF01.jpg in Resources */,
 				BA0957582178773A001A0144 /* downloadHeaderZZ.png in Resources */,
 				9B108FE1265D0FC50080E907 /* chatroom_create@3x.png in Resources */,
 				9B108FE0265D0FC50080E907 /* chatroom_create@2x.png in Resources */,
