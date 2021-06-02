@@ -1,0 +1,10 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: send-mail
+  namespace: x-runtime
+spec:
+  template:
+    spec:
+      containers:
+        - image: docker.io/yanzhen/send-mail:0.1
