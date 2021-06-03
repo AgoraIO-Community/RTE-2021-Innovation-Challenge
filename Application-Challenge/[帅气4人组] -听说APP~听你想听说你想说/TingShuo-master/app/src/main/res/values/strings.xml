@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">TingShuo</string>
+
+    <string name="network_error">当前无网络，请检查你的网络设置</string>
+    <string name="notify_no_network">网络连接不可用，请稍后重试！</string>
+    <string name="esky_service_exception">网络不给力，请稍候重试！</string>
+    <string name="time_out_please_try_again_later">连接超时,请稍后再试</string>
+    <string name="network_local_time_exception">网络异常,请检查本机时间</string>
+    <string name="network_unknown_exception">数据异常:%1$s</string>
+
+    <string name="dialog_choose_update_content">升级 %1$d </string>
+
+
+    <string name="tab1">首页</string>
+    <string name="tab2">业务</string>
+    <string name="tab3">我的</string>
+
+    <string name="tab1_text">第一个引导页描述</string>
+    <string name="tab2_text">第二个引导页描述</string>
+    <string name="tab3_text">第三个引导页描述</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

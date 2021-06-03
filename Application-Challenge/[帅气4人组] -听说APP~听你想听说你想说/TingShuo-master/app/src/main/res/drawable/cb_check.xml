@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--这种修改了默认的图标,而style的方式是修改背景-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@mipmap/selected" android:state_checked="true" />
+    <item android:drawable="@mipmap/unselect" android:state_checked="false" />
+    <item android:drawable="@mipmap/selected" android:state_pressed="true" />
+    <item android:drawable="@mipmap/unselect" />
+</selector>
