@@ -7,6 +7,9 @@ yarn start
 # 应用简介
 通过摄像头使用虚拟角色的形象来进行虚拟的实时“换脸聊天”
 
+# 体验地址
+https://disoul.zcorky.com/index.html
+
 # 原理介绍
 使用 tensorflow.js 的 WebGL 引擎作为后端，使用现有开源的人脸识别模型通过摄像头识别人脸的位置以及五官的状态。再通过 Three.js 和 Vrm.js 将人脸数据实时更新到虚拟的 3D 模型上。
 
