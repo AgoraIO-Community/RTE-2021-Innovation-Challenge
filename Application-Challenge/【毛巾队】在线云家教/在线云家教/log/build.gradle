@@ -1,0 +1,35 @@
+def safeExtGet(prop, key, fallback) {
+    if (rootProject.ext.has(prop)) {
+        def map = rootProject.ext.get(prop)
+        if (map.containsKey(key)) {
+            return map.get(key)
+        }
+    }
+    return fallback
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion safeExtGet('android', 'compileSdkVersion', 29)
+    buildToolsVersion safeExtGet('android', 'buildToolsVersion', '29.0.3')
+
+    defaultConfig {
+        minSdkVersion safeExtGet('android', 'minSdkVersion', 19)
+        targetSdkVersion safeExtGet('android', 'minSdkVersion', 29)
+
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation project(':base')
+
+    implementation "com.elvishew:xlog:${safeExtGet('dependencies', 'com.elvishew:xlog', '1.6.1')}"
+    implementation "com.aliyun.dpa:oss-android-sdk:${safeExtGet('dependencies', 'com.aliyun.dpa:oss-android-sdk', '2.9.4')}"
+}

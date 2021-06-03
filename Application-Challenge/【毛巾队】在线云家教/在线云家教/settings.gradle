@@ -1,0 +1,6 @@
+include ':edusdk-impl'
+include ':edusdk-api'
+include ':app', ':base', 'sdk', ':log', ':timeline', ':whiteboard'
+rootProject.name = 'AgoraEducation'
+include ':record'
+include ':rte'
