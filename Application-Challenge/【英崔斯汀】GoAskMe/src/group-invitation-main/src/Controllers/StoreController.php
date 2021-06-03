@@ -81,7 +81,7 @@ class StoreController extends AbstractCreateController
         ];
 
         $data = json_encode($data);
-        $headerArray[] ="Authorization: Bearer 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";
+        $headerArray[] ="Authorization: Bearer";
         $headerArray[] ="Content-Type:application/json";
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $emailGate);
