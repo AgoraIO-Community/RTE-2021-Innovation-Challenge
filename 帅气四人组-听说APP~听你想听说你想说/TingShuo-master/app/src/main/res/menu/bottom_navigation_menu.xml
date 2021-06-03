@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item_tab1"
+        android:enabled="true"
+        android:icon="@drawable/selector_tab1"
+        android:title="@string/tab1"/>
+
+    <item
+        android:id="@+id/item_tab2"
+        android:enabled="true"
+        android:icon="@drawable/selector_tab2"
+        android:title="@string/tab2"/>
+
+    <item
+        android:id="@+id/item_tab3"
+        android:enabled="true"
+        android:icon="@drawable/selector_tab3"
+        android:title="@string/tab3"/>
+</menu>
