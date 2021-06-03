@@ -1,0 +1,11 @@
+<resources>
+    <dimen name="main_title_size">18sp</dimen>
+    <dimen name="main_list_item_name_size">14sp</dimen>
+    <dimen name="main_list_item_user_name_size">12sp</dimen>
+    <dimen name="create_room_des_size">14sp</dimen>
+
+    <dimen name="item_channel_spacing">4dp</dimen>
+    <dimen name="main_list_item_header">36dp</dimen>
+    <dimen name="main_header">36dp</dimen>
+
+</resources>

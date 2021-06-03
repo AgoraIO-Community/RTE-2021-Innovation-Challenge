@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">约呗相亲</string>
+
+    <string name="error_permisstion">需要相应权限，请打开</string>
+
+    <string name="ok">好的</string>
+    <string name="cancel">取消</string>
+    <string name="done">完成</string>
+    <string name="confirm">确定</string>
+    <string name="refuse">拒绝</string>
+    <string name="agree">接受</string>
+
+    <string name="list_empty_create">请创建一个房间</string>
+    <string name="main_title">房间列表</string>
+    <string name="main_create">创建房间</string>
+    <string name="main_create2">创建</string>
+    <string name="main_create_dialog_inpit_hint">请输入房间名</string>
+    <string name="main_create_dialog_des"></string>
+    <string name="error_room_not_exsit">房间不存在</string>
+
+    <string name="error_room_default">房间异常(%s)</string>
+    <string name="room_name_speaker">演讲者</string>
+    <string name="room_name_listener">听众</string>
+    <string name="room_name_exit">悄悄离开</string>
+    <string name="room_dialog_hand_up_title">举手列表</string>
+    <string name="room_dialog_hand_up_agree">同意</string>
+    <string name="room_dialog_hand_up_refuse">拒绝</string>
+    <string name="room_dialog_seat_off">下台</string>
+    <string name="room_dialog_open_audio">打开麦克风</string>
+    <string name="room_dialog_close_audio">关闭麦克风</string>
+    <string name="room_dialog_close_title">关闭房间</string>
+    <string name="room_dialog_close_message">关闭房间后所有房间成员将被移出房间</string>
+    <string name="room_dialog_invite">邀请上台</string>
+    <string name="room_dialog_invited">%s邀请您上台</string>
+    <string name="invite_refuse">%s 拒绝了您的上台邀请</string>
+    <string name="invite_agree">%s 同意了您的上台邀请</string>
+    <string name="request_handup_success">您已举手，请等待房主回应</string>
+    <string name="handup_refuse">你的上台申请被拒绝了</string>
+    <string name="room_closed">房间已关闭</string>
+    <string name="member_speaker_to_listener">你已被房主设置为听众</string>
+    <string name="member_muted">你被房主临时禁言了</string>
+
+    <string name="user_info_name">设置昵称</string>
+    <string name="user_info_about">关于</string>
+    <string name="user_info_1">极速直播</string>
+    <string name="about_title">关于</string>
+    <string name="about_menu1">隐私条款</string>
+    <string name="about_menu2">产品免责声明</string>
+    <string name="about_menu3">注册声网账号</string>
+    <string name="about_menu4">发版时间</string>
+    <string name="about_menu5">SDK版本</string>
+    <string name="about_menu6">Livecast版本</string>
+
+    <string name="about_product_title">产品免责声明</string>
+    <string name="about_product_text"></string>
+</resources>

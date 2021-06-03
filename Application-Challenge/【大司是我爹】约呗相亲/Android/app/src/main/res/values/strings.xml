@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Livecast</string>
+
+    <string name="error_permisstion">Need corresponding permissions, please open</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="done">Done</string>
+    <string name="confirm">OK</string>
+    <string name="refuse">Reject</string>
+    <string name="agree">Accept</string>
+
+    <string name="list_empty_create">Create a room to start</string>
+    <string name="main_title">Room list</string>
+    <string name="main_create">Create a room</string>
+    <string name="main_create2">Create</string>
+    <string name="main_create_dialog_inpit_hint">Please enter the room name</string>
+    <string name="main_create_dialog_des">The max duration per session is 10 minutes.</string>
+    <string name="error_room_not_exsit">The room does not exist</string>
+
+    <string name="error_room_default">Room exception(%s)</string>
+    <string name="room_name_speaker">Speaker</string>
+    <string name="room_name_listener">Audience</string>
+    <string name="room_name_exit">Leave quietly</string>
+    <string name="room_dialog_hand_up_title">Raise hands list</string>
+    <string name="room_dialog_hand_up_agree">Agree</string>
+    <string name="room_dialog_hand_up_refuse">Decline</string>
+    <string name="room_dialog_seat_off">Become audience</string>
+    <string name="room_dialog_open_audio">Turn on mic</string>
+    <string name="room_dialog_close_audio">Turn off mic</string>
+    <string name="room_dialog_close_title">Close room</string>
+    <string name="room_dialog_close_message">Ending the room will remove everyone and close the room</string>
+    <string name="room_dialog_invite">Invite to speak</string>
+    <string name="room_dialog_invited">%s invites you to speak</string>
+    <string name="invite_refuse">%s declines your request</string>
+    <string name="invite_agree">%s approves your request</string>
+    <string name="request_handup_success">You have raised hands to speak. Please wait.</string>
+    <string name="handup_refuse">Your request to speak has been rejected</string>
+    <string name="room_closed">Room closed</string>
+    <string name="member_speaker_to_listener">You\'ve been set as audience</string>
+    <string name="member_muted">You\'ve been muted.</string>
+
+    <string name="user_info_name">Profile name</string>
+    <string name="user_info_about">About</string>
+    <string name="user_info_1">Interactive Live Streaming Standard</string>
+    <string name="about_title">About</string>
+    <string name="about_menu1">Privacy policy</string>
+    <string name="about_menu2">"Product disclaimer "</string>
+    <string name="about_menu3">Sign up Agora.io</string>
+    <string name="about_menu4">Released on</string>
+    <string name="about_menu5">SDK version</string>
+    <string name="about_menu6">Livecast version</string>
+
+    <string name="about_product_title">Product disclaimer</string>
+    <string name="about_product_text">\t\t\t\tAgora Livecast ("this product") is a product provided by Agora . Agora enjoys the copyright and ownership of this product. It is hereby granted free of charge to anyone who obtains a copy of this product and related documentation (hereinafter referred to as "software") to try the software without limitation, including but not limited to trial, copy, modify, merge, publish, distribute, but this product shall not be used For any commercial use, you may not sublicense and / or sell copies of the software.
+    \n\n
+        \t\t\t\tThis product is provided "as is" without any express warranty, including but not limited to guarantees of suitability, suitability for specific purposes, and non-infringement. Whether it is due to any contract, infringement or other forms of conduct related to this product or the trial of this product or other methods, Agora will not be responsible for any claims, damages or other liabilities.
+    \n\n
+        \t\t\t\tYou are free to choose whether to try the services provided by this product. If you download, install, or try the services provided in this product, it means that you trust the owner of the product, and Agora shall not be responsible for any form of loss or injury caused by yourself or others when you try the services provided in this product for any reason.</string>
+
+</resources>
