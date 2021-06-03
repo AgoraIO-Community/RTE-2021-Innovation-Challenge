@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>在线自习室</title>
+  <link rel="stylesheet" href="../assets/bootstrap.min.css">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./css/room.css">
+</head>
+
+<body>
+
+<div class="container-fluid banner">
+  <p class="banner-text" style="font-size: large">自习室列表</p>
+
+</div>
+<div class="container">
+  <ul class="display">
+    <li>
+      <div class="content_block">
+        <a href="#"><img src="../assets/images/sample.gif" alt="" /></a>
+        <h2><a href="#">好好学习冲冲冲！</a></h2>
+        <p>日常学习，坐标广东</p>
+        <p>研究生及以上进</p>
+      </div>
+    </li>
+    <li>
+      <div class="content_block">
+        <a href="#"><img src="../assets/images/sample2.gif" alt="" /></a>
+        <h2><a href="#">作业辅导专属自习室</a></h2>
+        <p>专业老师，长时间在线</p>
+        <p>专注中小学课程辅导</p>
+      </div>
+    </li>
+    <li>
+      <div class="content_block">
+        <a href="#"><img src="../assets/images/sample3.gif" alt="" /></a>
+        <h2><a href="#">自我监督，早9晚11（可上麦）</a></h2>
+        <p>考研、考证，欢迎一起督促</p>
+        <p>自律性高的大学生</p>
+      </div>
+    </li>
+    <li>
+      <div class="content_block">
+        <a href="#"><img src="../assets/images/sample4.gif" alt="" /></a>
+        <h2><a href="#">结局未定，你我皆是黑马</a></h2>
+        <p>上麦时间低于两小时勿扰</p>
+        <p>专升本，坐标湖南</p>
+      </div>
+
+    </li>
+  </ul>
+</div>
+<div id="success-alert" class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>成功进入课堂!</strong><span></span><a href="" target="_blank">here</a>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div id="success-alert-with-token" class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>成功进入课堂!</strong><span></span>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+<div id="success-alert-with-token" class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>成功进入课堂!</strong><span> Joined room successfully. </span>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="container">
+
+  <form id="join-form" >
+    <div class="row join-info-group">
+      <div class="col-sm">
+        <p class="join-info-text"></p>
+        <input id="appid" type="text" style="display:none" value="e7b290f0fcee43b4977b38be04abd73b" placeholder="Enter the appid" required>
+      </div>
+      <div class="col-sm">
+        <p class="join-info-text"></p>
+        <input id="token" type="text" style="display:none" value="00694d3472478d14af98455c25fcaf010b0IABDMG4739X1RuPZSzY6hEDGU8P/mI4c5PIIOrk9PN0WRdJjSIgAAAAAEADEZWnpqyqyYAEAAQCrKrJg" placeholder="">
+        <p class="tips"></p>
+      </div>
+      <div class="col-sm">
+        <p class="join-info-text"></p>
+        <input id="channel" type="text" style="display:none" value="123" placeholder="" required>
+        <p class="tips"></p>
+      </div>
+      <div class="col-sm">
+        <p class="join-info-text"></p>
+        <input id="uid" type="text" style="display:none" value="Zoey" placeholder="">
+      </div>
+    </div>
+
+
+    <div class="button-group">
+      <a href="../create/index.html">
+        <button id="create" type="button" style="background: #1b1e21; border-style: none" class="btn btn-primary btn-sm">创建教室</button>
+      </a>
+      <button id="join" type="submit" style="background: #1b1e21; border-style: none" class="btn btn-primary btn-sm">
+        加入教室
+      </button>
+      <button id="leave" type="button" style="background: #1b1e21; border-style: none" class="btn btn-primary btn-sm" disabled>离开教室</button>
+    </div>
+  </form>
+
+  <div class="row video-group">
+    <div class="col">
+      <p id="local-player-name" class="player-name"></p>
+      <div id="local-player" class="player"></div>
+    </div>
+    <div class="w-auto"></div>
+    <div class="col">
+      <div id="remote-playerlist"></div>
+    </div>
+  </div>
+</div>
+
+
+<script src="../assets/jquery-3.4.1.min.js"></script>
+<script src="../assets/bootstrap.bundle.min.js"></script>
+<script src="https://download.agora.io/sdk/release/AgoraRTC_N.js"></script>
+<script src="./index.js"></script>
+<script src="./js/room.js"></script>
+</body>
+</html>
