@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-path name="Diary_Images" path="Diary_Data/Images/" />
+    <external-path name="Diary_Video" path="Diary_Data/Videos/" />
+    <external-path name="Diary_Sound" path="Diary_Data/Sounds/" />
+</paths>

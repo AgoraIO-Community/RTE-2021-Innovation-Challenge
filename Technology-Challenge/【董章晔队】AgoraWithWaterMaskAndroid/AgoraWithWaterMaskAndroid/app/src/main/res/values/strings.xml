@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">WaterMaskTest</string>
-    <string name="add_watermask">add watermask</string>
-    <string name="remove_watermask">remove watermask</string>
-    <string name="input_watermask">wm</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-</resources>

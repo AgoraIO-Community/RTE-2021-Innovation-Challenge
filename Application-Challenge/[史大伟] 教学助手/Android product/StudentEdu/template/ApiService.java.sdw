@@ -1,7 +1,0 @@
-    /**
-     * 自动生成：by WaTaNaBe on {{now}}.
-     * #{{title}}#
-     * #{{remarks}}#
-     */
-    @{{type}}(ApiMethods.{{name}})
-    suspend fun {{name}}Async({{putnet}}): Response<BasicApiResult<{{response}}>>

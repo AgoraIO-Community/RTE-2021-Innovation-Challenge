@@ -1,3 +1,0 @@
-include ':agora-bytedance'
-rootProject.name='AgoraWithByteDance'
-include ':app'

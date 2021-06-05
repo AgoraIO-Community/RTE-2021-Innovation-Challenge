@@ -1,7 +1,0 @@
-.DS_Store
-/data/logs
-/data/db-data
-/data/ssl
-/www/flarum
-/www/game
-.env

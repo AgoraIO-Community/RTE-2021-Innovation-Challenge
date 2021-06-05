@@ -1,3 +1,0 @@
-include ':app',':ease-im-kit'
-rootProject.name = "CircleLive"
-include ':base'

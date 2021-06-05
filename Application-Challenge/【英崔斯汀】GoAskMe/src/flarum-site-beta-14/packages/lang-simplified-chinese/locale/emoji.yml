@@ -1,5 +1,0 @@
-flarum-emoji:
-  forum:
-    composer:
-      type_to_search_text: 键入以搜索表情
-      emoji_tooltip: 插入表情
