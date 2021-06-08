@@ -29,7 +29,7 @@ const sleep = (timeout = 2000) => new Promise(resolve => {
 });
 
 async function getSvg() {
-    const response = await fetch(URL+"/svg");
+    const response = await fetch(myURL+"/svg");
     const blob = await response.blob();
     const imgUrl = URL.createObjectURL(blob);
     return imgUrl;
