@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/ic_call_switch_camera"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="30dp"
+        android:padding="10dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_call_switch_camera"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/iv_call_toggle_camera"/>
+
+
+    <ImageView
+        android:id="@+id/iv_call_toggle_camera"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="30dp"
+        android:padding="10dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_call_close_camera"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/ic_call_switch_camera"
+        app:layout_constraintRight_toLeftOf="@+id/iv_call_toggle_mute"/>
+
+    <ImageView
+        android:id="@+id/iv_call_toggle_mute"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="30dp"
+        android:padding="10dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_call_mute"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/iv_call_toggle_camera"
+        app:layout_constraintRight_toLeftOf="@+id/iv_call_hang_up"/>
+
+    <ImageView
+        android:id="@+id/iv_call_hang_up"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/bg_call_hang_up"
+        android:padding="10dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_call_hang_up"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/iv_call_toggle_mute"
+        app:layout_constraintRight_toRightOf="parent"/>
+</merge>
