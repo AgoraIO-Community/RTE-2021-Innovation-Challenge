@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainMenuLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/Calendar_bt"
+        android:layout_width="60dp"
+        android:layout_height="73dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/calendar_bt_selector"
+        android:onClick="openCalendar" />
+
+    <Button
+        android:id="@+id/New_Diary_bt"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/Calendar_bt"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/new_diary_bt_selector"
+        android:onClick="openDiary" />
+</RelativeLayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--注册界面-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_register"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+    android:orientation="vertical">
+    <!--    <include layout="@layout/main_title_bar"></include>&lt;!&ndash;引入标题栏&ndash;&gt;-->
+    <!--显示头像 -->
+    <ImageView
+        android:id="@+id/iv_head"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="110dp"
+        android:background="@drawable/login_head" />
+    <!--三个编辑框-->
+    <EditText
+        android:id="@+id/et_user_name"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/login_username_bg"
+        android:drawableStart="@drawable/login_username"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:hint="@string/register_phone_text"
+        android:paddingStart="8dp"
+        android:singleLine="true"
+        android:textColor="#000000"
+        android:textColorHint="#a3a3a3"
+        android:textSize="14sp"
+        tools:ignore="RtlSymmetry" />
+    <EditText
+        android:id="@+id/et_psw"
+        android:layout_width="fill_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="48dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:background="@drawable/login_psw_bg"
+        android:drawableStart="@drawable/login_psw"
+        android:drawablePadding="10dp"
+        android:hint="@string/register_psw_text"
+        android:inputType="textPassword"
+        android:paddingStart="8dp"
+        android:singleLine="true"
+        android:textColor="#000000"
+        android:textColorHint="#a3a3a3"
+        android:textSize="14sp"
+        tools:ignore="RtlSymmetry" />
+    <EditText
+        android:id="@+id/et_psw_again"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:background="@drawable/login_psw_bg"
+        android:drawableStart="@drawable/login_psw"
+        android:drawablePadding="10dp"
+        android:hint="@string/register_verify_psw_text"
+        android:inputType="textPassword"
+        android:paddingStart="8dp"
+        android:singleLine="true"
+        android:textColor="#000000"
+        android:textColorHint="#a3a3a3"
+        android:textSize="14sp"
+        tools:ignore="RtlSymmetry" />
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/login_loginbtn_bg"
+        android:text="@string/register_btn_text"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"/>
+</LinearLayout>

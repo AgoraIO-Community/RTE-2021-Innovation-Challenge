@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="250dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Time_Line_Content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/Time_Line_BG"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/cloudy" />
+
+        <TextView
+            android:id="@+id/Diary_Date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/create_date"
+            android:textColor="#0D2166"
+            android:textSize="20sp"
+            android:typeface="serif"
+            app:layout_constraintBottom_toBottomOf="@+id/Time_Line_BG"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Diary_Name"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/Diary_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/diary_name"
+            android:textColor="#0D2166"
+            android:textSize="30sp"
+            android:typeface="serif"
+            app:layout_constraintStart_toStartOf="@+id/Time_Line_BG"
+            app:layout_constraintTop_toTopOf="@+id/Time_Line_BG" />
+
+        <Button
+            android:id="@+id/Diary_bt"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/Time_Line_BG"
+            app:layout_constraintEnd_toEndOf="@+id/Time_Line_BG"
+            app:layout_constraintStart_toStartOf="@+id/Time_Line_BG"
+            app:layout_constraintTop_toTopOf="@+id/Time_Line_BG" />
+
+        <TextView
+            android:id="@+id/Diary_Day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/create_week"
+            android:textColor="#0D2166"
+            android:textSize="20sp"
+            android:typeface="serif"
+            app:layout_constraintBottom_toBottomOf="@+id/Time_Line_BG"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/Diary_Weather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/weather"
+            android:textColor="#0D2166"
+            android:textSize="25sp"
+            android:typeface="serif"
+            app:layout_constraintBottom_toBottomOf="@+id/Diary_bt"
+            app:layout_constraintEnd_toEndOf="@+id/Diary_bt" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
