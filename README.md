@@ -1,4 +1,8 @@
-# RTE 2021 Innovation Challenge
+# ⚠️ [ARCHIVED] RTE 2021 Innovation Challenge
+
+Please note that this repository is now in a read-only state and will not receive any further updates or support.
+
+For documentation and support, please visit the [Agora Documentation](https://docs.agora.io/en/).
 
 *English* | [**中文**](README.zh.md)
 
